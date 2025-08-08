@@ -4,7 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerControl))]
 public class PlayerStateController : IStateController
 {   
-    [SerializeField] string _name;
     [SerializeField] IPlayerState[] _playerStates;
     private Animator _animator;
     private Rigidbody _rb;

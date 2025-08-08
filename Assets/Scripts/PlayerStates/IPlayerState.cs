@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 
 public class IPlayerState : ScriptableObject ,IState
 { 
-    protected string _name;
     protected PlayerStateController _controller;
     protected Animator _animator;
     protected Rigidbody _rb;
