@@ -6,14 +6,14 @@ public class IPlayerState : ScriptableObject ,IState
     protected PlayerStateController _controller;
     protected Animator _animator;
     protected Rigidbody _rb;
-    protected PlayerControl _playerControl;
+    protected PlayerInput _playerInput;
     protected bool IsComplete;
 
-    public void Initialize(PlayerStateController controller, Animator animator, PlayerControl playerControl, Rigidbody rigidbody)
+    public void Initialize(PlayerStateController controller, Animator animator, PlayerInput playerInput, Rigidbody rigidbody)
     {
         _controller = controller;
         _animator = animator;
-        _playerControl = playerControl;
+        _playerInput = playerInput;
         _rb = rigidbody;
     }
     // when enter state happen
