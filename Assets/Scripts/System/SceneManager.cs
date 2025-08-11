@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class SceneManger : MonoBehaviour
@@ -15,16 +16,17 @@ public class SceneManger : MonoBehaviour
         SceneManager.LoadScene("StageScene"); // 替換成關卡圖
         Debug.Log("替換成關卡圖");
     }
-    /*public void ReturnStage()
+    public void ReturnStage()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // 替換成關卡圖        
     }
-    public void Stage()
+    public void Stage(Button clickedButton)
     {
         Time.timeScale = 1f;
-        int index = PlanetManger.currentIndex;
-        SceneManager.LoadScene($"Level {index}");        
+        string index = clickedButton.GetComponentInChildren<TextMeshProUGUI>().text;
+        SceneManager.LoadScene($"{index}");    
+        Debug.Log("替換成關卡 " + $"{index}");    
     }
     public void NextStage()
     {
@@ -43,5 +45,5 @@ public class SceneManger : MonoBehaviour
         {
             Debug.LogError("轉換失敗：不是有效的數字 -> " + parts[1]);
         }
-    }*/
+    }
 }
