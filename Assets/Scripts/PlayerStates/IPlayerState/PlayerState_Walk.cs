@@ -1,12 +1,12 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Run", fileName = "PlayerState_Run")]
+[CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Move", fileName = "PlayerState_Move")]
 [System.Serializable]
-public class PlayerState_Run : IPlayerState
+public class PlayerState_Walk : IPlayerState
 {
     public override void EnterState()
     { 
-        Debug.Log("player run");
+        Debug.Log("player walk");
     }
     public override void ExitState()
     {
@@ -18,9 +18,9 @@ public class PlayerState_Run : IPlayerState
         {
             _controller.SetState(typeof(PlayerState_Idle));
         }
-        if(_playerInput._playerMoveMode == MoveMode.walk)
+        if(_playerInput._playerMoveMode == MoveMode.run)
         {
-            _controller.SetState(typeof(PlayerState_Walk));
+            _controller.SetState(typeof(PlayerState_Run));
         }
     }
     public override void PhysicsUpdate()

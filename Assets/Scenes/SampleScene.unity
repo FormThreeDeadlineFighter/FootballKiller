@@ -568,7 +568,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stickValue: {x: 0, y: 0}
   _walkValue: 0.5
-  _runValue: 0
+  _runValue: 0.7
+  IsWalk: 0
+  IsRun: 0
 --- !u!54 &1955476402
 Rigidbody:
   m_ObjectHideFlags: 0

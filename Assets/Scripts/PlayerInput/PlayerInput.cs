@@ -10,13 +10,15 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] float _walkValue;
     [SerializeField] float _runValue;
     
+    public MoveMode _playerMoveMode = MoveMode.idle;
+    
     public void Awake()
     {
         _playerControl = new PlayerControl();   
     }
 
     void OnEnable()
-    {
+    {   
         _playerControl.Enable();
         _playerControl.Player.Move.performed += OnMovePerformed;
         _playerControl.Player.Move.canceled += OnMovePerformed;
@@ -28,20 +30,24 @@ public class PlayerInput : MonoBehaviour
         _playerControl.Player.Move.performed -= OnMovePerformed;
         _playerControl.Player.Move.canceled -= OnMovePerformed;
     }
-    void Update()
-    {
-        if(_stickValue.x > _runValue || _stickValue.x < -_runValue || _stickValue.y > _runValue || _stickValue.y < -_runValue)
-        {
-            Debug.Log("player run");
-        }
-        else if (_stickValue.x > _walkValue || _stickValue.x < -_walkValue || _stickValue.y > _walkValue || _stickValue.y < -_walkValue)
-        {
-            Debug.Log("player walk");
-        }
-    }
 
     void OnMovePerformed(InputAction.CallbackContext value)
     {
        _stickValue = value.ReadValue<Vector2>();
+
+        if (_stickValue == Vector2.zero)
+        {
+            _playerMoveMode = MoveMode.idle;
+        }
+        else if(_stickValue.x > _runValue || _stickValue.x < -_runValue || _stickValue.y > _runValue || _stickValue.y < -_runValue)
+        {
+            _playerMoveMode = MoveMode.run;
+        }
+        else if (_stickValue.x > _walkValue || _stickValue.x < -_walkValue || _stickValue.y > _walkValue || _stickValue.y < -_walkValue)
+        {
+            _playerMoveMode = MoveMode.walk;
+        }
     }
 }
+
+public enum MoveMode {idle, walk, run}
