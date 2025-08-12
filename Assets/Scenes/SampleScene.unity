@@ -133,47 +133,13 @@ GameObject:
   - component: {fileID: 19582689}
   - component: {fileID: 19582688}
   - component: {fileID: 19582687}
-  - component: {fileID: 19582686}
-  - component: {fileID: 19582685}
   m_Layer: 0
-  m_Name: Player (1)
+  m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &19582685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19582684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce15c67654e898d4f94c89d1e26d3f9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerStates:
-  - {fileID: 11400000, guid: f58b5190ec7fbde498c213799110af69, type: 2}
-  - {fileID: 11400000, guid: 77a0c989ec952ea4799210338b1527cd, type: 2}
-  - {fileID: 11400000, guid: e577df53333711b4981f703950066fbf, type: 2}
---- !u!114 &19582686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19582684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 302ee039fdf59c449b7854d49cfed526, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stickValue: {x: 0, y: 0}
-  _walkValue: 0.5
-  _runValue: 0.7
-  _playerMoveMode: 0
 --- !u!65 &19582687
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -306,7 +272,7 @@ Transform:
   m_GameObject: {fileID: 19582684}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07, y: 33.98, z: -16.9}
+  m_LocalPosition: {x: 0.07, y: 33.8, z: -16.9}
   m_LocalScale: {x: 23.91562, y: 22.105106, z: 15.188754}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -903,7 +869,7 @@ Transform:
   m_GameObject: {fileID: 1955476395}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 24.19, z: 45.1}
+  m_LocalPosition: {x: 0, y: 24.42, z: 45.1}
   m_LocalScale: {x: 1, y: 3.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -925,6 +891,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f58b5190ec7fbde498c213799110af69, type: 2}
   - {fileID: 11400000, guid: 77a0c989ec952ea4799210338b1527cd, type: 2}
   - {fileID: 11400000, guid: e577df53333711b4981f703950066fbf, type: 2}
+  - {fileID: 11400000, guid: 27464cea67675cd4fbea7568f2a05ce5, type: 2}
+  - {fileID: 11400000, guid: 1a1ffce92f05b304e92a1ad3a0339aef, type: 2}
+  - {fileID: 11400000, guid: 96b4a7f1ee3a3a44bb0ae2472d69ddbf, type: 2}
 --- !u!114 &1955476401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -941,6 +910,7 @@ MonoBehaviour:
   _walkValue: 0.5
   _runValue: 0.7
   _playerMoveMode: 0
+  IsJump: 0
 --- !u!54 &1955476402
 Rigidbody:
   m_ObjectHideFlags: 0
