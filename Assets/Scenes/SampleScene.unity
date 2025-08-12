@@ -554,6 +554,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f58b5190ec7fbde498c213799110af69, type: 2}
   - {fileID: 11400000, guid: 77a0c989ec952ea4799210338b1527cd, type: 2}
   - {fileID: 11400000, guid: e577df53333711b4981f703950066fbf, type: 2}
+  - {fileID: 11400000, guid: 27464cea67675cd4fbea7568f2a05ce5, type: 2}
+  - {fileID: 11400000, guid: 1a1ffce92f05b304e92a1ad3a0339aef, type: 2}
+  - {fileID: 11400000, guid: 96b4a7f1ee3a3a44bb0ae2472d69ddbf, type: 2}
 --- !u!114 &1955476401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,8 +572,8 @@ MonoBehaviour:
   _stickValue: {x: 0, y: 0}
   _walkValue: 0.5
   _runValue: 0.7
-  IsWalk: 0
-  IsRun: 0
+  _playerMoveMode: 0
+  IsJump: 0
 --- !u!54 &1955476402
 Rigidbody:
   m_ObjectHideFlags: 0

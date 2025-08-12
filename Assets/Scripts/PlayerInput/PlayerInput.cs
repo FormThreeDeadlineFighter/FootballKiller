@@ -11,6 +11,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] float _runValue;
     
     public MoveMode _playerMoveMode = MoveMode.idle;
+    public bool IsJump = false;
     
     public void Awake()
     {
@@ -22,6 +23,7 @@ public class PlayerInput : MonoBehaviour
         _playerControl.Enable();
         _playerControl.Player.Move.performed += OnMovePerformed;
         _playerControl.Player.Move.canceled += OnMovePerformed;
+        _playerControl.Player.Jump.performed += OnJumpPerformed;
     }
 
     void OnDisable()
@@ -29,6 +31,7 @@ public class PlayerInput : MonoBehaviour
         _playerControl.Disable();
         _playerControl.Player.Move.performed -= OnMovePerformed;
         _playerControl.Player.Move.canceled -= OnMovePerformed;
+        _playerControl.Player.Jump.performed -= OnJumpPerformed;
     }
 
     void OnMovePerformed(InputAction.CallbackContext value)
@@ -46,6 +49,14 @@ public class PlayerInput : MonoBehaviour
         else if (_stickValue.x > _walkValue || _stickValue.x < -_walkValue || _stickValue.y > _walkValue || _stickValue.y < -_walkValue)
         {
             _playerMoveMode = MoveMode.walk;
+        }
+    }
+    
+    void OnJumpPerformed(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            IsJump = true;
         }
     }
 }

@@ -22,6 +22,10 @@ public class PlayerState_Walk : IPlayerState
         {
             _controller.SetState(typeof(PlayerState_Run));
         }
+        if(_playerInput.IsJump)
+        {
+            _controller.SetState(typeof(PlayerState_Jump));
+        }
     }
     public override void PhysicsUpdate()
     { 
