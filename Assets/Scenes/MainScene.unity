@@ -521,6 +521,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 189568688}
     m_Modifications:
+    - target: {fileID: 4073953225476744872, guid: 8681cc31bc2527e4e8568af0917ff264, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073953225476744872, guid: 8681cc31bc2527e4e8568af0917ff264, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073953225476744872, guid: 8681cc31bc2527e4e8568af0917ff264, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 6763756039040314868, guid: d144fbfa2cce15d438e4bfea675f2d18, type: 3}
+    - target: {fileID: 4073953225476744872, guid: 8681cc31bc2527e4e8568af0917ff264, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073953225476744872, guid: 8681cc31bc2527e4e8568af0917ff264, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SceneManger, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6528168122734825656, guid: 8681cc31bc2527e4e8568af0917ff264, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -615,6 +635,63 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6528168122734825656, guid: 8681cc31bc2527e4e8568af0917ff264, type: 3}
   m_PrefabInstance: {fileID: 1492105519}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6502866216606361419
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4208087481448924924, guid: d144fbfa2cce15d438e4bfea675f2d18, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208087481448924924, guid: d144fbfa2cce15d438e4bfea675f2d18, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208087481448924924, guid: d144fbfa2cce15d438e4bfea675f2d18, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208087481448924924, guid: d144fbfa2cce15d438e4bfea675f2d18, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208087481448924924, guid: d144fbfa2cce15d438e4bfea675f2d18, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208087481448924924, guid: d144fbfa2cce15d438e4bfea675f2d18, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208087481448924924, guid: d144fbfa2cce15d438e4bfea675f2d18, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208087481448924924, guid: d144fbfa2cce15d438e4bfea675f2d18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208087481448924924, guid: d144fbfa2cce15d438e4bfea675f2d18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208087481448924924, guid: d144fbfa2cce15d438e4bfea675f2d18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6763756039040314868, guid: d144fbfa2cce15d438e4bfea675f2d18, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d144fbfa2cce15d438e4bfea675f2d18, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -623,3 +700,4 @@ SceneRoots:
   - {fileID: 1290825745}
   - {fileID: 189568688}
   - {fileID: 522554532}
+  - {fileID: 6502866216606361419}
