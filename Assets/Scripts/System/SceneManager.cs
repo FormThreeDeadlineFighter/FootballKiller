@@ -7,12 +7,15 @@ public class SceneManger : MonoBehaviour
 {
     public void MainGround()
     {
+        Time.timeScale = 1f;
+        AudioManager.Instance.Play(1, "shoot", false);
         SceneManager.LoadScene("MainScene"); // 替換成主介面
         Debug.Log("替換成主介面");
     }
     public void StageScene()
     {
         Time.timeScale = 1f;
+        AudioManager.Instance.Play(1, "shoot", false);
         SceneManager.LoadScene("StageScene"); // 替換成關卡圖
         Debug.Log("替換成關卡圖");
     }

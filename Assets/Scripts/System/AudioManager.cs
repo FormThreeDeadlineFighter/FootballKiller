@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour
             audios.Add(audio);
         }
     }
-    void Play(int index, string name,bool isloop)
+    public void Play(int index, string name,bool isloop)
     {
         var clip = GetAudioClip(name);
         if (clip != null)
@@ -40,7 +40,7 @@ public class AudioManager : MonoBehaviour
     {
         switch (name)
         {
-            case "_shoot":
+            case "shoot":
                 return shoot;
         }
         return null;
