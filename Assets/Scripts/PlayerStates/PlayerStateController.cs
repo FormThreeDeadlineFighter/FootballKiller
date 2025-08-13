@@ -6,20 +6,20 @@ public class PlayerStateController : IStateController
 {   
     [SerializeField] IPlayerState[] _playerStates;
     private Animator _animator;
-    private Rigidbody _rb;
-    private PlayerInput _playerInput; 
+    private PlayerInput _playerInput;
+    private PlayerController _player;
 
     private void Awake()
     {
+        _player = GetComponent<PlayerController>();
         _animator = GetComponent<Animator>();
         _playerInput = GetComponent<PlayerInput>();
-        _rb = GetComponent<Rigidbody>();
         
         _stateTable = new Dictionary<System.Type, IState>(_playerStates.Length);
       
         foreach(IPlayerState state in _playerStates)
         {  
-            state.Initialize(this, _animator, _playerInput, _rb);
+            state.Initialize(this, _player, _animator, _playerInput);
             _stateTable.Add(state.GetType(), state);
         }
         

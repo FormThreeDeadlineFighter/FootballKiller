@@ -4,9 +4,13 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerState_Jump : IPlayerState
 {
+    [SerializeField] float _jumpForce = 5f;
     public override void EnterState()
     { 
         Debug.Log("player jump");
+        
+        _player.SetForceY(_jumpForce);
+        _player.CanJump = false;
     }
     public override void ExitState()
     {
@@ -14,10 +18,13 @@ public class PlayerState_Jump : IPlayerState
     }
     public override void LogicUpdate()
     {
-        _controller.SetState(typeof(PlayerState_InAir));
+        if(_player.IsFall)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Falling));
+        }     
     }
     public override void PhysicsUpdate()
-    { 
-
+    {
+         
     }
 }

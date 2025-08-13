@@ -14,17 +14,17 @@ public class PlayerState_Run : IPlayerState
     }
     public override void LogicUpdate()
     {
-        if(_playerInput._playerMoveMode == MoveMode.idle)
+        if(_playerInput.MoveMode == MoveMode.idle)
         {
-            _controller.SetState(typeof(PlayerState_Idle));
+            _stateMachine.SetState(typeof(PlayerState_Idle));
         }
-        if(_playerInput._playerMoveMode == MoveMode.walk)
+        if(_playerInput.MoveMode == MoveMode.walk)
         {
-            _controller.SetState(typeof(PlayerState_Walk));
+            _stateMachine.SetState(typeof(PlayerState_Walk));
         }
-        if(_playerInput.IsJump)
+        if(_playerInput.IsJump && _player.CanJump && _player.IsGrounded)
         {
-            _controller.SetState(typeof(PlayerState_Jump));
+            _stateMachine.SetState(typeof(PlayerState_Jump));
         }
     }
     public override void PhysicsUpdate()

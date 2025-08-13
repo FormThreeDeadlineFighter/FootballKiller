@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08e934f3b8c367447b94472793b1c111, type: 3}
-  m_Name: PlayerState_InAir
+  m_Script: {fileID: 11500000, guid: bc00dcb412afe50449a2eaa930c878c0, type: 3}
+  m_Name: PlayerState_Walk
   m_EditorClassIdentifier: 

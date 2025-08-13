@@ -6,16 +6,17 @@ using UnityEngine.InputSystem;
 public class PlayerInput : MonoBehaviour
 {
     PlayerControl _playerControl;
-    [SerializeField] Vector2 _stickValue;
     [SerializeField] float _walkValue;
     [SerializeField] float _runValue;
-    
-    public MoveMode _playerMoveMode = MoveMode.idle;
-    public bool IsJump = false;
+    Vector2 _stickValue;
+    private MoveMode _moveMode = MoveMode.idle;
+    [HideInInspector] public MoveMode MoveMode { get { return _moveMode; } private set { MoveMode = _moveMode; } }
+    public bool IsJump => _playerControl.Player.Jump.WasPerformedThisFrame();
     
     public void Awake()
     {
-        _playerControl = new PlayerControl();   
+        _playerControl = new PlayerControl();  
+         
     }
 
     void OnEnable()
@@ -23,7 +24,6 @@ public class PlayerInput : MonoBehaviour
         _playerControl.Enable();
         _playerControl.Player.Move.performed += OnMovePerformed;
         _playerControl.Player.Move.canceled += OnMovePerformed;
-        _playerControl.Player.Jump.performed += OnJumpPerformed;
     }
 
     void OnDisable()
@@ -31,7 +31,6 @@ public class PlayerInput : MonoBehaviour
         _playerControl.Disable();
         _playerControl.Player.Move.performed -= OnMovePerformed;
         _playerControl.Player.Move.canceled -= OnMovePerformed;
-        _playerControl.Player.Jump.performed -= OnJumpPerformed;
     }
 
     void OnMovePerformed(InputAction.CallbackContext value)
@@ -40,23 +39,15 @@ public class PlayerInput : MonoBehaviour
 
         if (_stickValue == Vector2.zero)
         {
-            _playerMoveMode = MoveMode.idle;
+            _moveMode = MoveMode.idle;
         }
         else if(_stickValue.x > _runValue || _stickValue.x < -_runValue || _stickValue.y > _runValue || _stickValue.y < -_runValue)
         {
-            _playerMoveMode = MoveMode.run;
+            _moveMode = MoveMode.run;
         }
         else if (_stickValue.x > _walkValue || _stickValue.x < -_walkValue || _stickValue.y > _walkValue || _stickValue.y < -_walkValue)
         {
-            _playerMoveMode = MoveMode.walk;
-        }
-    }
-    
-    void OnJumpPerformed(InputAction.CallbackContext context)
-    {
-        if(context.performed)
-        {
-            IsJump = true;
+            _moveMode = MoveMode.walk;
         }
     }
 }

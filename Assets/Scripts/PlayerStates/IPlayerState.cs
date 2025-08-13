@@ -3,18 +3,17 @@ using UnityEngine.InputSystem;
 
 public class IPlayerState : ScriptableObject ,IState
 { 
-    protected PlayerStateController _controller;
+    protected PlayerStateController _stateMachine;
     protected Animator _animator;
-    protected Rigidbody _rb;
     protected PlayerInput _playerInput;
-    protected bool IsComplete;
+    protected PlayerController _player;
 
-    public void Initialize(PlayerStateController controller, Animator animator, PlayerInput playerInput, Rigidbody rigidbody)
+    public void Initialize(PlayerStateController stateMachine, PlayerController player, Animator animator, PlayerInput playerInput)
     {
-        _controller = controller;
+        _stateMachine = stateMachine;
+        _player = player;
         _animator = animator;
         _playerInput = playerInput;
-        _rb = rigidbody;
     }
     // when enter state happen
     public virtual void EnterState() { }
