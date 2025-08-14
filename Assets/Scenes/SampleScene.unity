@@ -595,11 +595,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2641115245172255076, guid: e12543a1f8828344397662806aa51019, type: 3}
       propertyPath: m_Name
-      value: Ball
+      value: Block Detector
       objectReference: {fileID: 0}
     - target: {fileID: 2908435357401502004, guid: e12543a1f8828344397662806aa51019, type: 3}
       propertyPath: m_Name
       value: Player Test
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263393066907962298, guid: e12543a1f8828344397662806aa51019, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.286
       objectReference: {fileID: 0}
     - target: {fileID: 5597346340761303949, guid: e12543a1f8828344397662806aa51019, type: 3}
       propertyPath: m_LocalPosition.x
@@ -644,8 +648,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2641115245172255076, guid: e12543a1f8828344397662806aa51019, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 94799944733805318}
   m_SourcePrefab: {fileID: 100100000, guid: e12543a1f8828344397662806aa51019, type: 3}
+--- !u!1 &94799944733805317 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2641115245172255076, guid: e12543a1f8828344397662806aa51019, type: 3}
+  m_PrefabInstance: {fileID: 94799944733805316}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &94799944733805318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94799944733805317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cecdadd8c07a5948b4742f0ac5cb8de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _halfExtents: {x: 1, y: 1, z: 1}
+  _energyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  IsBlock: 0
 --- !u!1001 &3409432672199627341
 PrefabInstance:
   m_ObjectHideFlags: 0

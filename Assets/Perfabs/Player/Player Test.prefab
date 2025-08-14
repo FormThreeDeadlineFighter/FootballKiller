@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3263393066907962298}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: Block Detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
