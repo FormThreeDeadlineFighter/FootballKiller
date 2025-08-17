@@ -2,10 +2,21 @@ using UnityEngine;
 
 public class BlockController : MonoBehaviour
 {
-    private float _energySaver;
+    [SerializeField] private float _energySaver;
+    [SerializeField] private Elements _savedElement;
     private Elements _detectElement => _playerBlockDetector._elementsBlock;
-    private Elements _savedElement;
     PlayerBlockDetector _playerBlockDetector;
+    private bool IsSave
+    {
+        get
+        {
+            if(_playerBlockDetector._elementsBlock != Elements.none)
+            {      
+                return true;
+            }
+            return false;
+        }
+    }
     void Awake()
     {
         _playerBlockDetector = GetComponentInChildren<PlayerBlockDetector>();
@@ -14,17 +25,17 @@ public class BlockController : MonoBehaviour
     {
         
     }
-    
-    void OnBlock()
+    void Update()
     {
-        if(_savedElement != Elements.none && _savedElement != _detectElement)
-        {
-            //player hurt
-        }
-        else
+        if(IsSave)
         {
             _energySaver += 10f;
-            _savedElement = _detectElement;
+            _savedElement = _detectElement; 
         }
+    }
+
+    void OnSave()
+    {
+     
     }
 }
