@@ -36,10 +36,7 @@ public class PlayerBlockDetector : MonoBehaviour
     {
         
     }
-    private void OnBlock()
-    {
-        Debug.Log("action start");
-    }
+    
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

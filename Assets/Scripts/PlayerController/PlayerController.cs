@@ -7,15 +7,18 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rb;
     private PlayerGroundDetector _groundDetector;
     private PlayerInput _input;
+    private BlockController _blockController;
     public bool IsGrounded => _groundDetector.IsGrounded;
     public bool IsFall => !IsGrounded;
     public bool CanJump = false;
+    public bool IsBlock => _blockController.IsBlock;
 
     void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _input = GetComponent<PlayerInput>();
-        _groundDetector = GetComponentInChildren<PlayerGroundDetector>();       
+        _groundDetector = GetComponentInChildren<PlayerGroundDetector>();
+        _blockController = GetComponentInChildren<BlockController>(); 
     }
 
     void OnEnable()

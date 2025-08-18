@@ -618,6 +618,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1327962427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 722372756752154950, guid: e12543a1f8828344397662806aa51019, type: 3}
+  m_PrefabInstance: {fileID: 2426349017571330895}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1371737107
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,6 +994,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 722372756752154950, guid: e12543a1f8828344397662806aa51019, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3789154108593652796, guid: e12543a1f8828344397662806aa51019, type: 3}
       propertyPath: m_Name
       value: Player Test
@@ -1040,6 +1049,18 @@ PrefabInstance:
     - target: {fileID: 5065511806671853714, guid: e12543a1f8828344397662806aa51019, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135419512114540241, guid: e12543a1f8828344397662806aa51019, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357803437436584419, guid: e12543a1f8828344397662806aa51019, type: 3}
+      propertyPath: _blockDetector
+      value: 
+      objectReference: {fileID: 1327962427}
+    - target: {fileID: 8541751422681217986, guid: e12543a1f8828344397662806aa51019, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
