@@ -28,9 +28,9 @@ public class PlayerInput : MonoBehaviour
 
     void OnDisable()
     {
-        _playerControl.Disable();
         _playerControl.Player.Move.performed -= OnMovePerformed;
         _playerControl.Player.Move.canceled -= OnMovePerformed;
+        _playerControl.Disable();
     }
 
     void OnMovePerformed(InputAction.CallbackContext value)
