@@ -1,22 +1,26 @@
 using UnityEngine;
-
-[CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Walk", fileName = "PlayerState_Walk")]
+[CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Shoot", fileName = "PlayerState_Shoot")]
 [System.Serializable]
-public class PlayerState_Walk : IPlayerState
+public class PlayerState_Shoot : IPlayerState
 {
-    public override void EnterState()
+   public override void EnterState()
     { 
-        Debug.Log("player walk");
+        Debug.Log("player shoot");
+        _player.PlayerShoot();
     }
     public override void ExitState()
     {
-
+    
     }
     public override void LogicUpdate()
     {
         if(_playerInput.MoveMode == MoveMode.idle)
         {
             _stateMachine.SetState(typeof(PlayerState_Idle));
+        }
+        if(_playerInput.MoveMode == MoveMode.walk)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Walk));
         }
         if(_playerInput.MoveMode == MoveMode.run)
         {
@@ -26,17 +30,9 @@ public class PlayerState_Walk : IPlayerState
         {
             _stateMachine.SetState(typeof(PlayerState_Jump));
         }
-        if(_playerInput.IsBlock)
-        {
-            _stateMachine.SetState(typeof(PlayerState_Block));
-        }
-        if(_playerInput.IsShoot)
-        {
-            _stateMachine.SetState(typeof(PlayerState_Shoot));
-        }
     }
     public override void PhysicsUpdate()
-    { 
-
+    {
+        
     }
 }

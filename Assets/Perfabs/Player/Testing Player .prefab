@@ -74,7 +74,7 @@ Transform:
   m_GameObject: {fileID: 722372756752154950}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.2}
+  m_LocalPosition: {x: 0, y: 0, z: 2.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -205,6 +205,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &3340443074126087632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7573960841510058794}
+  m_Layer: 0
+  m_Name: Shooting Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7573960841510058794
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3340443074126087632}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.4, z: 2.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5135419512114540241}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3789154108593652796
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +254,7 @@ GameObject:
   - component: {fileID: 3505426514437498156}
   - component: {fileID: 6478383880338076950}
   m_Layer: 0
-  m_Name: Player Test
+  m_Name: 'Testing Player '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,7 +268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3789154108593652796}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 1.26, y: 25.49, z: 40.73}
   m_LocalScale: {x: 1, y: 3.5, z: 1}
   m_ConstrainProportionsScale: 0
@@ -246,7 +277,7 @@ Transform:
   - {fileID: 189612747902352482}
   - {fileID: 5135419512114540241}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &1132527178551292057
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -346,9 +377,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &816206164603140916
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -416,6 +447,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 27464cea67675cd4fbea7568f2a05ce5, type: 2}
   - {fileID: 11400000, guid: 71979f9c7946cf149af1ed1466c38043, type: 2}
   - {fileID: 11400000, guid: 96b4a7f1ee3a3a44bb0ae2472d69ddbf, type: 2}
+  - {fileID: 11400000, guid: 7c2ff37c977641b458e17f2da433900b, type: 2}
+  - {fileID: 11400000, guid: 6ec8e52af23a55f4ab9b9d0a0e38d80d, type: 2}
 --- !u!1 &5597692375324648373
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,7 +460,7 @@ GameObject:
   - component: {fileID: 5135419512114540241}
   - component: {fileID: 5357803437436584419}
   m_Layer: 0
-  m_Name: Block Controller
+  m_Name: Energy Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -442,11 +475,12 @@ Transform:
   m_GameObject: {fileID: 5597692375324648373}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8541751422681217986}
+  - {fileID: 7573960841510058794}
   m_Father: {fileID: 4647172846769166118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5357803437436584419
@@ -461,5 +495,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 898c7c54f6a1b304c9366d004bf2567d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _energySaver: 0
+  _energySaver: 100
   _savedElement: 0
+  _blockDetector: {fileID: 722372756752154950}
+  _shootingPoint: {fileID: 3340443074126087632}
+  _energyBullet: {fileID: 7841672020790003158, guid: e5467e32593c5a4429eb21312f115118, type: 3}

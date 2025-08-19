@@ -21,7 +21,7 @@ public class PlayerState_Jump : IPlayerState
         if(_player.IsFall)
         {
             _stateMachine.SetState(typeof(PlayerState_Falling));
-        }     
+        }          
     }
     public override void PhysicsUpdate()
     {

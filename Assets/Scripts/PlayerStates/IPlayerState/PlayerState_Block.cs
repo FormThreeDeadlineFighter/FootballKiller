@@ -15,10 +15,22 @@ public class PlayerState_Block : IPlayerState
     }
     public override void LogicUpdate()
     {
-        if(_player.IsGrounded)
+        if(_playerInput.MoveMode == MoveMode.idle)
         {
-            _stateMachine.SetState(typeof(PlayerState_Landing));
-        }   
+            _stateMachine.SetState(typeof(PlayerState_Idle));
+        }
+        if(_playerInput.MoveMode == MoveMode.walk)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Walk));
+        }
+        if(_playerInput.MoveMode == MoveMode.run)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Run));
+        }
+        if(_playerInput.IsJump && _player.CanJump && _player.IsGrounded)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Jump));
+        }
     }
     public override void PhysicsUpdate()
     { 

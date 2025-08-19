@@ -26,6 +26,14 @@ public class PlayerState_Idle : IPlayerState
         {
             _stateMachine.SetState(typeof(PlayerState_Jump));
         }
+        if(_playerInput.IsBlock)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Block));
+        }
+        if(_playerInput.IsShoot)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Shoot));
+        }
     }
     public override void PhysicsUpdate()
     { 

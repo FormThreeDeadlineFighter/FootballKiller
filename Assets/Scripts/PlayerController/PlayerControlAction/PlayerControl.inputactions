@@ -130,7 +130,18 @@
                 {
                     "name": "",
                     "id": "3de8e812-9149-46e5-89aa-00f9b02a198b",
-                    "path": "",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ab96ef46-0135-425b-a88f-bfb41ba2b107",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -163,7 +174,18 @@
                 {
                     "name": "",
                     "id": "b2b51a2b-dcd4-40ee-bfc2-f4a8203cd43f",
-                    "path": "",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Block",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0a12a7d5-71e6-47d5-9c4a-5d582bb44837",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -174,7 +196,18 @@
                 {
                     "name": "",
                     "id": "65f3fde4-2f68-474f-be9c-8b87bc1b003a",
-                    "path": "",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7ea1614e-9b16-4107-acac-e6f5fe44dc20",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

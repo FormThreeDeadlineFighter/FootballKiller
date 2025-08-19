@@ -7,18 +7,17 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rb;
     private PlayerGroundDetector _groundDetector;
     private PlayerInput _input;
-    private BlockController _blockController;
+    private EnergyController _energyController;
     public bool IsGrounded => _groundDetector.IsGrounded;
     public bool IsFall => !IsGrounded;
     public bool CanJump = false;
-    public bool IsBlock => _blockController.IsBlock;
 
     void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _input = GetComponent<PlayerInput>();
         _groundDetector = GetComponentInChildren<PlayerGroundDetector>();
-        _blockController = GetComponentInChildren<BlockController>(); 
+        _energyController = GetComponentInChildren<EnergyController>(); 
     }
 
     void OnEnable()
@@ -36,5 +35,8 @@ public class PlayerController : MonoBehaviour
         _rb.AddForce(Vector3.up * force, ForceMode.Impulse);
     }
     
-    
+    public void PlayerShoot()
+    {
+        _energyController.OnShoot();
+    }
 }

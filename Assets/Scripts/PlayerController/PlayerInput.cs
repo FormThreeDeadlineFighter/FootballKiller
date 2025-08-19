@@ -12,11 +12,12 @@ public class PlayerInput : MonoBehaviour
     private MoveMode _moveMode = MoveMode.idle;
     [HideInInspector] public MoveMode MoveMode { get { return _moveMode; } private set { MoveMode = _moveMode; } }
     public bool IsJump => _playerControl.Player.Jump.WasPerformedThisFrame();
+    public bool IsBlock => _playerControl.Player.Block.WasPressedThisFrame();
+    public bool IsShoot => _playerControl.Player.Shoot.WasPerformedThisFrame();
     
     public void Awake()
     {
-        _playerControl = new PlayerControl();  
-         
+        _playerControl = new PlayerControl();       
     }
 
     void OnEnable()

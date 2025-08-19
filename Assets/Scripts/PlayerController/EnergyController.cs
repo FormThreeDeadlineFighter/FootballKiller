@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
-public class BlockController : MonoBehaviour
+public class EnergyController : MonoBehaviour
 {
     [SerializeField] private float _energySaver;
     [SerializeField] private Elements _savedElement;
     [SerializeField] GameObject _blockDetector;
+    [SerializeField] GameObject _shootingPoint;
+    [SerializeField] GameObject _energyBullet;
     private Elements _detectElement => _playerBlockDetector._elementsBlock;
     PlayerBlockDetector _playerBlockDetector;
     public bool IsBlock
@@ -27,11 +31,9 @@ public class BlockController : MonoBehaviour
     {
         
     }
-
-    [System.Obsolete]
     void Update()
     {
-        if(_blockDetector.activeInHierarchy && IsBlock)
+        if(IsBlock)
         {
             OnSave();
         }
@@ -59,6 +61,15 @@ public class BlockController : MonoBehaviour
             Debug.Log("player save fail");
             return false;     
         }        
+    }
+    
+    public void OnShoot()
+    {
+        if(_energySaver > 10f)
+        {
+            _energySaver -= 10f;
+            Instantiate(_energyBullet, _shootingPoint.transform.position,  _shootingPoint.transform.rotation);
+        }
     }
     
 }
