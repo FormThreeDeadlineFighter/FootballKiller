@@ -1,9 +1,11 @@
+using Unity.Mathematics.Geometry;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Run", fileName = "PlayerState_Run")]
 [System.Serializable]
 public class PlayerState_Run : IPlayerState
 {
+    [SerializeField] float _moveSpeed = 7.0f;
     public override void EnterState()
     { 
         base.EnterState();
@@ -14,29 +16,29 @@ public class PlayerState_Run : IPlayerState
     }
     public override void LogicUpdate()
     {
-        if(_playerInput.MoveMode == MoveMode.idle)
+        if(_player.MoveMode == MoveMode.idle)
         {
             _stateMachine.SetState(typeof(PlayerState_Idle));
         }
-        if(_playerInput.MoveMode == MoveMode.walk)
+        if(_player.MoveMode == MoveMode.walk)
         {
             _stateMachine.SetState(typeof(PlayerState_Walk));
         }
-        if(_playerInput.IsJump && _player.CanJump && _player.IsGrounded)
+        if(_input.IsJump && _player.CanJump && _player.IsGrounded)
         {
             _stateMachine.SetState(typeof(PlayerState_Jump));
         }
-        if(_playerInput.IsBlock)
+        if(_input.IsBlock)
         {
             _stateMachine.SetState(typeof(PlayerState_Block));
         }
-        if(_playerInput.IsShoot)
+        if(_input.IsShoot)
         {
             _stateMachine.SetState(typeof(PlayerState_Shoot));
         }
     }
     public override void PhysicsUpdate()
     { 
-
+        _player.PlayerMove(_moveSpeed);
     }
 }

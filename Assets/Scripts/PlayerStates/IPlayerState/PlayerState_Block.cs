@@ -14,19 +14,19 @@ public class PlayerState_Block : IPlayerState
     }
     public override void LogicUpdate()
     {
-        if(_playerInput.MoveMode == MoveMode.idle)
+        if(_player.MoveMode == MoveMode.idle)
         {
             _stateMachine.SetState(typeof(PlayerState_Idle));
         }
-        if(_playerInput.MoveMode == MoveMode.walk)
+        if(_player.MoveMode == MoveMode.walk)
         {
             _stateMachine.SetState(typeof(PlayerState_Walk));
         }
-        if(_playerInput.MoveMode == MoveMode.run)
+        if(_player.MoveMode == MoveMode.run)
         {
             _stateMachine.SetState(typeof(PlayerState_Run));
         }
-        if(_playerInput.IsJump && _player.CanJump && _player.IsGrounded)
+        if(_input.IsJump && _player.CanJump && _player.IsGrounded)
         {
             _stateMachine.SetState(typeof(PlayerState_Jump));
         }

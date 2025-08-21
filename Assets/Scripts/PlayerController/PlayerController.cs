@@ -4,13 +4,30 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] Transform _cameraTransform;
+    [SerializeField, Range(0,1)] float _walkValue;
+    [SerializeField, Range(0,1)] float _runValue;
     private Rigidbody _rb;
     private PlayerGroundDetector _groundDetector;
     private PlayerInput _input;
     private EnergyController _energyController;
     public bool IsGrounded => _groundDetector.IsGrounded;
-    public bool IsFall => !IsGrounded;
+    public bool IsFalling => _rb.linearVelocity.y < 0 && !IsGrounded;
     public bool CanJump = false;
+    public MoveMode MoveMode 
+    { 
+        get {
+                if (_input.StickValue.sqrMagnitude >= _runValue * _runValue)
+                {
+                    return MoveMode.run;
+                }
+                else if(_input.StickValue.sqrMagnitude >= _walkValue * _walkValue)
+                {
+                    return MoveMode.walk;
+                }
+                return MoveMode.idle; 
+        } 
+    }
 
     void Awake()
     {
@@ -29,14 +46,35 @@ public class PlayerController : MonoBehaviour
     {
     
     }
-
-    public void SetForceY(float force)
+    public void SetVelocityY(float speed)
     {
-        _rb.AddForce(Vector3.up * force, ForceMode.Impulse);
+        _rb.linearVelocity += Vector3.up * speed;
     }
+    public void PlayerMove(float speed)
+    {
+        Vector3 camForward = _cameraTransform.forward;
+        Vector3 camRight   = Camera.main.transform.right;
+        camForward.y = 0;
+        camRight.y = 0;
+        camForward.Normalize();
+        camRight.Normalize();
+
+        Vector3 moveDir = camForward * _input.StickValue.y + camRight * _input.StickValue.x;
+        
+        Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
+        _rb.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.fixedDeltaTime);
+        _rb.position += moveDir *  speed * Time.fixedDeltaTime;
+    }
+    
+    void PlayerTurn()
+    {
+    }
+    
     
     public void PlayerShoot()
     {
         _energyController.OnShoot();
     }
+    
 }
+public enum MoveMode {idle, walk, run}

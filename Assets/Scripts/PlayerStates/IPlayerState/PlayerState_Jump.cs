@@ -9,7 +9,7 @@ public class PlayerState_Jump : IPlayerState
     { 
         base.EnterState();
         
-        _player.SetForceY(_jumpForce);
+        _player.SetVelocityY(_jumpForce);
         _player.CanJump = false;
     }
     public override void ExitState()
@@ -18,9 +18,9 @@ public class PlayerState_Jump : IPlayerState
     }
     public override void LogicUpdate()
     {
-        if(_player.IsFall && IsAnimationComplete)
+        if(_player.IsFalling)
         {
-            _stateMachine.SetState(typeof(PlayerState_Falling));
+            _stateMachine.SetState(typeof(PlayerState_Fall));
         }          
     }
     public override void PhysicsUpdate()
