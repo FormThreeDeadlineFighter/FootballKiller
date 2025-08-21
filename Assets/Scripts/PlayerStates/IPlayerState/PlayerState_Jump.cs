@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerState_Jump : IPlayerState
 {
     [SerializeField] float _jumpForce = 5f;
+    [SerializeField] float _moveSpeed = 5f;
     public override void EnterState()
     { 
         base.EnterState();
@@ -18,13 +19,13 @@ public class PlayerState_Jump : IPlayerState
     }
     public override void LogicUpdate()
     {
-        if(_player.IsFalling)
+        if(_player.IsFalling && IsAnimationComplete)
         {
             _stateMachine.SetState(typeof(PlayerState_Fall));
         }          
     }
     public override void PhysicsUpdate()
     {
-         
+         _player.PlayerMove(_moveSpeed);
     }
 }

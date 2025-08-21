@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerState_Fall : IPlayerState
 {
     [SerializeField] AnimationCurve _speedCurve;
+    [SerializeField] float _moveSpeed = 5f;
     public override void EnterState()
     { 
         base.EnterState();
@@ -24,5 +25,6 @@ public class PlayerState_Fall : IPlayerState
     public override void PhysicsUpdate()
     {
         _player.SetVelocityY(_speedCurve.Evaluate(_stateDuration));
+        _player.PlayerMove(_moveSpeed);
     }
 }
