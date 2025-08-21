@@ -6,8 +6,7 @@ public class PlayerState_Block : IPlayerState
 {
     public override void EnterState()
     { 
-        Debug.Log("player block");
-        
+        base.EnterState();     
     }
     public override void ExitState()
     {

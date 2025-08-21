@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6165a310cceb1bc4c9079f4725c89c26, type: 3}
   m_Name: PlayerState_Landing
   m_EditorClassIdentifier: 
+  _animationName: Land
+  _transitionDuration: 0.1

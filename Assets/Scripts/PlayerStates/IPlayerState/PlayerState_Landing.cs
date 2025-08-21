@@ -6,7 +6,7 @@ public class PlayerState_Landing : IPlayerState
 {
     public override void EnterState()
     { 
-        Debug.Log("player landing");
+        base.EnterState();
         _player.CanJump = true;
     }
     public override void ExitState()

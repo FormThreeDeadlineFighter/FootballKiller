@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerStateController : IStateController
 {   
     [SerializeField] IPlayerState[] _playerStates;
+    [SerializeField] GameObject _model;
     private Animator _animator;
     private PlayerInput _playerInput;
     private PlayerController _player;
@@ -12,7 +13,7 @@ public class PlayerStateController : IStateController
     private void Awake()
     {
         _player = GetComponent<PlayerController>();
-        _animator = GetComponent<Animator>();
+        _animator = _model.GetComponent<Animator>();
         _playerInput = GetComponent<PlayerInput>();
         
         _stateTable = new Dictionary<System.Type, IState>(_playerStates.Length);

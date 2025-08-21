@@ -6,7 +6,7 @@ public class PlayerState_Walk : IPlayerState
 {
     public override void EnterState()
     { 
-        Debug.Log("player walk");
+        base.EnterState();
     }
     public override void ExitState()
     {
@@ -36,7 +36,7 @@ public class PlayerState_Walk : IPlayerState
         }
     }
     public override void PhysicsUpdate()
-    { 
-
+    {
+        
     }
 }

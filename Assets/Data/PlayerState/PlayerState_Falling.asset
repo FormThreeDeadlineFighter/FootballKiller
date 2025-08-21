@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768fbae3ea720b44e9d1ca01cd9b5731, type: 3}
   m_Name: PlayerState_Falling
   m_EditorClassIdentifier: 
+  _animationName: Fall
+  _transitionDuration: 0.1

@@ -5,7 +5,7 @@ public class PlayerState_Shoot : IPlayerState
 {
    public override void EnterState()
     { 
-        Debug.Log("player shoot");
+        base.EnterState();
         _player.PlayerShoot();
     }
     public override void ExitState()

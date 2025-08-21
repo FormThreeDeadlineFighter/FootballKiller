@@ -7,7 +7,7 @@ public class PlayerState_Jump : IPlayerState
     [SerializeField] float _jumpForce = 5f;
     public override void EnterState()
     { 
-        Debug.Log("player jump");
+        base.EnterState();
         
         _player.SetForceY(_jumpForce);
         _player.CanJump = false;
@@ -18,7 +18,7 @@ public class PlayerState_Jump : IPlayerState
     }
     public override void LogicUpdate()
     {
-        if(_player.IsFall)
+        if(_player.IsFall && IsAnimationComplete)
         {
             _stateMachine.SetState(typeof(PlayerState_Falling));
         }          

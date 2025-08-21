@@ -6,7 +6,7 @@ public class PlayerState_Falling : IPlayerState
 {
     public override void EnterState()
     { 
-        Debug.Log("player falling");
+        base.EnterState();
         
     }
     public override void ExitState()

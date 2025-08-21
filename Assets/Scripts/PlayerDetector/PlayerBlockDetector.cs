@@ -37,7 +37,7 @@ public class PlayerBlockDetector : MonoBehaviour
         
     }
     
-    void OnDrawGizmos()
+    void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
         if(IsBlock)
