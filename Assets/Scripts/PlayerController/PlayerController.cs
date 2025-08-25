@@ -61,11 +61,13 @@ public class PlayerController : MonoBehaviour
 
         Vector3 moveDir = camForward * _input.StickValue.y + camRight * _input.StickValue.x;
         
+        if(Vector3.Angle(camForward, moveDir) > 45)
+        
         if(moveDir != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
             _rb.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.fixedDeltaTime);
-            _rb.position += moveDir *  speed * Time.fixedDeltaTime;
+            _rb.linearVelocity += moveDir *  speed * Time.fixedDeltaTime;
         }
     }
     
