@@ -4,10 +4,31 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float HP = 100;
+    [SerializeField] float _maxHP = 100;
+    [SerializeField] float _currentHP;
+    public float HP 
+    {
+        get => _currentHP;
+        set 
+        { 
+            if(value > _maxHP)
+            {
+                _currentHP = _maxHP;
+            }
+            else if(value < 0)
+            {
+                _currentHP = 0;
+            }
+            else
+            {
+                _currentHP = value; 
+            }
+        }
+    }
     [SerializeField, Range(0,1)] float _walkValue;
     [SerializeField, Range(0,1)] float _runValue;
     [SerializeField] Transform _cameraTransform;
+    [SerializeField] PlayerEvents _playerEvents;
     private Rigidbody _rb;
     private PlayerGroundDetector _groundDetector;
     private PlayerInput _input;
@@ -38,18 +59,20 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _input = GetComponent<PlayerInput>();
         _groundDetector = GetComponentInChildren<PlayerGroundDetector>();
-        _energyController = GetComponentInChildren<EnergyController>(); 
+        _energyController = GetComponentInChildren<EnergyController>();
+
+        HP = _maxHP;
     }
 
     void OnEnable()
     {   
         CanJump = true;
-        PlayerEvents.current.OnPLayerHurt += PlayerHurt;
+        _playerEvents.OnPlayerHurt += PlayerHurt;
     }
 
     void OnDisable()
     {
-        PlayerEvents.current.OnPLayerHurt -= PlayerHurt;
+        _playerEvents.OnPlayerHurt -= PlayerHurt;
     }
     public void SetVelocityY(float speed)
     {
@@ -88,7 +111,10 @@ public class PlayerController : MonoBehaviour
     
     private void PlayerHurt(float damage)
     {
-        HP -= damage;
+        if (HP >= 0)
+        {
+            HP -= damage;
+        }
     }
     
 }

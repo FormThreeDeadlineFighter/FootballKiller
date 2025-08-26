@@ -9,6 +9,7 @@ public class EnergyController : MonoBehaviour
     [SerializeField] GameObject _blockDetector;
     [SerializeField] GameObject _shootingPoint;
     [SerializeField] GameObject _energyBullet;
+    [SerializeField] PlayerEvents _playerEvents;
     private Elements _detectElement => _playerBlockDetector._elementsBlock;
     PlayerBlockDetector _playerBlockDetector;
     public bool IsBlock
@@ -59,7 +60,7 @@ public class EnergyController : MonoBehaviour
         else
         {
             Debug.Log("player save fail");
-            PlayerEvents.current.OnPLayerHurt(_playerBlockDetector.AttackDamage);
+            _playerEvents.PlayerHurt(_playerBlockDetector.AttackDamage);
             return false;     
         }        
     }

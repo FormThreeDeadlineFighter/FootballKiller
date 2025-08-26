@@ -74,7 +74,7 @@ Transform:
   m_GameObject: {fileID: 722372756752154950}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.8, z: 0.7}
+  m_LocalPosition: {x: 0, y: 1.8, z: 1.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -92,11 +92,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cecdadd8c07a5948b4742f0ac5cb8de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _halfExtents: {x: 0.45, y: 0.8, z: 0.2}
+  _halfExtents: {x: 0.45, y: 0.8, z: 0.4}
   _energyLayer:
     serializedVersion: 2
     m_Bits: 128
   _elementsBlock: 0
+  AttackDamage: 0
 --- !u!1 &3340443074126087632
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,10 +214,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 4.5
+  m_Radius: 0.42
+  m_Height: 4.3064346
   m_Direction: 1
-  m_Center: {x: 0, y: -0.5, z: 0}
+  m_Center: {x: 0, y: -0.42779922, z: 0}
 --- !u!114 &886861020131862517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,6 +230,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca552480f9135a84d8cb07b3711dd855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxHP: 100
+  _walkValue: 0.1
+  _runValue: 0.7
+  _cameraTransform: {fileID: 0}
+  _playerEvents: {fileID: 11400000, guid: 51a858bca8b742c4eb4a52f4a8fb9dfd, type: 2}
   CanJump: 0
 --- !u!114 &3505426514437498156
 MonoBehaviour:
@@ -242,8 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 302ee039fdf59c449b7854d49cfed526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _walkValue: 0.5
-  _runValue: 0.9
+  StickValue: {x: 0, y: 0}
 --- !u!114 &6478383880338076950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,6 +322,7 @@ MonoBehaviour:
   _blockDetector: {fileID: 722372756752154950}
   _shootingPoint: {fileID: 3340443074126087632}
   _energyBullet: {fileID: 7841672020790003158, guid: e5467e32593c5a4429eb21312f115118, type: 3}
+  _playerEvents: {fileID: 11400000, guid: 51a858bca8b742c4eb4a52f4a8fb9dfd, type: 2}
 --- !u!1001 &42519745296362743
 PrefabInstance:
   m_ObjectHideFlags: 0
