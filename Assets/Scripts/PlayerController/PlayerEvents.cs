@@ -22,6 +22,15 @@ public class PlayerEvents : MonoBehaviour
             OnPlayerBlock.Invoke(elements);
         }
     }
+    public Action<float> OnPLayerHurt;
+    
+    public void PlayerHurt(float damage)
+    {
+        if (OnPLayerHurt != null)
+        {
+            OnPLayerHurt(damage);
+        }
+    }
     
     
 }

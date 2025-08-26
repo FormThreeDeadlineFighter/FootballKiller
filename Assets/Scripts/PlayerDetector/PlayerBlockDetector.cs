@@ -7,6 +7,7 @@ public class PlayerBlockDetector : MonoBehaviour
     [SerializeField] LayerMask _energyLayer;
     Collider[] _colliders = new Collider[50];
     public Elements _elementsBlock;
+    public float AttackDamage;
     public bool IsBlock
     {
         get
@@ -15,7 +16,8 @@ public class PlayerBlockDetector : MonoBehaviour
             {
                 if(_colliders[0].gameObject.TryGetComponent<IAttack>(out IAttack attack))
                 {
-                    _elementsBlock = attack.elements;
+                    _elementsBlock = attack.Elements;
+                    AttackDamage = attack.Damage;
                 }
                 return true;
             }

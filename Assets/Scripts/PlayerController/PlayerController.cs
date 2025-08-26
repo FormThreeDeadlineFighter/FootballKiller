@@ -4,13 +4,16 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] Transform _cameraTransform;
+    [SerializeField] float HP = 100;
     [SerializeField, Range(0,1)] float _walkValue;
     [SerializeField, Range(0,1)] float _runValue;
+    [SerializeField] Transform _cameraTransform;
     private Rigidbody _rb;
     private PlayerGroundDetector _groundDetector;
     private PlayerInput _input;
     private EnergyController _energyController;
+    private PlayerEvents _playerEvent;
+    
     public bool IsGrounded => _groundDetector.IsGrounded;
     public bool IsFalling => _rb.linearVelocity.y < 0 && !IsGrounded;
     public bool CanJump = false;
@@ -29,6 +32,7 @@ public class PlayerController : MonoBehaviour
         } 
     }
 
+
     void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -40,11 +44,12 @@ public class PlayerController : MonoBehaviour
     void OnEnable()
     {   
         CanJump = true;
+        PlayerEvents.current.OnPLayerHurt += PlayerHurt;
     }
 
     void OnDisable()
     {
-    
+        PlayerEvents.current.OnPLayerHurt -= PlayerHurt;
     }
     public void SetVelocityY(float speed)
     {
@@ -61,13 +66,13 @@ public class PlayerController : MonoBehaviour
 
         Vector3 moveDir = camForward * _input.StickValue.y + camRight * _input.StickValue.x;
         
-        if(Vector3.Angle(camForward, moveDir) > 45)
+        //if(Vector3.Angle(camForward, moveDir) > 45)
         
         if(moveDir != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
             _rb.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.fixedDeltaTime);
-            _rb.linearVelocity += moveDir *  speed * Time.fixedDeltaTime;
+            _rb.transform.position += moveDir *  speed * Time.fixedDeltaTime;
         }
     }
     
@@ -79,6 +84,11 @@ public class PlayerController : MonoBehaviour
     public void PlayerShoot()
     {
         _energyController.OnShoot();
+    }
+    
+    private void PlayerHurt(float damage)
+    {
+        HP -= damage;
     }
     
 }

@@ -51,14 +51,15 @@ public class EnergyController : MonoBehaviour
         
         if(_detectElement == _savedElement)
         {
-            _energySaver += 10f;
             Debug.Log("player save energy");
+            _energySaver += 10f;
             return true;
             
         }
         else
         {
             Debug.Log("player save fail");
+            PlayerEvents.current.OnPLayerHurt(_playerBlockDetector.AttackDamage);
             return false;     
         }        
     }

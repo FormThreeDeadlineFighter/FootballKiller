@@ -2,5 +2,6 @@ using UnityEngine;
 
 public class IAttack : MonoBehaviour
 {
-    public Elements elements;
+    public float Damage;
+    public Elements Elements;
 }
