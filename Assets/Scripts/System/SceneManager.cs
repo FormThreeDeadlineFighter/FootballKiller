@@ -9,15 +9,8 @@ public class SceneManger : MonoBehaviour
     {
         Time.timeScale = 1f;
         AudioManager.Instance.Play(1, "shoot", false);
-        SceneManager.LoadScene("MainScene"); // 替換成主介面
+        SceneManager.LoadScene("MainScene"); // 替換成主介面        
         Debug.Log("替換成主介面");
-    }
-    public void StageScene()
-    {
-        Time.timeScale = 1f;
-        AudioManager.Instance.Play(1, "shoot", false);
-        SceneManager.LoadScene("StageScene"); // 替換成關卡圖
-        Debug.Log("替換成關卡圖");
     }
     public void ReturnStage()
     {
@@ -28,8 +21,8 @@ public class SceneManger : MonoBehaviour
     {
         Time.timeScale = 1f;
         string index = clickedButton.GetComponentInChildren<TextMeshProUGUI>().text;
-        SceneManager.LoadScene($"{index}");    
-        Debug.Log("替換成關卡 " + $"{index}");    
+        SceneManager.LoadScene($"{index}");
+        Debug.Log("替換成關卡 " + $"{index}");
     }
     public void NextStage()
     {
@@ -37,7 +30,7 @@ public class SceneManger : MonoBehaviour
         string currentSceneName = SceneManager.GetActiveScene().name;  // 例如 Level 0
         // 以 ' ' 分割：得到 ["Level", "0"]
         string[] parts = currentSceneName.Split(' ');
-        
+
         if (int.TryParse(parts[1], out int levelNumber))
         {
             levelNumber++;
@@ -49,4 +42,5 @@ public class SceneManger : MonoBehaviour
             Debug.LogError("轉換失敗：不是有效的數字 -> " + parts[1]);
         }
     }
+    
 }

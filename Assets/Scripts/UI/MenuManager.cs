@@ -33,7 +33,7 @@ public class MenuManager : MonoBehaviour
         _stageMenuUI.SetActive(true);
         EventSystem.current.SetSelectedGameObject(_stageMenuFirst);
     }
-    public void ReturnToMene()
+    public void ReturnToMenu()
     {
         AudioManager.Instance.Play(1, "shoot", false);
         _mainMenuUI.SetActive(true);
