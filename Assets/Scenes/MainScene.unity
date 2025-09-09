@@ -755,6 +755,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stage_UI
       objectReference: {fileID: 0}
+    - target: {fileID: 7672915157304272305, guid: c5cc0bd4329bebb48963d3359c7cae34, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1145,10 +1149,6 @@ PrefabInstance:
       propertyPath: _mainMenuUI
       value: 
       objectReference: {fileID: 1619569756}
-    - target: {fileID: 2401736496127503910, guid: b4e1981d44a51314e9e762b9ab87955b, type: 3}
-      propertyPath: _inputAction
-      value: 
-      objectReference: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     - target: {fileID: 2401736496127503910, guid: b4e1981d44a51314e9e762b9ab87955b, type: 3}
       propertyPath: _stageMenuUI
       value: 

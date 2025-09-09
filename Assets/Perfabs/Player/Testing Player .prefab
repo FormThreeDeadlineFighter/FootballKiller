@@ -98,6 +98,37 @@ MonoBehaviour:
     m_Bits: 128
   _elementsBlock: 0
   AttackDamage: 0
+--- !u!1 &2472810023167782307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6154826228381795353}
+  m_Layer: 0
+  m_Name: Rboot_position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6154826228381795353
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2472810023167782307}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.39, y: 0.8, z: -1.2400017}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4647172846769166118}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3340443074126087632
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,6 +196,7 @@ Transform:
   m_Children:
   - {fileID: 189612747902352482}
   - {fileID: 5135419512114540241}
+  - {fileID: 6154826228381795353}
   - {fileID: 8845314997920559381}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -231,6 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHP: 100
+  _currentHP: 0
   _walkValue: 0.1
   _runValue: 0.7
   _cameraTransform: {fileID: 0}
