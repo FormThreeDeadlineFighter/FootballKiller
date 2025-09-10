@@ -22,11 +22,13 @@ public class GameManager : MonoBehaviour
     {
         Instantiate(_winUI, UI.transform);
         Debug.Log("You Win");
+        _gameEvent.OnGameVictory -= OnVectory;
     }
 
     void OnDefeat()
     {
         Instantiate(_lossUI, UI.transform);
         Debug.Log("You Lose");
+        _gameEvent.OnGameDefeat -= OnDefeat;
     }
 }

@@ -22,6 +22,11 @@ public class EnergyController : MonoBehaviour
         _playerEvents.PlayerSave(_energySaver);
         _playerEvents.OnPlayerBlock += OnSave;
     }
+    
+    void OnDisable()
+    {
+        _playerEvents.OnPlayerBlock -= OnSave;
+    }
 
     void OnSave(Elements element)
     {
