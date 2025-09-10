@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 public class EnergyController : MonoBehaviour
 {
     [SerializeField] private float _energySaver;
+    [SerializeField] private float _maxEnergy;
     [SerializeField] private Elements _savedElement;
     [SerializeField] GameObject _blockDetector;
     [SerializeField] GameObject _shootingPoint;
@@ -30,7 +31,7 @@ public class EnergyController : MonoBehaviour
     }
     void OnEnable()
     {
-        
+        _playerEvents.PlayerBlock(_energySaver);
     }
     void Update()
     {
@@ -52,8 +53,16 @@ public class EnergyController : MonoBehaviour
         
         if(_detectElement == _savedElement)
         {
-            Debug.Log("player save energy");
-            _energySaver += 10f;
+            if (_energySaver < _maxEnergy)
+            {
+                _energySaver += 10f;
+                Debug.Log("player save energy");
+            }
+            else
+            {
+                Debug.Log("player energy full");
+            }
+            _playerEvents.PlayerBlock(_energySaver);
             return true;
             
         }
@@ -64,14 +73,15 @@ public class EnergyController : MonoBehaviour
             return false;     
         }        
     }
-    
+
     public void OnShoot()
     {
-        if(_energySaver > 10f)
+        if (_energySaver > 10f)
         {
             _energySaver -= 10f;
-            Instantiate(_energyBullet, _shootingPoint.transform.position,  _shootingPoint.transform.rotation);
+            Instantiate(_energyBullet, _shootingPoint.transform.position, _shootingPoint.transform.rotation);
         }
+        _playerEvents.PlayerBlock(_energySaver);
     }
     
 }
