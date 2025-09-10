@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform _cameraTransform;
     [SerializeField] GameObject _blockDetector;
     [SerializeField] PlayerEvents _playerEvents;
+    [SerializeField] GameEvent _gameEvent;
 
     private Rigidbody _rb;
     private PlayerGroundDetector _groundDetector;
@@ -116,12 +117,16 @@ public class PlayerController : MonoBehaviour
     {
         _blockDetector.SetActive(false);
     }
-    
+
     private void PlayerHurt(float damage)
     {
         if (HP >= 0)
         {
             HP -= damage;
+        }
+        if (HP <= 0)
+        {
+            _gameEvent.GameDefeat();
         }
     }
     
