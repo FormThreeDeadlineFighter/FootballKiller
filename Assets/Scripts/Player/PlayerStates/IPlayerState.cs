@@ -29,7 +29,7 @@ public class IPlayerState : ScriptableObject ,IState
     // when enter state happen
     public virtual void EnterState() 
     {
-        Debug.Log($"player {_animationName}");
+        Debug.Log($"player enter {this}");
         _animator.CrossFade(_stateHash, _transitionDuration);
         _stateEnterTime = Time.time;
     }

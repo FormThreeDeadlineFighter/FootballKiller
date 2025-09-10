@@ -4,6 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerController : MonoBehaviour
 {
+    [Header("Player Property")]
     [SerializeField] float _maxHP = 100;
     [SerializeField] float _currentHP;
     public float HP 
@@ -27,13 +28,16 @@ public class PlayerController : MonoBehaviour
     }
     [SerializeField, Range(0,1)] float _walkValue;
     [SerializeField, Range(0,1)] float _runValue;
+
+    [Header("Player Objects")]
     [SerializeField] Transform _cameraTransform;
+    [SerializeField] GameObject _blockDetector;
     [SerializeField] PlayerEvents _playerEvents;
+
     private Rigidbody _rb;
     private PlayerGroundDetector _groundDetector;
     private PlayerInput _input;
     private EnergyController _energyController;
-    private PlayerEvents _playerEvent;
     
     public bool IsGrounded => _groundDetector.IsGrounded;
     public bool IsFalling => _rb.linearVelocity.y < 0 && !IsGrounded;
@@ -99,14 +103,18 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    void PlayerTurn()
-    {
-    }
-    
-    
     public void PlayerShoot()
     {
         _energyController.OnShoot();
+    }
+
+    public void PlayerBlockEnter()
+    {
+        _blockDetector.SetActive(true);
+    }
+    public void PlayerBlockExit()
+    {
+        _blockDetector.SetActive(false);
     }
     
     private void PlayerHurt(float damage)
@@ -116,6 +124,7 @@ public class PlayerController : MonoBehaviour
             HP -= damage;
         }
     }
+    
     
 }
 public enum MoveMode {idle, walk, run}

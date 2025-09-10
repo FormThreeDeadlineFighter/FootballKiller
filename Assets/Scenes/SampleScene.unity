@@ -980,6 +980,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 10
   Elements: 1
+--- !u!1 &1393600235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 722372756752154950, guid: e12543a1f8828344397662806aa51019, type: 3}
+  m_PrefabInstance: {fileID: 2426349017571330895}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1472953737 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8541751422681217986, guid: e12543a1f8828344397662806aa51019, type: 3}
@@ -1119,6 +1124,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7662909836243345714, guid: d31760fb07328df48b034e9eb6a2c434, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662909836243345714, guid: d31760fb07328df48b034e9eb6a2c434, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662909836243345714, guid: d31760fb07328df48b034e9eb6a2c434, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7668032743379488472, guid: d31760fb07328df48b034e9eb6a2c434, type: 3}
@@ -1338,7 +1351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fbcc33c7cf889469f447b460a8fac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
+  Damage: 20
   Elements: 2
 --- !u!65 &2081681378
 BoxCollider:
@@ -1679,6 +1692,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 886861020131862517, guid: e12543a1f8828344397662806aa51019, type: 3}
+      propertyPath: _blockDetector
+      value: 
+      objectReference: {fileID: 1393600235}
+    - target: {fileID: 886861020131862517, guid: e12543a1f8828344397662806aa51019, type: 3}
       propertyPath: _cameraTransform
       value: 
       objectReference: {fileID: 2133070758}
@@ -1729,6 +1746,10 @@ PrefabInstance:
     - target: {fileID: 5154881624842679557, guid: e12543a1f8828344397662806aa51019, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
       value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357803437436584419, guid: e12543a1f8828344397662806aa51019, type: 3}
+      propertyPath: _energySaver
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

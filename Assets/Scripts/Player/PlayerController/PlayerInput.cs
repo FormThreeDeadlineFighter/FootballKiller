@@ -8,7 +8,7 @@ public class PlayerInput : MonoBehaviour
     PlayerControl _playerControl;
     public Vector2 StickValue;
     public bool IsJump => _playerControl.Player.Jump.WasPerformedThisFrame();
-    public bool IsBlock => _playerControl.Player.Block.WasPressedThisFrame();
+    public bool IsBlock => _playerControl.Player.Block.WasPerformedThisFrame();
     public bool IsShoot => _playerControl.Player.Shoot.WasPerformedThisFrame();
     
     public void Awake()

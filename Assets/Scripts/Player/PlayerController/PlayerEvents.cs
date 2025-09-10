@@ -4,12 +4,20 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Data/EventChannels/PlayerEvents", fileName = "PlayerEvents")]
 public class PlayerEvents : ScriptableObject
 {
-    public Action<float> OnPlayerBlock;
-    public void PlayerBlock(float damage)
+    public Action<Elements> OnPlayerBlock;
+    public void PlayerBlock(Elements element)
     {
         if (OnPlayerBlock != null)
         {
-            OnPlayerBlock(damage);
+            OnPlayerBlock(element);
+        }
+    }
+    public Action<float> OnPlayerSave;
+    public void PlayerSave(float damage)
+    {
+        if (OnPlayerSave != null)
+        {
+            OnPlayerSave(damage);
         }
     }
     

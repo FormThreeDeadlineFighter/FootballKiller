@@ -13,19 +13,19 @@ public class Robot : MonoBehaviour
     {
         if (_blockAction.IsPressed())
         {
-            onBlock();
+            OnBlock();
         }
         else
         {
-            onMove();
+            OnMove();
         }
     }
-    void onMove()
+    void OnMove()
     {
         this.gameObject.transform.position = _robotPosition.transform.position;
         this.gameObject.transform.rotation = _robotPosition.transform.rotation * Quaternion.Euler(0, 180, 0);
     }
-    void onBlock()
+    void OnBlock()
     {
         this.gameObject.transform.position = _blockPosition.transform.position;
         this.gameObject.transform.rotation = _blockPosition.transform.rotation * Quaternion.Euler(0, 180, 0);

@@ -57,8 +57,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8541751422681217986}
-  - component: {fileID: 1564740880890026891}
   - component: {fileID: 5154881624842679557}
+  - component: {fileID: 1564740880890026891}
   m_Layer: 0
   m_Name: Block Detector
   m_TagString: Untagged
@@ -81,24 +81,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5135419512114540241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1564740880890026891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 722372756752154950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cecdadd8c07a5948b4742f0ac5cb8de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _halfExtents: {x: 0.45, y: 0.8, z: 0.4}
-  _energyLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  _elementsBlock: 0
-  AttackDamage: 0
 --- !u!65 &5154881624842679557
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -120,6 +102,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2.8, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1564740880890026891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722372756752154950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cecdadd8c07a5948b4742f0ac5cb8de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _elementsBlock: 0
+  AttackDamage: 0
+  _playerEvents: {fileID: 11400000, guid: 51a858bca8b742c4eb4a52f4a8fb9dfd, type: 2}
 --- !u!1 &2472810023167782307
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,6 +286,7 @@ MonoBehaviour:
   _walkValue: 0.1
   _runValue: 0.7
   _cameraTransform: {fileID: 0}
+  _blockDetector: {fileID: 0}
   _playerEvents: {fileID: 11400000, guid: 51a858bca8b742c4eb4a52f4a8fb9dfd, type: 2}
   CanJump: 0
 --- !u!114 &3505426514437498156

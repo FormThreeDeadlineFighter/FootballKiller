@@ -9,11 +9,11 @@ public class PlayerEnergyUIController : MonoBehaviour
     [SerializeField] PlayerEvents _playerEvents;
     void OnEnable()
     {
-        _playerEvents.OnPlayerBlock += EnergyUICahnge;
+        _playerEvents.OnPlayerSave += EnergyUICahnge;
     }
     void OnDisable()
     {
-        _playerEvents.OnPlayerBlock -= EnergyUICahnge;
+        _playerEvents.OnPlayerSave -= EnergyUICahnge;
     }
     
     private void EnergyUICahnge(float value)

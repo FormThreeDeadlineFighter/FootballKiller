@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerState_Idle : IPlayerState
 {
     public override void EnterState()
-    { 
+    {
         base.EnterState();
+        _player.PlayerBlockExit();
     }
     public override void ExitState()
     {
