@@ -5,16 +5,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Property")]
-    [SerializeField] float _maxHP = 100;
+    [SerializeField] float _HP = 100;
     [SerializeField] float _currentHP;
     public float HP 
     {
         get => _currentHP;
         set 
         { 
-            if(value > _maxHP)
+            if(value > _HP)
             {
-                _currentHP = _maxHP;
+                _currentHP = _HP;
             }
             else if(value < 0)
             {
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
         _groundDetector = GetComponentInChildren<PlayerGroundDetector>();
         _energyController = GetComponentInChildren<EnergyController>();
 
-        HP = _maxHP;
+        HP = _HP;
     }
 
     void OnEnable()

@@ -10,25 +10,28 @@ public class PlayerStateController : IStateController
     private PlayerInput _playerInput;
     private PlayerController _player;
 
-    private void Awake()
+    void OnEnable()
     {
         _player = GetComponent<PlayerController>();
         _animator = _model.GetComponent<Animator>();
         _playerInput = GetComponent<PlayerInput>();
-        
+
         _stateTable = new Dictionary<System.Type, IState>(_playerStates.Length);
-      
-        foreach(IPlayerState state in _playerStates)
-        {  
-            state.Initialize(this, _player, _animator, _playerInput);
-            _stateTable.Add(state.GetType(), state);
+
+        if (_playerStates != null)
+        {
+            foreach (IPlayerState state in _playerStates)
+            {
+                state.Initialize(this, _player, _animator, _playerInput);
+                _stateTable.Add(state.GetType(), state);
+            }
         }
-        
+
+        SetState(_stateTable[typeof(PlayerState_Idle)]);
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {    
-        SetState(_stateTable[typeof(PlayerState_Idle)]);
+    void OnDisable()
+    {
+        _stateTable.Clear();
     }
 }
