@@ -24,7 +24,6 @@ public class EnemyStateController : IStateController
             }
         }
         
-        SetState(_stateTable[typeof(PlayerState_Idle)]);
     }
 
     void CreateState(IEnemyState state)
