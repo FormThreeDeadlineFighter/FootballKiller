@@ -28,8 +28,9 @@ public class EnemyController : MonoBehaviour
     // enemy move speed 
     [SerializeField] float _moveSpeed;
 
-    [Header("Energy Objects")]
+    [Header("Event System")]
     [SerializeField] GameEvent _gameEvent;
+    [SerializeField] BossEvent _bossEvent;
 
     private Rigidbody _rb;
 
@@ -43,6 +44,18 @@ public class EnemyController : MonoBehaviour
     }
     void OnDestroy()
     {
-        
+
+    }
+    
+    private void EnemyHurt(float damage)
+    {
+        if (HP >= 0)
+        {
+            HP -= damage;
+        }
+        if (HP <= 0)
+        {
+            _gameEvent.GameVictory();
+        }
     }
 }

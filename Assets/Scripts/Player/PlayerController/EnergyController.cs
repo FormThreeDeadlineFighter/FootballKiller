@@ -10,7 +10,7 @@ public class EnergyController : MonoBehaviour
     [SerializeField] GameObject _blockDetector;
     [SerializeField] GameObject _shootingPoint;
     [SerializeField] GameObject _energyBullet;
-    [SerializeField] PlayerEvents _playerEvents;
+    [SerializeField] PlayerEvent _playerEvents;
     PlayerBlockDetector _playerBlockDetector;
 
     void Awake()

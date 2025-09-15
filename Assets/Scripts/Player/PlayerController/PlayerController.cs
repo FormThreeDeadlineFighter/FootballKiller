@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     [Header("Player Objects")]
     [SerializeField] Transform _cameraTransform;
     [SerializeField] GameObject _blockDetector;
-    [SerializeField] PlayerEvents _playerEvents;
+    [SerializeField] PlayerEvent _playerEvents;
     [SerializeField] GameEvent _gameEvent;
 
     private Rigidbody _rb;

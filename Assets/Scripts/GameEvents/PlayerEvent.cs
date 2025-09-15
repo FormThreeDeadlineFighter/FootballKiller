@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Data/EventChannels/PlayerEvents", fileName = "PlayerEvents")]
-public class PlayerEvents : ScriptableObject
+public class PlayerEvent : ScriptableObject
 {
     public Action<Elements> OnPlayerBlock;
     public void PlayerBlock(Elements element)

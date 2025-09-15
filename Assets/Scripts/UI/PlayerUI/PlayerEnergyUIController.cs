@@ -6,7 +6,7 @@ public class PlayerEnergyUIController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI EnergyText;
     [SerializeField] Slider EnergyUI;
-    [SerializeField] PlayerEvents _playerEvents;
+    [SerializeField] PlayerEvent _playerEvents;
     void OnEnable()
     {
         _playerEvents.OnPlayerSave += EnergyUICahnge;

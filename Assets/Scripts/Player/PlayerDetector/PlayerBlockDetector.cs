@@ -6,7 +6,7 @@ public class PlayerBlockDetector : MonoBehaviour
     Collider[] _colliders = new Collider[50];
     public Elements _elementsBlock;
     public float AttackDamage;
-    [SerializeField] PlayerEvents _playerEvents;
+    [SerializeField] PlayerEvent _playerEvents;
 
     void OnTriggerStay(Collider other)
     {

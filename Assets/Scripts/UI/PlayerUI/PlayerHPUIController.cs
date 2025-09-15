@@ -6,7 +6,7 @@ public class PlayerHPUIController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI HPText;
     [SerializeField] Slider HPUI;
-    [SerializeField] PlayerEvents _playerEvents;
+    [SerializeField] PlayerEvent _playerEvents;
     void OnEnable()
     {
         _playerEvents.OnPlayerHurt += HPUICahnge;
