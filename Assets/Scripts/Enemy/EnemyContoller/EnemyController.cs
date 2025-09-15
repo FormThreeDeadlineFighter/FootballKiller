@@ -5,6 +5,7 @@ public class EnemyController : MonoBehaviour
     [Header("Energy Property")]
     [SerializeField] private float _HP;
     [SerializeField] private float _currentHP;
+    // enermy HP 
     public float HP
     {
         get => _currentHP;
@@ -24,6 +25,7 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
+    // enemy move speed 
     [SerializeField] float _moveSpeed;
 
     [Header("Energy Objects")]
@@ -33,7 +35,7 @@ public class EnemyController : MonoBehaviour
 
     void OnEnable()
     {
-        
+        _currentHP = _HP;
     }
     void OnDisable()
     {

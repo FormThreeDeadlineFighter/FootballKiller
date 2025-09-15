@@ -6,7 +6,7 @@ public class IEnemyState : ScriptableObject ,IState
     [SerializeField, Range(0f, 1f)] float _transitionDuration = 0.1f;
     float _stateEnterTime;
     int _stateHash; 
-    protected EnemyStateController _stateMachine;
+    protected BaseballStateController _stateMachine;
     protected Animator _animator;
     protected EnemyController _enemy;
     protected bool IsAnimationComplete => _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f;
@@ -16,7 +16,7 @@ public class IEnemyState : ScriptableObject ,IState
     {
         _stateHash = Animator.StringToHash(_animationName);
     }
-    public void Initialize(EnemyStateController stateMachine, EnemyController enemy, Animator animator)
+    public void Initialize(BaseballStateController stateMachine, EnemyController enemy, Animator animator)
     {
         _stateMachine = stateMachine;
         _enemy = enemy;
@@ -31,8 +31,8 @@ public class IEnemyState : ScriptableObject ,IState
     }
     // when exit state happen
     public virtual void ExitState() 
-    { 
-    
+    {
+
     }
     // state update, not using physics
     public virtual void LogicUpdate() 
