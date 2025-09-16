@@ -37,17 +37,18 @@ public class EnemyController : MonoBehaviour
     void OnEnable()
     {
         _currentHP = _HP;
+        _bossEvent.OnBossHurt += BossHurt;
     }
     void OnDisable()
     {
-
+        _bossEvent.OnBossHurt -= BossHurt;
     }
     void OnDestroy()
     {
 
     }
     
-    private void EnemyHurt(float damage)
+    private void BossHurt(float damage)
     {
         if (HP >= 0)
         {
@@ -56,6 +57,14 @@ public class EnemyController : MonoBehaviour
         if (HP <= 0)
         {
             _gameEvent.GameVictory();
+        }
+    }
+    
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.TryGetComponent<IAttack>(out IAttack attack))
+        {
+            _bossEvent.PlayerHurt(attack.Damage);
         }
     }
 }

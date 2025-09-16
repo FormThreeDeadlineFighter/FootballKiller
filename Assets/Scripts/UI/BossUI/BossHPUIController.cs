@@ -6,13 +6,16 @@ public class BossHPUIController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI HPText;
     [SerializeField] Slider HPUI;
+    [SerializeField] BossEvent _bossEvent;
     void OnEnable()
     {
-        //_playerEvents.OnPlayerHurt += HPUICahnge;
+        HPUI.value = HPUI.maxValue;
+        HPText.text = HPUI.value.ToString();
+        _bossEvent.OnBossHurt += HPUICahnge;
     }
     void OnDisable()
     {
-        //_playerEvents.OnPlayerHurt -= HPUICahnge;
+        _bossEvent.OnBossHurt -= HPUICahnge;
     }
     
     private void HPUICahnge(float damage)

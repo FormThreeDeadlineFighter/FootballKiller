@@ -8,7 +8,7 @@ public class PlayerBlockDetector : MonoBehaviour
     public float AttackDamage;
     [SerializeField] PlayerEvent _playerEvents;
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<IAttack>(out IAttack attack))
         {

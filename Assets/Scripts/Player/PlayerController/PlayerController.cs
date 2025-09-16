@@ -129,7 +129,5 @@ public class PlayerController : MonoBehaviour
             _gameEvent.GameDefeat();
         }
     }
-    
-    
 }
 public enum MoveMode {idle, walk, run}

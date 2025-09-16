@@ -9,6 +9,8 @@ public class PlayerHPUIController : MonoBehaviour
     [SerializeField] PlayerEvent _playerEvents;
     void OnEnable()
     {
+        HPUI.value = HPUI.maxValue;
+        HPText.text = HPUI.value.ToString();
         _playerEvents.OnPlayerHurt += HPUICahnge;
     }
     void OnDisable()
