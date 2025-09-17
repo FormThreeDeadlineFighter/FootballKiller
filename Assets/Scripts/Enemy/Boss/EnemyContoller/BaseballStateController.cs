@@ -13,7 +13,7 @@ public class BaseballStateController : IStateController
     void OnEnable()
     {
         _enemy = GetComponent<EnemyController>();
-        _animator = _model.GetComponent<Animator>();
+        _animator = _model.GetComponentInChildren<Animator>();
 
         // creat a state dictionary 
         _stateTable = new Dictionary<System.Type, IState>(_energyStates.Length);

@@ -3,32 +3,39 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerState_Shoot : IPlayerState
 {
-   public override void EnterState()
+    [SerializeField] float _duration = 0.1f;
+    private float _currentTime;
+    public override void EnterState()
     { 
-        base.EnterState();
-        _player.PlayerShoot();
+        base.EnterState();    
+        _currentTime = _duration;
     }
     public override void ExitState()
     {
-    
+        _player.PlayerShoot();
     }
     public override void LogicUpdate()
     {
-        if(_player.MoveMode == MoveMode.idle)
+        _currentTime -= Time.deltaTime;
+        
+        if (_currentTime <= 0)
         {
-            _stateMachine.SetState(typeof(PlayerState_Idle));
-        }
-        if(_player.MoveMode == MoveMode.walk)
-        {
-            _stateMachine.SetState(typeof(PlayerState_Walk));
-        }
-        if(_player.MoveMode == MoveMode.run)
-        {
-            _stateMachine.SetState(typeof(PlayerState_Run));
-        }
-        if(_input.IsJump && _player.CanJump && _player.IsGrounded)
-        {
-            _stateMachine.SetState(typeof(PlayerState_Jump));
+            if(_player.MoveMode == MoveMode.idle)
+            {
+                _stateMachine.SetState(typeof(PlayerState_Idle));
+            }
+            if(_player.MoveMode == MoveMode.walk)
+            {
+                _stateMachine.SetState(typeof(PlayerState_Walk));
+            }
+            if(_player.MoveMode == MoveMode.run)
+            {
+                _stateMachine.SetState(typeof(PlayerState_Run));
+            }
+            if(_input.IsJump && _player.CanJump && _player.IsGrounded)
+            {
+                _stateMachine.SetState(typeof(PlayerState_Jump));
+            }
         }
     }
     public override void PhysicsUpdate()
