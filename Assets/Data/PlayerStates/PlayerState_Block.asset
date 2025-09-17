@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animationName: 
   _transitionDuration: 0.1
-  _duration: 0.5
+  _moveSpeed: 2
+  _duration: 0.2

@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 4968043960990782203}
   - component: {fileID: 4628513554341889555}
   - component: {fileID: 5785709828975726103}
-  - component: {fileID: 7490689129444361568}
   - component: {fileID: 7847313317752708959}
+  - component: {fileID: 7490689129444361568}
   m_Layer: 0
   m_Name: Baseball Boss
   m_TagString: Untagged
@@ -162,22 +162,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7490689129444361568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8589589239189046773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8ed6d7711154ee4293fdb0406d75078, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _energyStates:
-  - {fileID: 11400000, guid: 5d936bdaeea34e34c9c9bbf1e4bd416d, type: 2}
-  - {fileID: 11400000, guid: 008296a6be1fbab41995b686318112e1, type: 2}
-  _model: {fileID: 8589589239189046773}
 --- !u!114 &7847313317752708959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +179,22 @@ MonoBehaviour:
   _moveSpeed: 0
   _gameEvent: {fileID: 11400000, guid: 4d3e622616f0422419f565b9695f06d9, type: 2}
   _bossEvent: {fileID: 11400000, guid: ff0702085d81b1a4b92d72f49e086342, type: 2}
+--- !u!114 &7490689129444361568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8589589239189046773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ed6d7711154ee4293fdb0406d75078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _energyStates:
+  - {fileID: 11400000, guid: 5d936bdaeea34e34c9c9bbf1e4bd416d, type: 2}
+  - {fileID: 11400000, guid: 008296a6be1fbab41995b686318112e1, type: 2}
+  _model: {fileID: 8589589239189046773}
 --- !u!1 &8995538557543488023
 GameObject:
   m_ObjectHideFlags: 0

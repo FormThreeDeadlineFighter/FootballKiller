@@ -56,12 +56,13 @@ public class EnergyController : MonoBehaviour
             _playerEvents.PlayerSave(_energySaver);
         }        
     }
-
+    // player press shoot
     public void OnShoot()
     {
         if (_energySaver > 0f)
         {
             _energySaver -= 10f;
+            // player bullet material change;
             _energyBullet.GetComponent<IAttack>().Elements = _savedElement;
             Instantiate(_energyBullet, _shootingPoint.transform.position, _shootingPoint.transform.rotation);
         }

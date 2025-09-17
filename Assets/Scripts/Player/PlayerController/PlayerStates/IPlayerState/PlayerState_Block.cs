@@ -4,6 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerState_Block : IPlayerState
 {
+    [SerializeField] float _moveSpeed = 2.0f;
     [SerializeField] float _duration = 0.1f;
     private float _blockTime;
     public override void EnterState()
@@ -41,7 +42,7 @@ public class PlayerState_Block : IPlayerState
         }           
     }
     public override void PhysicsUpdate()
-    { 
-        
+    {
+        _player.PlayerMove(_moveSpeed);
     }
 }

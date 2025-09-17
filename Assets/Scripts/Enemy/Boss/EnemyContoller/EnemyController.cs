@@ -38,14 +38,14 @@ public class EnemyController : MonoBehaviour
     {
         _currentHP = _HP;
         _bossEvent.OnBossHurt += BossHurt;
+        _gameEvent.OnGameVictory += GameOver;
+        _gameEvent.OnGameDefeat += GameOver;
     }
     void OnDisable()
     {
         _bossEvent.OnBossHurt -= BossHurt;
-    }
-    void OnDestroy()
-    {
-
+        _gameEvent.OnGameVictory -= GameOver;
+        _gameEvent.OnGameDefeat -= GameOver;
     }
     
     private void BossHurt(float damage)
@@ -58,6 +58,11 @@ public class EnemyController : MonoBehaviour
         {
             _gameEvent.GameVictory();
         }
+    }
+
+    private void GameOver()
+    {
+        Destroy(this.gameObject);
     }
     
     void OnTriggerEnter(Collider other)
