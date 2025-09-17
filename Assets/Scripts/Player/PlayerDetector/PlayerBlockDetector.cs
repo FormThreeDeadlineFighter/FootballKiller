@@ -3,8 +3,6 @@ using UnityEngine.Events;
 
 public class PlayerBlockDetector : MonoBehaviour
 {
-    Collider[] _colliders = new Collider[50];
-    public Elements _elementsBlock;
     public float AttackDamage;
     [SerializeField] PlayerEvent _playerEvents;
 
@@ -12,13 +10,13 @@ public class PlayerBlockDetector : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent<IAttack>(out IAttack attack))
         {
-            _elementsBlock = attack.Elements;
             AttackDamage = attack.Damage;
-            _playerEvents.PlayerBlock(_elementsBlock);
+            _playerEvents.PlayerBlock(attack.Elements);
+            Debug.Log("player block");
         }
     }
     void OnTriggerExit(Collider other)
     {
-        _elementsBlock = Elements.none;
+        _playerEvents.PlayerBlock(Elements.none);
     }
 }

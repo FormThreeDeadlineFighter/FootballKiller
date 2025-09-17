@@ -4,6 +4,9 @@ using UnityEngine;
 public class BaseballState_CircleAttack : IEnemyState
 {
     [SerializeField] GameObject _attack;
+    // each bullet between angle
+    [SerializeField, Range(0,360)] float _spreadAngle = 60;
+    [SerializeField] float _spawnPosition = 10;
     public override void EnterState()
     {
         base.EnterState();
@@ -12,9 +15,18 @@ public class BaseballState_CircleAttack : IEnemyState
     {
         if (_attack != null)
         {
-            Instantiate(_attack, _enemy.transform.position, new Quaternion(0, 0, _enemy.transform.rotation.z - 30,0));
-            Instantiate(_attack, _enemy.transform.position, new Quaternion(0, 0, _enemy.transform.rotation.z,0));
-            Instantiate(_attack, _enemy.transform.position, new Quaternion(0, 0, _enemy.transform.rotation.z + 30,0));
+            int num = Random.Range(1, 3);
+            _attack.GetComponent<IAttack>().Elements = (Elements)num;
+            // attack spawn position
+            float positionY = _enemy.transform.position.y - _spawnPosition;
+            Vector3 position = new Vector3(0, positionY, 0) + _enemy.transform.position;
+            // change attack rotate
+            float angle = _enemy.transform.eulerAngles.y;
+            for (int i = 0; i < 360/ _spreadAngle; i++)
+            {
+                Instantiate(_attack, position, Quaternion.Euler(0, angle, 0));
+                angle += _spreadAngle;
+            }
         }
     }
 

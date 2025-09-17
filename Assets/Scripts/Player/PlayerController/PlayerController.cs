@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     [Header("Player Objects")]
     [SerializeField] Transform _cameraTransform;
     [SerializeField] GameObject _blockDetector;
+    [SerializeField] GameObject _bodyDetector;
     [SerializeField] PlayerEvent _playerEvents;
     [SerializeField] GameEvent _gameEvent;
 
@@ -73,11 +74,13 @@ public class PlayerController : MonoBehaviour
     {   
         CanJump = true;
         _playerEvents.OnPlayerHurt += PlayerHurt;
+        _bodyDetector.SetActive(true);
     }
 
     void OnDisable()
     {
         _playerEvents.OnPlayerHurt -= PlayerHurt;
+        _bodyDetector.SetActive(false);
     }
     public void SetVelocityY(float speed)
     {

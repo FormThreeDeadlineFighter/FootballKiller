@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animationName: Attack
   _transitionDuration: 0.1
-  _attack: {fileID: 7841672020790003158, guid: e5467e32593c5a4429eb21312f115118, type: 3}
+  _attack: {fileID: 7841672020790003158, guid: 0d842644ecdf6d14bb537a9c73681bc0, type: 3}
+  _spreadAngle: 30
+  _spawnPosition: 40

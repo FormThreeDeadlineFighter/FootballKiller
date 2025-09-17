@@ -62,6 +62,7 @@ public class EnergyController : MonoBehaviour
         if (_energySaver > 0f)
         {
             _energySaver -= 10f;
+            _energyBullet.GetComponent<IAttack>().Elements = _savedElement;
             Instantiate(_energyBullet, _shootingPoint.transform.position, _shootingPoint.transform.rotation);
         }
         _playerEvents.PlayerSave(_energySaver);

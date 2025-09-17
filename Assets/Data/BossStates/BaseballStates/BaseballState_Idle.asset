@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animationName: 
   _transitionDuration: 0.1
+  _cooldown: 3
