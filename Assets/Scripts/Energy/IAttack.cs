@@ -5,7 +5,7 @@ public class IAttack : MonoBehaviour
     public float Damage;
     public Elements Elements;
     Renderer _renderer;
-
+    
     private void OnEnable()
     {
         _renderer = gameObject.GetComponent<Renderer>();
@@ -13,16 +13,16 @@ public class IAttack : MonoBehaviour
         switch(Elements)
         {
             case Elements.red:
-                _renderer.sharedMaterial.color = Color.red;
+                _renderer.material.color = Color.red;
                 break;
             case Elements.green:
-                _renderer.sharedMaterial.color = Color.green;
+                _renderer.material.color = Color.green;
                 break;
             case Elements.blue:
-                _renderer.sharedMaterial.color = Color.blue;
+                _renderer.material.color = Color.blue;
                 break;
             default:
-                _renderer.sharedMaterial.color = Color.white;
+                _renderer.material.color = Color.white;
                 break;
         }
     }
