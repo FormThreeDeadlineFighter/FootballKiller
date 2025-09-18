@@ -82,10 +82,16 @@ public class PlayerController : MonoBehaviour
         _playerEvents.OnPlayerHurt -= PlayerHurt;
         _bodyDetector.SetActive(false);
     }
-    public void SetVelocityY(float speed)
+    public void SetVelocity(Vector3 velocity)
     {
-        _rb.linearVelocity += Vector3.up * speed;
+        _rb.linearVelocity = velocity;
     }
+    public void SetVelocityY(float velocityY)
+    {
+        _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, velocityY, _rb.linearVelocity.z);
+    }
+
+
     public void PlayerMove(float speed)
     {
         Vector3 camForward = _cameraTransform.forward;
@@ -97,13 +103,11 @@ public class PlayerController : MonoBehaviour
 
         Vector3 moveDir = camForward * _input.StickValue.y + camRight * _input.StickValue.x;
         
-        //if(Vector3.Angle(camForward, moveDir) > 45)
-        
         if(moveDir != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
             _rb.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.fixedDeltaTime);
-            _rb.transform.position += moveDir *  speed * Time.fixedDeltaTime;
+            _rb.linearVelocity = moveDir *  speed;
         }
     }
     

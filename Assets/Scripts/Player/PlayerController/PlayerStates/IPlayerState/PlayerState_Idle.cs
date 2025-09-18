@@ -4,10 +4,11 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerState_Idle : IPlayerState
 {
+    [SerializeField] AnimationCurve _speedCurve;
     public override void EnterState()
     {
         base.EnterState();
-        _player.PlayerBlockExit();
+        _player.SetVelocity(Vector3.zero);
     }
     public override void ExitState()
     {
@@ -41,7 +42,7 @@ public class PlayerState_Idle : IPlayerState
         }
     }
     public override void PhysicsUpdate()
-    { 
-
+    {
+        
     }
 }
