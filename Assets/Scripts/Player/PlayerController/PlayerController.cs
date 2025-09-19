@@ -86,11 +86,19 @@ public class PlayerController : MonoBehaviour
     {
         _rb.linearVelocity = velocity;
     }
+    public void SetVelocityX(float velocityX)
+    {
+        _rb.linearVelocity = new Vector3(velocityX, _rb.linearVelocity.y, _rb.linearVelocity.z);
+    }
+
     public void SetVelocityY(float velocityY)
     {
         _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, velocityY, _rb.linearVelocity.z);
     }
-
+    public void SetVelocityZ(float velocityZ)
+    {
+        _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, _rb.linearVelocity.y, velocityZ);
+    }
 
     public void PlayerMove(float speed)
     {
@@ -107,7 +115,8 @@ public class PlayerController : MonoBehaviour
         {
             Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
             _rb.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.fixedDeltaTime);
-            _rb.linearVelocity = moveDir *  speed;
+            SetVelocityX( moveDir.x *  speed);
+            SetVelocityZ(moveDir.z * speed);
         }
     }
     
