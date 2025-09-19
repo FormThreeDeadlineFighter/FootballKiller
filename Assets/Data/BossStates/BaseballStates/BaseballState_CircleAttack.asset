@@ -17,3 +17,5 @@ MonoBehaviour:
   _attack: {fileID: 7841672020790003158, guid: 0d842644ecdf6d14bb537a9c73681bc0, type: 3}
   _spreadAngle: 45
   _spawnPosition: 20
+  _duration: 1
+  _loopTime: 1

@@ -26,6 +26,6 @@ public class PlayerState_Jump : IPlayerState
     }
     public override void PhysicsUpdate()
     {
-         _player.PlayerMove(_moveSpeed);
+         _player.Move(_moveSpeed);
     }
 }

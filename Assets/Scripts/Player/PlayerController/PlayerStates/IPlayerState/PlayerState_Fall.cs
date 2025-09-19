@@ -25,6 +25,6 @@ public class PlayerState_Fall : IPlayerState
     public override void PhysicsUpdate()
     {
         _player.SetVelocityY(_speedCurve.Evaluate(_stateDuration));
-        _player.PlayerMove(_moveSpeed);
+        _player.Move(_moveSpeed);
     }
 }

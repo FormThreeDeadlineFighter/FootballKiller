@@ -12,7 +12,7 @@ public class PlayerState_Shoot : IPlayerState
     }
     public override void ExitState()
     {
-        _player.PlayerShoot();
+        _player.Shoot();
     }
     public override void LogicUpdate()
     {
@@ -35,6 +35,14 @@ public class PlayerState_Shoot : IPlayerState
             if(_input.IsJump && _player.CanJump && _player.IsGrounded)
             {
                 _stateMachine.SetState(typeof(PlayerState_Jump));
+            }
+            if (_input.IsBlock && _player.CanBlock)
+            {
+                _stateMachine.SetState(typeof(PlayerState_Block));
+            }
+            if (_input.IsShoot && _player.CanShoot)
+            {
+                _stateMachine.SetState(typeof(PlayerState_Shoot));
             }
         }
     }

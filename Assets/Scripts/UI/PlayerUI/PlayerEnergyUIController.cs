@@ -22,6 +22,6 @@ public class PlayerEnergyUIController : MonoBehaviour
         {
             EnergyUI.value = value;
         }
-        EnergyText.text = EnergyUI.value.ToString();  
+        EnergyText.text = EnergyUI.value.ToString("00");  
     }
 }

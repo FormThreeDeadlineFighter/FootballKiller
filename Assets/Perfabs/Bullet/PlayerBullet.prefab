@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c037d762ee3354382da3133e36c6a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 100
 --- !u!114 &-2664859952569743677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,5 +163,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fbcc33c7cf889469f447b460a8fac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
-  Elements: 2
+  Damage: 30
+  Elements: 1

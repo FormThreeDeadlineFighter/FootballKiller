@@ -28,17 +28,19 @@ public class PlayerState_Run : IPlayerState
         {
             _stateMachine.SetState(typeof(PlayerState_Jump));
         }
-        if(_input.IsBlock)
+        if (_input.IsBlock && _player.CanBlock)
         {
             _stateMachine.SetState(typeof(PlayerState_Block));
         }
-        if(_input.IsShoot)
+        if (_input.IsShoot && _player.CanShoot)
         {
             _stateMachine.SetState(typeof(PlayerState_Shoot));
         }
+
+        _player.GainEnergy(2 * Time.deltaTime);
     }
     public override void PhysicsUpdate()
     { 
-        _player.PlayerMove(_moveSpeed);
+        _player.Move(_moveSpeed);
     }
 }

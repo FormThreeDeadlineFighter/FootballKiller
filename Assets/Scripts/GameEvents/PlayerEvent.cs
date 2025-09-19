@@ -13,11 +13,11 @@ public class PlayerEvent : ScriptableObject
         }
     }
     public Action<float> OnPlayerSave;
-    public void PlayerSave(float damage)
+    public void PlayerSave(float value)
     {
         if (OnPlayerSave != null)
         {
-            OnPlayerSave(damage);
+            OnPlayerSave(value);
         }
     }
     

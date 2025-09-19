@@ -6,22 +6,20 @@ public class PlayerState_Block : IPlayerState
 {
     [SerializeField] float _moveSpeed = 2.0f;
     [SerializeField] float _duration = 0.1f;
-    private float _blockTime;
+    private float _currentTime;
     public override void EnterState()
     {
         base.EnterState();
-        _player.PlayerBlockEnter();
-        _blockTime = _duration;
+        _player.BlockEnter();
+        _currentTime = _duration;
     }
     public override void ExitState()
     {
-        _player.PlayerBlockExit();
+        _player.BlockExit();
     }
     public override void LogicUpdate()
     {
-        _blockTime -= Time.deltaTime;
-
-        if (!_input.IsBlock && _blockTime <= 0)
+        if (!_input.IsBlock && _currentTime <= 0)
         {
             if (_player.MoveMode == MoveMode.idle)
             {
@@ -39,10 +37,20 @@ public class PlayerState_Block : IPlayerState
             {
                 _stateMachine.SetState(typeof(PlayerState_Jump));
             }
-        }           
+            if (_input.IsBlock && _player.CanBlock)
+            {
+                _stateMachine.SetState(typeof(PlayerState_Block));
+            }
+            if (_input.IsShoot && _player.CanShoot)
+            {
+                _stateMachine.SetState(typeof(PlayerState_Shoot));
+            }
+        }      
+        
+        _currentTime -= Time.deltaTime;
     }
     public override void PhysicsUpdate()
     {
-        _player.PlayerMove(_moveSpeed);
+        _player.Move(_moveSpeed);
     }
 }

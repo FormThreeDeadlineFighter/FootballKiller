@@ -4,14 +4,23 @@ using UnityEngine.UIElements;
 
 public class EnergyController : MonoBehaviour
 {
-    [SerializeField] private float _energySaver;
+    private float _energySaveValue;
     [SerializeField] private float _maxEnergy;
+    [SerializeField] private float _blockEnergy = 10f;
+    [SerializeField] private float _minBlockRequired = 1f;
+    [SerializeField] private float _shootEnergy = 40f;
+    [SerializeField] private float _minShootRequired = 30f;
+
     [SerializeField] private Elements _savedElement;
     [SerializeField] GameObject _blockDetector;
     [SerializeField] GameObject _shootingPoint;
     [SerializeField] GameObject _energyBullet;
     [SerializeField] PlayerEvent _playerEvents;
-    PlayerBlockDetector _playerBlockDetector;
+
+    private PlayerBlockDetector _playerBlockDetector;
+
+    public bool CanBlock => _energySaveValue >= _minBlockRequired;
+    public bool CanShoot => _energySaveValue >= _minShootRequired;
 
     void Awake()
     {
@@ -19,18 +28,19 @@ public class EnergyController : MonoBehaviour
     }
     void OnEnable()
     {
-        _playerEvents.PlayerSave(_energySaver);
-        _playerEvents.OnPlayerBlock += OnSave;
+        _playerEvents.OnPlayerBlock += OnBlockDetectElement;
+        _playerEvents.PlayerSave(_energySaveValue);
+
     }
     
     void OnDisable()
     {
-        _playerEvents.OnPlayerBlock -= OnSave;
+        _playerEvents.OnPlayerBlock -= OnBlockDetectElement;
     }
 
-    void OnSave(Elements element)
+    void OnBlockDetectElement(Elements element)
     {
-        if(_savedElement == Elements.none)
+        if (_savedElement == Elements.none)
         {
             Debug.Log($"detect {element}");
             _savedElement = element; 
@@ -38,40 +48,70 @@ public class EnergyController : MonoBehaviour
         
         if(element != _savedElement)
         {      
-            Debug.Log("player save fail");
+            Debug.Log("save fail");
             _playerEvents.PlayerHurt(_playerBlockDetector.AttackDamage); 
         }
         else
         {
-            if (_energySaver < _maxEnergy)
+            if (_energySaveValue < _maxEnergy)
             {
-                _energySaver += _playerBlockDetector.AttackDamage;
-                Debug.Log("player save energy");
+                EnergyGain(_playerBlockDetector.AttackDamage);
+                Debug.Log($"save {element} energy");
             }
             else
             {
-                Debug.Log("player energy full");
-            }
+                Debug.Log("energy full");
+            }             
+        }     
 
-            _playerEvents.PlayerSave(_energySaver);
-        }        
+        ElementReset();
+        _playerEvents.PlayerSave(_energySaveValue);
     }
     // player press shoot
     public void OnShoot()
     {
-        if (_energySaver > 0f)
-        {
-            _energySaver -= 10f;
-            // player bullet material change;
-            _energyBullet.GetComponent<IAttack>().Elements = _savedElement;
-            Instantiate(_energyBullet, _shootingPoint.transform.position, _shootingPoint.transform.rotation);
-        }
-        _playerEvents.PlayerSave(_energySaver);
+        EnergyUse(_shootEnergy);
 
-        if (_energySaver == 0)
+        // player bullet material change;
+        _energyBullet.GetComponent<IAttack>().Elements = _savedElement;
+        Instantiate(_energyBullet, _shootingPoint.transform.position, _shootingPoint.transform.rotation);
+
+        ElementReset();
+        _playerEvents.PlayerSave(_energySaveValue);
+    }
+
+    public void EnergyGain(float value)
+    {
+        ElementReset();
+
+        if (_energySaveValue < _maxEnergy)
+        {
+            _energySaveValue += value;
+        }
+
+        _playerEvents.PlayerSave(_energySaveValue);
+    }
+
+    public void EnergyUse(float value)
+    {
+        if(_energySaveValue >= 0)
+        {
+           _energySaveValue -= value;
+        }
+        else
+        {
+            _energySaveValue = 0;
+            ElementReset();
+        }
+   
+        _playerEvents.PlayerSave(_energySaveValue);
+    }
+
+    private void ElementReset()
+    {
+        if (_energySaveValue <= 0)
         {
             _savedElement = Elements.none;
         }
     }
-    
 }

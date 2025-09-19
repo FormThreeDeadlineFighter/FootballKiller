@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour
     
     public bool IsGrounded => _groundDetector.IsGrounded;
     public bool IsFalling => _rb.linearVelocity.y < 0 && !IsGrounded;
+    public bool CanBlock => _energyController.CanBlock;
+    public bool CanShoot => _energyController.CanShoot;
     public bool CanJump = false;
     public MoveMode MoveMode 
     { 
@@ -73,13 +75,13 @@ public class PlayerController : MonoBehaviour
     void OnEnable()
     {   
         CanJump = true;
-        _playerEvents.OnPlayerHurt += PlayerHurt;
+        _playerEvents.OnPlayerHurt += GetHurt;
         _bodyDetector.SetActive(true);
     }
 
     void OnDisable()
     {
-        _playerEvents.OnPlayerHurt -= PlayerHurt;
+        _playerEvents.OnPlayerHurt -= GetHurt;
         _bodyDetector.SetActive(false);
     }
     public void SetVelocity(Vector3 velocity)
@@ -100,7 +102,7 @@ public class PlayerController : MonoBehaviour
         _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, _rb.linearVelocity.y, velocityZ);
     }
 
-    public void PlayerMove(float speed)
+    public void Move(float speed)
     {
         Vector3 camForward = _cameraTransform.forward;
         Vector3 camRight   = Camera.main.transform.right;
@@ -120,21 +122,27 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    public void PlayerShoot()
+    public void Shoot()
     {
         _energyController.OnShoot();
     }
 
-    public void PlayerBlockEnter()
+    public void BlockEnter()
     {
         _blockDetector.SetActive(true);
+        _energyController.EnergyUse(10f);
     }
-    public void PlayerBlockExit()
+    public void BlockExit()
     {
         _blockDetector.SetActive(false);
     }
 
-    private void PlayerHurt(float damage)
+    public void GainEnergy(float value)
+    {
+        _energyController.EnergyGain(value);
+    }
+
+    private void GetHurt(float damage)
     {
         if (HP >= 0)
         {
