@@ -37,16 +37,8 @@ public class PlayerState_Block : IPlayerState
             {
                 _stateMachine.SetState(typeof(PlayerState_Jump));
             }
-            if (_input.IsBlock && _player.CanBlock)
-            {
-                _stateMachine.SetState(typeof(PlayerState_Block));
-            }
-            if (_input.IsShoot && _player.CanShoot)
-            {
-                _stateMachine.SetState(typeof(PlayerState_Shoot));
-            }
-        }      
-        
+        }     
+              
         _currentTime -= Time.deltaTime;
     }
     public override void PhysicsUpdate()

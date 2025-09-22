@@ -29,7 +29,7 @@ public class EnergyController : MonoBehaviour
     void OnEnable()
     {
         _playerEvents.OnPlayerBlock += OnBlockDetectElement;
-        _playerEvents.PlayerSave(_energySaveValue);
+        _playerEvents.PlayerSaveValue(_energySaveValue);
 
     }
     
@@ -65,7 +65,7 @@ public class EnergyController : MonoBehaviour
         }     
 
         ElementReset();
-        _playerEvents.PlayerSave(_energySaveValue);
+        _playerEvents.PlayerSaveValue(_energySaveValue);
     }
     // player press shoot
     public void OnShoot()
@@ -77,7 +77,7 @@ public class EnergyController : MonoBehaviour
         Instantiate(_energyBullet, _shootingPoint.transform.position, _shootingPoint.transform.rotation);
 
         ElementReset();
-        _playerEvents.PlayerSave(_energySaveValue);
+        _playerEvents.PlayerSaveValue(_energySaveValue);
     }
 
     public void EnergyGain(float value)
@@ -89,22 +89,18 @@ public class EnergyController : MonoBehaviour
             _energySaveValue += value;
         }
 
-        _playerEvents.PlayerSave(_energySaveValue);
+        _playerEvents.PlayerSaveValue(_energySaveValue);
+        _playerEvents.PlayerSaveElement(_savedElement);
     }
 
     public void EnergyUse(float value)
     {
-        if(_energySaveValue >= 0)
-        {
-           _energySaveValue -= value;
-        }
-        else
+        _energySaveValue -= value;
+        
+        if(_energySaveValue <= 0)
         {
             _energySaveValue = 0;
-            ElementReset();
         }
-   
-        _playerEvents.PlayerSave(_energySaveValue);
     }
 
     private void ElementReset()
@@ -112,6 +108,8 @@ public class EnergyController : MonoBehaviour
         if (_energySaveValue <= 0)
         {
             _savedElement = Elements.none;
+            _playerEvents.PlayerSaveElement(_savedElement);
         }
+        
     }
 }

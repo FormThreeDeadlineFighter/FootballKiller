@@ -12,12 +12,22 @@ public class PlayerEvent : ScriptableObject
             OnPlayerBlock(element);
         }
     }
-    public Action<float> OnPlayerSave;
-    public void PlayerSave(float value)
+    
+    public Action<float> OnPlayerSaveValue;
+    public void PlayerSaveValue(float value)
     {
-        if (OnPlayerSave != null)
+        if (OnPlayerSaveValue != null)
         {
-            OnPlayerSave(value);
+            OnPlayerSaveValue(value);
+        }
+    }
+    
+    public Action<Elements> OnPlayerSaveElement;
+    public void PlayerSaveElement(Elements element)
+    {
+        if (OnPlayerSaveElement != null)
+        {
+            OnPlayerSaveElement(element);
         }
     }
     

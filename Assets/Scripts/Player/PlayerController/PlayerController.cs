@@ -86,7 +86,10 @@ public class PlayerController : MonoBehaviour
     }
     public void SetVelocity(Vector3 velocity)
     {
-        _rb.linearVelocity = velocity;
+        if(velocity != null)
+        {
+            _rb.linearVelocity = velocity;
+        }
     }
     public void SetVelocityX(float velocityX)
     {

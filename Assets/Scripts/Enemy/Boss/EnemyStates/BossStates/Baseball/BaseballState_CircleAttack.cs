@@ -10,6 +10,7 @@ public class BaseballState_CircleAttack : IEnemyState
     [SerializeField] float _duration = 0.5f;
     [SerializeField] int _loopTime = 2;
     private float _currentTime;
+    private int _currentLoopTime;
 
     public override void EnterState()
     {
@@ -36,7 +37,7 @@ public class BaseballState_CircleAttack : IEnemyState
                 angle += _spreadAngle;
             }
 
-            _loopTime -= 1;
+            _currentLoopTime -= 1;
         }
     }
 
@@ -44,13 +45,13 @@ public class BaseballState_CircleAttack : IEnemyState
     {
         if (IsAnimationComplete && _currentTime <= 0)
         {
-            if (_loopTime > 0)
+            if (_currentLoopTime > 0)
             {
                 _stateMachine.SetState(typeof(BaseballState_CircleAttack));
             }
             else
             {
-                _loopTime = 3;
+                _currentLoopTime = _loopTime;
                 _stateMachine.SetState(typeof(BaseballState_Idle));
             }
         }

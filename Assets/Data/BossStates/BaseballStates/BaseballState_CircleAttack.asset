@@ -18,4 +18,4 @@ MonoBehaviour:
   _spreadAngle: 45
   _spawnPosition: 20
   _duration: 1
-  _loopTime: 1
+  _loopTime: 0
