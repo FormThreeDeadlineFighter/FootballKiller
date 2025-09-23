@@ -6,7 +6,10 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
-    public AudioClip shoot;
+    public AudioClip _click;
+    public AudioClip _shoot;
+    public AudioClip _bgm_mianground; 
+    public AudioClip _bgm_boss_1;
     List<AudioSource> audios = new List<AudioSource>();
     private void Awake()
     {
@@ -40,8 +43,8 @@ public class AudioManager : MonoBehaviour
     {
         switch (name)
         {
-            case "shoot":
-                return shoot;
+            case "_click":
+                return _click;
         }
         return null;
     }
