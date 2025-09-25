@@ -91,7 +91,7 @@ public class EnergyController : MonoBehaviour
         else
         {
             EnergyUse(_shootEnergy);
-            playerAttack.Damage = 30f;
+            playerAttack.Damage = 20f;
         }
 
         // player bullet material change;
@@ -105,12 +105,13 @@ public class EnergyController : MonoBehaviour
     public void EnergyGain(float value)
     {
         ElementReset();
-
-        if (_energySaveValue < _maxEnergy)
+        _energySaveValue += value;
+      
+        if(_energySaveValue > _maxEnergy)
         {
-            _energySaveValue += value;
+            _energySaveValue = _maxEnergy;
         }
-
+        
         _playerEvents.PlayerSaveValue(_energySaveValue);
         _playerEvents.PlayerSaveElement(_savedElement);
     }
