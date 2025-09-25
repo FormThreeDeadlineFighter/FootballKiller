@@ -7,7 +7,7 @@ public class EnergyController : MonoBehaviour
     private float _energySaveValue;
     [SerializeField] private float _maxEnergy;
     [SerializeField] private float _blockEnergy = 10f;
-    [SerializeField] private float _minBlockRequired = 1f;
+    [SerializeField] private float _minBlockRequired = 5f;
     [SerializeField] private float _shootEnergy = 10f;
     [SerializeField] private float _minShootRequired = 0f;
 
@@ -124,6 +124,9 @@ public class EnergyController : MonoBehaviour
         {
             _energySaveValue = 0;
         }
+        
+        _playerEvents.PlayerSaveValue(_energySaveValue);
+        _playerEvents.PlayerSaveElement(_savedElement);
     }
 
     private void ElementReset()

@@ -1496,7 +1496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5357803437436584419, guid: e12543a1f8828344397662806aa51019, type: 3}
       propertyPath: _minBlockRequired
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5357803437436584419, guid: e12543a1f8828344397662806aa51019, type: 3}
       propertyPath: _minShootRequired
