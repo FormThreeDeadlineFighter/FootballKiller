@@ -10,7 +10,7 @@ public class PlayerState_Jump : IPlayerState
     { 
         base.EnterState();
         
-        _player.SetVelocityY(_jumpForce);
+        _player.PlayerJump(_jumpForce);
         _player.CanJump = false;
     }
     public override void ExitState()

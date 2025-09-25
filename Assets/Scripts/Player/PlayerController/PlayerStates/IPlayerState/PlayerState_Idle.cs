@@ -41,8 +41,6 @@ public class PlayerState_Idle : IPlayerState
         {
             _stateMachine.SetState(typeof(PlayerState_Shoot));
         }
-
-        _player.GainEnergy(5 * Time.deltaTime);
     }
     public override void PhysicsUpdate()
     {

@@ -33,8 +33,6 @@ public class PlayerState_Turn : IPlayerState
         {
             _stateMachine.SetState(typeof(PlayerState_Shoot));
         }
-
-        _player.GainEnergy(2 * Time.deltaTime);
     }
     public override void PhysicsUpdate()
     {

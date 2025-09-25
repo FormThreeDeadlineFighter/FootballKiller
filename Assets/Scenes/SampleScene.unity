@@ -1490,6 +1490,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5357803437436584419, guid: e12543a1f8828344397662806aa51019, type: 3}
+      propertyPath: _maxEnergy
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357803437436584419, guid: e12543a1f8828344397662806aa51019, type: 3}
+      propertyPath: _minBlockRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357803437436584419, guid: e12543a1f8828344397662806aa51019, type: 3}
+      propertyPath: _minShootRequired
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8181650245571914671, guid: e12543a1f8828344397662806aa51019, type: 3}

@@ -125,6 +125,13 @@ public class PlayerController : MonoBehaviour
         }
     }
     
+    public void PlayerJump(float speed)
+    {
+        SetVelocityY(speed);
+        SetVelocityX(_rb.linearVelocity.x);
+        SetVelocityZ(_rb.linearVelocity.z);
+    }
+    
     public void Shoot()
     {
         _energyController.OnShoot();
