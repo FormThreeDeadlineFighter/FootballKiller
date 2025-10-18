@@ -11,8 +11,5 @@ public class IBullet : MonoBehaviour
         _rb.AddForce(transform.forward * _speed, ForceMode.Impulse);
         Destroy(this.gameObject, 3f);
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        Destroy(this.gameObject);
-    }
+
 }
