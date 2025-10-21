@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [System.Serializable]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDataPersistence
 {
     [Header("Player Property")]
     [SerializeField] float _HP = 100;
@@ -162,6 +162,16 @@ public class PlayerController : MonoBehaviour
         {
             _gameEvent.GameDefeat();
         }
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.transform.position = data.playerPosition;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.playerPosition = this.transform.position;
     }
 }
 public enum MoveMode {idle, walk, run}

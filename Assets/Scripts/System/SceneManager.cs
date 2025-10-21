@@ -45,6 +45,7 @@ public class SceneManger : MonoBehaviour
     }
     public void ExitGame()
     {
+        DataPersistenceManager.instance.SaveGame();
         Application.Quit();      
     }
 }
