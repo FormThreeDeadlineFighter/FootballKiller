@@ -25,8 +25,11 @@ public class PlayerStateController : IStateController
                 state.Initialize(this, _player, _animator, _playerInput);
                 _stateTable.Add(state.GetType(), state);
             }
-        }
+        }    
+    }
 
+    void Start()
+    {
         SetState(_stateTable[typeof(PlayerState_Idle)]);
     }
 

@@ -72,13 +72,6 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
         HP = _HP;
     }
-    void Update()
-    {
-        if(_input.IsRobotShoot)
-        {
-            RobotShoot();
-        }
-    }
 
     void OnEnable()
     {   
@@ -92,6 +85,15 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         _playerEvents.OnPlayerHurt -= GetHurt;
         _bodyDetector.SetActive(false);
     }
+    
+    void Update()
+    {
+        if(_input.IsRobotShoot)
+        {
+            RobotShoot();
+        }
+    }
+    
     public void SetVelocity(Vector3 velocity)
     {
         if(velocity != null)
@@ -179,12 +181,14 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        this.transform.position = data.playerPosition;
+        this.transform.position += data.playerPosition;
+        Debug.Log("load player position: " + data.playerPosition);
     }
 
     public void SaveData(ref GameData data)
     {
         data.playerPosition = this.transform.position;
+        Debug.Log("Save player position: " + data.playerPosition);
     }
 }
 public enum MoveMode {idle, walk, run}

@@ -342,7 +342,7 @@ Camera:
   m_GameObject: {fileID: 330585543}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -351,12 +351,12 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocalLength: 13.858139
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
   m_Anamorphism: 0
-  m_SensorSize: {x: 36, y: 24}
+  m_SensorSize: {x: 21.946, y: 16.002}
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -392,8 +392,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0000000057888023, y: 0.98836154, z: -0.1521235, w: -0.00000003761043}
-  m_LocalPosition: {x: -9.649995, y: 34.89707, z: 43.47717}
+  m_LocalRotation: {x: 0.000000009836378, y: 0.98836154, z: -0.1521233, w: 0.00000006390801}
+  m_LocalPosition: {x: -5.520001, y: 34.89707, z: 32.937172}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -458,7 +458,7 @@ MonoBehaviour:
   ShowDebugText: 0
   ShowCameraFrustum: 1
   IgnoreTimeScale: 0
-  WorldUpOverride: {fileID: 0}
+  WorldUpOverride: {fileID: 5547600054350327945}
   ChannelMask: -1
   UpdateMethod: 2
   BlendUpdateMethod: 1
@@ -651,6 +651,10 @@ PrefabInstance:
     - target: {fileID: 7841672020790003158, guid: e5467e32593c5a4429eb21312f115118, type: 3}
       propertyPath: m_Name
       value: TestBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7841672020790003158, guid: e5467e32593c5a4429eb21312f115118, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8770168300073334134, guid: e5467e32593c5a4429eb21312f115118, type: 3}
       propertyPath: m_LocalPosition.x
@@ -852,7 +856,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1133036998
 Transform:
   m_ObjectHideFlags: 0
@@ -1585,8 +1589,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2133070754}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0000000057888023, y: 0.98836154, z: -0.1521235, w: -0.000000037610427}
-  m_LocalPosition: {x: -9.649995, y: 34.89707, z: 43.47717}
+  m_LocalRotation: {x: 0.00000000983638, y: 0.98836154, z: -0.15212332, w: 0.00000006390802}
+  m_LocalPosition: {x: -5.520001, y: 34.89707, z: 32.937172}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1700,6 +1704,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 886861020131862517, guid: e12543a1f8828344397662806aa51019, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 85253099}
+    - target: {fileID: 886861020131862517, guid: e12543a1f8828344397662806aa51019, type: 3}
       propertyPath: _cameraTransform
       value: 
       objectReference: {fileID: 2133070758}
@@ -1711,9 +1719,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Player '
       objectReference: {fileID: 0}
+    - target: {fileID: 3789154108593652796, guid: e12543a1f8828344397662806aa51019, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4647172846769166118, guid: e12543a1f8828344397662806aa51019, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.649994
+      value: -5.52
       objectReference: {fileID: 0}
     - target: {fileID: 4647172846769166118, guid: e12543a1f8828344397662806aa51019, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1721,7 +1733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4647172846769166118, guid: e12543a1f8828344397662806aa51019, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33.94
+      value: 23.4
       objectReference: {fileID: 0}
     - target: {fileID: 4647172846769166118, guid: e12543a1f8828344397662806aa51019, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1775,6 +1787,10 @@ PrefabInstance:
       propertyPath: _maxEnergy
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 5357803437436584419, guid: e12543a1f8828344397662806aa51019, type: 3}
+      propertyPath: _robotBullet
+      value: 
+      objectReference: {fileID: 7841672020790003158, guid: a4616d3a4b7735c4082462a6a9c46726, type: 3}
     - target: {fileID: 5357803437436584419, guid: e12543a1f8828344397662806aa51019, type: 3}
       propertyPath: _minBlockRequired
       value: 10

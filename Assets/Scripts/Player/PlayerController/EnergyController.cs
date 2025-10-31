@@ -17,6 +17,7 @@ public class EnergyController : MonoBehaviour
     [SerializeField] GameObject _playerShootingPoint;
     [SerializeField] GameObject _robotShootingPoint;
     [SerializeField] GameObject _energyBullet;
+    [SerializeField] GameObject _robotBullet;
     [SerializeField] PlayerEvent _playerEvents;
 
     private PlayerBlockDetector _playerBlockDetector;
@@ -51,7 +52,8 @@ public class EnergyController : MonoBehaviour
     {
         if (_energySaveValue < _maxEnergy)
         {
-            EnergyGain(_playerBlockDetector.AttackDamage);
+            _savedElement = element;
+            EnergyGain(_playerBlockDetector.AttackDamage * 0.5f);
             Debug.Log($"save {element} energy");
         }
         else
@@ -90,7 +92,7 @@ public class EnergyController : MonoBehaviour
             playerAttack.Damage = 1;
         
             // player bullet material change;
-            Instantiate(_energyBullet, _robotShootingPoint.transform.position, _robotShootingPoint.transform.rotation);
+            Instantiate(_robotBullet, _robotShootingPoint.transform.position, _robotShootingPoint.transform.rotation);
             
             // Reload element ui
             _playerEvents.PlayerSaveValue(_energySaveValue);
