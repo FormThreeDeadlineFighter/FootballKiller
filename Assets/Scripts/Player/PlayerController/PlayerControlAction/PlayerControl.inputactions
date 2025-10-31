@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "PlayerControl",
     "maps": [
         {
@@ -15,9 +16,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Shoot",
+                    "name": "PlayerShoot",
                     "type": "Button",
                     "id": "9f045b7d-aaa1-4113-9dda-40c6ce463fe6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RobotShoot",
+                    "type": "Button",
+                    "id": "ba2d455a-28a9-4ea3-a270-816103881be0",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -130,11 +140,11 @@
                 {
                     "name": "",
                     "id": "3de8e812-9149-46e5-89aa-00f9b02a198b",
-                    "path": "<Gamepad>/rightShoulder",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shoot",
+                    "action": "PlayerShoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -145,7 +155,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shoot",
+                    "action": "PlayerShoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6c95ef09-90f8-4f39-8de3-950020476702",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RobotShoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "234613d6-cae9-4eee-9213-c5459fdfffe8",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RobotShoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -185,7 +217,7 @@
                 {
                     "name": "",
                     "id": "0a12a7d5-71e6-47d5-9c4a-5d582bb44837",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

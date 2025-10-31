@@ -12,7 +12,7 @@ public class PlayerState_Shoot : IPlayerState
     }
     public override void ExitState()
     {
-        _player.Shoot();
+        _player.PlayerShoot();
     }
     public override void LogicUpdate()
     {
@@ -40,7 +40,7 @@ public class PlayerState_Shoot : IPlayerState
             {
                 _stateMachine.SetState(typeof(PlayerState_Block));
             }
-            if (_input.IsShoot && _player.CanShoot)
+            if (_input.IsPlayerShoot && _player.CanShoot)
             {
                 _stateMachine.SetState(typeof(PlayerState_Shoot));
             }

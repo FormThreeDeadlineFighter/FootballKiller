@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -5,22 +6,25 @@ using UnityEngine.UIElements;
 public class EnergyController : MonoBehaviour
 {
     private float _energySaveValue;
+    [Header("Setting")]
     [SerializeField] private float _maxEnergy;
     [SerializeField] private float _blockEnergy = 10f;
     [SerializeField] private float _minBlockRequired = 5f;
-    [SerializeField] private float _shootEnergy = 10f;
-    [SerializeField] private float _minShootRequired = 0f;
-
     [SerializeField] private Elements _savedElement;
+    
+    [Header("Objects")]
     [SerializeField] GameObject _blockDetector;
-    [SerializeField] GameObject _shootingPoint;
+    [SerializeField] GameObject _playerShootingPoint;
+    [SerializeField] GameObject _robotShootingPoint;
     [SerializeField] GameObject _energyBullet;
     [SerializeField] PlayerEvent _playerEvents;
 
     private PlayerBlockDetector _playerBlockDetector;
 
     public bool CanBlock => _energySaveValue >= _minBlockRequired;
-    public bool CanShoot => _energySaveValue >= _minShootRequired;
+    public bool CanShoot => _energySaveValue >= 0;
+
+    private bool _robotShootCoolDown = true;
 
     void Awake()
     {
@@ -28,7 +32,7 @@ public class EnergyController : MonoBehaviour
     }
     void OnEnable()
     {
-        _playerEvents.OnPlayerBlock += OnBlockDetectElement;
+        _playerEvents.OnPlayerBlock += OnBlock;
         // reload energy ui
         _playerEvents.PlayerSaveValue(0);
         ElementReset();
@@ -37,70 +41,67 @@ public class EnergyController : MonoBehaviour
     
     void OnDisable()
     {
-        _playerEvents.OnPlayerBlock -= OnBlockDetectElement;
+        _playerEvents.OnPlayerBlock -= OnBlock;
 
         _savedElement = Elements.none;
         _blockEnergy = 0;
     }
 
-    void OnBlockDetectElement(Elements element)
+    void OnBlock(Elements element)
     {
-        if (_savedElement == Elements.none)
+        if (_energySaveValue < _maxEnergy)
         {
-            Debug.Log($"detect {element}");
-            _savedElement = element; 
-        }
-        // if player have color energy
-        // then new energy is no old energy
-        if(element != _savedElement)
-        {      
-            Debug.Log("save fail");
-            _playerEvents.PlayerHurt(_playerBlockDetector.AttackDamage); 
+            EnergyGain(_playerBlockDetector.AttackDamage);
+            Debug.Log($"save {element} energy");
         }
         else
         {
-            if (_energySaveValue < _maxEnergy)
-            {
-                EnergyGain(_playerBlockDetector.AttackDamage);
-                Debug.Log($"save {element} energy");
-            }
-            else
-            {
-                Debug.Log("energy full");
-            }             
-        }     
-
-        ElementReset();
+            Debug.Log("energy full");
+        }             
+        
         _playerEvents.PlayerSaveValue(_energySaveValue);
     }
+    
     // player press shoot
-    public void OnShoot()
+    public void OnPlayerShoot()
     {
+        //shoot damage anad energy change
         IAttack playerAttack = _energyBullet.GetComponent<IAttack>();
         playerAttack.Elements = _savedElement;
-        
-        // if player no elements color energy 
-        // shoot to gain energy
-        if(_savedElement == Elements.none)
-        {
-            EnergyGain(5);
-            playerAttack.Damage = 1f;
-        }
-        // if player have elements color energy 
-        // shoot to loss energy
-        else
-        {
-            EnergyUse(_shootEnergy);
-            playerAttack.Damage = 20f;
-        }
-
+        playerAttack.Damage = _energySaveValue;
+      
+        // shoot to loss energy 
+        EnergyUse(_energySaveValue);
+       
         // player bullet material change;
-        Instantiate(_energyBullet, _shootingPoint.transform.position, _shootingPoint.transform.rotation);
-        
-        // Reload element ui
-        ElementReset();
-        _playerEvents.PlayerSaveValue(_energySaveValue);
+        Instantiate(_energyBullet, _playerShootingPoint.transform.position, _playerShootingPoint.transform.rotation);
+
     }
+    
+    public void OnRobotShoot()
+    {
+        IEnumerator coroutine = CoolDown(0.5f);    
+        if(_robotShootCoolDown)
+        {
+            IAttack playerAttack = _energyBullet.GetComponent<IAttack>();
+      
+            // shoot to loss energy 
+            EnergyGain(1);
+            playerAttack.Damage = 1;
+        
+            // player bullet material change;
+            Instantiate(_energyBullet, _robotShootingPoint.transform.position, _robotShootingPoint.transform.rotation);
+            
+            // Reload element ui
+            _playerEvents.PlayerSaveValue(_energySaveValue);
+            
+            _robotShootCoolDown = false;
+            StartCoroutine(coroutine);
+        }
+    
+    }
+    
+    
 
     public void EnergyGain(float value)
     {
@@ -127,6 +128,8 @@ public class EnergyController : MonoBehaviour
         
         _playerEvents.PlayerSaveValue(_energySaveValue);
         _playerEvents.PlayerSaveElement(_savedElement);
+
+        ElementReset();
     }
 
     private void ElementReset()
@@ -137,5 +140,12 @@ public class EnergyController : MonoBehaviour
             _playerEvents.PlayerSaveElement(_savedElement);
         }
         
+    }
+
+
+    private IEnumerator CoolDown(float time)
+    {
+        yield return new WaitForSeconds(time);
+        _robotShootCoolDown = true;     
     }
 }

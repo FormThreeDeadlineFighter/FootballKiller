@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public bool CanBlock => _energyController.CanBlock;
     public bool CanShoot => _energyController.CanShoot;
     public bool CanJump = false;
+    
     public MoveMode MoveMode 
     { 
         get {
@@ -70,6 +71,13 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         _energyController = GetComponentInChildren<EnergyController>();
 
         HP = _HP;
+    }
+    void Update()
+    {
+        if(_input.IsRobotShoot)
+        {
+            RobotShoot();
+        }
     }
 
     void OnEnable()
@@ -132,9 +140,14 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         SetVelocityZ(_rb.linearVelocity.z);
     }
     
-    public void Shoot()
+    public void PlayerShoot()
     {
-        _energyController.OnShoot();
+        _energyController.OnPlayerShoot();
+    }
+    
+    public void RobotShoot()
+    {       
+        _energyController.OnRobotShoot();
     }
 
     public void BlockEnter()
