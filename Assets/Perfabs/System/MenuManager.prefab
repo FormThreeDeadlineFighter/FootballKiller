@@ -46,5 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainMenuUI: {fileID: 0}
   _stageMenuUI: {fileID: 0}
+  _baseballbossUI: {fileID: 0}
   _mainMenuFirst: {fileID: 0}
   _stageMenuFirst: {fileID: 0}
+  _baseballbossFirst: {fileID: 0}
+  canvas: {fileID: 0}
