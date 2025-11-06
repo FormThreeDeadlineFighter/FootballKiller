@@ -117,14 +117,18 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void Move(float speed)
     {
-        Vector3 camForward = _cameraTransform.forward;
-        Vector3 camRight   = Camera.main.transform.right;
-        camForward.y = 0;
-        camRight.y = 0;
-        camForward.Normalize();
-        camRight.Normalize();
+        Vector3 moveDir = Vector3.forward * _input.StickValue.y + Vector3.right * _input.StickValue.x;
+        if(_cameraTransform != null)
+        {
+            Vector3 camForward = _cameraTransform.forward;
+            Vector3 camRight   = Camera.main.transform.right;
+            camForward.y = 0;
+            camRight.y = 0;
+            camForward.Normalize();
+            camRight.Normalize();
 
-        Vector3 moveDir = camForward * _input.StickValue.y + camRight * _input.StickValue.x;
+            moveDir = camForward * _input.StickValue.y + camRight * _input.StickValue.x;     
+        }
         
         if(moveDir != Vector3.zero)
         {
