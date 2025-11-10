@@ -18,12 +18,10 @@ public class SceneManger : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // 替換成關卡圖        
     }
-    public void Stage(Button clickedButton)
+    public void Stage()
     {
         Time.timeScale = 1f;
-        string index = clickedButton.GetComponentInChildren<TextMeshProUGUI>().text;
-        SceneManager.LoadScene($"{index}");
-        Debug.Log("替換成關卡 " + $"{index}");
+        SceneManager.LoadScene("BaseballScene");
     }
     public void NextStage()
     {
