@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody), typeof(Sensor))]
 public class BaseballStateController : IStateController
 {
     [SerializeField] IEnemyState[] _energyStates;

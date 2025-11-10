@@ -26,6 +26,7 @@ public class BaseballState_CircleAttack : IEnemyState
             _attack.GetComponent<IAttack>().Elements = (Elements)num;
 
             // attack spawn position
+            _enemy.FaceToPlayer();
             float positionY = _enemy.transform.position.y - _spawnPosition;
             Vector3 position = new Vector3(0, positionY, 0) + _enemy.transform.position;
 

@@ -1,14 +1,17 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class IEnemyState : ScriptableObject ,IState
+[System.Serializable]
+public class IPlayerState : ScriptableObject ,IState
 {
     [SerializeField] string _animationName;
     [SerializeField, Range(0f, 1f)] float _transitionDuration = 0.1f;
     float _stateEnterTime;
     int _stateHash; 
-    protected BaseballStateController _stateMachine;
+    protected PlayerStateController _stateMachine;
     protected Animator _animator;
-    protected EnemyController _enemy;
+    protected PlayerInput _input;
+    protected PlayerController _player;
     protected bool IsAnimationComplete => _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f;
     protected float _stateDuration => Time.time - _stateEnterTime;
     
@@ -16,23 +19,23 @@ public class IEnemyState : ScriptableObject ,IState
     {
         _stateHash = Animator.StringToHash(_animationName);
     }
-    public void Initialize(BaseballStateController stateMachine, EnemyController enemy, Animator animator)
+    public void Initialize(PlayerStateController stateMachine, PlayerController player, Animator animator, PlayerInput playerInput)
     {
         _stateMachine = stateMachine;
-        _enemy = enemy;
+        _player = player;
         _animator = animator;
+        _input = playerInput;
     }
     // when enter state happen
     public virtual void EnterState() 
     {
-        Debug.Log($"enemy enter {this}");
         _animator.CrossFade(_stateHash, _transitionDuration);
         _stateEnterTime = Time.time;
     }
     // when exit state happen
     public virtual void ExitState() 
-    {
-
+    { 
+    
     }
     // state update, not using physics
     public virtual void LogicUpdate() 
@@ -44,4 +47,6 @@ public class IEnemyState : ScriptableObject ,IState
     { 
     
     }
+
+
 }

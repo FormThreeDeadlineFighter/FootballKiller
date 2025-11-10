@@ -1,14 +1,13 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
+[RequireComponent(typeof(Sensor))]
 public class EnergyController : MonoBehaviour
 {
     private float _energySaveValue;
     [Header("Setting")]
     [SerializeField] private float _maxEnergy;
-    [SerializeField] private float _blockEnergy = 10f;
     [SerializeField] private float _minBlockRequired = 5f;
     [SerializeField] private Elements _savedElement;
     
@@ -21,8 +20,9 @@ public class EnergyController : MonoBehaviour
     [SerializeField] PlayerEvent _playerEvents;
 
     private PlayerBlockDetector _playerBlockDetector;
+    private Sensor _sensor;
 
-    public bool CanBlock => _energySaveValue >= _minBlockRequired;
+    public bool CanBlock;
     public bool CanShoot => _energySaveValue >= 0;
 
     private bool _robotShootCoolDown = true;
@@ -30,6 +30,7 @@ public class EnergyController : MonoBehaviour
     void Awake()
     {
         _playerBlockDetector = GetComponentInChildren<PlayerBlockDetector>();
+        _sensor = GetComponent<Sensor>();
     }
     void OnEnable()
     {
@@ -45,7 +46,6 @@ public class EnergyController : MonoBehaviour
         _playerEvents.OnPlayerBlock -= OnBlock;
 
         _savedElement = Elements.none;
-        _blockEnergy = 0;
     }
 
     void OnBlock(Elements element)
@@ -74,9 +74,11 @@ public class EnergyController : MonoBehaviour
       
         // shoot to loss energy 
         EnergyUse(_energySaveValue);
-       
+
         // player bullet material change;
-        Instantiate(_energyBullet, _playerShootingPoint.transform.position, _playerShootingPoint.transform.rotation);
+        Vector3 dir = _sensor.Target.transform.position - _playerShootingPoint.transform.position;
+        Quaternion rotate = Quaternion.LookRotation(dir);
+        Instantiate(_energyBullet, _playerShootingPoint.transform.position, rotate);
 
     }
     
@@ -92,7 +94,9 @@ public class EnergyController : MonoBehaviour
             playerAttack.Damage = 1;
         
             // player bullet material change;
-            Instantiate(_robotBullet, _robotShootingPoint.transform.position, _robotShootingPoint.transform.rotation);
+            Vector3 dir = _sensor.Target.transform.position - _robotShootingPoint.transform.position;
+            Quaternion rotate = Quaternion.LookRotation(dir);
+            Instantiate(_robotBullet, _robotShootingPoint.transform.position, rotate);
             
             // Reload element ui
             _playerEvents.PlayerSaveValue(_energySaveValue);

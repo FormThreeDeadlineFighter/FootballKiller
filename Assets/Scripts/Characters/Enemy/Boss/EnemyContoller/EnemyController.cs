@@ -33,6 +33,13 @@ public class EnemyController : MonoBehaviour
     [SerializeField] BossEvent _bossEvent;
 
     private Rigidbody _rb;
+    private Sensor _sensor;
+
+    void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+        _sensor = GetComponent<Sensor>();
+    }
 
     void OnEnable()
     {
@@ -46,6 +53,13 @@ public class EnemyController : MonoBehaviour
         _bossEvent.OnBossHurt -= BossHurt;
         _gameEvent.OnGameVictory -= GameOver;
         _gameEvent.OnGameDefeat -= GameOver;
+    }
+    
+    public void FaceToPlayer()
+    {
+        Vector3 dir = _sensor.Target.transform.position - transform.position;
+        dir.y = 0;
+        _rb.transform.rotation = Quaternion.LookRotation(dir);
     }
     
     private void BossHurt(float damage)
