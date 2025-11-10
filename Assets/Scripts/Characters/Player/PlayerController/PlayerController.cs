@@ -1,11 +1,13 @@
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [System.Serializable]
 public class PlayerController : MonoBehaviour, IDataPersistence
 {
     [Header("Player Property")]
-    [SerializeField] float _HP = 100;
+    [SerializeField] float _HP = 100f;
     [SerializeField] float _currentHP;
     public float HP 
     {
@@ -27,7 +29,9 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         }
     }
     [SerializeField, Range(0,1)] float _walkValue;
-    [SerializeField, Range(0,1)] float _runValue;
+    [SerializeField, Range(0, 1)] float _runValue;
+    [SerializeField] float _dashForce = 50f;
+    
 
     [Header("Player Objects")]
     [SerializeField] Transform _cameraTransform;
@@ -46,6 +50,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public bool CanBlock => _energyController.CanBlock;
     public bool CanShoot => _energyController.CanShoot;
     public bool CanJump = false;
+    private bool Invincible = false;
     
     public MoveMode MoveMode 
     { 
@@ -88,10 +93,10 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     
     void Update()
     {
-        if(_input.IsRobotShoot)
+        if (_input.IsRobotShoot)
         {
             RobotShoot();
-        }
+        } 
     }
     
     public void SetVelocity(Vector3 velocity)
@@ -117,29 +122,57 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void Move(float speed)
     {
-        Vector3 moveDir = Vector3.forward * _input.StickValue.y + Vector3.right * _input.StickValue.x;
-        if(_cameraTransform != null)
+        Vector3 moveDir = _rb.transform.forward * _input.StickValue.y + _rb.transform.right * _input.StickValue.x;
+        if (_cameraTransform != null)
         {
             Vector3 camForward = _cameraTransform.forward;
-            Vector3 camRight   = Camera.main.transform.right;
+            Vector3 camRight = Camera.main.transform.right;
             camForward.y = 0;
             camRight.y = 0;
             camForward.Normalize();
             camRight.Normalize();
 
-            moveDir = camForward * _input.StickValue.y + camRight * _input.StickValue.x;     
+            moveDir = camForward * _input.StickValue.y + camRight * _input.StickValue.x;
         }
-        
-        if(moveDir != Vector3.zero)
+        if (moveDir != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
             _rb.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.fixedDeltaTime);
-            SetVelocityX( moveDir.x *  speed);
+            SetVelocityX(moveDir.x * speed);
             SetVelocityZ(moveDir.z * speed);
         }
+        
     }
     
-    public void PlayerJump(float speed)
+    public void Dash()
+    {
+        Vector3 moveDir = _rb.transform.forward * _input.StickValue.y + _rb.transform.right * _input.StickValue.x;
+        if (_cameraTransform != null)
+        {
+            Vector3 camForward = _cameraTransform.forward;
+            Vector3 camRight = Camera.main.transform.right;
+            camForward.y = 0;
+            camRight.y = 0;
+            camForward.Normalize();
+            camRight.Normalize();
+
+            moveDir = camForward * _input.StickValue.y + camRight * _input.StickValue.x;
+        }
+        if (moveDir != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
+            _rb.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.fixedDeltaTime);
+            SetVelocityX(moveDir.x * _dashForce);
+            SetVelocityZ(moveDir.z * _dashForce);
+        }
+        else
+        {
+            SetVelocity(_rb.transform.forward * _dashForce);
+        }
+        Debug.Log("dash");      
+    }
+    
+    public void Jump(float speed)
     {
         SetVelocityY(speed);
         SetVelocityX(_rb.linearVelocity.x);
@@ -171,8 +204,15 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         _energyController.EnergyGain(value);
     }
 
+    public void StartInvincible(float time)
+    {
+        IEnumerator coroutine = InvincibleTime(time);
+        StartCoroutine(coroutine);
+    }
+
     private void GetHurt(float damage)
     {
+        if (Invincible) return;
         if (HP >= 0)
         {
             HP -= damage;
@@ -181,6 +221,13 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         {
             _gameEvent.GameDefeat();
         }
+    }
+
+    IEnumerator InvincibleTime(float time)
+    {
+        Invincible = true;
+        yield return new WaitForSeconds(time);
+        Invincible = false;
     }
 
     public void LoadData(GameData data)

@@ -36,6 +36,10 @@ public class PlayerState_Run : IPlayerState
         {
             _stateMachine.SetState(typeof(PlayerState_Shoot));
         }
+        if(_input.IsDash)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Dash));
+        }
     }
     public override void PhysicsUpdate()
     { 

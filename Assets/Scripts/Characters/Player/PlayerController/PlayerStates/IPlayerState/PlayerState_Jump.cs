@@ -10,7 +10,7 @@ public class PlayerState_Jump : IPlayerState
     { 
         base.EnterState();
         
-        _player.PlayerJump(_jumpForce);
+        _player.Jump(_jumpForce);
         _player.CanJump = false;
     }
     public override void ExitState()
@@ -26,6 +26,6 @@ public class PlayerState_Jump : IPlayerState
     }
     public override void PhysicsUpdate()
     {
-         _player.Move(_moveSpeed);
+        _player.Move(_moveSpeed);
     }
 }
