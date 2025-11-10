@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [System.Serializable]
-public class PlayerController : MonoBehaviour, IDataPersistence
+public class PlayerController : MonoBehaviour
 {
     [Header("Player Property")]
     [SerializeField] float _HP = 100f;
@@ -228,18 +228,6 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         Invincible = true;
         yield return new WaitForSeconds(time);
         Invincible = false;
-    }
-
-    public void LoadData(GameData data)
-    {
-        this.transform.position += data.playerPosition;
-        Debug.Log("load player position: " + data.playerPosition);
-    }
-
-    public void SaveData(ref GameData data)
-    {
-        data.playerPosition = this.transform.position;
-        Debug.Log("Save player position: " + data.playerPosition);
     }
 }
 public enum MoveMode {idle, walk, run}
