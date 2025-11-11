@@ -67,11 +67,13 @@ public class EnergyController : MonoBehaviour
     // player press shoot
     public void OnPlayerShoot()
     {
+        if (_sensor.Target == null) return;
+        
         //shoot damage anad energy change
         IAttack playerAttack = _energyBullet.GetComponent<IAttack>();
         playerAttack.Elements = _savedElement;
         playerAttack.Damage = _energySaveValue;
-      
+
         // shoot to loss energy 
         EnergyUse(_energySaveValue);
 
@@ -84,27 +86,27 @@ public class EnergyController : MonoBehaviour
     
     public void OnRobotShoot()
     {
-        IEnumerator coroutine = CoolDown(0.5f);    
-        if(_robotShootCoolDown)
-        {
-            IAttack playerAttack = _energyBullet.GetComponent<IAttack>();
-      
-            // shoot to loss energy 
-            EnergyGain(1);
-            playerAttack.Damage = 1;
-        
-            // player bullet material change;
-            Vector3 dir = _sensor.Target.transform.position - _robotShootingPoint.transform.position;
-            Quaternion rotate = Quaternion.LookRotation(dir);
-            Instantiate(_robotBullet, _robotShootingPoint.transform.position, rotate);
-            
-            // Reload element ui
-            _playerEvents.PlayerSaveValue(_energySaveValue);
-            
-            _robotShootCoolDown = false;
-            StartCoroutine(coroutine);
-        }
+        if (!_robotShootCoolDown) return;
+        if (_sensor.Target == null) return;
+
+        IEnumerator coroutine = CoolDown(0.5f);
+
+        IAttack playerAttack = _energyBullet.GetComponent<IAttack>();
     
+        // shoot to loss energy 
+        EnergyGain(1);
+        playerAttack.Damage = 1;
+
+        // player bullet material change;
+        Vector3 dir = _sensor.Target.transform.position - _robotShootingPoint.transform.position;
+        Quaternion rotate = Quaternion.LookRotation(dir);
+        Instantiate(_robotBullet, _robotShootingPoint.transform.position, rotate);
+        
+        // Reload element ui
+        _playerEvents.PlayerSaveValue(_energySaveValue);
+        
+        _robotShootCoolDown = false;
+        StartCoroutine(coroutine);
     }
     
     

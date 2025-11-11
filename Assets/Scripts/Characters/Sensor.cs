@@ -11,6 +11,7 @@ public class Sensor : MonoBehaviour
     private void FixedUpdate()
     {
         Physics.OverlapSphereNonAlloc(_startPosition.transform.position, _detectionRadius, _colliders, _layer);
+        if (_colliders[0] == null) return;
         Vector3 dir = _colliders[0].transform.position - _startPosition.transform.position;
         
         if(Physics.Raycast(_startPosition.transform.position, dir, out RaycastHit hit,_detectionRadius,_layer))
