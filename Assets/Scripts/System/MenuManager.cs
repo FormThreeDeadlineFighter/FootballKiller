@@ -29,24 +29,28 @@ public class MenuManager : MonoBehaviour
         AudioManager.Instance.Play(1, "shoot", false);
         _mainMenuUI.SetActive(false);
         Instantiate(_player);
-        //_stageMenuUI.SetActive(true);
-        //EventSystem.current.SetSelectedGameObject(_stageMenuFirst);
+    }
+    public void LoadGame()
+    {
+        AudioManager.Instance.Play(1, "shoot", false);
+        _mainMenuUI.SetActive(false);
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            _stageMenuUI.SetActive(true);
             Debug.Log("XD");
+            _stageMenuUI.SetActive(true);
+            
         }
     }
-    /*private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             _stageMenuUI.SetActive(false);
         }
-    }*/
+    }
     public void ReturnToMenu()
     {
         AudioManager.Instance.Play(1, "shoot", false);
