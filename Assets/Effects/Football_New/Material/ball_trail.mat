@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ball_trail
-  m_Shader: {fileID: 4800000, guid: a80dde62959c334499e2667c6315de47, type: 3}
+  m_Shader: {fileID: 4800000, guid: 3ebca3d7c3801af46903c21d78e6c6da, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -53,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex1:
-        m_Texture: {fileID: 2800000, guid: 55c970ad70cf7bb4791469573e1dac1b, type: 3}
+        m_Texture: {fileID: 2800000, guid: c112848b242e53347af7d092afa62993, type: 3}
         m_Scale: {x: 0.4, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -61,7 +61,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex1:
-        m_Texture: {fileID: 2800000, guid: 94363ca90caeb8f49afd6d5ab6488da4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1d808679e604edc48985a6c0096db11b, type: 3}
         m_Scale: {x: -1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -176,6 +176,7 @@ Material:
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!114 &7107472446257231195
 MonoBehaviour:
   m_ObjectHideFlags: 11

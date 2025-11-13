@@ -51,7 +51,7 @@ Material:
         m_Scale: {x: -1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: a87e75958f2c41e4ea6162002d31c3d7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 31958c486ac26b24ebc9c358da277142, type: 3}
         m_Scale: {x: -1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex1:
@@ -178,6 +178,7 @@ Material:
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!114 &7107472446257231195
 MonoBehaviour:
   m_ObjectHideFlags: 11
