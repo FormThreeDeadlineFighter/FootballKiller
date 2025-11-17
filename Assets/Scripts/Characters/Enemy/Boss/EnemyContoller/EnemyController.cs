@@ -33,12 +33,12 @@ public class EnemyController : MonoBehaviour
     [SerializeField] BossEvent _bossEvent;
 
     private Rigidbody _rb;
-    private Sensor _sensor;
+    private AISensor _sensor;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _sensor = GetComponent<Sensor>();
+        _sensor = GetComponent<AISensor>();
     }
 
     void OnEnable()
