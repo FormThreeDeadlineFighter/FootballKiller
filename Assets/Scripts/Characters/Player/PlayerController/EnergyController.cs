@@ -1,26 +1,26 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-[RequireComponent(typeof(Sensor))]
+[RequireComponent(typeof(AISensor))]
 public class EnergyController : MonoBehaviour
 {
     private float _energySaveValue;
     [Header("Setting")]
     [SerializeField] private float _maxEnergy;
-    [SerializeField] private float _minBlockRequired = 5f;
     [SerializeField] private Elements _savedElement;
+    [SerializeField] private float kickForce = 12f;        // 球被踢出的力量
+    [SerializeField] private float kickRadius = 1.2f;      // 踢球偵測範圍
     
     [Header("Objects")]
     [SerializeField] GameObject _blockDetector;
-    [SerializeField] GameObject _playerShootingPoint;
     [SerializeField] GameObject _robotShootingPoint;
-    [SerializeField] GameObject _energyBullet;
     [SerializeField] GameObject _robotBullet;
     [SerializeField] PlayerEvent _playerEvents;
 
     private PlayerBlockDetector _playerBlockDetector;
-    private Sensor _sensor;
+    private AISensor _sensor;
 
     public bool CanBlock;
     public bool CanShoot => _energySaveValue >= 0;
@@ -30,7 +30,7 @@ public class EnergyController : MonoBehaviour
     void Awake()
     {
         _playerBlockDetector = GetComponentInChildren<PlayerBlockDetector>();
-        _sensor = GetComponent<Sensor>();
+        _sensor = GetComponent<AISensor>();
     }
     void OnEnable()
     {
@@ -69,19 +69,26 @@ public class EnergyController : MonoBehaviour
     {
         if (_sensor.Target == null) return;
         
-        //shoot damage anad energy change
-        IAttack playerAttack = _energyBullet.GetComponent<IAttack>();
-        playerAttack.Elements = _savedElement;
-        playerAttack.Damage = _energySaveValue;
+        //shoot damage and energy change
+        //IAttack playerAttack = _energyBullet.GetComponent<IAttack>();
+        //playerAttack.Elements = _savedElement;
+        //playerAttack.Damage = _energySaveValue;
 
         // shoot to loss energy 
         EnergyUse(_energySaveValue);
 
-        // player bullet material change;
-        Vector3 dir = _sensor.Target.transform.position - _playerShootingPoint.transform.position;
-        Quaternion rotate = Quaternion.LookRotation(dir);
-        Instantiate(_energyBullet, _playerShootingPoint.transform.position, rotate);
+        // ball detect
+        Vector3 center = transform.position + transform.forward * 1f;
+        Collider[] hits = Physics.OverlapSphere(center, kickRadius);
+        if(hits.Length <= 0) return;  
+        Collider hit = hits[0];   
+        
+        if (!hit.CompareTag("Ball")) return;
+        Rigidbody ballRb = hit.GetComponent<Rigidbody>(); 
+        Vector3 dir = (_sensor.Target.transform.position - transform.position).normalized;
+        ballRb.AddForce(dir * kickForce, ForceMode.Impulse);
 
+        Debug.Log("Kicked Ball!");  
     }
     
     public void OnRobotShoot()
@@ -91,7 +98,7 @@ public class EnergyController : MonoBehaviour
 
         IEnumerator coroutine = CoolDown(0.5f);
 
-        IAttack playerAttack = _energyBullet.GetComponent<IAttack>();
+        IAttack playerAttack = _robotBullet.GetComponent<IAttack>();
     
         // shoot to loss energy 
         EnergyGain(1);
