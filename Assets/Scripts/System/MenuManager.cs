@@ -17,23 +17,29 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Canvas _canva;
     [SerializeField] private GameObject _player;
 
-    void Start()
+    /*void Start()
     {
         _mainMenuUI.SetActive(true);
         _stageMenuUI.SetActive(false);
         EventSystem.current.SetSelectedGameObject(_mainMenuFirst);
     }
+    void Update()
+    {
+        if(_mainMenuUI.activeSelf)
+        {
+            EventSystem.current.SetSelectedGameObject(_mainMenuFirst);
+        }
+        if(_stageMenuUI.activeSelf)
+        {
+            EventSystem.current.SetSelectedGameObject(_stageMenuFirst);
+        }
+    }*/
 
     public void GameStart()
     {
         AudioManager.Instance.Play(1, "shoot", false);
         _mainMenuUI.SetActive(false);
         Instantiate(_player);
-    }
-    public void LoadGame()
-    {
-        AudioManager.Instance.Play(1, "shoot", false);
-        _mainMenuUI.SetActive(false);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -50,12 +56,5 @@ public class MenuManager : MonoBehaviour
         {
             _stageMenuUI.SetActive(false);
         }
-    }
-    public void ReturnToMenu()
-    {
-        AudioManager.Instance.Play(1, "shoot", false);
-        _mainMenuUI.SetActive(true);
-        _stageMenuUI.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(_mainMenuFirst);
     }
 }
