@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 5817122057282331930}
   - component: {fileID: 8113408876411313474}
   - component: {fileID: 8055926654087053706}
-  - component: {fileID: 3254456871929412322}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: football_effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -7.29537, y: 24.712, z: 34.519}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8933042350285788743}
@@ -4844,28 +4843,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!95 &3254456871929412322
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 96777873614975378}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &441688010808589331
 GameObject:
   m_ObjectHideFlags: 0
@@ -4877,7 +4854,7 @@ GameObject:
   - component: {fileID: 852210555879923571}
   - component: {fileID: 5667280668427550622}
   - component: {fileID: 6488907145965519518}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: football_trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9772,7 +9749,7 @@ GameObject:
   - component: {fileID: 7266157427405704997}
   - component: {fileID: 1224870058665128265}
   - component: {fileID: 8513102729140504661}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: football_outer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14666,7 +14643,7 @@ GameObject:
   - component: {fileID: 1764043514228430233}
   - component: {fileID: 4756252600819703240}
   - component: {fileID: 3240760746936639649}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: football_trailLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19561,7 +19538,7 @@ GameObject:
   - component: {fileID: 900705540864995745}
   - component: {fileID: 239400124669654381}
   - component: {fileID: 7855752087332597278}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: football_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24455,7 +24432,7 @@ GameObject:
   - component: {fileID: 8933042350285788743}
   - component: {fileID: 6084286512825915949}
   - component: {fileID: 5450168092759570460}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: football_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29349,7 +29326,7 @@ GameObject:
   - component: {fileID: 8158015261721494535}
   - component: {fileID: 7450056557678005987}
   - component: {fileID: 6752093768186820111}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: football_lgihtPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34185,7 +34162,7 @@ GameObject:
   - component: {fileID: 6840052734544311461}
   - component: {fileID: 3433422346645910171}
   - component: {fileID: 6637673262402486608}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: football_003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34202,7 +34179,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5817122057282331930}

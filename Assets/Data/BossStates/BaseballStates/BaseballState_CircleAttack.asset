@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511566ab037bb76439a39598b7830ce8, type: 3}
   m_Name: BaseballState_CircleAttack
   m_EditorClassIdentifier: 
-  _animationName: Attack
+  _animationName: Swin Attack 1
   _transitionDuration: 0.1
   _attack: {fileID: 7841672020790003158, guid: 0d842644ecdf6d14bb537a9c73681bc0, type: 3}
   _spreadAngle: 45
