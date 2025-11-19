@@ -8,7 +8,7 @@ public class IAttack : MonoBehaviour
     
     private void OnEnable()
     {
-        _renderer = gameObject.GetComponent<Renderer>();
+        /*_renderer = gameObject.GetComponent<Renderer>();
         
         switch(Elements)
         {
@@ -24,6 +24,6 @@ public class IAttack : MonoBehaviour
             default:
                 _renderer.material.color = Color.white;
                 break;
-        }
+        }*/
     }
 }

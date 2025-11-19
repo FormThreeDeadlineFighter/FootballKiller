@@ -69,14 +69,6 @@ public class EnergyController : MonoBehaviour
     {
         if (_sensor.Target == null) return;
         
-        //shoot damage and energy change
-        //IAttack playerAttack = _energyBullet.GetComponent<IAttack>();
-        //playerAttack.Elements = _savedElement;
-        //playerAttack.Damage = _energySaveValue;
-
-        // shoot to loss energy 
-        EnergyUse(_energySaveValue);
-
         // ball detect
         Vector3 center = transform.position + transform.forward * 1f;
         Collider[] hits = Physics.OverlapSphere(center, kickRadius);
@@ -84,11 +76,19 @@ public class EnergyController : MonoBehaviour
         Collider hit = hits[0];   
         
         if (!hit.CompareTag("Ball")) return;
-        Rigidbody ballRb = hit.GetComponent<Rigidbody>(); 
+        
+        Rigidbody ballRb = hit.GetComponent<Rigidbody>();     
+        IAttack playerAttack = hit.GetComponent<IAttack>();
+        playerAttack.Elements = _savedElement;
+        playerAttack.Damage = _energySaveValue;
+        
         Vector3 dir = (_sensor.Target.transform.position - transform.position).normalized;
         ballRb.AddForce(dir * kickForce, ForceMode.Impulse);
 
         Debug.Log("Kicked Ball!");  
+        
+        // shoot to loss energy 
+        EnergyUse(_energySaveValue);
     }
     
     public void OnRobotShoot()
@@ -96,7 +96,7 @@ public class EnergyController : MonoBehaviour
         if (!_robotShootCoolDown) return;
         if (_sensor.Target == null) return;
 
-        IEnumerator coroutine = CoolDown(0.5f);
+        IEnumerator cd = CoolDown(0.5f);
 
         IAttack playerAttack = _robotBullet.GetComponent<IAttack>();
     
@@ -113,7 +113,7 @@ public class EnergyController : MonoBehaviour
         _playerEvents.PlayerSaveValue(_energySaveValue);
         
         _robotShootCoolDown = false;
-        StartCoroutine(coroutine);
+        StartCoroutine(cd);
     }
     
     

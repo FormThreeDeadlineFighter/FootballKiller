@@ -78,7 +78,14 @@ public class EnemyController : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
-    
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent<IAttack>(out IAttack attack))
+        {
+            _bossEvent.PlayerHurt(attack.Damage);
+        }
+    }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<IAttack>(out IAttack attack))
