@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3337137668818721427}
   - component: {fileID: 2401736496127503910}
+  - component: {fileID: 5704859734129118139}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -46,8 +47,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainMenuUI: {fileID: 0}
   _stageMenuUI: {fileID: 0}
-  _baseballbossUI: {fileID: 0}
   _mainMenuFirst: {fileID: 0}
   _stageMenuFirst: {fileID: 0}
-  _baseballbossFirst: {fileID: 0}
-  canvas: {fileID: 0}
+  _canva: {fileID: 0}
+  _player: {fileID: 2237032603744180701, guid: 6cccc7f0e6094d14b9e48df3d76a7260, type: 3}
+--- !u!65 &5704859734129118139
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7747830694795946801}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.943858, y: 7.0079136, z: 1}
+  m_Center: {x: 0.4203086, y: 1.6336775, z: 0}
