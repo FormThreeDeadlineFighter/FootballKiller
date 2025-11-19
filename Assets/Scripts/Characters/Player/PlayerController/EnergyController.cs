@@ -84,8 +84,6 @@ public class EnergyController : MonoBehaviour
         
         Vector3 dir = (_sensor.Target.transform.position - transform.position).normalized;
         ballRb.AddForce(dir * kickForce, ForceMode.Impulse);
-
-        Debug.Log("Kicked Ball!");  
         
         // shoot to loss energy 
         EnergyUse(_energySaveValue);
