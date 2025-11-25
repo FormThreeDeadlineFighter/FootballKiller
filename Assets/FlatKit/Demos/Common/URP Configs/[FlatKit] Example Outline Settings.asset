@@ -13,7 +13,6 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - OUTLINE_USE_COLOR
-  - OUTLINE_USE_NORMALS
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -39,13 +38,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ColorThresholdMax: 0.25
+    - _ColorThresholdMax: 0.87
     - _ColorThresholdMin: 0
     - _DepthThresholdMax: 0.1
     - _DepthThresholdMin: 0.1
     - _FadeRangeEnd: 50
     - _FadeRangeStart: 10
-    - _NormalThresholdMax: 2
+    - _NormalThresholdMax: 12.4
     - _NormalThresholdMin: 0
     - _Thickness: 1
     m_Colors:
@@ -73,12 +72,12 @@ MonoBehaviour:
   useDepth: 0
   minDepthThreshold: 0.1
   maxDepthThreshold: 0.1
-  useNormals: 1
+  useNormals: 0
   minNormalsThreshold: 0
-  maxNormalsThreshold: 2
+  maxNormalsThreshold: 12.4
   useColor: 1
   minColorThreshold: 0
-  maxColorThreshold: 0.25
+  maxColorThreshold: 0.87
   renderEvent: 500
   outlineOnly: 0
   applyInSceneView: 1
