@@ -6,7 +6,6 @@ public class BaseballSwin : StateMachineBehaviour
 {
     [SerializeField] GameObject _bullet;
     [SerializeField] AttackData _attackData; 
-    Rigidbody rb;
     
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -23,13 +22,16 @@ public class BaseballSwin : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        rb =  animator.GetComponentInParent<Rigidbody>();
-        
+        Rigidbody rb = animator.GetComponentInParent<Rigidbody>();
+        EnemyController enemy = animator.GetComponentInParent<EnemyController>();
+
+        enemy.FaceToPlayer();
+
         foreach(BulletArrayData bulletsArray in _attackData._bulletsArray)
         {
             foreach(BulletData bullet in bulletsArray._bullets)
             {
-                Vector3 lookDir = Quaternion.Euler(bullet._angle.y, bullet._angle.x, 0) * rb.transform.forward; 
+                Vector3 lookDir = Quaternion.Euler(bullet._angle.y, bullet._angle.x, 0) * rb.transform.forward;
                 Quaternion toRotation = Quaternion.LookRotation(lookDir);
                 Instantiate(this._bullet, rb.transform.position + bullet._position, toRotation);
             }
