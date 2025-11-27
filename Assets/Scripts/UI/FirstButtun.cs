@@ -5,27 +5,26 @@ public class FirstButtun : MonoBehaviour
 {
     [SerializeField] private GameObject _nowUI;
     [SerializeField] private GameObject _firstButtun;
-    bool on = false;
-    void Start()
+    void OnEnable()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(_nowUI.activeSelf == true && on == false)
+        if(_firstButtun != null)
         {
+            EventSystem.current.SetSelectedGameObject(null);
+
             EventSystem.current.SetSelectedGameObject(_firstButtun);
-            on = true;
+            Debug.Log(gameObject.name + " Page Enabled. Focus set to: " + _firstButtun.name);
         }
-        if(_nowUI.activeSelf == false && on == true)
+        else
         {
-            on = false;
+            Debug.LogWarning(gameObject.name + " Page Enabled, but _firstButtun is NULL!");
         }
-        Debug.Log(_nowUI.name + 
-          " self: " + _nowUI.activeSelf + 
-          " inHierarchy: " + _nowUI.activeInHierarchy);
     }
-
+    void OnDisable()
+    {
+        if(EventSystem.current.currentSelectedGameObject == _firstButtun)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+        }
+        Debug.Log(gameObject.name + " Page Disabled.");
+    }
 }
