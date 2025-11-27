@@ -143,13 +143,38 @@ MonoBehaviour:
   _attackData:
     _bulletsArray:
     - _bullets:
-      - _position: {x: 5, y: 5, z: 0}
-        _angle: {x: 0, y: 0}
-      - _position: {x: 0, y: 0, z: 0}
-        _angle: {x: 0, y: 0}
-      - _position: {x: -5, y: -5, z: 0}
-        _angle: {x: 0, y: 0}
+      - _height: 0
+        _angle: {x: 5, y: 0}
+      - _height: -5
+        _angle: {x: 5, y: 0}
+      - _height: -10
+        _angle: {x: 5, y: 0}
       _delayTime: 0
+    - _bullets:
+      - _height: 0
+        _angle: {x: -5, y: 0}
+      - _height: -5
+        _angle: {x: -5, y: 0}
+      - _height: -10
+        _angle: {x: -5, y: 0}
+      _delayTime: 0
+    - _bullets:
+      - _height: 0
+        _angle: {x: 15, y: 0}
+      - _height: -5
+        _angle: {x: 15, y: 0}
+      - _height: -10
+        _angle: {x: 15, y: 0}
+      _delayTime: 0
+    - _bullets:
+      - _height: 0
+        _angle: {x: -15, y: 0}
+      - _height: -5
+        _angle: {x: -15, y: 0}
+      - _height: -10
+        _angle: {x: -15, y: 0}
+      _delayTime: 0
+  FaceToPlayer: 0
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -255,19 +280,30 @@ MonoBehaviour:
   _attackData:
     _bulletsArray:
     - _bullets:
-      - _position: {x: 5, y: 5, z: 0}
+      - _height: 0
         _angle: {x: 0, y: 0}
-      - _position: {x: 0, y: 0, z: 0}
+      - _height: -5
         _angle: {x: 0, y: 0}
-      - _position: {x: -5, y: -5, z: 0}
+      - _height: -10
         _angle: {x: 0, y: 0}
       _delayTime: 0
     - _bullets:
-      - _position: {x: 0, y: 0, z: 0}
+      - _height: 0
         _angle: {x: 10, y: 0}
-      - _position: {x: 0, y: 0, z: 0}
+      - _height: -5
+        _angle: {x: 10, y: 0}
+      - _height: -10
+        _angle: {x: 10, y: 0}
+      _delayTime: 0
+    - _bullets:
+      - _height: 0
+        _angle: {x: -10, y: 0}
+      - _height: -5
+        _angle: {x: -10, y: 0}
+      - _height: -10
         _angle: {x: -10, y: 0}
       _delayTime: 0
+  FaceToPlayer: 1
 --- !u!1101 &9079364139554000764
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

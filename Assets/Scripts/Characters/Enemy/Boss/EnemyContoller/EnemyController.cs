@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class EnemyController : MonoBehaviour
 {
@@ -92,5 +93,29 @@ public class EnemyController : MonoBehaviour
         {
             _bossEvent.PlayerHurt(attack.Damage);
         }
+    } 
+ 
+    public void SwinAttack(GameObject bulletPrefab, AttackData attackData)
+    {    
+        float delayTime = 0;
+        foreach(BulletArrayData bulletsArray in attackData._bulletsArray)
+        {
+            delayTime += bulletsArray._delayTime;
+            IEnumerator coroutine = SwinAttackLoop(bulletPrefab, bulletsArray, delayTime);
+            StartCoroutine(coroutine);
+        }
+     
+    }
+    
+    IEnumerator SwinAttackLoop(GameObject bulletPrefab, BulletArrayData bulletsArray, float time)
+    {
+        yield return new WaitForSeconds(time);
+        
+        foreach(BulletData bullet in bulletsArray._bullets)
+        {
+            Vector3 lookDir = Quaternion.Euler(bullet._angle.y, bullet._angle.x, 0) * _rb.transform.forward;
+            Quaternion toRotation = Quaternion.LookRotation(lookDir);
+            Instantiate(bulletPrefab, _rb.transform.position + new Vector3(0,bullet._height,0), toRotation);
+        }     
     }
 }

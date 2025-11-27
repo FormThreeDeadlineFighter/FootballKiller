@@ -5,38 +5,44 @@ using UnityEngine;
 public class BaseballSwin : StateMachineBehaviour
 {
     [SerializeField] GameObject _bullet;
-    [SerializeField] AttackData _attackData; 
-    Rigidbody rb;
+    [SerializeField] AttackData _attackData;
+    [SerializeField] bool FaceToPlayer;
+    
+    bool attack;
+    EnemyController enemy;
     
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    // 
-    //}
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        enemy = animator.GetComponentInParent<EnemyController>();
+        attack = true;
+   
+        if(FaceToPlayer)
+        {
+            enemy.FaceToPlayer();
+        }            
+    }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        if(stateInfo.normalizedTime >= 0.5)
+        {
+            if(_bullet == null) return;
+            if(!attack) return;       
+            enemy.SwinAttack(_bullet, _attackData);          
+            attack = false;
+        }
+    }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        rb =  animator.GetComponentInParent<Rigidbody>();
-        
-        foreach(BulletArrayData bulletsArray in _attackData._bulletsArray)
-        {
-            foreach(BulletData bullet in bulletsArray._bullets)
-            {
-                Vector3 lookDir = Quaternion.Euler(bullet._angle.y, bullet._angle.x, 0) * rb.transform.forward; 
-                Quaternion toRotation = Quaternion.LookRotation(lookDir);
-                Instantiate(this._bullet, rb.transform.position + bullet._position, toRotation);
-            }
-        }
-        
-        Debug.Log("boss swin attack");
-    }
+    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    if(_bullet != null)
+    //    {        
+    //        enemy.SwinAttack(_bullet, _attackData);          
+    //    }
+    //}
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -49,4 +55,5 @@ public class BaseballSwin : StateMachineBehaviour
     //{
     //    // Implement code that sets up animation IK (inverse kinematics)
     //}
+    
 }
