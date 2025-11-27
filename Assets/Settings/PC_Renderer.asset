@@ -92,6 +92,52 @@ MonoBehaviour:
   materials:
   - {fileID: 2100000, guid: 48405b2ad8529804fb4840c4803f75c5, type: 2}
   autoReferenceMaterials: 1
+--- !u!114 &-8544973042469494967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576f949be0794f548b825c9ce6f556db, type: 3}
+  m_Name: Flat Kit Per Object Outline
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::FlatKit.ObjectOutlineRendererFeature
+  m_Active: 1
+  settings:
+    passTag: RenderObjectsFeature
+    Event: 300
+    filterSettings:
+      RenderQueueType: 0
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 4294967295
+      PassNames:
+      - Outline
+    overrideMaterial: {fileID: 0}
+    overrideMaterialPassIndex: 0
+    overrideShader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
+    overrideShaderPassIndex: 1
+    overrideMode: 2
+    overrideDepthState: 0
+    depthCompareFunction: 4
+    enableWrite: 1
+    stencilSettings:
+      overrideStencilState: 0
+      stencilReference: 0
+      stencilCompareFunction: 8
+      passOperation: 0
+      failOperation: 0
+      zFailOperation: 0
+    cameraSettings:
+      overrideCamera: 0
+      restoreCamera: 1
+      offset: {x: 0, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 60
+  materials:
+  - {fileID: 2100000, guid: aa801a257cddbca42b137b834f6b546a, type: 2}
+  autoReferenceMaterials: 1
 --- !u!114 &-6594549437683902628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,6 +368,52 @@ MonoBehaviour:
   materials:
   - {fileID: 2100000, guid: 7abb0cf1fd607dd4480b15255545da60, type: 2}
   autoReferenceMaterials: 1
+--- !u!114 &-4249270662837923386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576f949be0794f548b825c9ce6f556db, type: 3}
+  m_Name: Flat Kit Per Object Outline
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::FlatKit.ObjectOutlineRendererFeature
+  m_Active: 1
+  settings:
+    passTag: RenderObjectsFeature
+    Event: 300
+    filterSettings:
+      RenderQueueType: 0
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 4294967295
+      PassNames:
+      - Outline
+    overrideMaterial: {fileID: 0}
+    overrideMaterialPassIndex: 0
+    overrideShader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
+    overrideShaderPassIndex: 1
+    overrideMode: 2
+    overrideDepthState: 0
+    depthCompareFunction: 4
+    enableWrite: 1
+    stencilSettings:
+      overrideStencilState: 0
+      stencilReference: 0
+      stencilCompareFunction: 8
+      passOperation: 0
+      failOperation: 0
+      zFailOperation: 0
+    cameraSettings:
+      overrideCamera: 0
+      restoreCamera: 1
+      offset: {x: 0, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 60
+  materials:
+  - {fileID: 2100000, guid: aa801a257cddbca42b137b834f6b546a, type: 2}
+  autoReferenceMaterials: 1
 --- !u!114 &-2654174946491282763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,6 +550,52 @@ MonoBehaviour:
       cameraFieldOfView: 60
   materials: []
   autoReferenceMaterials: 1
+--- !u!114 &-1448843281509039726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576f949be0794f548b825c9ce6f556db, type: 3}
+  m_Name: Flat Kit Per Object Outline
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::FlatKit.ObjectOutlineRendererFeature
+  m_Active: 1
+  settings:
+    passTag: RenderObjectsFeature
+    Event: 300
+    filterSettings:
+      RenderQueueType: 0
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 4294967295
+      PassNames:
+      - Outline
+    overrideMaterial: {fileID: 0}
+    overrideMaterialPassIndex: 0
+    overrideShader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
+    overrideShaderPassIndex: 1
+    overrideMode: 2
+    overrideDepthState: 0
+    depthCompareFunction: 4
+    enableWrite: 1
+    stencilSettings:
+      overrideStencilState: 0
+      stencilReference: 0
+      stencilCompareFunction: 8
+      passOperation: 0
+      failOperation: 0
+      zFailOperation: 0
+    cameraSettings:
+      overrideCamera: 0
+      restoreCamera: 1
+      offset: {x: 0, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 60
+  materials:
+  - {fileID: 2100000, guid: aa801a257cddbca42b137b834f6b546a, type: 2}
+  autoReferenceMaterials: 1
 --- !u!114 &-532895394201370678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,6 +685,9 @@ MonoBehaviour:
   - {fileID: 5832319816907088212}
   - {fileID: 1867548778610441747}
   - {fileID: -1803645445431388539}
+  - {fileID: -1448843281509039726}
+  - {fileID: -8544973042469494967}
+  - {fileID: -4249270662837923386}
   m_RendererFeatureMap: ad6b866f10d7b46c
   m_UseNativeRenderPass: 1
   xrSystemData: {fileID: 0}
