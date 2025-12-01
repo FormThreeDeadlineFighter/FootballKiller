@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float _HP;
     [SerializeField] float _moveSpeed;
     [SerializeField] float _shieldHP;
-    [SerializeField] bool _invincible;
+    [SerializeField] bool _invincible = false;
 
     [Header("Event System")]
     [SerializeField] GameEvent _gameEvent;
@@ -17,25 +17,6 @@ public class EnemyController : MonoBehaviour
     private AISensor _sensor;
     private float _currentHP;
     private float _currentShield;
-    public float HP // enermy HP
-    {
-        get => _currentHP;
-        set
-        {
-            if (value > _HP)
-            {
-                _currentHP = _HP;
-            }
-            else if (value < 0)
-            {
-                _currentHP = 0;
-            }
-            else
-            {
-                _currentHP = value;
-            }
-        }
-    }
     
     void Start()
     {
@@ -45,10 +26,12 @@ public class EnemyController : MonoBehaviour
 
     void OnEnable()
     {
-        _currentHP = _HP;
         _bossEvent.OnBossHurt += BossHurt;
         _gameEvent.OnGameVictory += GameOver;
         _gameEvent.OnGameDefeat += GameOver;
+        
+        _currentHP = _HP;
+        _shieldHP = 0;
     }
     void OnDisable()
     {
@@ -59,17 +42,31 @@ public class EnemyController : MonoBehaviour
     
     private void BossHurt(float damage)
     {
-        if(_invincible) return;
-        if(_currentShield >= 0) return;
+        if(_invincible) return;      
+        if(_currentShield > 0) return;  
         
-        if (HP >= 0)
+        if (_currentHP >= 0)
         {
-            HP -= damage;
+            _currentHP -= damage;
         }
-        if (HP <= 0)
+        if (_currentHP <= 0)
         {
-            HP = 0;
+            _currentHP = 0;
             _gameEvent.GameVictory();
+        }
+    }
+    
+    private void ShieldHurt(float damage)
+    {
+        if(_invincible) return;       
+        
+        if (_shieldHP >= 0)
+        {
+            _shieldHP -= damage;
+        }
+        if (_shieldHP <= 0)
+        {
+            _shieldHP = 0;
         }
     }
     
