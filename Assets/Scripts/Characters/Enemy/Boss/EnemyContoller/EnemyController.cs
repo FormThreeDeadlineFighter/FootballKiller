@@ -5,9 +5,19 @@ public class EnemyController : MonoBehaviour
 {
     [Header("Energy Property")]
     [SerializeField] private float _HP;
-    [SerializeField] private float _currentHP;
-    // enermy HP 
-    public float HP
+    [SerializeField] float _moveSpeed;
+    [SerializeField] float _shieldHP;
+    [SerializeField] bool _invincible;
+
+    [Header("Event System")]
+    [SerializeField] GameEvent _gameEvent;
+    [SerializeField] BossEvent _bossEvent;
+
+    private Rigidbody _rb;
+    private AISensor _sensor;
+    private float _currentHP;
+    private float _currentShield;
+    public float HP // enermy HP
     {
         get => _currentHP;
         set
@@ -26,16 +36,7 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
-    // enemy move speed 
-    [SerializeField] float _moveSpeed;
-
-    [Header("Event System")]
-    [SerializeField] GameEvent _gameEvent;
-    [SerializeField] BossEvent _bossEvent;
-
-    private Rigidbody _rb;
-    private AISensor _sensor;
-
+    
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -56,6 +57,22 @@ public class EnemyController : MonoBehaviour
         _gameEvent.OnGameDefeat -= GameOver;
     }
     
+    private void BossHurt(float damage)
+    {
+        if(_invincible) return;
+        if(_currentShield >= 0) return;
+        
+        if (HP >= 0)
+        {
+            HP -= damage;
+        }
+        if (HP <= 0)
+        {
+            HP = 0;
+            _gameEvent.GameVictory();
+        }
+    }
+    
     public void FaceToPlayer()
     {
         Vector3 dir = _sensor.Target.transform.position - transform.position;
@@ -63,17 +80,6 @@ public class EnemyController : MonoBehaviour
         _rb.transform.rotation = Quaternion.LookRotation(dir);
     }
     
-    private void BossHurt(float damage)
-    {
-        if (HP >= 0)
-        {
-            HP -= damage;
-        }
-        if (HP <= 0)
-        {
-            _gameEvent.GameVictory();
-        }
-    }
 
     private void GameOver()
     {
@@ -84,14 +90,14 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<IAttack>(out IAttack attack))
         {
-            _bossEvent.PlayerHurt(attack.Damage);
+            _bossEvent.BossHurt(attack.Damage);
         }
     }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<IAttack>(out IAttack attack))
         {
-            _bossEvent.PlayerHurt(attack.Damage);
+            _bossEvent.BossHurt(attack.Damage);
         }
     } 
  

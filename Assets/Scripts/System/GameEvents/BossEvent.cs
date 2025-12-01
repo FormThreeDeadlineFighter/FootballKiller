@@ -6,7 +6,7 @@ public class BossEvent : ScriptableObject
 {
     public Action<float> OnBossHurt;
 
-    public void PlayerHurt(float damage)
+    public void BossHurt(float damage)
     {
         if (OnBossHurt != null)
         {
