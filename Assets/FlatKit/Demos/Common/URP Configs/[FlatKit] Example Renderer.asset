@@ -73,8 +73,9 @@ MonoBehaviour:
       offset: {x: 0, y: 0, z: 0, w: 0}
       cameraFieldOfView: 60
   materials:
-  - {fileID: 2100000, guid: 933d33e93f53637469b875cc02da48c8, type: 2}
-  - {fileID: 2100000, guid: fa8cc13b6dd26064cbc1282dca2795cf, type: 2}
+  - {fileID: 2100000, guid: 4d3da1065c64d5c4d80707fe7a6137f6, type: 2}
+  - {fileID: 2100000, guid: 8826e8169562089478e972cb06a42f03, type: 2}
+  - {fileID: 2100000, guid: 4a11df981ee69f64299eaa5339be7b60, type: 2}
   autoReferenceMaterials: 1
 --- !u!114 &-1344586528338988631
 MonoBehaviour:
