@@ -6,26 +6,26 @@ using UnityEngine.UIElements;
 [RequireComponent(typeof(AISensor))]
 public class EnergyController : MonoBehaviour
 {
-    private float _energySaveValue;
     [Header("Setting")]
     [SerializeField] private float _maxEnergy;
     [SerializeField] private Elements _savedElement;
-    [SerializeField] private float kickForce = 12f;        // 球被踢出的力量
-    [SerializeField] private float kickRadius = 1.2f;      // 踢球偵測範圍
+    [SerializeField] private float kickForce = 12f;        // 球被踢出的力量     // 踢球偵測範圍
     
     [Header("Objects")]
     [SerializeField] GameObject _blockDetector;
+    [SerializeField] Transform _ballPosition;
     [SerializeField] GameObject _robotShootingPoint;
+    [SerializeField] GameObject _ball;
     [SerializeField] GameObject _robotBullet;
     [SerializeField] PlayerEvent _playerEvents;
 
     private PlayerBlockDetector _playerBlockDetector;
     private AISensor _sensor;
+    private float _currentEnergy;
+    private bool _robotShootCoolDown = true; 
 
     public bool CanBlock;
-    public bool CanShoot => _energySaveValue >= 0;
-
-    private bool _robotShootCoolDown = true;
+    public bool CanShoot => _currentEnergy >= 0;
 
     void Awake()
     {
@@ -50,7 +50,7 @@ public class EnergyController : MonoBehaviour
 
     void OnBlock(Elements element)
     {
-        if (_energySaveValue < _maxEnergy)
+        if (_currentEnergy < _maxEnergy)
         {
             _savedElement = element;
             EnergyGain(_playerBlockDetector.AttackDamage * 0.5f);
@@ -61,32 +61,38 @@ public class EnergyController : MonoBehaviour
             Debug.Log("energy full");
         }             
         
-        _playerEvents.PlayerSaveValue(_energySaveValue);
+        _playerEvents.PlayerSaveValue(_currentEnergy);
     }
     
     // player press shoot
     public void OnPlayerShoot()
     {
-        if (_sensor.Target == null) return;
-        
-        // ball detect
-        Vector3 center = transform.position + transform.forward * 1f;
-        Collider[] hits = Physics.OverlapSphere(center, kickRadius);
-        if(hits.Length <= 0) return;  
-        Collider hit = hits[0];   
-        
-        if (!hit.CompareTag("Ball")) return;
-        
-        Rigidbody ballRb = hit.GetComponent<Rigidbody>();     
-        IAttack playerAttack = hit.GetComponent<IAttack>();
-        playerAttack.Elements = _savedElement;
-        playerAttack.Damage = _energySaveValue;
-        
-        Vector3 dir = (_sensor.Target.transform.position - transform.position).normalized;
-        ballRb.AddForce(dir * kickForce, ForceMode.Impulse);
-        
+        Vector3 target;
+
+        if (_sensor.Target == null) 
+        {
+            target = _ballPosition.position;
+        }
+        else
+        {
+            target = _sensor.Target.transform.position;
+        }
+
+        IAttack playerAttack = _robotBullet.GetComponent<IAttack>();
+
         // shoot to loss energy 
-        EnergyUse(_energySaveValue);
+        playerAttack.Damage = _currentEnergy;
+        
+        // player shoot
+        Vector3 dir = _sensor.Target.transform.position - _robotShootingPoint.transform.position;
+        Quaternion rotate = Quaternion.LookRotation(dir);
+        GameObject ball = Instantiate(_ball, _ballPosition.transform.position, rotate);
+        Rigidbody ballRb = ball.GetComponent<Rigidbody>();
+        ballRb.AddForce(dir * kickForce, ForceMode.Impulse);
+            
+        EnergyUse(_currentEnergy); // shoot to loss energy 
+
+        _playerEvents.PlayerSaveValue(_currentEnergy); // Reload element ui
     }
     
     public void OnRobotShoot()
@@ -98,17 +104,16 @@ public class EnergyController : MonoBehaviour
 
         IAttack playerAttack = _robotBullet.GetComponent<IAttack>();
     
-        // shoot to loss energy 
+        // shoot to gain energy 
         EnergyGain(1);
         playerAttack.Damage = 1;
 
-        // player bullet material change;
+        // player shoot
         Vector3 dir = _sensor.Target.transform.position - _robotShootingPoint.transform.position;
         Quaternion rotate = Quaternion.LookRotation(dir);
         Instantiate(_robotBullet, _robotShootingPoint.transform.position, rotate);
-        
-        // Reload element ui
-        _playerEvents.PlayerSaveValue(_energySaveValue);
+             
+        _playerEvents.PlayerSaveValue(_currentEnergy); // Reload element ui
         
         _robotShootCoolDown = false;
         StartCoroutine(cd);
@@ -119,27 +124,27 @@ public class EnergyController : MonoBehaviour
     public void EnergyGain(float value)
     {
         ElementReset();
-        _energySaveValue += value;
+        _currentEnergy += value;
       
-        if(_energySaveValue > _maxEnergy)
+        if(_currentEnergy > _maxEnergy)
         {
-            _energySaveValue = _maxEnergy;
+            _currentEnergy = _maxEnergy;
         }
         
-        _playerEvents.PlayerSaveValue(_energySaveValue);
+        _playerEvents.PlayerSaveValue(_currentEnergy);
         _playerEvents.PlayerSaveElement(_savedElement);
     }
 
     public void EnergyUse(float value)
     {
-        _energySaveValue -= value;
+        _currentEnergy -= value;
         
-        if(_energySaveValue <= 0)
+        if(_currentEnergy <= 0)
         {
-            _energySaveValue = 0;
+            _currentEnergy = 0;
         }
         
-        _playerEvents.PlayerSaveValue(_energySaveValue);
+        _playerEvents.PlayerSaveValue(_currentEnergy);
         _playerEvents.PlayerSaveElement(_savedElement);
 
         ElementReset();
@@ -147,7 +152,7 @@ public class EnergyController : MonoBehaviour
 
     private void ElementReset()
     {
-        if (_energySaveValue <= 0)
+        if (_currentEnergy <= 0)
         {
             _savedElement = Elements.none;
             _playerEvents.PlayerSaveElement(_savedElement);
