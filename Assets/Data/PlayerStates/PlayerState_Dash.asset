@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerState_Dash
   _animationName: Run
   _transitionDuration: 0.1
-  _duration: 30
+  _duration: 45

@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Objects")]
     [SerializeField] Transform _cameraTransform;
+    [SerializeField] Transform _ballTransform;
     [SerializeField] GameObject _blockDetector;
     [SerializeField] GameObject _bodyDetector;
     [SerializeField] PlayerEvent _playerEvents;
@@ -171,7 +172,7 @@ public class PlayerController : MonoBehaviour
         }
         Debug.Log("dash");      
     }
-    
+
     public void Jump(float speed)
     {
         SetVelocityY(speed);

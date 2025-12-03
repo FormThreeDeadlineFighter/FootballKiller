@@ -12,6 +12,7 @@ public class PlayerInput : MonoBehaviour
     public bool IsDash => _playerControl.Player.Dash.WasPerformedThisFrame();
     public bool IsPlayerShoot => _playerControl.Player.PlayerShoot.WasPerformedThisFrame();
     public bool IsRobotShoot => _playerControl.Player.RobotShoot.IsPressed();
+    public bool IsRetrieve => _playerControl.Player.Retrieve.WasPerformedThisFrame();
     
     public void Awake()
     {

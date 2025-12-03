@@ -9,9 +9,10 @@ public class Football : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {         
+            Debug.Log("boom");
             Instantiate(energyBox, transform.position, Quaternion.identity);
         }
-        
+        Destroy(this.gameObject);
     }
 
     void OnTriggerEnter(Collider other)

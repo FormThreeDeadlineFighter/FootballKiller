@@ -38,7 +38,7 @@ public class PlayerState_Walk : IPlayerState
         if(_input.IsDash)
         {
             _stateMachine.SetState(typeof(PlayerState_Dash));
-        }
+        }  
     }
     public override void PhysicsUpdate()
     {
