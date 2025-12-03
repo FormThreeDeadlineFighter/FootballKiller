@@ -27,6 +27,7 @@ public class EnergyController : MonoBehaviour
 
     public bool CanBlock;
     public bool CanShoot => _currentEnergy >= 0;
+    public bool CanRetrieve => _currentEnergy >= 10;
 
     void Awake()
     {
@@ -118,8 +119,7 @@ public class EnergyController : MonoBehaviour
         if (!hit.CompareTag("Ball")) return;
         
         // player shoot
-        Vector3 dir = _sensor.Target.transform.position - _ballPosition.transform.position;
-        //Quaternion rotate = Quaternion.LookRotation(dir);
+        Vector3 dir = target - transform.position;
         
         IAttack playerAttack = _ball.GetComponent<IAttack>();      
         playerAttack.Damage = _currentEnergy;

@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     [Header("Player Objects")]
     [SerializeField] Transform _cameraTransform;
     [SerializeField] Transform _ballTransform;
+    [SerializeField] GameObject ball;
     [SerializeField] GameObject _blockDetector;
     [SerializeField] GameObject _bodyDetector;
     [SerializeField] PlayerEvent _playerEvents;
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
     public bool CanShoot => _energyController.CanShoot;
     public bool CanJump = false;
     private bool Invincible = false;
+    private bool _ballFollow = true;
     
     public MoveMode MoveMode 
     { 
@@ -98,12 +100,23 @@ public class PlayerController : MonoBehaviour
         {
             RobotShoot();
         } 
-        if(_input.IsRetrieve)
+        if(_input.IsRetrieve &&  _energyController.CanRetrieve)
         {
             Retrieve();
+            _energyController.EnergyUse(10);
         }
     }
-    
+    void FixedUpdate()
+    {
+        if(_ballFollow)
+        {
+            Rigidbody ballrb = ball.GetComponent<Rigidbody>();
+            Vector3 dir = _ballTransform.position - ballrb.position;
+            Vector3 move = dir * 10 * Time.fixedDeltaTime;
+            ballrb.MovePosition(ballrb.position + move);
+        }
+    }
+
     public void SetVelocity(Vector3 velocity)
     {
         if(velocity != null)
@@ -186,6 +199,7 @@ public class PlayerController : MonoBehaviour
     
     public void PlayerShoot()
     {
+        _ballFollow = false;
         _energyController.OnPlayerShoot();
     }
     
@@ -205,19 +219,8 @@ public class PlayerController : MonoBehaviour
     }
     
     public void Retrieve()
-    {
-        // ball detect
-        Collider[] hits = new Collider[50];
-        LayerMask layer = LayerMask.GetMask("Ball");
-        hits = Physics.OverlapSphere(transform.position, 1000, layer);
-        if(hits.Length <= 0) return;  
-        Collider hit = hits[0]; 
-        
-        StartCoroutine(RetrieveBall( hit.transform, _ballTransform.position, 0.1f));
-        
-        Rigidbody rb = hit.GetComponent<Rigidbody>();
-        rb.linearVelocity = Vector3.zero;
-        rb.angularVelocity =  Vector3.zero;
+    {        
+        StartCoroutine(RetrieveBall(ball.transform, _ballTransform.position, 0.3f));
     }
 
     public void StartInvincible(float time)
@@ -259,7 +262,8 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
-        obj.position = targetPos; //確保結束時精準到位
+        obj.position = targetPos; //確保結束時精準到位  
+        _ballFollow = true;
     }
 }
 public enum MoveMode {idle, walk, run}
