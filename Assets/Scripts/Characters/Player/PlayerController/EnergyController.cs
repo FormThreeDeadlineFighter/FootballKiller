@@ -78,15 +78,15 @@ public class EnergyController : MonoBehaviour
             target = _sensor.Target.transform.position;
         }
 
-        IAttack playerAttack = _robotBullet.GetComponent<IAttack>();
-
-        // shoot to loss energy 
-        playerAttack.Damage = _currentEnergy;
         
         // player shoot
         Vector3 dir = _sensor.Target.transform.position - _robotShootingPoint.transform.position;
         Quaternion rotate = Quaternion.LookRotation(dir);
         GameObject ball = Instantiate(_ball, _ballPosition.transform.position, rotate);
+        
+        IAttack playerAttack = _ball.GetComponent<IAttack>();      
+        playerAttack.Damage = _currentEnergy;
+        
         Rigidbody ballRb = ball.GetComponent<Rigidbody>();
         ballRb.AddForce(dir * kickForce, ForceMode.Impulse);
             
