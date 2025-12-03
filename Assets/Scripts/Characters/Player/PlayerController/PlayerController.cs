@@ -98,6 +98,10 @@ public class PlayerController : MonoBehaviour
         {
             RobotShoot();
         } 
+        if(_input.IsRetrieve)
+        {
+            Retrieve();
+        }
     }
     
     public void SetVelocity(Vector3 velocity)
@@ -199,10 +203,21 @@ public class PlayerController : MonoBehaviour
     {
         _blockDetector.SetActive(false);
     }
-
-    public void GainEnergy(float value)
+    
+    public void Retrieve()
     {
-        _energyController.EnergyGain(value);
+        // ball detect
+        Collider[] hits = new Collider[50];
+        LayerMask layer = LayerMask.GetMask("Ball");
+        hits = Physics.OverlapSphere(transform.position, 1000, layer);
+        if(hits.Length <= 0) return;  
+        Collider hit = hits[0]; 
+        
+        StartCoroutine(RetrieveBall( hit.transform, _ballTransform.position, 0.1f));
+        
+        Rigidbody rb = hit.GetComponent<Rigidbody>();
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity =  Vector3.zero;
     }
 
     public void StartInvincible(float time)
@@ -229,6 +244,22 @@ public class PlayerController : MonoBehaviour
         Invincible = true;
         yield return new WaitForSeconds(time);
         Invincible = false;
+    }
+    
+    IEnumerator RetrieveBall(Transform obj, Vector3 targetPos, float time)
+    {
+        Vector3 startPos = obj.position;
+        float elapsed = 0f;
+
+        while (elapsed < time)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / time;
+            obj.position = Vector3.Lerp(startPos, targetPos, t);
+            yield return null;
+        }
+
+        obj.position = targetPos; //確保結束時精準到位
     }
 }
 public enum MoveMode {idle, walk, run}
