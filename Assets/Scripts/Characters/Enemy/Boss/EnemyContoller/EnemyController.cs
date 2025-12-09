@@ -89,6 +89,7 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.TryGetComponent<IAttack>(out IAttack attack))
         {
             BossHurt(attack.Damage);
+            Debug.Log("ball hurt " + attack.Damage);
         }
     }
     void OnTriggerEnter(Collider other)

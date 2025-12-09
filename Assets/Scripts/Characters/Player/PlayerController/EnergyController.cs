@@ -16,7 +16,6 @@ public class EnergyController : MonoBehaviour
     [SerializeField] GameObject _blockDetector;
     [SerializeField] Transform _ballPosition;
     [SerializeField] GameObject _robotShootingPoint;
-    [SerializeField] GameObject _ball;
     [SerializeField] GameObject _robotBullet;
     [SerializeField] PlayerEvent _playerEvents;
 
@@ -119,7 +118,7 @@ public class EnergyController : MonoBehaviour
         // player shoot
         Vector3 dir = target - transform.position;
         
-        IAttack playerAttack = _ball.GetComponent<IAttack>();      
+        IAttack playerAttack = hit.GetComponent<IAttack>();      
         playerAttack.Damage = _currentEnergy;
         
         Rigidbody ballRb = hit.GetComponent<Rigidbody>();

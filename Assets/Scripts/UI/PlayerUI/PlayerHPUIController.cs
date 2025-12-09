@@ -18,6 +18,5 @@ public class PlayerHPUIController : MonoBehaviour
     {
         value = value * 0.9f + 0.1f;
         HPUI.fillAmount = value;
-        Debug.Log(value);
     }
 }
