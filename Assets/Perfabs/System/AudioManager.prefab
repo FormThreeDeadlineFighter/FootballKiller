@@ -44,4 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 098250dcf76c36f47bd0051d69d21051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  click: {fileID: 8300000, guid: 3e314c4b9edac774c9f891d69f04a50a, type: 3}
   shoot: {fileID: 8300000, guid: 3e314c4b9edac774c9f891d69f04a50a, type: 3}
+  bgm_mianground: {fileID: 8300000, guid: 8d7b3568af7ba3a4db06d8d0afa960ba, type: 3}
+  bgm_boss_1: {fileID: 8300000, guid: cfd8518cc47169d40bb8cced4b087989, type: 3}

@@ -9,7 +9,8 @@ public class EnergyController : MonoBehaviour
     [Header("Setting")]
     [SerializeField] private float _maxEnergy;
     [SerializeField] private Elements _savedElement;
-    [SerializeField] private float kickForce = 12f;        // 球被踢出的力量     // 踢球偵測範圍
+    [SerializeField] private float kickForce = 12f;        // 球被踢出的力量     
+    [SerializeField] private float kickRadius = 1.5f;    // 踢球偵測範圍
     
     [Header("Objects")]
     [SerializeField] GameObject _blockDetector;
@@ -26,6 +27,7 @@ public class EnergyController : MonoBehaviour
 
     public bool CanBlock;
     public bool CanShoot => _currentEnergy >= 0;
+    public bool CanRetrieve => _currentEnergy >= 10;
 
     void Awake()
     {
@@ -65,6 +67,35 @@ public class EnergyController : MonoBehaviour
     }
     
     // player press shoot
+    /*public void OnPlayerShoot()
+    {
+        Vector3 target;
+
+        if (_sensor.Target == null) 
+        {
+            target = _ballPosition.position;
+        }
+        else
+        {
+            target = _sensor.Target.transform.position;
+        }
+        
+        // player shoot
+        Vector3 dir = _sensor.Target.transform.position - _ballPosition.transform.position;
+        Quaternion rotate = Quaternion.LookRotation(dir);
+        GameObject ball = Instantiate(_ball, _ballPosition.transform.position, rotate);
+        
+        IAttack playerAttack = _ball.GetComponent<IAttack>();      
+        playerAttack.Damage = _currentEnergy;
+        
+        Rigidbody ballRb = ball.GetComponent<Rigidbody>();
+        ballRb.AddForce(dir * kickForce, ForceMode.Impulse);
+            
+        EnergyUse(_currentEnergy); // shoot to loss energy 
+
+        _playerEvents.PlayerSaveValue(_currentEnergy); // Reload element ui
+    }*/
+    
     public void OnPlayerShoot()
     {
         Vector3 target;
@@ -77,17 +108,23 @@ public class EnergyController : MonoBehaviour
         {
             target = _sensor.Target.transform.position;
         }
-
+        
+        // ball detect
+        Collider[] hits = new Collider[50];
+        LayerMask layer = LayerMask.GetMask("Ball");
+        hits = Physics.OverlapSphere(transform.position, 1000, layer);
+        if(hits.Length <= 0) return;  
+        Collider hit = hits[0];  
+        
+        if (!hit.CompareTag("Ball")) return;
         
         // player shoot
-        Vector3 dir = _sensor.Target.transform.position - _robotShootingPoint.transform.position;
-        Quaternion rotate = Quaternion.LookRotation(dir);
-        GameObject ball = Instantiate(_ball, _ballPosition.transform.position, rotate);
+        Vector3 dir = target - transform.position;
         
         IAttack playerAttack = _ball.GetComponent<IAttack>();      
         playerAttack.Damage = _currentEnergy;
         
-        Rigidbody ballRb = ball.GetComponent<Rigidbody>();
+        Rigidbody ballRb = hit.GetComponent<Rigidbody>();
         ballRb.AddForce(dir * kickForce, ForceMode.Impulse);
             
         EnergyUse(_currentEnergy); // shoot to loss energy 

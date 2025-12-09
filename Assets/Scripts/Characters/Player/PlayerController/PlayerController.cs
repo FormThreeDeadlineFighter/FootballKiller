@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     [Header("Player Objects")]
     [SerializeField] Transform _cameraTransform;
     [SerializeField] Transform _ballTransform;
+    [SerializeField] GameObject ball;
     [SerializeField] GameObject _blockDetector;
     [SerializeField] GameObject _bodyDetector;
     [SerializeField] PlayerEvent _playerEvents;
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
     public bool CanShoot => _energyController.CanShoot;
     public bool CanJump = false;
     private bool Invincible = false;
+    private bool _ballFollow = true;
     
     public MoveMode MoveMode 
     { 
@@ -98,8 +100,23 @@ public class PlayerController : MonoBehaviour
         {
             RobotShoot();
         } 
+        if(_input.IsRetrieve &&  _energyController.CanRetrieve)
+        {
+            Retrieve();
+            _energyController.EnergyUse(10);
+        }
     }
-    
+    void FixedUpdate()
+    {
+        if(_ballFollow)
+        {
+            Rigidbody ballrb = ball.GetComponent<Rigidbody>();
+            Vector3 dir = _ballTransform.position - ballrb.position;
+            Vector3 move = dir * 10 * Time.fixedDeltaTime;
+            ballrb.MovePosition(ballrb.position + move);
+        }
+    }
+
     public void SetVelocity(Vector3 velocity)
     {
         if(velocity != null)
@@ -182,6 +199,7 @@ public class PlayerController : MonoBehaviour
     
     public void PlayerShoot()
     {
+        _ballFollow = false;
         _energyController.OnPlayerShoot();
     }
     
@@ -199,10 +217,10 @@ public class PlayerController : MonoBehaviour
     {
         _blockDetector.SetActive(false);
     }
-
-    public void GainEnergy(float value)
-    {
-        _energyController.EnergyGain(value);
+    
+    public void Retrieve()
+    {        
+        StartCoroutine(RetrieveBall(ball.transform, _ballTransform.position, 0.3f));
     }
 
     public void StartInvincible(float time)
@@ -229,6 +247,23 @@ public class PlayerController : MonoBehaviour
         Invincible = true;
         yield return new WaitForSeconds(time);
         Invincible = false;
+    }
+    
+    IEnumerator RetrieveBall(Transform obj, Vector3 targetPos, float time)
+    {
+        Vector3 startPos = obj.position;
+        float elapsed = 0f;
+
+        while (elapsed < time)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / time;
+            obj.position = Vector3.Lerp(startPos, targetPos, t);
+            yield return null;
+        }
+
+        obj.position = targetPos; //確保結束時精準到位  
+        _ballFollow = true;
     }
 }
 public enum MoveMode {idle, walk, run}
