@@ -240,6 +240,9 @@ public class PlayerController : MonoBehaviour
         {
             _gameEvent.GameDefeat();
         }
+        
+        float hpPercentage = _currentHP/_HP;
+        _playerEvents.PlayerHPChange(hpPercentage);
     }
 
     IEnumerator InvincibleTime(float time)

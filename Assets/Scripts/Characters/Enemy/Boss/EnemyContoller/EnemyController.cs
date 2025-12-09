@@ -26,7 +26,6 @@ public class EnemyController : MonoBehaviour
 
     void OnEnable()
     {
-        _bossEvent.OnBossHurt += BossHurt;
         _gameEvent.OnGameVictory += GameOver;
         _gameEvent.OnGameDefeat += GameOver;
         
@@ -35,7 +34,6 @@ public class EnemyController : MonoBehaviour
     }
     void OnDisable()
     {
-        _bossEvent.OnBossHurt -= BossHurt;
         _gameEvent.OnGameVictory -= GameOver;
         _gameEvent.OnGameDefeat -= GameOver;
     }
@@ -54,6 +52,9 @@ public class EnemyController : MonoBehaviour
             _currentHP = 0;
             _gameEvent.GameVictory();
         }
+        
+        float hpPercentage = _currentHP/_HP;
+        _bossEvent.BossHPCahange(hpPercentage);
     }
     
     private void ShieldHurt(float damage)
@@ -87,14 +88,14 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<IAttack>(out IAttack attack))
         {
-            _bossEvent.BossHurt(attack.Damage);
+            BossHurt(attack.Damage);
         }
     }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<IAttack>(out IAttack attack))
         {
-            _bossEvent.BossHurt(attack.Damage);
+            BossHurt(attack.Damage);
         }
     } 
  

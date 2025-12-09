@@ -4,13 +4,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Data/EventChannels/BossEvent", fileName = "BossEvent")]
 public class BossEvent : ScriptableObject
 {
-    public Action<float> OnBossHurt;
+    
+    public Action<float> OnBossHPCahange;
 
-    public void BossHurt(float damage)
+    public void BossHPCahange(float value)
     {
-        if (OnBossHurt != null)
+        if (OnBossHPCahange != null)
         {
-            OnBossHurt(damage);
+            OnBossHPCahange(value);
         }
     }
 }

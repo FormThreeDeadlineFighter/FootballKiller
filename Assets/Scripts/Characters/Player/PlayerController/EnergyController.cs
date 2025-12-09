@@ -62,8 +62,6 @@ public class EnergyController : MonoBehaviour
         {
             Debug.Log("energy full");
         }             
-        
-        _playerEvents.PlayerSaveValue(_currentEnergy);
     }
     
     // player press shoot
@@ -112,7 +110,7 @@ public class EnergyController : MonoBehaviour
         // ball detect
         Collider[] hits = new Collider[50];
         LayerMask layer = LayerMask.GetMask("Ball");
-        hits = Physics.OverlapSphere(transform.position, 1000, layer);
+        hits = Physics.OverlapSphere(transform.position, kickRadius, layer);
         if(hits.Length <= 0) return;  
         Collider hit = hits[0];  
         
@@ -128,8 +126,6 @@ public class EnergyController : MonoBehaviour
         ballRb.AddForce(dir * kickForce, ForceMode.Impulse);
             
         EnergyUse(_currentEnergy); // shoot to loss energy 
-
-        _playerEvents.PlayerSaveValue(_currentEnergy); // Reload element ui
     }
     
     public void OnRobotShoot()
@@ -141,16 +137,15 @@ public class EnergyController : MonoBehaviour
 
         IAttack playerAttack = _robotBullet.GetComponent<IAttack>();
     
-        // shoot to gain energy 
-        EnergyGain(1);
-        playerAttack.Damage = 1;
+        // shoot damage
+        playerAttack.Damage = 2;
 
         // player shoot
         Vector3 dir = _sensor.Target.transform.position - _robotShootingPoint.transform.position;
         Quaternion rotate = Quaternion.LookRotation(dir);
         Instantiate(_robotBullet, _robotShootingPoint.transform.position, rotate);
              
-        _playerEvents.PlayerSaveValue(_currentEnergy); // Reload element ui
+        EnergyGain(2); // energy gain
         
         _robotShootCoolDown = false;
         StartCoroutine(cd);
@@ -168,7 +163,8 @@ public class EnergyController : MonoBehaviour
             _currentEnergy = _maxEnergy;
         }
         
-        _playerEvents.PlayerSaveValue(_currentEnergy);
+        float _energyPercentage = _currentEnergy / _maxEnergy;
+        _playerEvents.PlayerSaveValue(_energyPercentage);
         _playerEvents.PlayerSaveElement(_savedElement);
     }
 
@@ -181,7 +177,8 @@ public class EnergyController : MonoBehaviour
             _currentEnergy = 0;
         }
         
-        _playerEvents.PlayerSaveValue(_currentEnergy);
+        float _energyPercentage = _currentEnergy / _maxEnergy;
+        _playerEvents.PlayerSaveValue(_energyPercentage);
         _playerEvents.PlayerSaveElement(_savedElement);
 
         ElementReset();
