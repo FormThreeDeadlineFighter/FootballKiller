@@ -22,6 +22,7 @@ public class SceneManger : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("BaseballScene");
+        AudioManager.Instance.Play(3,"bgm_boss_1",true);
     }
     public void NextStage()
     {
