@@ -8,12 +8,13 @@ public class Football : MonoBehaviour
     
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        /*if(collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {         
             Debug.Log("boom");
             Instantiate(energyBox, transform.position, Quaternion.identity);
-        }
+        }*/
         //Destroy(this.gameObject);
+        
         if(collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {         
             Stop();

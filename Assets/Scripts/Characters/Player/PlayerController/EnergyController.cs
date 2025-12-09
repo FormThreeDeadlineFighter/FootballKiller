@@ -108,7 +108,7 @@ public class EnergyController : MonoBehaviour
         }
         
         // ball detect
-        Collider[] hits = new Collider[50];
+        Collider[] hits = new Collider[1];
         LayerMask layer = LayerMask.GetMask("Ball");
         hits = Physics.OverlapSphere(transform.position, kickRadius, layer);
         if(hits.Length <= 0) return;  

@@ -169,7 +169,7 @@ MonoBehaviour:
       - _height: -10
         _angle: {x: -10, y: 0}
       _delayTime: 0
-  FaceToPlayer: 0
+  FaceToPlayer: 1
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
