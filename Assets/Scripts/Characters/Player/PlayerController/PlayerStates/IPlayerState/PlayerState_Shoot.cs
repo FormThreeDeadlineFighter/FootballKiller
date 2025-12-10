@@ -3,23 +3,29 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerState_Shoot : IPlayerState
 {
-    [SerializeField] float _duration = 0.1f;
     private float _currentTime;
     public override void EnterState()
-    { 
-        base.EnterState();  
+    {     
+        base.EnterState();
         _currentTime = 0;
     }
     public override void ExitState()
     {
-        _player.PlayerShot((int)_currentTime * 25); 
+        if((int)_currentTime == 0)
+        {        
+            _player.PlayerShot(5); 
+        }
+        else
+        {
+            _player.PlayerShot((int)_currentTime * 25); 
+        }
         Debug.Log("Player Shot");
     }
     public override void LogicUpdate()
     {
-        if(_currentTime >= _duration && !_input.IsPlayerShoot)
-        {
-            _stateMachine.SetState(typeof(PlayerState_Idle));
+        if(IsAnimationComplete && !_input.IsPlayerShoot)
+        {      
+            _stateMachine.SetState(typeof(PlayerState_Idle));  
         }
         
         _currentTime += Time.deltaTime;

@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86ed071532dc7246a806db66556729d, type: 3}
   m_Name: PlayerState_Shoot
   m_EditorClassIdentifier: 
-  _animationName: Shoot3
+  _animationName: Shoot
   _transitionDuration: 0.1
-  _duration: 0.1

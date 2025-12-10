@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25f5b422ff8d2040b82f612b671a537, type: 3}
   m_Name: PlayerState_BicycleKick
   m_EditorClassIdentifier: Assembly-CSharp::PlayerState_BicycleKick
-  _animationName: 
+  _animationName: Bicycle Kick
   _transitionDuration: 0.1
   _duration: 0.1

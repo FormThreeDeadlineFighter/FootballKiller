@@ -3,13 +3,9 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerState_BicycleKick : IPlayerState
 {
-    [SerializeField] float _duration = 0.1f;
-    private float _currentTime;
     public override void EnterState()
     { 
         base.EnterState();
-        
-        _currentTime = 0;
     }
     public override void ExitState()
     {
@@ -18,12 +14,10 @@ public class PlayerState_BicycleKick : IPlayerState
     }
     public override void LogicUpdate()
     {   
-        if(_currentTime >= _duration)
+        if(IsAnimationComplete)
         {       
             _stateMachine.SetState(typeof(PlayerState_Land));
         }
-        
-        _currentTime += Time.deltaTime;
     }
     public override void PhysicsUpdate()
     {
