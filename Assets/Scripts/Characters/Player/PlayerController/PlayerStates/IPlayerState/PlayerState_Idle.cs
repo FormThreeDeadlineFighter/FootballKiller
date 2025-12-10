@@ -17,11 +17,7 @@ public class PlayerState_Idle : IPlayerState
     }
     public override void LogicUpdate()
     {
-        if(_player.MoveMode == MoveMode.walk)
-        {
-            _stateMachine.SetState(typeof(PlayerState_Walk));
-        }
-        if(_player.MoveMode == MoveMode.run)
+        if(_player.IsMove)
         {
             _stateMachine.SetState(typeof(PlayerState_Run));
         }
@@ -44,6 +40,10 @@ public class PlayerState_Idle : IPlayerState
         if(_input.IsDash)
         {
             _stateMachine.SetState(typeof(PlayerState_Dash));
+        }
+        if(_input.IsRetrieve &&  _player.CanRetrieve)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Retrieve));
         }
     }
     public override void PhysicsUpdate()

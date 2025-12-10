@@ -49,8 +49,10 @@ public class PlayerController : MonoBehaviour
     
     public bool IsGrounded => _groundDetector.IsGrounded;
     public bool IsFalling => _rb.linearVelocity.y < 0 && !IsGrounded;
+    public bool IsMove => _rb.linearVelocity != Vector3.zero;
     public bool CanBlock => _energyController.CanBlock;
     public bool CanShoot => _energyController.CanShoot;
+    public bool CanRetrieve => _energyController.CanRetrieve;
     public bool CanJump = false;
     private bool Invincible = false;
     private bool _ballFollow = true;
@@ -100,12 +102,8 @@ public class PlayerController : MonoBehaviour
         {
             RobotShoot();
         } 
-        if(_input.IsRetrieve &&  _energyController.CanRetrieve)
-        {
-            Retrieve();
-            _energyController.EnergyUse(10);
-        }
     }
+    
     void FixedUpdate()
     {
         if(_ballFollow)
@@ -218,9 +216,10 @@ public class PlayerController : MonoBehaviour
         _blockDetector.SetActive(false);
     }
     
-    public void Retrieve()
+    public void Retrieve(float time)
     {        
-        StartCoroutine(RetrieveBall(ball.transform, _ballTransform.position, 0.3f));
+        _energyController.EnergyUse(10);
+        StartCoroutine(RetrieveBall(ball.transform, _ballTransform.position, time));
     }
 
     public void StartInvincible(float time)

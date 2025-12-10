@@ -21,22 +21,9 @@ public class PlayerState_Block : IPlayerState
     {
         if (!_input.IsBlock && _currentTime <= 0)
         {
-            if (_player.MoveMode == MoveMode.idle)
-            {
-                _stateMachine.SetState(typeof(PlayerState_Idle));
-            }
-            if (_player.MoveMode == MoveMode.walk)
-            {
-                _stateMachine.SetState(typeof(PlayerState_Walk));
-            }
-            if (_player.MoveMode == MoveMode.run)
-            {
-                _stateMachine.SetState(typeof(PlayerState_Run));
-            }
-            if (_input.IsJump && _player.CanJump && _player.IsGrounded)
-            {
-                _stateMachine.SetState(typeof(PlayerState_Jump));
-            }
+            
+            _stateMachine.SetState(typeof(PlayerState_Idle));
+            
         }     
               
         _currentTime -= Time.deltaTime;

@@ -21,11 +21,11 @@ public class PlayerState_Dash : IPlayerState
     {
         if (_currentTime <= 0)
         {
-            if(_player.MoveMode == MoveMode.walk)
+            if(!_player.IsMove)
             {
-                _stateMachine.SetState(typeof(PlayerState_Walk));
+                _stateMachine.SetState(typeof(PlayerState_Idle));
             }
-            if(_player.MoveMode == MoveMode.run)
+            if(_player.IsMove)
             {
                 _stateMachine.SetState(typeof(PlayerState_Run));
             }           

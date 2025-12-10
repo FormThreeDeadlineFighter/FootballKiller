@@ -3,7 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerState_Shoot : IPlayerState
 {
-    //[SerializeField] float _duration = 0.1f;
+    [SerializeField] float _duration = 0.1f;
     private float _currentTime;
     public override void EnterState()
     { 
@@ -13,17 +13,16 @@ public class PlayerState_Shoot : IPlayerState
     public override void ExitState()
     {
         _player.PlayerShoot(); 
-        Debug.Log("Shoot end");
+        Debug.Log("Player Shoot");
     }
     public override void LogicUpdate()
     {
-        //_currentTime -= Time.deltaTime;
-
-        if(_player.MoveMode == MoveMode.idle)
+        if(_currentTime >= _duration)
         {
             _stateMachine.SetState(typeof(PlayerState_Idle));
         }
         
+        _currentTime += Time.deltaTime;
     }
     public override void PhysicsUpdate()
     {

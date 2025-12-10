@@ -20,10 +20,6 @@ public class PlayerState_Run : IPlayerState
         {
             _stateMachine.SetState(typeof(PlayerState_Idle));
         }
-        if(_player.MoveMode == MoveMode.walk)
-        {
-            _stateMachine.SetState(typeof(PlayerState_Walk));
-        }
         if(_input.IsJump && _player.CanJump && _player.IsGrounded)
         {
             _stateMachine.SetState(typeof(PlayerState_Jump));
@@ -39,6 +35,10 @@ public class PlayerState_Run : IPlayerState
         if(_input.IsDash)
         {
             _stateMachine.SetState(typeof(PlayerState_Dash));
+        }
+        if(_input.IsRetrieve &&  _player.CanRetrieve)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Retrieve));
         }
     }
     public override void PhysicsUpdate()

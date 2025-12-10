@@ -2739,6 +2739,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8058721629357065178, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857462327279823988, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
+      propertyPath: '_playerStates.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: e577df53333711b4981f703950066fbf, type: 2}
+    - target: {fileID: 8857462327279823988, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
+      propertyPath: '_playerStates.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 27464cea67675cd4fbea7568f2a05ce5, type: 2}
+    - target: {fileID: 8857462327279823988, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
+      propertyPath: '_playerStates.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 71979f9c7946cf149af1ed1466c38043, type: 2}
+    - target: {fileID: 8857462327279823988, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
+      propertyPath: '_playerStates.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 96b4a7f1ee3a3a44bb0ae2472d69ddbf, type: 2}
+    - target: {fileID: 8857462327279823988, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
+      propertyPath: '_playerStates.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c2ff37c977641b458e17f2da433900b, type: 2}
+    - target: {fileID: 8857462327279823988, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
+      propertyPath: '_playerStates.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6ec8e52af23a55f4ab9b9d0a0e38d80d, type: 2}
+    - target: {fileID: 8857462327279823988, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
+      propertyPath: '_playerStates.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 34993ed43168a3642b422213c268c76a, type: 2}
+    - target: {fileID: 8857462327279823988, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
+      propertyPath: '_playerStates.Array.data[8]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 569fa8fb7a2a2a14dbe850e63374c7b4, type: 2}
     - target: {fileID: 9215738598867762945, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
       propertyPath: m_Name
       value: 'Player '
