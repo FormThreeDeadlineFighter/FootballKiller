@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerState_Retrieve : IPlayerState
 {
     [SerializeField] float _retrieveTime = 0.3f;
+    [SerializeField] float _delayTime = 0.1f;
     private float currentTime;
     public override void EnterState()
     { 
@@ -19,8 +20,13 @@ public class PlayerState_Retrieve : IPlayerState
     }
     public override void LogicUpdate()
     {
-        if(currentTime >= _retrieveTime &&_player.MoveMode == MoveMode.idle)
+        if(currentTime >= _retrieveTime && _input.IsPlayerShoot && _player.CanShoot)
         {
+            _stateMachine.SetState(typeof(PlayerState_BicycleKick));
+        }
+        
+        if(currentTime >= _retrieveTime + _delayTime)
+        {     
             _stateMachine.SetState(typeof(PlayerState_Idle));
         }      
         

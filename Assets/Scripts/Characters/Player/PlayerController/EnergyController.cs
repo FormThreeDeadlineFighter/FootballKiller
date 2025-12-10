@@ -93,10 +93,11 @@ public class EnergyController : MonoBehaviour
         _playerEvents.PlayerSaveValue(_currentEnergy); // Reload element ui
     }*/
     
-    public void OnPlayerShoot()
+    public void OnPlayerShoot(float value, bool noCost = false)
     {
         Vector3 target;
-
+        float force = value;
+        
         if (_sensor.Target == null) 
         {
             target = _ballPosition.position;
@@ -115,16 +116,23 @@ public class EnergyController : MonoBehaviour
         
         if (!hit.CompareTag("Ball")) return;
         
+        if(force > _currentEnergy)
+        {
+            force = _currentEnergy;
+        }
         // player shoot
         Vector3 dir = target - transform.position;
         
         IAttack playerAttack = hit.GetComponent<IAttack>();      
-        playerAttack.Damage = _currentEnergy;
+        playerAttack.Damage = force;
         
         Rigidbody ballRb = hit.GetComponent<Rigidbody>();
         ballRb.AddForce(dir * kickForce, ForceMode.Impulse);
-            
-        EnergyUse(_currentEnergy); // shoot to loss energy 
+        
+        if(!noCost)
+        {         
+            EnergyUse(force); // shoot to loss energy 
+        }
     }
     
     public void OnRobotShoot()

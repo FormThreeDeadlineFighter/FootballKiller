@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     
     public bool IsGrounded => _groundDetector.IsGrounded;
     public bool IsFalling => _rb.linearVelocity.y < 0 && !IsGrounded;
-    public bool IsMove => _rb.linearVelocity != Vector3.zero;
+    public bool IsMove => _input.IsMove;
     public bool CanBlock => _energyController.CanBlock;
     public bool CanShoot => _energyController.CanShoot;
     public bool CanRetrieve => _energyController.CanRetrieve;
@@ -195,10 +195,10 @@ public class PlayerController : MonoBehaviour
         SetVelocityZ(_rb.linearVelocity.z);
     }
     
-    public void PlayerShoot()
+    public void PlayerShot(float force , bool noCost = false)
     {
         _ballFollow = false;
-        _energyController.OnPlayerShoot();
+        _energyController.OnPlayerShoot(force, noCost);
     }
     
     public void RobotShoot()
