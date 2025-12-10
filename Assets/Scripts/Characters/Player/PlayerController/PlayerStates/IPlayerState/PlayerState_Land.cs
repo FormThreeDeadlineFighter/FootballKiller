@@ -18,22 +18,13 @@ public class PlayerState_Land : IPlayerState
     {
         if(IsAnimationComplete)
         {
-            Debug.Log("Land animation finish");
-            if(_player.MoveMode == MoveMode.idle)
+            if(!_player.IsMove)
             {
                 _stateMachine.SetState(typeof(PlayerState_Idle));
-            }
-            if(_player.MoveMode == MoveMode.walk)
-            {
-                _stateMachine.SetState(typeof(PlayerState_Walk));
-            }
-            if(_player.MoveMode == MoveMode.run)
+            } 
+            if(_player.IsMove)
             {
                 _stateMachine.SetState(typeof(PlayerState_Run));
-            }
-            if(_input.IsJump && _player.CanJump && _player.IsGrounded)
-            {
-                _stateMachine.SetState(typeof(PlayerState_Jump));
             }
         }
     }
