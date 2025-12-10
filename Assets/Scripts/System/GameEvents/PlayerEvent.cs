@@ -41,5 +41,15 @@ public class PlayerEvent : ScriptableObject
         }
     }
     
+    public Action<float> OnPlayerHPChange;
+
+    public void PlayerHPChange(float value)
+    {
+        if (OnPlayerHPChange != null)
+        {
+            OnPlayerHPChange(value);
+        }
+    }
+    
  
 }

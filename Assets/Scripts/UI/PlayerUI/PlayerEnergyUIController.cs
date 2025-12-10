@@ -1,11 +1,9 @@
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 
 public class PlayerEnergyUIController : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI EnergyText;
-    [SerializeField] GameObject EnergyUI;
+    [SerializeField] Image EnergyUI;
     [SerializeField] PlayerEvent _playerEvents;
     void OnEnable()
     {
@@ -20,8 +18,7 @@ public class PlayerEnergyUIController : MonoBehaviour
     
     private void EnergyUIValueChange(float value)
     {
-        EnergyUI.transform.localScale = new Vector3(value / 100, 1, 1);
-        EnergyText.text = value.ToString("00");  
+        EnergyUI.fillAmount = value;
     }
     
     private void EnergyUIColorChange(Elements Elements)

@@ -1,29 +1,22 @@
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 
 public class PlayerHPUIController : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI HPText;
-    [SerializeField] Slider HPUI;
+    [SerializeField] Image HPUI;
     [SerializeField] PlayerEvent _playerEvents;
     void OnEnable()
     {
-        HPUI.value = HPUI.maxValue;
-        HPText.text = HPUI.value.ToString();
-        _playerEvents.OnPlayerHurt += HPUICahnge;
+        _playerEvents.OnPlayerHPChange += HPUICahnge;
     }
     void OnDisable()
     {
-        _playerEvents.OnPlayerHurt -= HPUICahnge;
+        _playerEvents.OnPlayerHPChange -= HPUICahnge;
     }
     
-    private void HPUICahnge(float damage)
+    private void HPUICahnge(float value)
     {
-        if(HPUI.value >= 0)
-        {
-            HPUI.value -= damage;
-        }
-        HPText.text = HPUI.value.ToString();  
+        value = value * 0.9f + 0.1f;
+        HPUI.fillAmount = value;
     }
 }
