@@ -17,7 +17,7 @@ public class PlayerState_Shoot : IPlayerState
     }
     public override void LogicUpdate()
     {
-        if(_currentTime >= _duration)
+        if(_currentTime >= _duration && IsAnimationComplete)
         {
             _stateMachine.SetState(typeof(PlayerState_Idle));
         }
