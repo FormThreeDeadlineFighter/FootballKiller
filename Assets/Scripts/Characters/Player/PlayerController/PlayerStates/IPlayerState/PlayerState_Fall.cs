@@ -13,7 +13,7 @@ public class PlayerState_Fall : IPlayerState
     }
     public override void ExitState()
     {
-
+        
     }
     public override void LogicUpdate()
     {

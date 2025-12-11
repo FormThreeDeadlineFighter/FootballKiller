@@ -2328,6 +2328,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 456b68110e1804c4089cb525fe53ea84, type: 2}
+    - target: {fileID: 7743480366618694112, guid: 2bac4809baecc48458104dcbfced7385, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d403b3e9f01889744835f6ecbb0b3e7f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2699,6 +2703,10 @@ PrefabInstance:
       propertyPath: _ball
       value: 
       objectReference: {fileID: 1633922912}
+    - target: {fileID: 5956076612265459822, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 1280
+      objectReference: {fileID: 0}
     - target: {fileID: 7597043379419933684, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.52
@@ -2744,6 +2752,10 @@ PrefabInstance:
       value: 1280
       objectReference: {fileID: 0}
     - target: {fileID: 8857462327279823988, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
+      propertyPath: _playerStates.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857462327279823988, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
       propertyPath: '_playerStates.Array.data[1]'
       value: 
       objectReference: {fileID: 11400000, guid: e577df53333711b4981f703950066fbf, type: 2}
@@ -2775,6 +2787,10 @@ PrefabInstance:
       propertyPath: '_playerStates.Array.data[8]'
       value: 
       objectReference: {fileID: 11400000, guid: 569fa8fb7a2a2a14dbe850e63374c7b4, type: 2}
+    - target: {fileID: 8857462327279823988, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
+      propertyPath: '_playerStates.Array.data[9]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 33cf497ba08d0b944835129889666068, type: 2}
     - target: {fileID: 9215738598867762945, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
       propertyPath: m_Name
       value: 'Player '
@@ -2785,6 +2801,7 @@ PrefabInstance:
     - {fileID: 438321876168309199, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
     - {fileID: 8154582999424238463, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
     - {fileID: 8929333583293663904, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
+    - {fileID: 7423782848271502945, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}

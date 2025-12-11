@@ -10,9 +10,10 @@ public class PlayerInput : MonoBehaviour
     public bool IsJump => _playerControl.Player.Jump.WasPerformedThisFrame();
     public bool IsBlock => _playerControl.Player.Block.WasPerformedThisFrame();
     public bool IsDash => _playerControl.Player.Dash.WasPerformedThisFrame();
-    public bool IsPlayerShoot => _playerControl.Player.PlayerShoot.WasPerformedThisFrame();
+    public bool IsPlayerShoot => _playerControl.Player.PlayerShoot.IsPressed();
     public bool IsRobotShoot => _playerControl.Player.RobotShoot.IsPressed();
     public bool IsRetrieve => _playerControl.Player.Retrieve.WasPerformedThisFrame();
+    public bool IsMove => StickValue != Vector2.zero;
     
     public void Awake()
     {
