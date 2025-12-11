@@ -2707,6 +2707,14 @@ PrefabInstance:
       propertyPath: m_ExcludeLayers.m_Bits
       value: 1280
       objectReference: {fileID: 0}
+    - target: {fileID: 7290430230129019399, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 4f4fb17d96a00d64eb63d00bfa69a712, type: 3}
+    - target: {fileID: 7290430230129019399, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7597043379419933684, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.52
