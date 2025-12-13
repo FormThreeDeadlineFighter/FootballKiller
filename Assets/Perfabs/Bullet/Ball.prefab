@@ -112,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Football
   _attack: 0
   energyBox: {fileID: 8009872182255215080, guid: 56e58352eadd3a7479f29e54da431f46, type: 3}
+  boom: {fileID: 4371265178355146009, guid: 61d9dff2958c17e4898cdddb87898811, type: 3}
 --- !u!1001 &1494188625562237311
 PrefabInstance:
   m_ObjectHideFlags: 0

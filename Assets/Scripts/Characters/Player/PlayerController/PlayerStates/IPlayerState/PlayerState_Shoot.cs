@@ -7,6 +7,7 @@ public class PlayerState_Shoot : IPlayerState
     public override void EnterState()
     {     
         base.EnterState();
+        _player.FaceToEnemy();
         _currentTime = 0;
     }
     public override void ExitState()

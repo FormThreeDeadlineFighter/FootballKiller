@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
     private PlayerGroundDetector _groundDetector;
     private PlayerInput _input;
     private EnergyController _energyController;
+    private AISensor _sensor;
     
     public bool IsGrounded => _groundDetector.IsGrounded;
     public bool IsFalling => _rb.linearVelocity.y < 0 && !IsGrounded;
@@ -79,6 +80,7 @@ public class PlayerController : MonoBehaviour
         _input = GetComponent<PlayerInput>();
         _groundDetector = GetComponentInChildren<PlayerGroundDetector>();
         _energyController = GetComponentInChildren<EnergyController>();
+        _sensor = GetComponentInChildren<AISensor>();
 
         HP = _HP;
     }
@@ -214,6 +216,12 @@ public class PlayerController : MonoBehaviour
     public void BlockExit()
     {
         _blockDetector.SetActive(false);
+    }
+    public void FaceToEnemy()
+    {
+        Vector3 dir = _sensor.Target.transform.position - transform.position;
+        dir.y = 0;
+        _rb.transform.rotation = Quaternion.LookRotation(dir);
     }
     
     public void Retrieve(float time)

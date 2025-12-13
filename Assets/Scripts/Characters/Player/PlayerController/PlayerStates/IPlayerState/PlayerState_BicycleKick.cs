@@ -6,6 +6,7 @@ public class PlayerState_BicycleKick : IPlayerState
     public override void EnterState()
     { 
         base.EnterState();
+        _player.FaceToEnemy();
     }
     public override void ExitState()
     {
