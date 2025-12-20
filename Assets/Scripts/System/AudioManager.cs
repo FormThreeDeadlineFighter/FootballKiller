@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
     public AudioClip click;
     public AudioClip shoot;
+    public AudioClip kick;
     public AudioClip bgm_mianground; 
     public AudioClip bgm_boss_1;
     List<AudioSource> audios = new List<AudioSource>();
@@ -22,7 +23,7 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }  
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i <= 4; i++)
         {
             var audio = this.gameObject.AddComponent<AudioSource>();
             audios.Add(audio);
@@ -51,6 +52,8 @@ public class AudioManager : MonoBehaviour
                 return bgm_mianground;
             case "bgm_boss_1":
                 return bgm_boss_1;
+            case "kick":
+                return kick; 
         }
         return null;
     }

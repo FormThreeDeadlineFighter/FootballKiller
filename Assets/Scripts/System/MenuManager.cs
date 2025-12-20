@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
-using Mono.Cecil.Cil;
+//using Mono.Cecil.Cil;
 public class MenuManager : MonoBehaviour
 {
     [Header("Menu Object")]
@@ -37,7 +37,7 @@ public class MenuManager : MonoBehaviour
 
     public void GameStart()
     {
-        AudioManager.Instance.Play(1, "shoot", false);
+        AudioManager.Instance.Play(0, "click", false);
         _mainMenuUI.SetActive(false);
         Instantiate(_player);
     }
