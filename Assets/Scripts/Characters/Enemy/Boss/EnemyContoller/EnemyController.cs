@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class EnemyController : MonoBehaviour
 {
@@ -37,7 +38,6 @@ public class EnemyController : MonoBehaviour
         _gameEvent.OnGameVictory -= GameOver;
         _gameEvent.OnGameDefeat -= GameOver;
     }
-    
     private void BossHurt(float damage)
     {
         if(_invincible) return;      
@@ -77,8 +77,12 @@ public class EnemyController : MonoBehaviour
         dir.y = 0;
         _rb.transform.rotation = Quaternion.LookRotation(dir);
     }
+    public void SetVelocity(Vector3 vector3)
+    {
+        _rb.linearVelocity = vector3;
+        _rb.angularVelocity = vector3; 
+    }
     
-
     private void GameOver()
     {
         Destroy(this.gameObject);
@@ -99,7 +103,13 @@ public class EnemyController : MonoBehaviour
             BossHurt(attack.Damage);
         }
     } 
- 
+    
+    public void DashAttack()
+    {
+        _rb.AddForce(transform.forward * 100000, ForceMode.Impulse);
+        Debug.Log("BossDash");
+    }
+    
     public void SwinAttack(GameObject bulletPrefab, AttackData attackData)
     {    
         float delayTime = 0;
