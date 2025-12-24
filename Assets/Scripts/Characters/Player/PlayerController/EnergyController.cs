@@ -63,76 +63,9 @@ public class EnergyController : MonoBehaviour
         }             
     }
     
-    // player press shoot
-    /*public void OnPlayerShoot()
-    {
-        Vector3 target;
-
-        if (_sensor.Target == null) 
-        {
-            target = _ballPosition.position;
-        }
-        else
-        {
-            target = _sensor.Target.transform.position;
-        }
-        
-        // player shoot
-        Vector3 dir = _sensor.Target.transform.position - _ballPosition.transform.position;
-        Quaternion rotate = Quaternion.LookRotation(dir);
-        GameObject ball = Instantiate(_ball, _ballPosition.transform.position, rotate);
-        
-        IAttack playerAttack = _ball.GetComponent<IAttack>();      
-        playerAttack.Damage = _currentEnergy;
-        
-        Rigidbody ballRb = ball.GetComponent<Rigidbody>();
-        ballRb.AddForce(dir * kickForce, ForceMode.Impulse);
-            
-        EnergyUse(_currentEnergy); // shoot to loss energy 
-
-        _playerEvents.PlayerSaveValue(_currentEnergy); // Reload element ui
-    }*/
-    
     public void OnPlayerShoot(float value, bool noCost = false)
     {
-        Vector3 target;
-        float force = value;
         
-        if (_sensor.Target == null) 
-        {
-            target = _ballPosition.position;
-        }
-        else
-        {
-            target = _sensor.Target.transform.position;
-        }
-        
-        // ball detect
-        Collider[] hits = new Collider[1];
-        LayerMask layer = LayerMask.GetMask("Ball");
-        hits = Physics.OverlapSphere(transform.position, kickRadius, layer);
-        if(hits.Length <= 0) return;  
-        Collider hit = hits[0];  
-        
-        if (!hit.CompareTag("Ball")) return;
-        
-        if(force > _currentEnergy)
-        {
-            force = _currentEnergy;
-        }
-        // player shoot
-        Vector3 dir = target - transform.position;
-        
-        IAttack playerAttack = hit.GetComponent<IAttack>();      
-        playerAttack.Damage = force;
-        
-        Rigidbody ballRb = hit.GetComponent<Rigidbody>();
-        ballRb.AddForce(dir * kickForce, ForceMode.Impulse);
-        
-        if(!noCost)
-        {         
-            EnergyUse(force); // shoot to loss energy 
-        }
     }
     
     public void OnRobotShoot()
