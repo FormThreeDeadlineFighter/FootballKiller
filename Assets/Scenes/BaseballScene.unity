@@ -2296,6 +2296,7 @@ GameObject:
   - component: {fileID: 1819918890}
   - component: {fileID: 1819918889}
   - component: {fileID: 1819918888}
+  - component: {fileID: 1819918892}
   m_Layer: 9
   m_Name: Enemy Test
   m_TagString: Untagged
@@ -2395,6 +2396,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1819918892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819918887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43468c94a4e764b4eb09d762959c4e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
+  _HP: 100
+  _moveSpeed: 0
+  _shieldHP: 0
+  _invincible: 0
+  _gameEvent: {fileID: 0}
+  _bossEvent: {fileID: 0}
 --- !u!1 &1821142274 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2238658921918169125, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}

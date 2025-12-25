@@ -138,6 +138,7 @@ public class PlayerController : MonoBehaviour
             camRight.Normalize();
 
             moveDir = camForward * _input.StickValue.y + camRight * _input.StickValue.x;
+            moveDir = moveDir.normalized;
         }
         if (moveDir != Vector3.zero)
         {
