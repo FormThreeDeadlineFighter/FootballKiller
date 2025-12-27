@@ -83,6 +83,12 @@ public class EnemyController : MonoBehaviour
         _rb.angularVelocity = vector3; 
     }
     
+    public bool IsAttackable()
+    {
+        if(_currentHP > 0) return true;
+        else return false;
+    }
+    
     private void GameOver()
     {
         Destroy(this.gameObject);
@@ -96,6 +102,7 @@ public class EnemyController : MonoBehaviour
             Debug.Log("ball hurt " + attack.Damage);
         }
     }
+    
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<IAttack>(out IAttack attack))

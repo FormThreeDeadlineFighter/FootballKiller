@@ -1,7 +1,5 @@
 public enum Elements
 {
-    none = 0, 
-    red = 1, 
-    blue = 2,
-    green = 3
+    white = 0, 
+    black = 1
 }

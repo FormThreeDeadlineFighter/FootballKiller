@@ -14,11 +14,11 @@ public class PlayerState_Shoot : IPlayerState
     {
         if((int)_currentTime == 0)
         {        
-            _player.PlayerShot(5); 
+            _player.PlayerShoot(5); 
         }
         else
         {
-            _player.PlayerShot((int)_currentTime * 25); 
+            _player.PlayerShoot((int)_currentTime * 25); 
         }
         Debug.Log("Player Shot");
     }

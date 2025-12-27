@@ -10,7 +10,7 @@ public class PlayerState_BicycleKick : IPlayerState
     }
     public override void ExitState()
     {
-        _player.PlayerShot(10, true); 
+        _player.PlayerShoot(10, true); 
         Debug.Log("Player Bicycle kick");
     }
     public override void LogicUpdate()

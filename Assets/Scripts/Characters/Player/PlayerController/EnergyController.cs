@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-[RequireComponent(typeof(AISensor))]
 public class EnergyController : MonoBehaviour
 {
     [Header("Setting")]
@@ -14,13 +13,11 @@ public class EnergyController : MonoBehaviour
     
     [Header("Objects")]
     [SerializeField] GameObject _blockDetector;
-    [SerializeField] Transform _ballPosition;
     [SerializeField] GameObject _robotShootingPoint;
     [SerializeField] GameObject _robotBullet;
     [SerializeField] PlayerEvent _playerEvents;
 
     private PlayerBlockDetector _playerBlockDetector;
-    private AISensor _sensor;
     private float _currentEnergy;
     private bool _robotShootCoolDown = true; 
 
@@ -31,7 +28,6 @@ public class EnergyController : MonoBehaviour
     void Awake()
     {
         _playerBlockDetector = GetComponentInChildren<PlayerBlockDetector>();
-        _sensor = GetComponent<AISensor>();
     }
     void OnEnable()
     {
@@ -45,8 +41,6 @@ public class EnergyController : MonoBehaviour
     void OnDisable()
     {
         _playerEvents.OnPlayerBlock -= OnBlock;
-
-        _savedElement = Elements.none;
     }
 
     void OnBlock(Elements element)
@@ -68,10 +62,10 @@ public class EnergyController : MonoBehaviour
         
     }
     
-    public void OnRobotShoot()
+    public void OnRobotShoot(Vector3 target)
     {
         if (!_robotShootCoolDown) return;
-        if (_sensor.Target == null) return;
+        if (target == null) return;
 
         IEnumerator cd = CoolDown(0.5f);
 
@@ -81,7 +75,7 @@ public class EnergyController : MonoBehaviour
         playerAttack.Damage = 2;
 
         // player shoot
-        Vector3 dir = _sensor.Target.transform.position - _robotShootingPoint.transform.position;
+        Vector3 dir = target - _robotShootingPoint.transform.position;
         Quaternion rotate = Quaternion.LookRotation(dir);
         Instantiate(_robotBullet, _robotShootingPoint.transform.position, rotate);
              
@@ -128,7 +122,6 @@ public class EnergyController : MonoBehaviour
     {
         if (_currentEnergy <= 0)
         {
-            _savedElement = Elements.none;
             _playerEvents.PlayerSaveElement(_savedElement);
         }
         

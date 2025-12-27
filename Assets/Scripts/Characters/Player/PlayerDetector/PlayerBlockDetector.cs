@@ -15,8 +15,4 @@ public class PlayerBlockDetector : MonoBehaviour
             Debug.Log("player block");
         }
     }
-    void OnTriggerExit(Collider other)
-    {
-        _playerEvents.PlayerBlock(Elements.none);
-    }
 }

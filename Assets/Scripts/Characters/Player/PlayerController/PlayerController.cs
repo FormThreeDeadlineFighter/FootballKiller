@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
     private PlayerGroundDetector _groundDetector;
     private PlayerInput _input;
     private EnergyController _energyController;
-    private AISensor _sensor;
+    private PlayerMeleeCombat _combot;
     
     public bool IsGrounded => _groundDetector.IsGrounded;
     public bool IsFalling => _rb.linearVelocity.y < 0 && !IsGrounded;
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
         _input = GetComponent<PlayerInput>();
         _groundDetector = GetComponentInChildren<PlayerGroundDetector>();
         _energyController = GetComponentInChildren<EnergyController>();
-        _sensor = GetComponent<AISensor>();
+        _combot = GetComponent<PlayerMeleeCombat>();
 
         HP = _HP;
     }
@@ -98,9 +98,19 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
-        if (_input.IsRobotShoot)
+        if (_cameraTransform != null)
         {
-            //RobotShoot();
+            Vector3 camForward = _cameraTransform.forward;
+            Vector3 camRight = Camera.main.transform.right;
+            Vector3 moveDir = camForward * _input.StickValue.y + camRight * _input.StickValue.x;
+            moveDir = moveDir.normalized;
+            _combot.SelectTarget();
+        }
+
+        if (Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            _combot.MoveTowardsTarget(_rb);
+            Debug.Log("player move to enemy");
         } 
     }
 
@@ -185,14 +195,9 @@ public class PlayerController : MonoBehaviour
         SetVelocityZ(_rb.linearVelocity.z);
     }
     
-    public void PlayerShot(float force , bool noCost = false)
+    public void PlayerShoot(float force , bool noCost = false)
     {
 
-    }
-    
-    public void RobotShoot()
-    {       
-        _energyController.OnRobotShoot();
     }
 
     public void BlockEnter()
@@ -206,9 +211,7 @@ public class PlayerController : MonoBehaviour
     }
     public void FaceToEnemy()
     {
-        Vector3 dir = _sensor.Target.transform.position - transform.position;
-        dir.y = 0;
-        _rb.transform.rotation = Quaternion.LookRotation(dir);
+        
     }
     
     public void Retrieve(float time)
