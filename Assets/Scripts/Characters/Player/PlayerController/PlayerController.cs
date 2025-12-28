@@ -100,17 +100,12 @@ public class PlayerController : MonoBehaviour
     {
         if (_cameraTransform != null)
         {
-            Vector3 camForward = _cameraTransform.forward;
-            Vector3 camRight = Camera.main.transform.right;
-            Vector3 moveDir = camForward * _input.StickValue.y + camRight * _input.StickValue.x;
-            moveDir = moveDir.normalized;
             _combot.SelectTarget();
         }
 
-        if (Keyboard.current.eKey.wasPressedThisFrame)
+        if (Keyboard.current.fKey.wasPressedThisFrame)
         {
-            _combot.MoveTowardsTarget(_rb);
-            Debug.Log("player move to enemy");
+            _combot.MoveTowardsTarget();
         } 
     }
 

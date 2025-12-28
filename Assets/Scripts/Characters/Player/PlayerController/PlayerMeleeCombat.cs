@@ -6,9 +6,11 @@ public class PlayerMeleeCombat : MonoBehaviour
     [SerializeField] float _meleeRange;
     [SerializeField] float angle = 30f; // 扇形角度
     [SerializeField] int rayCount = 5;  // Ray 數量（越多越準）
+    [SerializeField] float stopRadius = 1.5f; // 停在敵人前位置
     [SerializeField] LayerMask _layer;
     private Collider[] _colliders = new Collider[50];
     Transform currentTarget;
+    Coroutine moveToTargetCoroutine;
 
     public Transform SelectTarget()
     {
@@ -21,7 +23,6 @@ public class PlayerMeleeCombat : MonoBehaviour
                 if(Physics.Raycast(transform.position, dir, out RaycastHit hit, _meleeRange, _layer))
                 {              
                     currentTarget = hit.collider.transform;
-                    Debug.Log("find enemy");
                     return currentTarget;
                 }
             }
@@ -40,31 +41,56 @@ public class PlayerMeleeCombat : MonoBehaviour
         return Quaternion.Euler(0, current, 0) * transform.forward;
     }
 
-    public void MoveTowardsTarget(Rigidbody rb)
+    public void MoveTowardsTarget()
     {
         if(currentTarget == null) return;
-        // Do Loot At
-        Quaternion toRotation = Quaternion.LookRotation(currentTarget.transform.position, Vector3.up);
-        rb.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.fixedDeltaTime);
+  
+        float distance = Vector3.Distance(currentTarget.transform.position, transform.position);
+        if(distance < stopRadius)return;
         
-        // Do Move
-        StartCoroutine(MoveToTarget(currentTarget.transform));
+        // Do Move   
+        if(moveToTargetCoroutine != null)
+        {
+            StopCoroutine(moveToTargetCoroutine);
+        }
+        
+        moveToTargetCoroutine = StartCoroutine(MoveToTarget(currentTarget.transform, stopRadius));
     }
     
-    IEnumerator MoveToTarget(Transform target)
+    IEnumerator MoveToTarget(Transform enemy, float stopRadius)
     {
-        Vector3 start = transform.position;
-        Vector3 end = target.position - target.forward * 0.8f;
+        float duration = 0.15f;   // Arkham 常用 0.1 ~ 0.2
+        float elapsed = 0f;
 
-        float t = 0f;
+        Vector3 startPos = transform.position;
+        
+        // 計算「一定合法」的終點
+        Vector3 dir = (startPos - enemy.position).normalized;
+        dir.y = 0;
 
-        while (t < 1f)
+        Vector3 targetPos = enemy.position + dir * stopRadius;
+        
+        // 防止玩家上下動
+        targetPos.y = transform.position.y;
+
+        while (elapsed < duration)
         {
-            t += Time.deltaTime * 8f;
-            transform.position = Vector3.Lerp(start, end, t);
-            transform.LookAt(target);
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+
+            // 平滑（不要線性）
+            t = Mathf.SmoothStep(0, 1, t);
+
+            transform.position = Vector3.Lerp(startPos, targetPos, t);
+
             yield return null;
         }
+
+        // 保證最後停在正確位置
+        transform.position = targetPos;
+        
+        yield return null;
+        moveToTargetCoroutine = null;
     }
     
     private void OnDrawGizmos() 
