@@ -8,8 +8,6 @@ public class EnergyController : MonoBehaviour
     [Header("Setting")]
     [SerializeField] private float _maxEnergy;
     [SerializeField] private Elements _savedElement;
-    [SerializeField] private float kickForce = 12f;        // 球被踢出的力量     
-    [SerializeField] private float kickRadius = 1.5f;    // 踢球偵測範圍
     
     [Header("Objects")]
     [SerializeField] GameObject _blockDetector;
@@ -31,7 +29,6 @@ public class EnergyController : MonoBehaviour
     }
     void OnEnable()
     {
-        _playerEvents.OnPlayerBlock += OnBlock;
         // reload energy ui
         _playerEvents.PlayerSaveValue(0);
         ElementReset();
@@ -40,28 +37,9 @@ public class EnergyController : MonoBehaviour
     
     void OnDisable()
     {
-        _playerEvents.OnPlayerBlock -= OnBlock;
-    }
-
-    void OnBlock(Elements element)
-    {
-        if (_currentEnergy < _maxEnergy)
-        {
-            _savedElement = element;
-            EnergyGain(_playerBlockDetector.AttackDamage * 0.5f);
-            Debug.Log($"save {element} energy");
-        }
-        else
-        {
-            Debug.Log("energy full");
-        }             
-    }
-    
-    public void OnPlayerShoot(float value, bool noCost = false)
-    {
         
     }
-    
+      
     public void OnRobotShoot(Vector3 target)
     {
         if (!_robotShootCoolDown) return;
@@ -83,9 +61,7 @@ public class EnergyController : MonoBehaviour
         
         _robotShootCoolDown = false;
         StartCoroutine(cd);
-    }
-    
-    
+    }  
 
     public void EnergyGain(float value)
     {

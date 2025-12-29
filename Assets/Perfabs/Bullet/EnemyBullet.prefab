@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 20
-  Elements: 1
+  Elements: 0
 --- !u!114 &78438558304002166
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -102,18 +102,9 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""PlayerShoot"",
+                    ""name"": ""Attack"",
                     ""type"": ""Button"",
                     ""id"": ""9f045b7d-aaa1-4113-9dda-40c6ce463fe6"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""RobotShoot"",
-                    ""type"": ""Button"",
-                    ""id"": ""ba2d455a-28a9-4ea3-a270-816103881be0"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -154,15 +145,6 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Retrieve"",
-                    ""type"": ""Button"",
-                    ""id"": ""fff69c67-e6f5-4338-b652-cbc9eb4f7406"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": ""Hold"",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -239,7 +221,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PlayerShoot"",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -250,29 +232,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PlayerShoot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6c95ef09-90f8-4f39-8de3-950020476702"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RobotShoot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""234613d6-cae9-4eee-9213-c5459fdfffe8"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RobotShoot"",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -361,17 +321,6 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""processors"": ""DeltaTimeScale,ScaleVector2(x=0.1,y=0.1)"",
                     ""groups"": """",
                     ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""22c0891c-2ce6-4e64-a77b-0faa8764a0ab"",
-                    ""path"": ""<Keyboard>/r"",
-                    ""interactions"": ""Hold"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Retrieve"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -899,13 +848,11 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_PlayerShoot = m_Player.FindAction("PlayerShoot", throwIfNotFound: true);
-        m_Player_RobotShoot = m_Player.FindAction("RobotShoot", throwIfNotFound: true);
+        m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Block = m_Player.FindAction("Block", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
-        m_Player_Retrieve = m_Player.FindAction("Retrieve", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1000,13 +947,11 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_PlayerShoot;
-    private readonly InputAction m_Player_RobotShoot;
+    private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Block;
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Look;
-    private readonly InputAction m_Player_Retrieve;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1023,13 +968,9 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Move => m_Wrapper.m_Player_Move;
         /// <summary>
-        /// Provides access to the underlying input action "Player/PlayerShoot".
+        /// Provides access to the underlying input action "Player/Attack".
         /// </summary>
-        public InputAction @PlayerShoot => m_Wrapper.m_Player_PlayerShoot;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/RobotShoot".
-        /// </summary>
-        public InputAction @RobotShoot => m_Wrapper.m_Player_RobotShoot;
+        public InputAction @Attack => m_Wrapper.m_Player_Attack;
         /// <summary>
         /// Provides access to the underlying input action "Player/Jump".
         /// </summary>
@@ -1046,10 +987,6 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Look".
         /// </summary>
         public InputAction @Look => m_Wrapper.m_Player_Look;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Retrieve".
-        /// </summary>
-        public InputAction @Retrieve => m_Wrapper.m_Player_Retrieve;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1079,12 +1016,9 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @PlayerShoot.started += instance.OnPlayerShoot;
-            @PlayerShoot.performed += instance.OnPlayerShoot;
-            @PlayerShoot.canceled += instance.OnPlayerShoot;
-            @RobotShoot.started += instance.OnRobotShoot;
-            @RobotShoot.performed += instance.OnRobotShoot;
-            @RobotShoot.canceled += instance.OnRobotShoot;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
@@ -1097,9 +1031,6 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
-            @Retrieve.started += instance.OnRetrieve;
-            @Retrieve.performed += instance.OnRetrieve;
-            @Retrieve.canceled += instance.OnRetrieve;
         }
 
         /// <summary>
@@ -1114,12 +1045,9 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @PlayerShoot.started -= instance.OnPlayerShoot;
-            @PlayerShoot.performed -= instance.OnPlayerShoot;
-            @PlayerShoot.canceled -= instance.OnPlayerShoot;
-            @RobotShoot.started -= instance.OnRobotShoot;
-            @RobotShoot.performed -= instance.OnRobotShoot;
-            @RobotShoot.canceled -= instance.OnRobotShoot;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
@@ -1132,9 +1060,6 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
-            @Retrieve.started -= instance.OnRetrieve;
-            @Retrieve.performed -= instance.OnRetrieve;
-            @Retrieve.canceled -= instance.OnRetrieve;
         }
 
         /// <summary>
@@ -1378,19 +1303,12 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMove(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "PlayerShoot" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Attack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnPlayerShoot(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "RobotShoot" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnRobotShoot(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Jump" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -1419,13 +1337,6 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnLook(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Retrieve" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnRetrieve(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

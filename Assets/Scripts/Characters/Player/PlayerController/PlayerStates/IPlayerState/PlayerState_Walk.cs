@@ -15,30 +15,7 @@ public class PlayerState_Walk : IPlayerState
     }
     public override void LogicUpdate()
     {
-        if(_player.MoveMode == MoveMode.idle)
-        {
-            _stateMachine.SetState(typeof(PlayerState_Idle));
-        }
-        if(_player.MoveMode == MoveMode.run)
-        {
-            _stateMachine.SetState(typeof(PlayerState_Run));
-        }
-        if(_input.IsJump && _player.CanJump && _player.IsGrounded)
-        {
-            _stateMachine.SetState(typeof(PlayerState_Jump));
-        }
-        if(_input.IsBlock && _player.CanBlock)
-        {
-            _stateMachine.SetState(typeof(PlayerState_Block));
-        }
-        if (_input.IsPlayerShoot && _player.CanShoot)
-        {
-            _stateMachine.SetState(typeof(PlayerState_Shoot));
-        }
-        if(_input.IsDash)
-        {
-            _stateMachine.SetState(typeof(PlayerState_Dash));
-        }  
+        
     }
     public override void PhysicsUpdate()
     {

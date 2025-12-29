@@ -8,7 +8,6 @@ public class PlayerState_Idle : IPlayerState
     public override void EnterState()
     {
         base.EnterState();
-        _player.BlockExit();
         _player.SetVelocity(Vector3.zero);
     }
     public override void ExitState()
@@ -29,21 +28,13 @@ public class PlayerState_Idle : IPlayerState
         {
             _stateMachine.SetState(typeof(PlayerState_Fall));
         }       
-        if(_input.IsBlock && _player.CanBlock)
+        if(_input.IsBlock)
         {
             _stateMachine.SetState(typeof(PlayerState_Block));
-        }
-        if (_input.IsPlayerShoot && _player.CanShoot)
-        {
-            _stateMachine.SetState(typeof(PlayerState_Shoot));
         }
         if(_input.IsDash)
         {
             _stateMachine.SetState(typeof(PlayerState_Dash));
-        }
-        if(_input.IsRetrieve &&  _player.CanRetrieve)
-        {
-            _stateMachine.SetState(typeof(PlayerState_Retrieve));
         }
     }
     public override void PhysicsUpdate()

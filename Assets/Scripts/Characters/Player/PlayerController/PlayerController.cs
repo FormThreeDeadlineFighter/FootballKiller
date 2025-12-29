@@ -35,8 +35,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Objects")]
     [SerializeField] Transform _cameraTransform;
-    [SerializeField] GameObject _blockDetector;
-    [SerializeField] GameObject _bodyDetector;
+    [SerializeField] GameObject _playerHitBox;
+    [SerializeField] GameObject _attackHitBox;
     [SerializeField] PlayerEvent _playerEvents;
     [SerializeField] GameEvent _gameEvent;
 
@@ -49,28 +49,8 @@ public class PlayerController : MonoBehaviour
     public bool IsGrounded => _groundDetector.IsGrounded;
     public bool IsFalling => _rb.linearVelocity.y < 0 && !IsGrounded;
     public bool IsMove => _input.IsMove;
-    public bool CanBlock => _energyController.CanBlock;
-    public bool CanShoot => _energyController.CanShoot;
-    public bool CanRetrieve => _energyController.CanRetrieve;
     public bool CanJump = false;
     private bool Invincible = false;
-    private bool _ballFollow = true;
-    
-    public MoveMode MoveMode 
-    { 
-        get {
-                if (_input.StickValue.sqrMagnitude >= _runValue * _runValue)
-                {
-                    return MoveMode.run;
-                }
-                else if(_input.StickValue.sqrMagnitude >= _walkValue * _walkValue)
-                {
-                    return MoveMode.walk;
-                }
-                return MoveMode.idle; 
-        } 
-    }
-
 
     void Awake()
     {
@@ -80,20 +60,21 @@ public class PlayerController : MonoBehaviour
         _energyController = GetComponentInChildren<EnergyController>();
         _combot = GetComponent<PlayerMeleeCombat>();
 
-        HP = _HP;
+        _currentHP = _HP;
     }
 
     void OnEnable()
     {   
-        CanJump = true;
         _playerEvents.OnPlayerHurt += GetHurt;
-        _bodyDetector.SetActive(true);
+        _playerHitBox.SetActive(true);
+        
+        CanJump = true;
     }
 
     void OnDisable()
     {
         _playerEvents.OnPlayerHurt -= GetHurt;
-        _bodyDetector.SetActive(false);
+        _playerHitBox.SetActive(false);
     }
     
     void Update()
@@ -190,28 +171,24 @@ public class PlayerController : MonoBehaviour
         SetVelocityZ(_rb.linearVelocity.z);
     }
     
-    public void PlayerShoot(float force , bool noCost = false)
+    public void AttackEnter()
     {
-
+        _attackHitBox.SetActive(true);
     }
-
+    
+    public void AttackExit()
+    {
+        _attackHitBox.SetActive(false);
+    }
+    
     public void BlockEnter()
-    {
-        _blockDetector.SetActive(true);
-        _energyController.EnergyUse(10f);
-    }
-    public void BlockExit()
-    {
-        _blockDetector.SetActive(false);
-    }
-    public void FaceToEnemy()
     {
         
     }
     
-    public void Retrieve(float time)
-    {        
-
+    public void BlockExit()
+    {
+        
     }
 
     public void StartInvincible(float time)
@@ -241,7 +218,5 @@ public class PlayerController : MonoBehaviour
         Invincible = true;
         yield return new WaitForSeconds(time);
         Invincible = false;
-    }
-    
+    } 
 }
-public enum MoveMode {idle, walk, run}

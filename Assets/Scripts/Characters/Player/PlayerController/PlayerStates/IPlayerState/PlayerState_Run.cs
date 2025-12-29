@@ -16,7 +16,7 @@ public class PlayerState_Run : IPlayerState
     }
     public override void LogicUpdate()
     {
-        if(_player.MoveMode == MoveMode.idle)
+        if(!_input.IsMove)
         {
             _stateMachine.SetState(typeof(PlayerState_Idle));
         }
@@ -24,21 +24,13 @@ public class PlayerState_Run : IPlayerState
         {
             _stateMachine.SetState(typeof(PlayerState_Jump));
         }
-        if (_input.IsBlock && _player.CanBlock)
+        if (_input.IsBlock)
         {
             _stateMachine.SetState(typeof(PlayerState_Block));
-        }
-        if (_input.IsPlayerShoot && _player.CanShoot)
-        {
-            _stateMachine.SetState(typeof(PlayerState_Shoot));
         }
         if(_input.IsDash)
         {
             _stateMachine.SetState(typeof(PlayerState_Dash));
-        }
-        if(_input.IsRetrieve &&  _player.CanRetrieve)
-        {
-            _stateMachine.SetState(typeof(PlayerState_Retrieve));
         }
     }
     public override void PhysicsUpdate()
