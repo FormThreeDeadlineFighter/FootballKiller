@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 [RequireComponent(typeof(Rigidbody), typeof(AISensor))]
 public class BaseballStateController : MonoBehaviour
@@ -9,6 +8,8 @@ public class BaseballStateController : MonoBehaviour
     private Animator _animator;
     // enemy controller
     private EnemyController _enemy;
+    [SerializeField] PlayableDirector Attack1;
+    [SerializeField] PlayableDirector Attack2;
     private float _timer = 5;
     private float _currentTime;
     void OnEnable()
@@ -27,11 +28,9 @@ public class BaseballStateController : MonoBehaviour
             Debug.Log(num);
             switch(num)
             {
-                case 1: _animator.SetTrigger("Swin Trigger");
+                case 1: Attack1.Play();
                 break;
-                case 2: _animator.SetTrigger("Dash Trigger");
-                break;
-                case 3: _animator.SetTrigger("Dash Trigger");
+                case 2: Attack2.Play();
                 break;
                 default:
                 break;
