@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animationName: Jump
   _transitionDuration: 0.1
-  _jumpForce: 25
+  _jumpForce: 15
   _moveSpeed: 5

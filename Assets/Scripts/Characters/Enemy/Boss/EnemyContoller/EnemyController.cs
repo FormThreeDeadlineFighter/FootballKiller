@@ -75,7 +75,8 @@ public class EnemyController : MonoBehaviour
     {
         Vector3 dir = _sensor.Target.transform.position - transform.position;
         dir.y = 0;
-        _rb.transform.rotation = Quaternion.LookRotation(dir);
+        Quaternion targetRot = Quaternion.LookRotation(dir);
+        _rb.transform.rotation = Quaternion.Slerp(transform.rotation,targetRot, 2 * Time.fixedDeltaTime);
     }
     public void SetVelocity(Vector3 vector3)
     {

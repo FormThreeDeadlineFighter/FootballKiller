@@ -27,9 +27,14 @@ public class BaseballStateController : MonoBehaviour
         if(_currentTime >= _timer)
         {
             int num = Random.Range(0,timelineAssets.Length);
-            Debug.Log(num);
+            Debug.Log(num);     
             PlayerTimeline(timelineAssets[num]);
             _currentTime = 0;
+            return;
+        }
+        if (director.state != PlayState.Playing)
+        {           
+            _enemy.FaceToPlayer();          
         }
         _currentTime += Time.fixedDeltaTime;
     }
