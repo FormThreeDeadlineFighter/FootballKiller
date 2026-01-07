@@ -729,7 +729,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000010180604, y: 0.973249, z: -0.22975293, w: 0.000000043125734}
+  m_LocalRotation: {x: 0.0000000057129075, y: 0.99164474, z: -0.12899916, w: 0.000000043916376}
   m_LocalPosition: {x: 0.6099993, y: 29.39, z: 25.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1758,6 +1758,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4894313910652653612, guid: 1074031c2ecaa064f9d97113ebfab97e, type: 3}
+--- !u!1 &1420598864 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4048596751174569064, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
+  m_PrefabInstance: {fileID: 517259889655565638}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1480943001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2621,7 +2626,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1987810345}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000010822141, y: 0.973249, z: -0.22975293, w: 0.000000043277183}
+  m_LocalRotation: {x: 0.000000005712907, y: 0.99164474, z: -0.12899914, w: 0.000000043916373}
   m_LocalPosition: {x: 0.6099993, y: 29.39, z: 25.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2735,14 +2740,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineRotationComposer
   Composition:
-    ScreenPosition: {x: 0, y: 0}
+    ScreenPosition: {x: 0, y: 0.1}
     DeadZone:
       Enabled: 1
-      Size: {x: 0.2, y: 0.2}
+      Size: {x: 0.3, y: 0.4}
     HardLimits:
       Enabled: 1
       Size: {x: 0.8, y: 0.8}
-      Offset: {x: 0, y: 0}
+      Offset: {x: 0, y: -0.3}
   CenterOnActivate: 0
   TargetOffset: {x: 0, y: 0, z: 0}
   Damping: {x: 0, y: 0}
@@ -2936,18 +2941,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
-    - target: {fileID: 3683521183830502321, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
+    - target: {fileID: 6950927892587693952, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
+      propertyPath: ElementsShow
+      value: 
+      objectReference: {fileID: 1420598864}
+    - target: {fileID: 6950927892587693952, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
+      propertyPath: ElementMaterials.Array.size
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 6139570291201685342, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
-      propertyPath: m_Mass
-      value: 5000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6139570291201685342, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
+    - target: {fileID: 6950927892587693952, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
+      propertyPath: 'ElementMaterials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 692b504e2a57cbb428bc1b2d58d32537, type: 2}
+    - target: {fileID: 6950927892587693952, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
+      propertyPath: 'ElementMaterials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0cb0d298e5ae95749a9e8d368dba54bd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

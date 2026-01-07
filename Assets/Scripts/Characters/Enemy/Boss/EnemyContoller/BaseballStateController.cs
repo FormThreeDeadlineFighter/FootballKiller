@@ -30,6 +30,7 @@ public class BaseballStateController : MonoBehaviour
             Debug.Log(num);     
             PlayerTimeline(timelineAssets[num]);
             _currentTime = 0;
+            _enemy.SwitchElement();
             return;
         }
         if (director.state != PlayState.Playing)
