@@ -32,7 +32,6 @@ public class EnergyController : MonoBehaviour
         // reload energy ui
         _playerEvents.PlayerSaveValue(0);
         ElementReset();
-
     }
     
     void OnDisable()
@@ -102,7 +101,6 @@ public class EnergyController : MonoBehaviour
         }
         
     }
-
 
     private IEnumerator CoolDown(float time)
     {

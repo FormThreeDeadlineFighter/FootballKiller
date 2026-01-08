@@ -1758,11 +1758,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4894313910652653612, guid: 1074031c2ecaa064f9d97113ebfab97e, type: 3}
---- !u!1 &1420598864 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4048596751174569064, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
-  m_PrefabInstance: {fileID: 517259889655565638}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1480943001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2941,22 +2936,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
-    - target: {fileID: 6950927892587693952, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
-      propertyPath: ElementsShow
-      value: 
-      objectReference: {fileID: 1420598864}
-    - target: {fileID: 6950927892587693952, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
-      propertyPath: ElementMaterials.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6950927892587693952, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
-      propertyPath: 'ElementMaterials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 692b504e2a57cbb428bc1b2d58d32537, type: 2}
-    - target: {fileID: 6950927892587693952, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
-      propertyPath: 'ElementMaterials.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 0cb0d298e5ae95749a9e8d368dba54bd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
