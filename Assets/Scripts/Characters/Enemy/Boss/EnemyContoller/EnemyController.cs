@@ -39,6 +39,7 @@ public class EnemyController : MonoBehaviour
         _gameEvent.OnGameVictory -= GameOver;
         _gameEvent.OnGameDefeat -= GameOver;
     }
+    
     private void BossHurt(float damage)
     {
         if(_invincible) return;      
@@ -109,7 +110,7 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent<IAttack>(out IAttack attack))
         {
-            if(attack.Elements == currentElement) return;
+            if(attack.Elements != currentElement) return;
             BossHurt(attack.Damage);
         }
     }

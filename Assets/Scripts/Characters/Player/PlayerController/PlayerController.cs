@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform _cameraTransform;
     [SerializeField] GameObject _playerHitBox;
     [SerializeField] GameObject _attackHitBox;
+    [SerializeField] Material[] ElementMaterials;
+    [SerializeField] Renderer ElementsShow;
     [SerializeField] PlayerEvent _playerEvents;
     [SerializeField] GameEvent _gameEvent;
 
@@ -76,18 +78,16 @@ public class PlayerController : MonoBehaviour
         _playerEvents.OnPlayerHurt -= GetHurt;
         _playerHitBox.SetActive(false);
     }
-    
     void Update()
     {
-        if (_cameraTransform != null)
+        if(_input.IsSwitch)
         {
-            _combot.SelectTarget();
+            IAttack attack = _attackHitBox.GetComponent<IAttack>();
+            int num = (int)attack.Elements;
+            num = (num + 1)%2;
+            attack.Elements = (Elements)num;
+            ElementsShow.material = ElementMaterials[num];
         }
-
-        if (Keyboard.current.fKey.wasPressedThisFrame)
-        {
-            _combot.MoveTowardsTarget();
-        } 
     }
 
     public void SetVelocity(Vector3 velocity)
@@ -173,6 +173,8 @@ public class PlayerController : MonoBehaviour
     
     public void AttackEnter()
     {
+        _combot.SelectTarget();
+        _combot.MoveTowardsTarget();
         _attackHitBox.SetActive(true);
     }
     
