@@ -9,25 +9,6 @@ public class PlayerController : MonoBehaviour
     [Header("Player Property")]
     [SerializeField] float _HP = 100f;
     [SerializeField] float _currentHP;
-    public float HP 
-    {
-        get => _currentHP;
-        set 
-        { 
-            if(value > _HP)
-            {
-                _currentHP = _HP;
-            }
-            else if(value < 0)
-            {
-                _currentHP = 0;
-            }
-            else
-            {
-                _currentHP = value; 
-            }
-        }
-    }
     [SerializeField, Range(0,1)] float _walkValue;
     [SerializeField, Range(0, 1)] float _runValue;
     [SerializeField] float _dashForce = 50f;
@@ -60,9 +41,7 @@ public class PlayerController : MonoBehaviour
         _input = GetComponent<PlayerInput>();
         _groundDetector = GetComponentInChildren<PlayerGroundDetector>();
         _energyController = GetComponentInChildren<EnergyController>();
-        _combot = GetComponent<PlayerMeleeCombat>();
-
-        _currentHP = _HP;
+        _combot = GetComponent<PlayerMeleeCombat>();      
     }
 
     void OnEnable()
@@ -70,6 +49,7 @@ public class PlayerController : MonoBehaviour
         _playerEvents.OnPlayerHurt += GetHurt;
         _playerHitBox.SetActive(true);
         
+        _currentHP = _HP;
         CanJump = true;
     }
 
@@ -193,20 +173,20 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public void StartInvincible(float time)
+    public void GetInvincible(float time)
     {
         IEnumerator coroutine = InvincibleTime(time);
         StartCoroutine(coroutine);
     }
-
+    
     private void GetHurt(float damage)
     {
         if (Invincible) return;
-        if (HP >= 0)
+        if (_currentHP >= 0)
         {
-            HP -= damage;
+            _currentHP -= damage;
         }
-        if (HP <= 0)
+        if (_currentHP <= 0)
         {
             _gameEvent.GameDefeat();
         }
