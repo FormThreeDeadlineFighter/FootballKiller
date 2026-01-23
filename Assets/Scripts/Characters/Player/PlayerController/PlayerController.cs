@@ -156,6 +156,7 @@ public class PlayerController : MonoBehaviour
         _combot.SelectTarget();
         _combot.MoveTowardsTarget();
         _attackHitBox.SetActive(true);
+        _playerEvents.PlayerComboChange(20);
     }
     
     public void AttackExit()
