@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerState_LightAttack3
   _animationName: LightAttack3
   _transitionDuration: 0
+  _attackDamage: 30
+  _comboCharge: 20

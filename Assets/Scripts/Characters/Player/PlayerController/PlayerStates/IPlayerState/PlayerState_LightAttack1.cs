@@ -4,13 +4,15 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerState_LightAttack1 : IPlayerState
 {
+    [SerializeField] float _attackDamage;
+    [SerializeField] float _comboCharge;
     private bool _preInput;
     public override void EnterState()
     { 
         base.EnterState();
         _preInput = false;
         
-        _player.AttackEnter();
+        _player.AttackEnter(_attackDamage, _comboCharge);
     }
     public override void ExitState()
     {

@@ -34,6 +34,8 @@ public class PlayerComboController : MonoBehaviour
     
     void ChangeComboValue(float value)
     {
+        _comboValue += value;
+        
         if(_comboValue <= 0)
         {
             _comboValue = 0;
@@ -42,8 +44,7 @@ public class PlayerComboController : MonoBehaviour
         {
             _comboValue = _maxComboValue;
         }
-        _comboValue += value;
-        ComboHoldTime(1);
+        //ComboHoldTime(1);
     }
     void CalculateComboGrade()
     {

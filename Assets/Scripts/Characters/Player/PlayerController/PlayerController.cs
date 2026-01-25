@@ -22,18 +22,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Renderer ElementsShow;
     [SerializeField] PlayerEvent _playerEvents;
     [SerializeField] GameEvent _gameEvent;
-
+    
     private Rigidbody _rb;
     private PlayerGroundDetector _groundDetector;
     private PlayerInput _input;
     private EnergyController _energyController;
     private PlayerMeleeCombat _combot;
+    private bool Invincible = false;
+    private ComboGrade _currentGrade;
     
     public bool IsGrounded => _groundDetector.IsGrounded;
     public bool IsFalling => _rb.linearVelocity.y < 0 && !IsGrounded;
     public bool IsMove => _input.IsMove;
     public bool CanJump = false;
-    private bool Invincible = false;
 
     void Awake()
     {
@@ -47,8 +48,9 @@ public class PlayerController : MonoBehaviour
     void OnEnable()
     {   
         _playerEvents.OnPlayerHurt += GetHurt;
-        _playerHitBox.SetActive(true);
+        _playerEvents.OnComboGradeChange += GetComboGrade;
         
+        _playerHitBox.SetActive(true); 
         _currentHP = _HP;
         CanJump = true;
     }
@@ -56,6 +58,7 @@ public class PlayerController : MonoBehaviour
     void OnDisable()
     {
         _playerEvents.OnPlayerHurt -= GetHurt;
+        _playerEvents.OnComboGradeChange -= GetComboGrade;
         _playerHitBox.SetActive(false);
     }
     void Update()
@@ -151,12 +154,27 @@ public class PlayerController : MonoBehaviour
         SetVelocityZ(_rb.linearVelocity.z);
     }
     
-    public void AttackEnter()
+    public void AttackEnter(float damage, float comboChange)
     {
         _combot.SelectTarget();
         _combot.MoveTowardsTarget();
         _attackHitBox.SetActive(true);
-        _playerEvents.PlayerComboChange(20);
+        
+        switch (_currentGrade)
+        {
+            case ComboGrade.C: damage *= 1.1f;
+            break;
+            case ComboGrade.B: damage *= 1.3f;
+            break;
+            case ComboGrade.A: damage *= 1.5f;
+            break;
+            case ComboGrade.S: damage *= 2f;
+            break;
+            default: 
+            break;
+        }
+        _attackHitBox.GetComponent<IAttack>().Damage = damage;
+        _playerEvents.PlayerComboChange(comboChange);
     }
     
     public void AttackExit()
@@ -172,6 +190,10 @@ public class PlayerController : MonoBehaviour
     public void BlockExit()
     {
         
+    }
+    private void GetComboGrade(ComboGrade grade)
+    {
+        _currentGrade = grade;
     }
 
     public void GetInvincible(float time)

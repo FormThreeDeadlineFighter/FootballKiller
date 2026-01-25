@@ -31,11 +31,17 @@ public class PlayerComboUIController : MonoBehaviour
     }
     private void ValueUIBarChange(float value)
     {
+        currentValue += value;
+        
         if(currentValue >= (int)ComboGrade.Max)
         {
             currentValue = (int)ComboGrade.Max;
         }
-        currentValue += value;
+        else if(currentValue <= 0)
+        {
+            currentValue = 0;
+        }
+        
         float percentage = (currentValue - _minGradeValue) / _maxGradeValue;
         Debug.Log(percentage);
         ComboValue.transform.localScale = new Vector3(percentage, 1, 1);
