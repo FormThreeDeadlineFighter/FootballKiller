@@ -9,25 +9,6 @@ public class PlayerController : MonoBehaviour
     [Header("Player Property")]
     [SerializeField] float _HP = 100f;
     [SerializeField] float _currentHP;
-    public float HP 
-    {
-        get => _currentHP;
-        set 
-        { 
-            if(value > _HP)
-            {
-                _currentHP = _HP;
-            }
-            else if(value < 0)
-            {
-                _currentHP = 0;
-            }
-            else
-            {
-                _currentHP = value; 
-            }
-        }
-    }
     [SerializeField, Range(0,1)] float _walkValue;
     [SerializeField, Range(0, 1)] float _runValue;
     [SerializeField] float _dashForce = 50f;
@@ -35,43 +16,25 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Objects")]
     [SerializeField] Transform _cameraTransform;
-    [SerializeField] Transform _ballTransform;
-    [SerializeField] GameObject ball;
-    [SerializeField] GameObject _blockDetector;
-    [SerializeField] GameObject _bodyDetector;
+    [SerializeField] GameObject _playerHitBox;
+    [SerializeField] GameObject _attackHitBox;
+    [SerializeField] Material[] ElementMaterials;
+    [SerializeField] Renderer ElementsShow;
     [SerializeField] PlayerEvent _playerEvents;
     [SerializeField] GameEvent _gameEvent;
-
+    
     private Rigidbody _rb;
     private PlayerGroundDetector _groundDetector;
     private PlayerInput _input;
     private EnergyController _energyController;
+    private PlayerMeleeCombat _combot;
+    private bool Invincible = false;
+    private ComboGrade _currentGrade;
     
     public bool IsGrounded => _groundDetector.IsGrounded;
     public bool IsFalling => _rb.linearVelocity.y < 0 && !IsGrounded;
     public bool IsMove => _input.IsMove;
-    public bool CanBlock => _energyController.CanBlock;
-    public bool CanShoot => _energyController.CanShoot;
-    public bool CanRetrieve => _energyController.CanRetrieve;
     public bool CanJump = false;
-    private bool Invincible = false;
-    private bool _ballFollow = true;
-    
-    public MoveMode MoveMode 
-    { 
-        get {
-                if (_input.StickValue.sqrMagnitude >= _runValue * _runValue)
-                {
-                    return MoveMode.run;
-                }
-                else if(_input.StickValue.sqrMagnitude >= _walkValue * _walkValue)
-                {
-                    return MoveMode.walk;
-                }
-                return MoveMode.idle; 
-        } 
-    }
-
 
     void Awake()
     {
@@ -79,39 +42,34 @@ public class PlayerController : MonoBehaviour
         _input = GetComponent<PlayerInput>();
         _groundDetector = GetComponentInChildren<PlayerGroundDetector>();
         _energyController = GetComponentInChildren<EnergyController>();
-
-        HP = _HP;
+        _combot = GetComponent<PlayerMeleeCombat>();      
     }
 
     void OnEnable()
     {   
-        CanJump = true;
         _playerEvents.OnPlayerHurt += GetHurt;
-        _bodyDetector.SetActive(true);
+        _playerEvents.OnComboGradeChange += GetComboGrade;
+        
+        _playerHitBox.SetActive(true); 
+        _currentHP = _HP;
+        CanJump = true;
     }
 
     void OnDisable()
     {
         _playerEvents.OnPlayerHurt -= GetHurt;
-        _bodyDetector.SetActive(false);
+        _playerEvents.OnComboGradeChange -= GetComboGrade;
+        _playerHitBox.SetActive(false);
     }
-    
     void Update()
     {
-        if (_input.IsRobotShoot)
+        if(_input.IsSwitch)
         {
-            RobotShoot();
-        } 
-    }
-    
-    void FixedUpdate()
-    {
-        if(_ballFollow)
-        {
-            Rigidbody ballrb = ball.GetComponent<Rigidbody>();
-            Vector3 dir = _ballTransform.position - ballrb.position;
-            Vector3 move = dir * 10 * Time.fixedDeltaTime;
-            ballrb.MovePosition(ballrb.position + move);
+            IAttack attack = _attackHitBox.GetComponent<IAttack>();
+            int num = (int)attack.Elements;
+            num = (num + 1)%2;
+            attack.Elements = (Elements)num;
+            ElementsShow.material = ElementMaterials[num];
         }
     }
 
@@ -149,6 +107,7 @@ public class PlayerController : MonoBehaviour
             camRight.Normalize();
 
             moveDir = camForward * _input.StickValue.y + camRight * _input.StickValue.x;
+            moveDir = moveDir.normalized;
         }
         if (moveDir != Vector3.zero)
         {
@@ -195,47 +154,62 @@ public class PlayerController : MonoBehaviour
         SetVelocityZ(_rb.linearVelocity.z);
     }
     
-    public void PlayerShot(float force , bool noCost = false)
+    public void AttackEnter(float damage, float comboChange)
     {
-        _ballFollow = false;
-        _energyController.OnPlayerShoot(force, noCost);
+        _combot.SelectTarget();
+        _combot.MoveTowardsTarget();
+        _attackHitBox.SetActive(true);
+        
+        switch (_currentGrade)
+        {
+            case ComboGrade.C: damage *= 1.1f;
+            break;
+            case ComboGrade.B: damage *= 1.3f;
+            break;
+            case ComboGrade.A: damage *= 1.5f;
+            break;
+            case ComboGrade.S: damage *= 2f;
+            break;
+            default: 
+            break;
+        }
+        _attackHitBox.GetComponent<IAttack>().Damage = damage;
+        _playerEvents.PlayerComboChange(comboChange);
     }
     
-    public void RobotShoot()
-    {       
-        _energyController.OnRobotShoot();
+    public void AttackExit()
+    {
+        _attackHitBox.SetActive(false);
     }
-
+    
     public void BlockEnter()
     {
-        _blockDetector.SetActive(true);
-        _energyController.EnergyUse(10f);
-    }
-    public void BlockExit()
-    {
-        _blockDetector.SetActive(false);
+        
     }
     
-    public void Retrieve(float time)
-    {        
-        _energyController.EnergyUse(10);
-        StartCoroutine(RetrieveBall(ball.transform, _ballTransform.position, time));
+    public void BlockExit()
+    {
+        
+    }
+    private void GetComboGrade(ComboGrade grade)
+    {
+        _currentGrade = grade;
     }
 
-    public void StartInvincible(float time)
+    public void GetInvincible(float time)
     {
         IEnumerator coroutine = InvincibleTime(time);
         StartCoroutine(coroutine);
     }
-
+    
     private void GetHurt(float damage)
     {
         if (Invincible) return;
-        if (HP >= 0)
+        if (_currentHP >= 0)
         {
-            HP -= damage;
+            _currentHP -= damage;
         }
-        if (HP <= 0)
+        if (_currentHP <= 0)
         {
             _gameEvent.GameDefeat();
         }
@@ -249,23 +223,5 @@ public class PlayerController : MonoBehaviour
         Invincible = true;
         yield return new WaitForSeconds(time);
         Invincible = false;
-    }
-    
-    IEnumerator RetrieveBall(Transform obj, Vector3 targetPos, float time)
-    {
-        Vector3 startPos = obj.position;
-        float elapsed = 0f;
-
-        while (elapsed < time)
-        {
-            elapsed += Time.deltaTime;
-            float t = elapsed / time;
-            obj.position = Vector3.Lerp(startPos, targetPos, t);
-            yield return null;
-        }
-
-        obj.position = targetPos; //確保結束時精準到位  
-        _ballFollow = true;
-    }
+    } 
 }
-public enum MoveMode {idle, walk, run}

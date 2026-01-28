@@ -51,5 +51,22 @@ public class PlayerEvent : ScriptableObject
         }
     }
     
- 
+    public Action<float> OnPlayerComboChange;
+
+    public void PlayerComboChange(float value)
+    {
+        if (OnPlayerHPChange != null)
+        {
+            OnPlayerComboChange(value);
+        }
+    }
+    public Action<ComboGrade> OnComboGradeChange;
+
+    public void ComboGradeChange(ComboGrade grade)
+    {
+        if (OnComboGradeChange != null)
+        {
+            OnComboGradeChange(grade);
+        }
+    }
 }

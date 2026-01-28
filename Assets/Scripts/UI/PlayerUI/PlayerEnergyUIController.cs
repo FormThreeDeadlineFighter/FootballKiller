@@ -27,14 +27,11 @@ public class PlayerEnergyUIController : MonoBehaviour
         
         switch(Elements)
         {
-            case Elements.red:
-                image.color = Color.red;
+            case Elements.white:
+                image.color = Color.white;
                 break;
-            case Elements.green:
-                image.color = Color.green;
-                break;
-            case Elements.blue:
-                image.color = Color.blue;
+            case Elements.black:
+                image.color = Color.black;
                 break;
             default:
                 image.color = Color.white;

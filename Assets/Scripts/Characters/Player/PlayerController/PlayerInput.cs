@@ -7,12 +7,12 @@ public class PlayerInput : MonoBehaviour
 {
     PlayerControl _playerControl;
     public Vector2 StickValue;
-    public bool IsJump => _playerControl.Player.Jump.WasPerformedThisFrame();
-    public bool IsBlock => _playerControl.Player.Block.WasPerformedThisFrame();
-    public bool IsDash => _playerControl.Player.Dash.WasPerformedThisFrame();
-    public bool IsPlayerShoot => _playerControl.Player.PlayerShoot.IsPressed();
-    public bool IsRobotShoot => _playerControl.Player.RobotShoot.IsPressed();
-    public bool IsRetrieve => _playerControl.Player.Retrieve.WasPerformedThisFrame();
+    public bool IsJump => _playerControl.Battle.Jump.WasPerformedThisFrame();
+    public bool IsBlock => _playerControl.Battle.Block.WasPerformedThisFrame();
+    public bool IsDash => _playerControl.Battle.Dash.WasPerformedThisFrame();
+    public bool IsLightAttack => _playerControl.Battle.LightAttack.WasPerformedThisFrame();
+    public bool IsHeavyAttack => _playerControl.Battle.HeavyAttack.WasPerformedThisFrame();
+    public bool IsSwitch => _playerControl.Battle.SwitchElement.WasPerformedThisFrame();
     public bool IsMove => StickValue != Vector2.zero;
     
     public void Awake()
@@ -23,14 +23,14 @@ public class PlayerInput : MonoBehaviour
     void OnEnable()
     {   
         _playerControl.Enable();
-        _playerControl.Player.Move.performed += OnMovePerformed;
-        _playerControl.Player.Move.canceled += OnMovePerformed;
+        _playerControl.Battle.Move.performed += OnMovePerformed;
+        _playerControl.Battle.Move.canceled += OnMovePerformed;
     }
 
     void OnDisable()
     {
-        _playerControl.Player.Move.performed -= OnMovePerformed;
-        _playerControl.Player.Move.canceled -= OnMovePerformed;
+        _playerControl.Battle.Move.performed -= OnMovePerformed;
+        _playerControl.Battle.Move.canceled -= OnMovePerformed;
         _playerControl.Disable();
     }
 

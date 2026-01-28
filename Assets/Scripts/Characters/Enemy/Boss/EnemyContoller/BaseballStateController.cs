@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 [RequireComponent(typeof(Rigidbody), typeof(AISensor))]
 public class BaseballStateController : MonoBehaviour
@@ -9,24 +9,42 @@ public class BaseballStateController : MonoBehaviour
     private Animator _animator;
     // enemy controller
     private EnemyController _enemy;
+    PlayableDirector director;
+    [SerializeField] TimelineAsset[] timelineAssets;
     private float _timer = 5;
     private float _currentTime;
     void OnEnable()
     {
         _enemy = GetComponent<EnemyController>();
         _animator = GetComponentInChildren<Animator>();
+        director = GetComponent<PlayableDirector>();
         
-        _currentTime = _timer;
+        _currentTime = 0;
     }
 
     private void FixedUpdate() 
     {
-        if(_currentTime < 0)
+        if(_currentTime >= _timer)
         {
-            _animator.SetTrigger("Swin");
-            _currentTime = _timer;
+            int num = Random.Range(0,timelineAssets.Length);
+            Debug.Log(num);     
+            PlayerTimeline(timelineAssets[num]);
+            _currentTime = 0;
+            _enemy.SwitchElement();
+            return;
         }
-        _currentTime -= Time.fixedDeltaTime;
+        if (director.state != PlayState.Playing)
+        {           
+            _enemy.FaceToPlayer();          
+        }
+        _currentTime += Time.fixedDeltaTime;
     }
 
+    private void PlayerTimeline(TimelineAsset timeline)
+    {
+        if (director.state == PlayState.Playing) return;
+        director.playableAsset = timeline;
+        director.time = 0;
+        director.Play();
+    }
 }

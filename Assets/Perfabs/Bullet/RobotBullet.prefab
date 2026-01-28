@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fbcc33c7cf889469f447b460a8fac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 1
+  Damage: 2
   Elements: 0
 --- !u!114 &1976036163185028786
 MonoBehaviour:
@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBullet
   _speed: 100
+  boom: {fileID: 4371265178355146009, guid: 61d9dff2958c17e4898cdddb87898811, type: 3}
 --- !u!1001 &5208450524658377357
 PrefabInstance:
   m_ObjectHideFlags: 0

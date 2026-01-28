@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class EnemyController : MonoBehaviour
 {
@@ -8,8 +7,11 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float _moveSpeed;
     [SerializeField] float _shieldHP;
     [SerializeField] bool _invincible = false;
+    [SerializeField] private Elements currentElement = Elements.white; 
+    [SerializeField] Material[] ElementMaterials;  
 
     [Header("Event System")]
+    [SerializeField] Renderer ElementsShow;
     [SerializeField] GameEvent _gameEvent;
     [SerializeField] BossEvent _bossEvent;
 
@@ -75,52 +77,41 @@ public class EnemyController : MonoBehaviour
     {
         Vector3 dir = _sensor.Target.transform.position - transform.position;
         dir.y = 0;
-        _rb.transform.rotation = Quaternion.LookRotation(dir);
+        Quaternion targetRot = Quaternion.LookRotation(dir);
+        _rb.transform.rotation = Quaternion.Slerp(transform.rotation,targetRot, 2 * Time.fixedDeltaTime);
+    }
+    public void SetVelocity(Vector3 vector3)
+    {
+        _rb.linearVelocity = vector3;
+        _rb.angularVelocity = vector3; 
     }
     
-
+    public void SwitchElement()
+    {
+        int num = (int)currentElement;
+        num = (num + 1)%2;
+        currentElement = (Elements)num;
+        ElementsShow.material = ElementMaterials[num];
+        Debug.Log(currentElement);
+    } 
+    
+    public bool IsAttackable()
+    {
+        if(_currentHP > 0) return true;
+        else return false;
+    }
+    
     private void GameOver()
     {
         Destroy(this.gameObject);
     }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.TryGetComponent<IAttack>(out IAttack attack))
-        {
-            BossHurt(attack.Damage);
-            Debug.Log("ball hurt " + attack.Damage);
-        }
-    }
+    
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<IAttack>(out IAttack attack))
         {
+            if(attack.Elements != currentElement) return;
             BossHurt(attack.Damage);
         }
-    } 
- 
-    public void SwinAttack(GameObject bulletPrefab, AttackData attackData)
-    {    
-        float delayTime = 0;
-        foreach(BulletArrayData bulletsArray in attackData._bulletsArray)
-        {
-            delayTime += bulletsArray._delayTime;
-            IEnumerator coroutine = SwinAttackLoop(bulletPrefab, bulletsArray, delayTime);
-            StartCoroutine(coroutine);
-        }
-     
-    }
-    
-    IEnumerator SwinAttackLoop(GameObject bulletPrefab, BulletArrayData bulletsArray, float time)
-    {
-        yield return new WaitForSeconds(time);
-        
-        foreach(BulletData bullet in bulletsArray._bullets)
-        {
-            Vector3 lookDir = Quaternion.Euler(bullet._angle.y, bullet._angle.x, 0) * _rb.transform.forward;
-            Quaternion toRotation = Quaternion.LookRotation(lookDir);
-            Instantiate(bulletPrefab, _rb.transform.position + new Vector3(0,bullet._height,0), toRotation);
-        }     
     }
 }

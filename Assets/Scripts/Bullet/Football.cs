@@ -5,15 +5,16 @@ public class Football : MonoBehaviour
 {
     public bool _attack;
     [SerializeField] private GameObject energyBox;
-    
+    [SerializeField] ParticleSystem boom;
     void OnCollisionEnter(Collision collision)
     {
-        /*if(collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {         
-            Debug.Log("boom");
-            Instantiate(energyBox, transform.position, Quaternion.identity);
-        }*/
-        //Destroy(this.gameObject);
+            if(boom != null)
+            {
+                boom.Play();
+            }
+        }    
         
         if(collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {         
