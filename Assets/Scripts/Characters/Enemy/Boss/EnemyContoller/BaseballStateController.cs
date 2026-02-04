@@ -26,8 +26,7 @@ public class BaseballStateController : MonoBehaviour
     {
         if(_currentTime >= _timer)
         {
-            int num = Random.Range(0,timelineAssets.Length);
-            Debug.Log(num);     
+            int num = Random.Range(0,timelineAssets.Length); 
             PlayerTimeline(timelineAssets[num]);
             _currentTime = 0;
             _enemy.SwitchElement();

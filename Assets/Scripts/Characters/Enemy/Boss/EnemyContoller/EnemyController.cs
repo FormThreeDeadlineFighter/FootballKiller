@@ -52,7 +52,8 @@ public class EnemyController : MonoBehaviour
         if (_currentHP <= 0)
         {
             _currentHP = 0;
-            _gameEvent.GameVictory();
+            _gameEvent.EnemyDestory(this.gameObject);
+            Destroy(gameObject);
         }
         
         float hpPercentage = _currentHP/_HP;
@@ -100,10 +101,13 @@ public class EnemyController : MonoBehaviour
         if(_currentHP > 0) return true;
         else return false;
     }
-    
+    void OnDestroy()
+    {
+        //_gameEvent.EnemyDestory(this.gameObject);
+    }
     private void GameOver()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
     
     void OnTriggerEnter(Collider other)
