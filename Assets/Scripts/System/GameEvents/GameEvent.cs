@@ -21,4 +21,13 @@ public class GameEvent : ScriptableObject
             OnGameDefeat();
         }
     }
+    
+    public Action<GameObject> OnEnemyDestory;
+    public void EnemyDestory(GameObject gameObject)
+    {
+        if (OnEnemyDestory != null)
+        {
+            OnEnemyDestory(gameObject);
+        }
+    }
 }

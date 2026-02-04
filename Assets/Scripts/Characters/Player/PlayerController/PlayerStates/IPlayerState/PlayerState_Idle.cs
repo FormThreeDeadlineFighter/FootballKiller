@@ -9,7 +9,6 @@ public class PlayerState_Idle : IPlayerState
     {
         base.EnterState();
         _player.SetVelocity(Vector3.zero);
-        Debug.Log("enter idle");
     }
     public override void ExitState()
     {

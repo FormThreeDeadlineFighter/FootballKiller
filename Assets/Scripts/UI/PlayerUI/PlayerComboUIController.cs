@@ -43,7 +43,6 @@ public class PlayerComboUIController : MonoBehaviour
         }
         
         float percentage = (currentValue - _minGradeValue) / _maxGradeValue;
-        Debug.Log(percentage);
         ComboValue.transform.localScale = new Vector3(percentage, 1, 1);
     }
     
