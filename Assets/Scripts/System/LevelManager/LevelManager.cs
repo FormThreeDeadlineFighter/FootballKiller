@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Transform _gameLevel;
     [SerializeField] GameEvent gameEvent;
     GameObject _currentWave;
+    List<GameObject> _currentEnemys;
     int _currentEnemysIndex;
     int _currentWaveIndex;
     void OnEnable()
@@ -37,16 +38,19 @@ public class LevelManager : MonoBehaviour
     }
     
     void GenerateWave()
-    {    
-        _currentWave = _level.waves[_currentWaveIndex];
-        Instantiate(_currentWave, _gameLevel); 
-        
+    {          
+        _currentWave = Instantiate(_level.waves[_currentWaveIndex], _gameLevel); 
         Wave wave = _currentWave.GetComponent<Wave>();
-        _currentEnemysIndex = wave.enemys.Length;  
+        _currentEnemysIndex = wave.enemys.Length; 
     }
     
-    void OnEnemyDestory(GameObject enemy)
+    void OnEnemyDestory()
     {
         _currentEnemysIndex -= 1;
+        
+        if(_currentEnemysIndex == 0)
+        {
+            Destroy(_currentWave.gameObject);
+        }
     }
 }

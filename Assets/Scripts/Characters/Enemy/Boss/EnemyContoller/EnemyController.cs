@@ -52,7 +52,7 @@ public class EnemyController : MonoBehaviour
         if (_currentHP <= 0)
         {
             _currentHP = 0;
-            _gameEvent.EnemyDestory(this.gameObject);
+            _gameEvent.EnemyDestory();
             Destroy(gameObject);
         }
         
@@ -76,6 +76,7 @@ public class EnemyController : MonoBehaviour
     
     public void FaceToPlayer()
     {
+        if(_sensor.Target == null) return;
         Vector3 dir = _sensor.Target.transform.position - transform.position;
         dir.y = 0;
         Quaternion targetRot = Quaternion.LookRotation(dir);
@@ -93,7 +94,6 @@ public class EnemyController : MonoBehaviour
         num = (num + 1)%2;
         currentElement = (Elements)num;
         ElementsShow.material = ElementMaterials[num];
-        Debug.Log(currentElement);
     } 
     
     public bool IsAttackable()

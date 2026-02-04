@@ -22,12 +22,12 @@ public class GameEvent : ScriptableObject
         }
     }
     
-    public Action<GameObject> OnEnemyDestory;
-    public void EnemyDestory(GameObject gameObject)
+    public Action OnEnemyDestory;
+    public void EnemyDestory()
     {
         if (OnEnemyDestory != null)
         {
-            OnEnemyDestory(gameObject);
+            OnEnemyDestory();
         }
     }
 }
