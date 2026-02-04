@@ -35,7 +35,6 @@ public class PlayerState_LightAttack1 : IPlayerState
         if(_input.IsLightAttack)
         {
             _preInput = true;
-            Debug.Log(name+"preInput On");
         } 
     }
     public override void PhysicsUpdate()
