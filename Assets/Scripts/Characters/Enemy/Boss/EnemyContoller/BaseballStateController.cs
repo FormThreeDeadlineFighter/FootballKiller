@@ -1,28 +1,49 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
 [RequireComponent(typeof(Rigidbody), typeof(AISensor))]
-public class BaseballStateController : MonoBehaviour
+public class BaseballStateController : IStateController
 {
     // enemy animator
     private Animator _animator;
     // enemy controller
     private EnemyController _enemy;
-    PlayableDirector director;
-    [SerializeField] TimelineAsset[] timelineAssets;
-    private float _timer = 5;
-    private float _currentTime;
+    PlayableDirector _director;
+    
+    [SerializeField] List<IBaseballState> _baseballStates = new List<IBaseballState>();
+    BaseballState_Idle baseballState_Idle = new BaseballState_Idle();
     void OnEnable()
     {
         _enemy = GetComponent<EnemyController>();
         _animator = GetComponentInChildren<Animator>();
-        director = GetComponent<PlayableDirector>();
+        _director = GetComponent<PlayableDirector>();
         
-        _currentTime = 0;
+        _stateTable = new Dictionary<System.Type, IState>(_baseballStates.Count);
+        
+        _baseballStates.Add(baseballState_Idle);
+        
+        foreach (IBaseballState state in _baseballStates)
+        {
+            state.Initialize(this, _enemy, _animator, _director);
+            _stateTable.Add(state.GetType(), state);
+        }
+         
+    }
+    
+    void OnDisable()
+    {
+        _stateTable.Clear();
+    }
+    
+    void Start()
+    {
+        SetState(_stateTable[typeof(BaseballState_Idle)]);
     }
 
-    private void FixedUpdate() 
+
+    /*private void FixedUpdate() 
     {
         if(_currentTime >= _timer)
         {
@@ -38,12 +59,11 @@ public class BaseballStateController : MonoBehaviour
         }
         _currentTime += Time.fixedDeltaTime;
     }
-
     private void PlayerTimeline(TimelineAsset timeline)
     {
-        if (director.state == PlayState.Playing) return;
-        director.playableAsset = timeline;
-        director.time = 0;
-        director.Play();
-    }
+        if (_director.state == PlayState.Playing) return;
+        _director.playableAsset = timeline;
+        _director.time = 0;
+        _director.Play();
+    }*/
 }
