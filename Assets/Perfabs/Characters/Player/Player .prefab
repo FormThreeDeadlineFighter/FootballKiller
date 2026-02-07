@@ -100,8 +100,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 2.5, z: 2}
-  m_Center: {x: 0, y: -0.5, z: 1}
+  m_Size: {x: 2.5, y: 2.5, z: 3}
+  m_Center: {x: 0, y: -0.5, z: 1.5}
 --- !u!114 &2056360656295766293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fbcc33c7cf889469f447b460a8fac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IAttack
-  Damage: 0
+  Damage: 10
   Elements: 0
 --- !u!1 &5265428765588063593
 GameObject:
@@ -185,6 +185,95 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerEvents: {fileID: 11400000, guid: 51a858bca8b742c4eb4a52f4a8fb9dfd, type: 2}
+--- !u!1 &7394554138697740850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2580046217905827744}
+  - component: {fileID: 76137778299675734}
+  - component: {fileID: 4558882491155988447}
+  m_Layer: 7
+  m_Name: Element Show
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2580046217905827744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7394554138697740850}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 1.97, z: 0}
+  m_LocalScale: {x: 0.59999996, y: 0.59999996, z: 0.59999996}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7597043379419933684}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &76137778299675734
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7394554138697740850}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &4558882491155988447
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7394554138697740850}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 692b504e2a57cbb428bc1b2d58d32537, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &9215738598867762945
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +291,7 @@ GameObject:
   - component: {fileID: 8857462327279823988}
   - component: {fileID: 7265985998620990715}
   - component: {fileID: 813049492705175444}
+  - component: {fileID: 8115158863318735719}
   - component: {fileID: 1975578273310315827}
   m_Layer: 3
   m_Name: 'Player '
@@ -227,6 +317,7 @@ Transform:
   - {fileID: 7638122584081163331}
   - {fileID: 7246724720991519212}
   - {fileID: 491493425653652601}
+  - {fileID: 2580046217905827744}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!54 &4447746229666072416
@@ -320,6 +411,10 @@ MonoBehaviour:
   _cameraTransform: {fileID: 0}
   _playerHitBox: {fileID: 5265428765588063593}
   _attackHitBox: {fileID: 4520762188644864879}
+  ElementMaterials:
+  - {fileID: 2100000, guid: 692b504e2a57cbb428bc1b2d58d32537, type: 2}
+  - {fileID: 2100000, guid: 0cb0d298e5ae95749a9e8d368dba54bd, type: 2}
+  ElementsShow: {fileID: 4558882491155988447}
   _playerEvents: {fileID: 11400000, guid: 51a858bca8b742c4eb4a52f4a8fb9dfd, type: 2}
   _gameEvent: {fileID: 11400000, guid: 4d3e622616f0422419f565b9695f06d9, type: 2}
   CanJump: 0
@@ -357,6 +452,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 96b4a7f1ee3a3a44bb0ae2472d69ddbf, type: 2}
   - {fileID: 11400000, guid: 7c2ff37c977641b458e17f2da433900b, type: 2}
   - {fileID: 11400000, guid: 34993ed43168a3642b422213c268c76a, type: 2}
+  - {fileID: 11400000, guid: 906c4b96e95b91f4889a0f613b112705, type: 2}
+  - {fileID: 11400000, guid: 2c8ee7da2c40ddb4287d43933bc9229f, type: 2}
+  - {fileID: 11400000, guid: f132d9ff5b833e0478a26483d3c69d85, type: 2}
 --- !u!114 &7265985998620990715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,13 +486,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 684ff47fe880a314fa8653f50696f474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMeleeCombat
-  _meleeRange: 3
+  _meleeRange: 8
   angle: 30
   rayCount: 5
-  stopRadius: 2
+  stopRadius: 4
   _layer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &8115158863318735719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9215738598867762945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3cd597ec1d5ecc418b34709155d6c51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerComboController
+  playerEvent: {fileID: 11400000, guid: 51a858bca8b742c4eb4a52f4a8fb9dfd, type: 2}
+  _maxComboValue: 777
+  _playerEvents: {fileID: 11400000, guid: 51a858bca8b742c4eb4a52f4a8fb9dfd, type: 2}
 --- !u!114 &1975578273310315827
 MonoBehaviour:
   m_ObjectHideFlags: 0
