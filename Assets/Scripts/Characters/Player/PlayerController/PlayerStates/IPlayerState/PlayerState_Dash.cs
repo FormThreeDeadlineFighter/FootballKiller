@@ -1,7 +1,6 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Dash", fileName = "PlayerState_Dash")]
-[System.Serializable]
 public class PlayerState_Dash : IPlayerState
 {
     [SerializeField] float _duration = 0.1f;

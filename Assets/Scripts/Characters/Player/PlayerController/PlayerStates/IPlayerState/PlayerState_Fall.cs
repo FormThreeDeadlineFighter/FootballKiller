@@ -1,7 +1,6 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Falling", fileName = "PlayerState_Falling")]
-[System.Serializable]
 public class PlayerState_Fall : IPlayerState
 {
     [SerializeField] AnimationCurve _speedCurve;

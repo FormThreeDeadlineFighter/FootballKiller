@@ -1,6 +1,9 @@
+using System;
 using UnityEngine;
 using UnityEngine.Playables;
-public class IBaseballState : MonoBehaviour, IState
+
+[Serializable]
+public class IBaseballState : IState
 {
     float _stateEnterTime;
     protected BaseballStateController _stateMachine;
@@ -9,11 +12,7 @@ public class IBaseballState : MonoBehaviour, IState
     protected EnemyController _enemy;
     protected bool IsAnimationComplete => _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f;
     protected float _stateDuration => Time.time - _stateEnterTime;
-    
-    void OnEnable()
-    {
-        
-    }
+
     public void Initialize(BaseballStateController stateMachine, EnemyController enemy, Animator animator, PlayableDirector director)
     {
         _stateMachine = stateMachine;

@@ -2,7 +2,6 @@ using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Landing", fileName = "PlayerState_Landing")]
-[System.Serializable]
 public class PlayerState_Land : IPlayerState
 {
     public override void EnterState()

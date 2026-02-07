@@ -1,7 +1,6 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/LightAttack1", fileName = "PlayerState_LightAttack1")]
-[System.Serializable]
 public class PlayerState_LightAttack1 : IPlayerState
 {
     [SerializeField] float _attackDamage;

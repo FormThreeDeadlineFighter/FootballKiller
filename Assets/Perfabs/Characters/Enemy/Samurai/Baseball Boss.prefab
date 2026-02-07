@@ -157,9 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ed6d7711154ee4293fdb0406d75078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timelineAssets:
-  - {fileID: 11400000, guid: 5fd35af3a637c8746b16a949546c40a6, type: 2}
-  - {fileID: 11400000, guid: 7f8c83570e172e5479deaf1f078168ab, type: 2}
+  idledata: {fileID: 11400000, guid: 81a2d4dba942f3c418db5fd532d7b9f4, type: 2}
 --- !u!114 &8951098437933883859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,7 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fbcc33c7cf889469f447b460a8fac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IAttack
-  Damage: 30
+  Damage: 20
   Elements: 0
 --- !u!1 &7733939720733461639
 GameObject:

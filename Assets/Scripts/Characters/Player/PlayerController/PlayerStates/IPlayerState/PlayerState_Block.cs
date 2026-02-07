@@ -1,7 +1,6 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Block", fileName = "PlayerState_Block")]
-[System.Serializable]
 public class PlayerState_Block : IPlayerState
 {
     [SerializeField] float _moveSpeed = 2.0f;

@@ -2,7 +2,6 @@ using Unity.Mathematics.Geometry;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Run", fileName = "PlayerState_Run")]
-[System.Serializable]
 public class PlayerState_Run : IPlayerState
 {
     [SerializeField] float _moveSpeed = 7.0f;

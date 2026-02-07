@@ -1,7 +1,6 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Jump", fileName = "PlayerState_Jump")]
-[System.Serializable]
 public class PlayerState_Jump : IPlayerState
 {
     [SerializeField] float _jumpForce = 5f;

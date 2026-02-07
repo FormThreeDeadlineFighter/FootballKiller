@@ -12,10 +12,13 @@ public class BaseballStateController : IStateController
     private EnemyController _enemy;
     PlayableDirector _director;
     
-    [SerializeField] List<IBaseballState> _baseballStates = new List<IBaseballState>();
-    BaseballState_Idle baseballState_Idle = new BaseballState_Idle();
+    List<IBaseballState> _baseballStates = new List<IBaseballState>();
+    [SerializeField] BaseballState_IdleConfig idledata;
+    BaseballState_Idle baseballState_Idle; 
     void OnEnable()
     {
+        baseballState_Idle = new BaseballState_Idle(idledata);
+        
         _enemy = GetComponent<EnemyController>();
         _animator = GetComponentInChildren<Animator>();
         _director = GetComponent<PlayableDirector>();
