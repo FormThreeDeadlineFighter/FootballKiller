@@ -1,19 +1,17 @@
-using System;
 using UnityEngine;
 
-public class BaseballState_Idle : IBaseballState
+public class BaseballState_Wave : IBaseballState
 {
-    BaseballStateConfig_Idle _data;
+    BaseballStateConfig_Wave _data;
 
-    public BaseballState_Idle(BaseballStateConfig_Idle data)
+    public BaseballState_Wave(BaseballStateConfig_Wave data)
     {
         _data = data;
     }
-
+    
     public override void EnterState()
     {
-        _animator.Play(_data.animationName);
-        Debug.Log(_data.animationName);
+        
     }
     public override void ExitState()
     {

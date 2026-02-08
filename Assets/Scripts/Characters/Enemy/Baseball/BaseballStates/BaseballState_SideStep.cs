@@ -1,11 +1,10 @@
-using System;
 using UnityEngine;
 
-public class BaseballState_Idle : IBaseballState
+public class BaseballState_SideStep : IBaseballState
 {
-    BaseballStateConfig_Idle _data;
+    BaseballStateConfig_SideStep _data;
 
-    public BaseballState_Idle(BaseballStateConfig_Idle data)
+    public BaseballState_SideStep(BaseballStateConfig_SideStep data)
     {
         _data = data;
     }
