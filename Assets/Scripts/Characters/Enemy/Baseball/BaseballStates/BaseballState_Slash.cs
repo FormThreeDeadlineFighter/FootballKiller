@@ -1,19 +1,17 @@
-using System;
 using UnityEngine;
 
-public class BaseballState_Idle : IBaseballState
+public class BaseballState_Slash : IBaseballState
 {
-    BaseballStateConfig_Idle _data;
+    BaseballStateConfig_Slash _data;
 
-    public BaseballState_Idle(BaseballStateConfig_Idle data)
+    public BaseballState_Slash(BaseballStateConfig_Slash data)
     {
         _data = data;
     }
-
+    
     public override void EnterState()
     {
-        _animator.Play(_data.animationName);
-        Debug.Log(_data.animationName);
+        
     }
     public override void ExitState()
     {

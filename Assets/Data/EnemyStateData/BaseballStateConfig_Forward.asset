@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 754964f76527cb349b3f61b1ae928b51, type: 3}
-  m_Name: BaseballState_IdleConfig
-  m_EditorClassIdentifier: Assembly-CSharp::BaseballStateData_Idle
-  animationName: Idle
+  m_Script: {fileID: 11500000, guid: dce5229d3d0fba4499d3c967a61708d8, type: 3}
+  m_Name: BaseballStateConfig_Forward
+  m_EditorClassIdentifier: Assembly-CSharp::BaseballStateConfig_Forward
+  animationName: 
