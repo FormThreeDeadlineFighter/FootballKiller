@@ -4,7 +4,7 @@ public class BaseballState_Collision : IBaseballState
 {
     BaseballStateConfig_Collision _data;
 
-    public BaseballState_Collision(BaseballStateConfig_Collision data)
+    public BaseballState_Collision(BaseballStateConfig_Collision data) : base(data)
     {
         _data = data;
     }

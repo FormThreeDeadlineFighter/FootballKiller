@@ -4,7 +4,7 @@ public class BaseballState_BackJump : IBaseballState
 {
     BaseballStateConfig_BackJump _data;
 
-    public BaseballState_BackJump(BaseballStateConfig_BackJump data)
+    public BaseballState_BackJump(BaseballStateConfig_BackJump data) : base(data)
     {
         _data = data;
     }

@@ -4,7 +4,7 @@ public class BaseballState_SideStep : IBaseballState
 {
     BaseballStateConfig_SideStep _data;
 
-    public BaseballState_SideStep(BaseballStateConfig_SideStep data)
+    public BaseballState_SideStep(BaseballStateConfig_SideStep data) : base(data)
     {
         _data = data;
     }

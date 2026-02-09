@@ -13,6 +13,10 @@ public class IBaseballState : IState
     protected bool IsAnimationComplete => _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f;
     protected float _stateDuration => Time.time - _stateEnterTime;
 
+    public IBaseballState(IStateConfig stateConfig)
+    {
+        
+    }
     public void Initialize(BaseballStateController stateMachine, EnemyController enemy, Animator animator, PlayableDirector director)
     {
         _stateMachine = stateMachine;

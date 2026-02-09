@@ -4,7 +4,7 @@ public class BaseballState_PreAttack : IBaseballState
 {
     BaseballStateConfig_PreAttack _data;
 
-    public BaseballState_PreAttack(BaseballStateConfig_PreAttack data)
+    public BaseballState_PreAttack(BaseballStateConfig_PreAttack data) : base(data)
     {
         _data = data;
     }
@@ -18,7 +18,7 @@ public class BaseballState_PreAttack : IBaseballState
     }
     public override void LogicUpdate()
     {
-        
+        _stateMachine.SetState(typeof(BaseballState_Slash)); 
     }
     public override void PhysicsUpdate()
     {

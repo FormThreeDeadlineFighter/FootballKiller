@@ -54,7 +54,15 @@ public class BaseballStateController : IStateController
         
         _stateTable = new Dictionary<System.Type, IState>(_baseballStates.Count);
         
+        _baseballStates.Add(_baseballState_BackJump);
+        _baseballStates.Add(_baseballState_Collision);
+        _baseballStates.Add(_baseballState_Forward);
         _baseballStates.Add(_baseballState_Idle);
+        _baseballStates.Add(_baseballState_PreAttack);
+        _baseballStates.Add(_baseballState_PreMove);
+        _baseballStates.Add(_baseballState_SideStep);
+        _baseballStates.Add(_baseballState_Slash);
+        _baseballStates.Add(_baseballState_Wave);
         
         foreach (IBaseballState state in _baseballStates)
         {

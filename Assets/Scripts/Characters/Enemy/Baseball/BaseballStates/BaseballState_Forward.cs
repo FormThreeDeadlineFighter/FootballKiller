@@ -4,7 +4,7 @@ public class BaseballState_Forward : IBaseballState
 {
     BaseballStateConfig_Forward _data;
 
-    public BaseballState_Forward(BaseballStateConfig_Forward data)
+    public BaseballState_Forward(BaseballStateConfig_Forward data) : base(data)
     {
         _data = data;
     }

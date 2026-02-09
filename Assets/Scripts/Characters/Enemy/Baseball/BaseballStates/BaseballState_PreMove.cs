@@ -4,7 +4,7 @@ public class BaseballState_PreMove : IBaseballState
 {
     BaseballStateConfig_PreMove _data;
 
-    public BaseballState_PreMove(BaseballStateConfig_PreMove data)
+    public BaseballState_PreMove(BaseballStateConfig_PreMove data) : base(data)
     {
         _data = data;
     }

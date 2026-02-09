@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: BaseballStateConfig_Slash
   m_EditorClassIdentifier: Assembly-CSharp::BaseballStateConfig_Slash
   animationName: 
+  timeline: {fileID: 11400000, guid: 5fd35af3a637c8746b16a949546c40a6, type: 2}

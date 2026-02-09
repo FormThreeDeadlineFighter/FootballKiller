@@ -4,7 +4,7 @@ public class BaseballState_Wave : IBaseballState
 {
     BaseballStateConfig_Wave _data;
 
-    public BaseballState_Wave(BaseballStateConfig_Wave data)
+    public BaseballState_Wave(BaseballStateConfig_Wave data) : base(data)
     {
         _data = data;
     }
