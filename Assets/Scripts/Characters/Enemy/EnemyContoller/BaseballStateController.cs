@@ -19,7 +19,6 @@ public class BaseballStateController : IStateController
     BaseballState_Forward _baseballState_Forward; 
     BaseballState_Idle _baseballState_Idle; 
     BaseballState_PreAttack _baseballState_PreAttack;
-    BaseballState_PreMove _baseballState_PreMove;
     BaseballState_SideStep _baseballState_SideStep;
     BaseballState_Slash _baseballState_Slash;
     BaseballState_Wave _baseballState_Wave;
@@ -31,7 +30,6 @@ public class BaseballStateController : IStateController
     [SerializeField] BaseballStateConfig_Forward _forwardData;
     [SerializeField] BaseballStateConfig_Idle _idleData;
     [SerializeField] BaseballStateConfig_PreAttack _preAttackData;
-    [SerializeField] BaseballStateConfig_PreMove _preMoveData;
     [SerializeField] BaseballStateConfig_SideStep _sideStepData;
     [SerializeField] BaseballStateConfig_Slash _slashData;
     [SerializeField] BaseballStateConfig_Wave _waveData;
@@ -43,7 +41,6 @@ public class BaseballStateController : IStateController
         _baseballState_Forward = new BaseballState_Forward(_forwardData);
         _baseballState_Idle = new BaseballState_Idle(_idleData);
         _baseballState_PreAttack = new BaseballState_PreAttack(_preAttackData);
-        _baseballState_PreMove = new BaseballState_PreMove(_preMoveData);
         _baseballState_SideStep = new BaseballState_SideStep(_sideStepData);
         _baseballState_Slash = new BaseballState_Slash(_slashData);
         _baseballState_Wave = new BaseballState_Wave(_waveData);
@@ -59,7 +56,6 @@ public class BaseballStateController : IStateController
         _baseballStates.Add(_baseballState_Forward);
         _baseballStates.Add(_baseballState_Idle);
         _baseballStates.Add(_baseballState_PreAttack);
-        _baseballStates.Add(_baseballState_PreMove);
         _baseballStates.Add(_baseballState_SideStep);
         _baseballStates.Add(_baseballState_Slash);
         _baseballStates.Add(_baseballState_Wave);

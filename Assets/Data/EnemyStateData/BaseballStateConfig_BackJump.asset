@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7858da1410947274dbcf655fd86cea0c, type: 3}
   m_Name: BaseballStateConfig_BackJump
   m_EditorClassIdentifier: Assembly-CSharp::BaseballStateConfig_BackJump
-  animationName: 
+  AnimationName: BackJump
+  BackJumpDistance: 5

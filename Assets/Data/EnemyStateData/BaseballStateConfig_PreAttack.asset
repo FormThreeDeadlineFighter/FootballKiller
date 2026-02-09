@@ -12,4 +12,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec725e8a42d3ad489fc23cd679d77f7, type: 3}
   m_Name: BaseballStateConfig_PreAttack
   m_EditorClassIdentifier: Assembly-CSharp::BaseballStateConfig_PreAttack
-  animationName: 

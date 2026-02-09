@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float _HP;
     [SerializeField] float _moveSpeed;
     [SerializeField] float _shieldHP;
+    [SerializeField] float _attackCD;
     [SerializeField] bool _invincible = false;
     [SerializeField] private Elements currentElement = Elements.white; 
     [SerializeField] Material[] ElementMaterials;  
@@ -18,7 +19,10 @@ public class EnemyController : MonoBehaviour
     private Rigidbody _rb;
     private AISensor _sensor;
     private float _currentHP;
-    private float _currentShield;
+    private float _currentShield; 
+    
+    public bool CanAttack;
+    public float PlayerDistance => Vector3.Distance(transform.position, _sensor.Target.transform.position);
     
     void Start()
     {
@@ -80,7 +84,7 @@ public class EnemyController : MonoBehaviour
         Vector3 dir = _sensor.Target.transform.position - transform.position;
         dir.y = 0;
         Quaternion targetRot = Quaternion.LookRotation(dir);
-        _rb.transform.rotation = Quaternion.Slerp(transform.rotation,targetRot, 2 * Time.fixedDeltaTime);
+        _rb.transform.rotation = targetRot;
     }
     public void SetVelocity(Vector3 vector3)
     {

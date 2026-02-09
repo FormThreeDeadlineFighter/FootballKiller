@@ -10,7 +10,7 @@ public class BaseballState_Forward : IBaseballState
     }
     public override void EnterState()
     {
-        
+        _animator.Play(_data.AnimationName);
     }
     public override void ExitState()
     {
@@ -18,10 +18,13 @@ public class BaseballState_Forward : IBaseballState
     }
     public override void LogicUpdate()
     {
-        
+        if(_enemy.PlayerDistance < _data.ForwardDistance - 2)
+        {        
+            _stateMachine.SetState(typeof(BaseballState_Idle));
+        }
     }
     public override void PhysicsUpdate()
     {
-        
+        _enemy.FaceToPlayer();
     }
 }

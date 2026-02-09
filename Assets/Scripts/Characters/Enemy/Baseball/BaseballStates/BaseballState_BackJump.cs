@@ -10,7 +10,7 @@ public class BaseballState_BackJump : IBaseballState
     }
     public override void EnterState()
     {
-        
+        _animator.Play(_data.AnimationName);
     }
     public override void ExitState()
     {
@@ -18,7 +18,10 @@ public class BaseballState_BackJump : IBaseballState
     }
     public override void LogicUpdate()
     {
-        
+        if(IsAnimationComplete)
+        {        
+            _stateMachine.SetState(typeof(BaseballState_Idle));
+        }
     }
     public override void PhysicsUpdate()
     {

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf6073fba5a155428a8c3638941306d, type: 3}
   m_Name: BaseballStateConfig_SideStep
   m_EditorClassIdentifier: Assembly-CSharp::BaseballStateConfig_SideStep
-  animationName: 
+  AnimationName: SideStep

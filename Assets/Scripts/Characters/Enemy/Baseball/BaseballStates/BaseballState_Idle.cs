@@ -12,17 +12,15 @@ public class BaseballState_Idle : IBaseballState
 
     public override void EnterState()
     {
-        _animator.Play(_data.animationName);
+        _animator.Play(_data.AnimationName);
     }
     public override void ExitState()
     {
 
     }
     public override void LogicUpdate()
-    {
-                   
-       _stateMachine.SetState(typeof(BaseballState_PreAttack));         
-          
+    {      
+       _stateMachine.SetState(typeof(BaseballState_SideStep));               
     }
     public override void PhysicsUpdate()
     {

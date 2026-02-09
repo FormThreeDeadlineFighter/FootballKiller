@@ -11,8 +11,7 @@ public class BaseballState_SideStep : IBaseballState
 
     public override void EnterState()
     {
-        _animator.Play(_data.animationName);
-        Debug.Log(_data.animationName);
+        _animator.Play(_data.AnimationName);
     }
     public override void ExitState()
     {
@@ -20,10 +19,17 @@ public class BaseballState_SideStep : IBaseballState
     }
     public override void LogicUpdate()
     {
-        
+        if(_enemy.PlayerDistance > _data.ForwardDistance)
+        {
+            _stateMachine.SetState(typeof(BaseballState_Forward));
+        }
+        else if (_enemy.PlayerDistance < _data.BackJumpDistance)
+        {
+            _stateMachine.SetState(typeof(BaseballState_BackJump));
+        } 
     }
     public override void PhysicsUpdate()
     {
-        
+        _enemy.FaceToPlayer();
     }
 }

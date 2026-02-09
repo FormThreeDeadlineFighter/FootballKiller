@@ -19,6 +19,8 @@ public class BaseballState_Wave : IBaseballState
     }
     public override void LogicUpdate()
     {
+                
+        _stateMachine.SetState(typeof(BaseballState_Idle));         
         
     }
     public override void PhysicsUpdate()
