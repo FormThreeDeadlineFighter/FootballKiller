@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ced055bd0e0ac49aafe4cc543823c8, type: 3}
   m_Name: BaseballStateConfig_Slash
   m_EditorClassIdentifier: Assembly-CSharp::BaseballStateConfig_Slash
-  animationName: 
-  timeline: {fileID: 11400000, guid: 5fd35af3a637c8746b16a949546c40a6, type: 2}
+  Timeline: {fileID: 11400000, guid: 5fd35af3a637c8746b16a949546c40a6, type: 2}

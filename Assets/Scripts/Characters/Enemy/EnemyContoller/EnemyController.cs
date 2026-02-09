@@ -21,8 +21,8 @@ public class EnemyController : MonoBehaviour
     private float _currentHP;
     private float _currentShield; 
     
-    public bool CanAttack;
     public float PlayerDistance => Vector3.Distance(transform.position, _sensor.Target.transform.position);
+    public bool CanAttack;
     
     void Start()
     {

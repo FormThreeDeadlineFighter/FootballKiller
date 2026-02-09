@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754964f76527cb349b3f61b1ae928b51, type: 3}
   m_Name: BaseballStateConfig_Idle
   m_EditorClassIdentifier: Assembly-CSharp::BaseballStateConfig_Idle
-  animationName: Idle
+  AnimationName: Idle

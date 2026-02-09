@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BaseballStateConfig_Forward
   m_EditorClassIdentifier: Assembly-CSharp::BaseballStateConfig_Forward
   AnimationName: Forward
-  ForwardDistance: 15
+  ForwardDistance: 25
