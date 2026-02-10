@@ -20,7 +20,15 @@ public class BaseballState_Idle : IBaseballState
     }
     public override void LogicUpdate()
     {      
-       _stateMachine.SetState(typeof(BaseballState_SideStep));               
+        if(_enemy.CanAttack)
+        {  
+            _stateMachine.SetState(typeof(BaseballState_PreAttack));   
+        }  
+        else
+        {       
+            _stateMachine.SetState(typeof(BaseballState_SideStep));        
+        }
+        
     }
     public override void PhysicsUpdate()
     {
