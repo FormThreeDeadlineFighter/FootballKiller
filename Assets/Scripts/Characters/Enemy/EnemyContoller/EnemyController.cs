@@ -22,6 +22,7 @@ public class EnemyController : MonoBehaviour
     private float _currentHP;
     private float _currentShield; 
     
+    public Vector3 PlayerPosition => (_sensor.Target.transform.position - _rb.transform.position).normalized;
     public float PlayerDistance => Vector3.Distance(transform.position, _sensor.Target.transform.position);
     public bool CanAttack;
     
@@ -47,15 +48,18 @@ public class EnemyController : MonoBehaviour
     }
     public void SetVelocity(Vector3 velocity)
     {   
-        _rb.linearVelocity = velocity;      
+        _rb.linearVelocity = velocity; 
+        _rb.angularVelocity = Vector3.zero;     
     }
     public void SetVelocityXZ(Vector3 velocity)
     {
         _rb.linearVelocity = new Vector3(velocity.x, _rb.linearVelocity.y, velocity.z);
+        _rb.angularVelocity = Vector3.zero; 
     }
     public void SetVelocityY(float velocityY)
     {
         _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, velocityY, _rb.linearVelocity.z);
+        _rb.angularVelocity = Vector3.zero; 
     }
     
     private void BossHurt(float damage)

@@ -5,5 +5,6 @@ using System.Collections.Generic;
 public class BaseballStateConfig_Forward : ScriptableObject, IStateConfig
 {
     public string AnimationName;
-    public float ForwardDistance;
+    public float ForwardTriggerDistance;
+    public float ForwardForce;
 }

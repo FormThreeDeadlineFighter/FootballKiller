@@ -4,6 +4,7 @@ using UnityEngine.Playables;
 public class BaseballState_Collision : IBaseballState
 {
     BaseballStateConfig_Collision _data;
+    float currentTime;
 
     public BaseballState_Collision(BaseballStateConfig_Collision data) : base(data)
     {
@@ -11,7 +12,7 @@ public class BaseballState_Collision : IBaseballState
     }
     public override void EnterState()
     {
-        _enemy.FaceToPlayer();
+        currentTime = 0;
         _director.playableAsset = _data.Timeline;
         _director.time = 0;
         _director.Play();
@@ -28,7 +29,12 @@ public class BaseballState_Collision : IBaseballState
         }  
     }
     public override void PhysicsUpdate()
-    {
+    {   
+        if(currentTime < 2)
+        {         
+            _enemy.FaceToPlayer();      
+            currentTime += Time.fixedDeltaTime;
+        }
         
     }
 }

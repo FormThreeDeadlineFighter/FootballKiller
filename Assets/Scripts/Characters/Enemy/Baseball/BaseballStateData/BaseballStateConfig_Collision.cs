@@ -5,4 +5,5 @@ using UnityEngine.Timeline;
 public class BaseballStateConfig_Collision : ScriptableObject, IStateConfig
 {
     public TimelineAsset Timeline;
+    public float ForwardForce;
 }

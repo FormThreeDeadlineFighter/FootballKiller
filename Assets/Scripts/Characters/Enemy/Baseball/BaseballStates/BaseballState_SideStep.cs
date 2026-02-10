@@ -31,5 +31,6 @@ public class BaseballState_SideStep : IBaseballState
     public override void PhysicsUpdate()
     {
         _enemy.FaceToPlayer();
+        //_enemy.SetVelocityXZ(Vector3.left * 10);
     }
 }

@@ -5,5 +5,7 @@ using System.Collections.Generic;
 public class BaseballStateConfig_BackJump : ScriptableObject, IStateConfig
 {
     public string AnimationName;
-    public float BackJumpDistance;
+    public float BackJumpTriggerDistance;
+    public float JumpBackForce;
+    public float JumpUpForce;
 }

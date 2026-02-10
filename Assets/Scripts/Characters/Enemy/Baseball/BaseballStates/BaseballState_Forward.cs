@@ -18,7 +18,7 @@ public class BaseballState_Forward : IBaseballState
     }
     public override void LogicUpdate()
     {
-        if(_enemy.PlayerDistance < _data.ForwardDistance - 2)
+        if(_enemy.PlayerDistance < _data.ForwardTriggerDistance - 2)
         {        
             _stateMachine.SetState(typeof(BaseballState_Idle));
         }
@@ -26,5 +26,7 @@ public class BaseballState_Forward : IBaseballState
     public override void PhysicsUpdate()
     {
         _enemy.FaceToPlayer();
+        Vector3 forward = _enemy.PlayerPosition * _data.ForwardForce;
+        _enemy.SetVelocityXZ(forward);
     }
 }

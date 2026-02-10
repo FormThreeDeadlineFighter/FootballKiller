@@ -6,7 +6,7 @@ public class BaseballStateConfig_SideStep : ScriptableObject, IStateConfig
 {
     [SerializeField] BaseballStateConfig_Forward forward;
     [SerializeField] BaseballStateConfig_BackJump backJump;
-    public float ForwardDistance => forward.ForwardDistance;
-    public float BackJumpDistance => backJump.BackJumpDistance;
+    public float ForwardDistance => forward.ForwardTriggerDistance;
+    public float BackJumpDistance => backJump.BackJumpTriggerDistance;
     public string AnimationName; 
 }
