@@ -2742,8 +2742,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 517259889655565641}
     - target: {fileID: 6950927892587693952, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
+      propertyPath: _jumpCD
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950927892587693952, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
       propertyPath: _attackCD
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7132932675671651906, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
       propertyPath: m_CullingMode

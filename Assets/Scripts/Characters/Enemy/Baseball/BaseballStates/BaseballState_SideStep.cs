@@ -28,7 +28,7 @@ public class BaseballState_SideStep : IBaseballState
         {
             _stateMachine.SetState(typeof(BaseballState_Forward));
         }
-        else if (_enemy.PlayerDistance < _data.BackJumpDistance)
+        else if (_enemy.PlayerDistance < _data.BackJumpDistance && _enemy.CanJump)
         {
             _stateMachine.SetState(typeof(BaseballState_BackJump));
         } 
@@ -36,6 +36,5 @@ public class BaseballState_SideStep : IBaseballState
     public override void PhysicsUpdate()
     {
         _enemy.FaceToPlayer();
-        //_enemy.SetVelocityXZ(Vector3.left * 10);
     }
 }

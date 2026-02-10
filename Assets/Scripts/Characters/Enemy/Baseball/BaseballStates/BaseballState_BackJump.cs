@@ -20,7 +20,7 @@ public class BaseballState_BackJump : IBaseballState
     }
     public override void ExitState()
     {
-
+        _enemy.JumpCD();
     }
     public override void LogicUpdate()
     {

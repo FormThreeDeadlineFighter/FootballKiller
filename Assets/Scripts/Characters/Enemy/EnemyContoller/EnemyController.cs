@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float _moveSpeed;
     [SerializeField] float _shieldHP;
     [SerializeField] float _attackCD;
+    [SerializeField] float _jumpCD;
     [SerializeField] bool _invincible = false;
     [SerializeField] private Elements currentElement = Elements.white; 
     [SerializeField] Material[] ElementMaterials;  
@@ -25,6 +26,7 @@ public class EnemyController : MonoBehaviour
     public Vector3 PlayerPosition => (_sensor.Target.transform.position - _rb.transform.position).normalized;
     public float PlayerDistance => Vector3.Distance(transform.position, _sensor.Target.transform.position);
     public bool CanAttack;
+    public bool CanJump;
     
     void Start()
     {
@@ -40,6 +42,7 @@ public class EnemyController : MonoBehaviour
         _currentHP = _HP;
         _shieldHP = 0;
         CanAttack = true;
+        CanJump = true;
     }
     void OnDisable()
     {
@@ -119,9 +122,16 @@ public class EnemyController : MonoBehaviour
         else return false;
     }
     
-    public void StartAttack()
+    public void AttackCD()
     {
+        StopCoroutine(AttackCD(_attackCD));
         StartCoroutine(AttackCD(_attackCD));
+    }
+    
+    public void JumpCD()
+    {
+        StopCoroutine(JumpCD( _jumpCD));
+        StartCoroutine(JumpCD( _jumpCD));
     }
     
     private void GameOver()
@@ -143,5 +153,12 @@ public class EnemyController : MonoBehaviour
         CanAttack = false;
         yield return new WaitForSeconds(time);
         CanAttack = true;
+    }
+    
+    IEnumerator JumpCD(float time)
+    {
+        CanJump = false;
+        yield return new WaitForSeconds(time);
+        CanJump = true;
     }
 }

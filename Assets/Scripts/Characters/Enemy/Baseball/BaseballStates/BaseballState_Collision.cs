@@ -20,6 +20,7 @@ public class BaseballState_Collision : IBaseballState
     public override void ExitState()
     {
         _director.time = 0;
+        _enemy.AttackCD();
     }
     public override void LogicUpdate()
     {

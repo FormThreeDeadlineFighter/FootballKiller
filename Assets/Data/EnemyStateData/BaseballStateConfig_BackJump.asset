@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BaseballStateConfig_BackJump
   AnimationName: BackJump
   BackJumpTriggerDistance: 8
-  JumpBackForce: 10
+  JumpBackForce: 15
   JumpUpForce: 10

@@ -10,7 +10,7 @@ public class BaseballState_PreAttack : IBaseballState
     }
     public override void EnterState()
     {
-        _enemy.StartAttack();
+       _enemy.AttackCD();
     }
     public override void ExitState()
     {
