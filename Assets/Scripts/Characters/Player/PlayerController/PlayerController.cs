@@ -134,8 +134,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             SetVelocityXZ(_rb.transform.forward * _dashForce);
-        }
-        Debug.Log("dash");      
+        }      
     }
 
     public void Jump(float speed)
