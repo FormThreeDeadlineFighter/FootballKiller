@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -37,11 +38,24 @@ public class EnemyController : MonoBehaviour
         
         _currentHP = _HP;
         _shieldHP = 0;
+        CanAttack = true;
     }
     void OnDisable()
     {
         _gameEvent.OnGameVictory -= GameOver;
         _gameEvent.OnGameDefeat -= GameOver;
+    }
+    public void SetVelocity(Vector3 velocity)
+    {   
+        _rb.linearVelocity = velocity;      
+    }
+    public void SetVelocityXZ(Vector3 velocity)
+    {
+        _rb.linearVelocity = new Vector3(velocity.x, _rb.linearVelocity.y, velocity.z);
+    }
+    public void SetVelocityY(float velocityY)
+    {
+        _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, velocityY, _rb.linearVelocity.z);
     }
     
     private void BossHurt(float damage)
@@ -86,11 +100,6 @@ public class EnemyController : MonoBehaviour
         Quaternion targetRot = Quaternion.LookRotation(dir);
         _rb.transform.rotation = targetRot;
     }
-    public void SetVelocity(Vector3 vector3)
-    {
-        _rb.linearVelocity = vector3;
-        _rb.angularVelocity = vector3; 
-    }
     
     public void SwitchElement()
     {
@@ -105,10 +114,12 @@ public class EnemyController : MonoBehaviour
         if(_currentHP > 0) return true;
         else return false;
     }
-    void OnDestroy()
+    
+    public void StartAttack()
     {
-        //_gameEvent.EnemyDestory(this.gameObject);
+        StartCoroutine(AttackCD(_attackCD));
     }
+    
     private void GameOver()
     {
         Destroy(gameObject);
@@ -121,5 +132,12 @@ public class EnemyController : MonoBehaviour
             if(attack.Elements != currentElement) return;
             BossHurt(attack.Damage);
         }
+    }
+    
+    IEnumerator AttackCD(float time)
+    {
+        CanAttack = false;
+        yield return new WaitForSeconds(time);
+        CanAttack = true;
     }
 }

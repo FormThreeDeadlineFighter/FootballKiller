@@ -74,24 +74,17 @@ public class PlayerController : MonoBehaviour
     }
 
     public void SetVelocity(Vector3 velocity)
-    {
-        if(velocity != null)
-        {
-            _rb.linearVelocity = velocity;
-        }
+    {   
+        _rb.linearVelocity = velocity;      
     }
-    public void SetVelocityX(float velocityX)
+    public void SetVelocityXZ(Vector3 velocity)
     {
-        _rb.linearVelocity = new Vector3(velocityX, _rb.linearVelocity.y, _rb.linearVelocity.z);
+        _rb.linearVelocity = new Vector3(velocity.x, _rb.linearVelocity.y, velocity.z);
     }
 
     public void SetVelocityY(float velocityY)
     {
         _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, velocityY, _rb.linearVelocity.z);
-    }
-    public void SetVelocityZ(float velocityZ)
-    {
-        _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, _rb.linearVelocity.y, velocityZ);
     }
 
     public void Move(float speed)
@@ -113,8 +106,7 @@ public class PlayerController : MonoBehaviour
         {
             Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
             _rb.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.fixedDeltaTime);
-            SetVelocityX(moveDir.x * speed);
-            SetVelocityZ(moveDir.z * speed);
+            SetVelocityXZ(moveDir * speed);
         }
         
     }
@@ -137,12 +129,11 @@ public class PlayerController : MonoBehaviour
         {
             Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
             _rb.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.fixedDeltaTime);
-            SetVelocityX(moveDir.x * _dashForce);
-            SetVelocityZ(moveDir.z * _dashForce);
+            SetVelocityXZ(moveDir * _dashForce);
         }
         else
         {
-            SetVelocity(_rb.transform.forward * _dashForce);
+            SetVelocityXZ(_rb.transform.forward * _dashForce);
         }
         Debug.Log("dash");      
     }
@@ -150,8 +141,7 @@ public class PlayerController : MonoBehaviour
     public void Jump(float speed)
     {
         SetVelocityY(speed);
-        SetVelocityX(_rb.linearVelocity.x);
-        SetVelocityZ(_rb.linearVelocity.z);
+        SetVelocityXZ(_rb.linearVelocity);
     }
     
     public void AttackEnter(float damage, float comboChange)

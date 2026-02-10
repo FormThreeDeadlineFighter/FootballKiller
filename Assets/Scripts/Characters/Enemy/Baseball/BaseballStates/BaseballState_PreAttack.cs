@@ -10,14 +10,14 @@ public class BaseballState_PreAttack : IBaseballState
     }
     public override void EnterState()
     {
-        
+        _enemy.StartAttack();
     }
     public override void ExitState()
     {
 
     }
     public override void LogicUpdate()
-    {
+    {        
         int num = Random.Range(1, 3); 
         switch(num)
         {
@@ -29,8 +29,7 @@ public class BaseballState_PreAttack : IBaseballState
             break;
             default: _stateMachine.SetState(typeof(BaseballState_Idle));
             break;
-        }
-         
+        }           
     }
     public override void PhysicsUpdate()
     {
