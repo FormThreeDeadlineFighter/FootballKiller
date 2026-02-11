@@ -5,7 +5,6 @@ public class EnemyController : MonoBehaviour
 {
     [Header("Energy Property")]
     [SerializeField] private float _HP;
-    [SerializeField] float _moveSpeed;
     [SerializeField] float _shieldHP;
     [SerializeField] float _attackCD;
     [SerializeField] float _jumpCD;
