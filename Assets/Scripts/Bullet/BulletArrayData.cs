@@ -5,6 +5,6 @@ using UnityEngine;
 [Serializable]
 public class BulletArrayData
 {
-    public List<BulletData> _bullets = new();
-    public float _delayTime;
+    public List<BulletData> Bullets = new();
+    public float DelayTime;
 }

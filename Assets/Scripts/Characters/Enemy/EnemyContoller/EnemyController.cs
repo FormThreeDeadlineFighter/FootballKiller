@@ -21,6 +21,8 @@ public class EnemyController : MonoBehaviour
     private AISensor _sensor;
     private float _currentHP;
     private float _currentShield; 
+    Coroutine _attackCoroutine;
+    Coroutine _jumpCoroutine;
     
     public Vector3 PlayerPosition => (_sensor.Target.transform.position - _rb.transform.position).normalized;
     public float PlayerDistance => Vector3.Distance(transform.position, _sensor.Target.transform.position);
@@ -123,14 +125,14 @@ public class EnemyController : MonoBehaviour
     
     public void AttackCD()
     {
-        StopCoroutine(AttackCD(_attackCD));
-        StartCoroutine(AttackCD(_attackCD));
+        if (_attackCoroutine != null) return;
+        _attackCoroutine = StartCoroutine(AttackCD(_attackCD));
     }
     
     public void JumpCD()
     {
-        StopCoroutine(JumpCD( _jumpCD));
-        StartCoroutine(JumpCD( _jumpCD));
+        if (_jumpCoroutine != null) return;
+        _jumpCoroutine = StartCoroutine(JumpCD(_attackCD));
     }
     
     private void GameOver()
@@ -152,6 +154,8 @@ public class EnemyController : MonoBehaviour
         CanAttack = false;
         yield return new WaitForSeconds(time);
         CanAttack = true;
+        StopCoroutine(_attackCoroutine);
+        _attackCoroutine = null;
     }
     
     IEnumerator JumpCD(float time)
@@ -159,5 +163,7 @@ public class EnemyController : MonoBehaviour
         CanJump = false;
         yield return new WaitForSeconds(time);
         CanJump = true;
+        StopCoroutine(_jumpCoroutine);
+        _jumpCoroutine = null;  
     }
 }

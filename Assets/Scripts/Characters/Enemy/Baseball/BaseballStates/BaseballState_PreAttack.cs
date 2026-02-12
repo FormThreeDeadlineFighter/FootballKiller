@@ -18,7 +18,7 @@ public class BaseballState_PreAttack : IBaseballState
     }
     public override void LogicUpdate()
     {        
-        int num = Random.Range(1, 3); 
+        /*int num = Random.Range(1, 3); 
         switch(num)
         {
             case 1: _stateMachine.SetState(typeof(BaseballState_Slash));
@@ -29,7 +29,8 @@ public class BaseballState_PreAttack : IBaseballState
             break;
             default: _stateMachine.SetState(typeof(BaseballState_Idle));
             break;
-        }           
+        }*/   
+        _stateMachine.SetState(typeof(BaseballState_Wave));        
     }
     public override void PhysicsUpdate()
     {

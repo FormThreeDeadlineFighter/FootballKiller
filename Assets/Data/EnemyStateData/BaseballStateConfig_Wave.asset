@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9233c3263dff97a4ebe3fab64f926d5a, type: 3}
   m_Name: BaseballStateConfig_Wave
   m_EditorClassIdentifier: Assembly-CSharp::BaseballStateConfig_Wave
-  AnimationName: 
+  Timeline: {fileID: 11400000, guid: f314862cc13ae614394024bacd38d0ca, type: 2}
