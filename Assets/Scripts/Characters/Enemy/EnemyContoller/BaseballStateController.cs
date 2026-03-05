@@ -77,29 +77,4 @@ public class BaseballStateController : IStateController
     {
         SetState(_stateTable[typeof(BaseballState_Idle)]);
     }
-
-
-    /*private void FixedUpdate() 
-    {
-        if(_currentTime >= _timer)
-        {
-            int num = Random.Range(0,timelineAssets.Length); 
-            PlayerTimeline(timelineAssets[num]);
-            _currentTime = 0;
-            _enemy.SwitchElement();
-            return;
-        }
-        if (director.state != PlayState.Playing)
-        {           
-            _enemy.FaceToPlayer();          
-        }
-        _currentTime += Time.fixedDeltaTime;
-    }
-    private void PlayerTimeline(TimelineAsset timeline)
-    {
-        if (_director.state == PlayState.Playing) return;
-        _director.playableAsset = timeline;
-        _director.time = 0;
-        _director.Play();
-    }*/
 }
