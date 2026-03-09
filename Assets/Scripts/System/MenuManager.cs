@@ -39,22 +39,6 @@ public class MenuManager : MonoBehaviour
     {
         AudioManager.Instance.Play(0, "click", false);
         _mainMenuUI.SetActive(false);
-        Instantiate(_player);
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("XD");
-            _stageMenuUI.SetActive(true);
-            
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            _stageMenuUI.SetActive(false);
-        }
+        _stageMenuUI.SetActive(true);
     }
 }
