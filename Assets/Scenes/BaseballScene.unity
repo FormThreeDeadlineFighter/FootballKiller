@@ -1767,30 +1767,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1892438578}
     m_Modifications:
-    - target: {fileID: 1141418547801465729, guid: d31760fb07328df48b034e9eb6a2c434, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1141418547801465729, guid: d31760fb07328df48b034e9eb6a2c434, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1141418547801465729, guid: d31760fb07328df48b034e9eb6a2c434, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1141418547801465729, guid: d31760fb07328df48b034e9eb6a2c434, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -37.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2090069403651363794, guid: d31760fb07328df48b034e9eb6a2c434, type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2108966915992315498, guid: d31760fb07328df48b034e9eb6a2c434, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5682053259124061233, guid: d31760fb07328df48b034e9eb6a2c434, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
