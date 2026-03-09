@@ -23,7 +23,6 @@ public class PlayerHPUIController : MonoBehaviour
         value = value * 0.9f + 0.1f;
         _HPUI.fillAmount = value;
         IEnumerator enumerator = HPDelayReduce(value);
-        
         if (hpCoroutine != null)
         {      
             StopCoroutine(hpCoroutine);
@@ -41,13 +40,9 @@ public class PlayerHPUIController : MonoBehaviour
         while (time < _delayTime)
         {
             time += Time.deltaTime;
-
             _backgroundHP.fillAmount = Mathf.MoveTowards(start, target, time / _delayTime);
-
             yield return null;
-        }
-
-        _backgroundHP.fillAmount = target;
+        }   
         hpCoroutine = null;
     }
 }
