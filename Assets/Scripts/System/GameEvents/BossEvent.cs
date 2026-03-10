@@ -14,4 +14,14 @@ public class BossEvent : ScriptableObject
             OnBossHPCahange(value);
         }
     }
+    
+    public Action OnBossDie;
+    
+    public void BossDie()
+    {
+        if(OnBossDie != null)
+        {
+            OnBossDie();
+        }
+    }
 }

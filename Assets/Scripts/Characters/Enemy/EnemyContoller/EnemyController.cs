@@ -37,8 +37,8 @@ public class EnemyController : MonoBehaviour
 
     void OnEnable()
     {
-        _gameEvent.OnGameVictory += GameOver;
-        _gameEvent.OnGameDefeat += GameOver;
+        _gameEvent.OnGameVictory += EnemyDie;
+        _gameEvent.OnGameDefeat += EnemyDie;
         
         _currentHP = _HP;
         _shieldHP = 0;
@@ -47,8 +47,8 @@ public class EnemyController : MonoBehaviour
     }
     void OnDisable()
     {
-        _gameEvent.OnGameVictory -= GameOver;
-        _gameEvent.OnGameDefeat -= GameOver;
+        _gameEvent.OnGameVictory -= EnemyDie;
+        _gameEvent.OnGameDefeat -= EnemyDie;
     }
     public void SetVelocity(Vector3 velocity)
     {   
@@ -79,7 +79,7 @@ public class EnemyController : MonoBehaviour
         {
             _currentHP = 0;
             _gameEvent.EnemyDestory();
-            Destroy(gameObject);
+            _bossEvent.BossDie();
         }
         
         float hpPercentage = _currentHP/_HP;
@@ -135,8 +135,8 @@ public class EnemyController : MonoBehaviour
         _jumpCoroutine = StartCoroutine(JumpCD(_attackCD));
     }
     
-    private void GameOver()
-    {
+    private void EnemyDie()
+    {    
         Destroy(gameObject);
     }
     

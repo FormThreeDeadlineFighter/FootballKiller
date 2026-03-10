@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 143658012985016667}
   - component: {fileID: 2825286179777794144}
   m_Layer: 5
-  m_Name: "\u6575\u4EBA\u8840\u689D\u5F8C"
+  m_Name: "\u6575\u4EBA\u5F8C\u8840\u689D"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -737,7 +737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8373103167991892831, guid: be44f42227b1f0e499bedbc7708ac7ed, type: 3}
       propertyPath: m_FillAmount
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8373103167991892831, guid: be44f42227b1f0e499bedbc7708ac7ed, type: 3}
       propertyPath: m_FillMethod

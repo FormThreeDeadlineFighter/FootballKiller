@@ -12,6 +12,7 @@ public class BaseballStateController : IStateController
     private EnemyController _enemy;
     PlayableDirector _director;
     List<IBaseballState> _baseballStates = new List<IBaseballState>();
+    [SerializeField] BossEvent _bossEvent;
     
     #region States
     BaseballState_BackJump _baseballState_BackJump; 
@@ -22,6 +23,8 @@ public class BaseballStateController : IStateController
     BaseballState_SideStep _baseballState_SideStep;
     BaseballState_Slash _baseballState_Slash;
     BaseballState_Wave _baseballState_Wave;
+    BaseballState_Hurt _baseballState_Hurt;
+    BaseballState_Die _baseballState_Die;
     #endregion
     
     #region StateConfigs
@@ -33,6 +36,8 @@ public class BaseballStateController : IStateController
     [SerializeField] BaseballStateConfig_SideStep _sideStepData;
     [SerializeField] BaseballStateConfig_Slash _slashData;
     [SerializeField] BaseballStateConfig_Wave _waveData;
+    [SerializeField] BaseballStateConfig_Hurt _hurtData;
+    [SerializeField] BaseballStateConfig_Die _dieData;
     #endregion
     void OnEnable()
     {
@@ -44,6 +49,8 @@ public class BaseballStateController : IStateController
         _baseballState_SideStep = new BaseballState_SideStep(_sideStepData);
         _baseballState_Slash = new BaseballState_Slash(_slashData);
         _baseballState_Wave = new BaseballState_Wave(_waveData);
+        _baseballState_Hurt = new BaseballState_Hurt(_hurtData);
+        _baseballState_Die = new BaseballState_Die(_dieData);
         
         _enemy = GetComponent<EnemyController>();
         _animator = GetComponentInChildren<Animator>();
@@ -59,6 +66,8 @@ public class BaseballStateController : IStateController
         _baseballStates.Add(_baseballState_SideStep);
         _baseballStates.Add(_baseballState_Slash);
         _baseballStates.Add(_baseballState_Wave);
+        _baseballStates.Add(_baseballState_Hurt);
+        _baseballStates.Add(_baseballState_Die);
         
         foreach (IBaseballState state in _baseballStates)
         {
@@ -66,15 +75,29 @@ public class BaseballStateController : IStateController
             _stateTable.Add(state.GetType(), state);
         }
          
+        _bossEvent.OnBossHPCahange += OnHurt;
+        _bossEvent.OnBossDie += OnDie;
     }
     
     void OnDisable()
     {
         _stateTable.Clear();
+        _bossEvent.OnBossHPCahange -= OnHurt;
+        _bossEvent.OnBossDie -= OnDie;
     }
     
     void Start()
     {
         SetState(_stateTable[typeof(BaseballState_Idle)]);
+    }
+    
+    void OnHurt(float damage)
+    {
+        SetState(_stateTable[typeof(BaseballState_Hurt)]);
+    }
+    
+    void OnDie()
+    {
+        SetState(_stateTable[typeof(BaseballState_Die)]);
     }
 }
