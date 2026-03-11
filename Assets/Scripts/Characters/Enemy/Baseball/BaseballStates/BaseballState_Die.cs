@@ -21,7 +21,7 @@ public class BaseballState_Die : IBaseballState
     {         
         if (IsAnimationComplete)
         {           
-            _stateMachine.SetState(typeof(BaseballState_Idle));         
+            _enemy.EnemyDie();         
         }               
     }
     public override void PhysicsUpdate()

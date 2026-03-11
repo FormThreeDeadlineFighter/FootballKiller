@@ -28,6 +28,7 @@ public class EnemyController : MonoBehaviour
     public float PlayerDistance => Vector3.Distance(transform.position, _sensor.Target.transform.position);
     public bool CanAttack;
     public bool CanJump;
+    public bool IsHurt;
     
     void Start()
     {
@@ -74,11 +75,12 @@ public class EnemyController : MonoBehaviour
         if (_currentHP >= 0)
         {
             _currentHP -= damage;
+            IsHurt = true;
+            StartCoroutine(Hurt(0.5f));
         }
         if (_currentHP <= 0)
         {
-            _currentHP = 0;
-            _gameEvent.EnemyDestory();
+            _currentHP = 0;           
             _bossEvent.BossDie();
         }
         
@@ -135,8 +137,9 @@ public class EnemyController : MonoBehaviour
         _jumpCoroutine = StartCoroutine(JumpCD(_attackCD));
     }
     
-    private void EnemyDie()
-    {    
+    public void EnemyDie()
+    {
+        _gameEvent.EnemyDestory();    
         Destroy(gameObject);
     }
     
@@ -165,5 +168,11 @@ public class EnemyController : MonoBehaviour
         CanJump = true;
         StopCoroutine(_jumpCoroutine);
         _jumpCoroutine = null;  
+    }
+    
+    IEnumerator Hurt(float time)
+    {
+        yield return new WaitForSeconds(time);
+        IsHurt = false;  
     }
 }

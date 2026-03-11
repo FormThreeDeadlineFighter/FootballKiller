@@ -20,6 +20,7 @@ public class BaseballState_Wave : IBaseballState
     public override void ExitState()
     {
         _director.time = 0;
+        _director.Stop();
         _enemy.AttackCD();
     }
     public override void LogicUpdate()

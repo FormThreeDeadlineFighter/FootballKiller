@@ -19,12 +19,15 @@ public class BaseballState_SideStep : IBaseballState
     }
     public override void LogicUpdate()
     {
-        if(_enemy.CanAttack)
+        if(_enemy.IsHurt)
+        {
+            _stateMachine.SetState(typeof(BaseballState_Hurt));
+        }
+        else if(_enemy.CanAttack)
         {
             _stateMachine.SetState(typeof(BaseballState_PreAttack));
-        }
-        
-        if(_enemy.PlayerDistance > _data.ForwardDistance)
+        }   
+        else if(_enemy.PlayerDistance > _data.ForwardDistance)
         {
             _stateMachine.SetState(typeof(BaseballState_Forward));
         }

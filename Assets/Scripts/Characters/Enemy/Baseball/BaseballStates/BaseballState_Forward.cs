@@ -17,8 +17,12 @@ public class BaseballState_Forward : IBaseballState
 
     }
     public override void LogicUpdate()
-    {     
-        if(_enemy.PlayerDistance < _data.ForwardTriggerDistance - 2)
+    { 
+        if(_enemy.IsHurt)
+        {
+            _stateMachine.SetState(typeof(BaseballState_Hurt));
+        }    
+        else if(_enemy.PlayerDistance < _data.ForwardTriggerDistance - 2)
         {        
             _stateMachine.SetState(typeof(BaseballState_Idle));
         }

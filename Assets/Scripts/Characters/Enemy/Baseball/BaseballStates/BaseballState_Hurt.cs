@@ -11,11 +11,12 @@ public class BaseballState_Hurt : IBaseballState
     
     public override void EnterState()
     {
+        _enemy.FaceToPlayer();
         _animator.Play(_data.AnimationName);
     }
     public override void ExitState()
     {
-       
+       _enemy.IsHurt = false;
     }
     public override void LogicUpdate()
     {         

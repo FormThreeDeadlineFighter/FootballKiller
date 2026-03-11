@@ -19,8 +19,12 @@ public class BaseballState_Idle : IBaseballState
 
     }
     public override void LogicUpdate()
-    {      
-        if(_enemy.CanAttack)
+    {   
+        if(_enemy.IsHurt)
+        {
+            _stateMachine.SetState(typeof(BaseballState_Hurt));
+        }
+        else if(_enemy.CanAttack)
         {  
             _stateMachine.SetState(typeof(BaseballState_PreAttack));   
         }  

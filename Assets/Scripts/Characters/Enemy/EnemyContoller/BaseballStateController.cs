@@ -74,26 +74,19 @@ public class BaseballStateController : IStateController
             state.Initialize(this, _enemy, _animator, _director);
             _stateTable.Add(state.GetType(), state);
         }
-         
-        _bossEvent.OnBossHPCahange += OnHurt;
+        
         _bossEvent.OnBossDie += OnDie;
     }
     
     void OnDisable()
     {
         _stateTable.Clear();
-        _bossEvent.OnBossHPCahange -= OnHurt;
         _bossEvent.OnBossDie -= OnDie;
     }
     
     void Start()
     {
         SetState(_stateTable[typeof(BaseballState_Idle)]);
-    }
-    
-    void OnHurt(float damage)
-    {
-        SetState(_stateTable[typeof(BaseballState_Hurt)]);
     }
     
     void OnDie()
