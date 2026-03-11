@@ -5,10 +5,14 @@ using UnityEngine.UI
 
 public class PlayerComboUIController : MonoBehaviour
 {
-
-    [SerializeField] TextMeshProUGUI ComboText;
+    [SerializeField] Image ComboGrade;
     [SerializeField] Image ComboValue;
     [SerializeField] PlayerEvent _playerEvents; 
+    [SerializeField] Sprite S;
+    [SerializeField] Sprite A;
+    [SerializeField] Sprite B;
+    [SerializeField] Sprite C;
+    [SerializeField] Sprite D;
     ComboGrade _currentGrade;
     int _maxGradeValue;
     int _minGradeValue;
@@ -33,17 +37,17 @@ public class PlayerComboUIController : MonoBehaviour
     {
         currentValue += value;
         
-        if(currentValue >= (int)ComboGrade.Max)
+        if(currentValue >= (int)global::ComboGrade.Max)
         {
-            currentValue = (int)ComboGrade.Max;
+            currentValue = (int)global::ComboGrade.Max;
         }
         else if(currentValue <= 0)
         {
             currentValue = 0;
         }
         
-        float percentage = (currentValue - _minGradeValue) / _maxGradeValue;
-        ComboValue.transform.localScale = new Vector3(percentage, 1, 1);
+        float percentage = (currentValue - _minGradeValue) / _maxGradeValue * 0.75f;
+        ComboValue.fillAmount = percentage;
     }
     
     private void ComboValueCahnge(ComboGrade grade)
@@ -51,27 +55,31 @@ public class PlayerComboUIController : MonoBehaviour
         _currentGrade = grade;      
         switch(_currentGrade)
         {
-            case ComboGrade.S:
-            _maxGradeValue = ComboGrade.Max - ComboGrade.S;
-            _minGradeValue = (int)ComboGrade.S;
+            case global::ComboGrade.S:
+                _maxGradeValue = global::ComboGrade.Max - global::ComboGrade.S;
+                _minGradeValue = (int)global::ComboGrade.S;
+                ComboGrade.sprite = S;        
             break;
-            case ComboGrade.A:
-            _maxGradeValue = ComboGrade.S - ComboGrade.A;
-            _minGradeValue = (int)ComboGrade.A;
+            case global::ComboGrade.A:
+                _maxGradeValue = global::ComboGrade.S - global::ComboGrade.A;
+                _minGradeValue = (int)global::ComboGrade.A;
+                ComboGrade.sprite = A; 
             break;
-            case ComboGrade.B:
-            _maxGradeValue = ComboGrade.A - ComboGrade.B;
-            _minGradeValue = (int)ComboGrade.B;
+            case global::ComboGrade.B:
+                _maxGradeValue = global::ComboGrade.A - global::ComboGrade.B;
+                _minGradeValue = (int)global::ComboGrade.B;
+                ComboGrade.sprite = B; 
             break;
-            case ComboGrade.C:
-            _maxGradeValue = ComboGrade.B - ComboGrade.C;
-            _minGradeValue = (int)ComboGrade.C;
+            case global::ComboGrade.C:
+                _maxGradeValue = global::ComboGrade.B - global::ComboGrade.C;
+                _minGradeValue = (int)global::ComboGrade.C;
+                ComboGrade.sprite = C; 
             break;
-            default: 
-            _maxGradeValue = ComboGrade.C - ComboGrade.D;
-            _minGradeValue = (int)ComboGrade.D;
+            default:
+                _maxGradeValue = global::ComboGrade.C - global::ComboGrade.D;
+                _minGradeValue = (int)global::ComboGrade.D;
+                ComboGrade.sprite = D; 
             break;
         } 
-        ComboText.text = grade.ToString();
     }
 }
