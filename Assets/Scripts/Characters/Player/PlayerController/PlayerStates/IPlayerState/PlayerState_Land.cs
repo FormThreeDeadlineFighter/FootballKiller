@@ -23,7 +23,7 @@ public class PlayerState_Land : IPlayerState
             } 
             if(_player.IsMove)
             {
-                _stateMachine.SetState(typeof(PlayerState_Run));
+                _stateMachine.SetState(typeof(PlayerState_Move));
             }
         }
     }

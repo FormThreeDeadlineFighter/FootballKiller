@@ -17,7 +17,7 @@ public class PlayerState_Idle : IPlayerState
     {
         if(_player.IsMove)
         {
-            _stateMachine.SetState(typeof(PlayerState_Run));
+            _stateMachine.SetState(typeof(PlayerState_Move));
         }
         if(_input.IsJump && _player.CanJump && _player.IsGrounded)
         {
@@ -37,7 +37,11 @@ public class PlayerState_Idle : IPlayerState
         }
         if(_input.IsLightAttack)
         {
-            _stateMachine.SetState(typeof(PlayerState_LightAttack1));
+            _stateMachine.SetState(typeof(PlayerState_HeadAttack1));
+        } 
+        if(_input.IsHeavyAttack)
+        {
+            _stateMachine.SetState(typeof(PlayerState_FootAttack1));
         } 
     }
     public override void PhysicsUpdate()

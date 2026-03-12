@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c87941c34dd7cc49b7290ff94c83a0e, type: 3}
+  m_Name: PlayerState_FootAttack3
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerState_LightAttack3
+  _animationName: 
+  _transitionDuration: 0
+  _timeline: {fileID: 11400000, guid: 09b6f8dc54b825e4aa45f25540c2a51f, type: 2}
+  _attackDamage: 30
+  _comboCharge: 20

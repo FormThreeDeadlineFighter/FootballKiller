@@ -26,7 +26,7 @@ public class PlayerState_Dash : IPlayerState
             }
             if(_player.IsMove)
             {
-                _stateMachine.SetState(typeof(PlayerState_Run));
+                _stateMachine.SetState(typeof(PlayerState_Move));
             }           
         }
         _currentTime -= 1;

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.InputSystem;
 
 [System.Serializable]
@@ -10,6 +11,7 @@ public class IPlayerState : ScriptableObject ,IState
     int _stateHash; 
     protected PlayerStateController _stateMachine;
     protected Animator _animator;
+    protected PlayableDirector _director;
     protected PlayerInput _input;
     protected PlayerController _player;
     protected bool IsAnimationComplete => _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f;
@@ -19,11 +21,12 @@ public class IPlayerState : ScriptableObject ,IState
     {
         _stateHash = Animator.StringToHash(_animationName);
     }
-    public void Initialize(PlayerStateController stateMachine, PlayerController player, Animator animator, PlayerInput playerInput)
+    public void Initialize(PlayerStateController stateMachine, PlayerController player, Animator animator, PlayableDirector director, PlayerInput playerInput)
     {
         _stateMachine = stateMachine;
         _player = player;
         _animator = animator;
+        _director = director;
         _input = playerInput;
     }
     // when enter state happen
