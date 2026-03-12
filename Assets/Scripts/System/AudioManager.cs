@@ -1,8 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework;
 using UnityEngine;
 
+public enum SoundType
+{
+    main,
+    battle,
+    baseball
+}
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
@@ -40,6 +44,12 @@ public class AudioManager : MonoBehaviour
             audio.Play();
         }
     }
+    
+    public static void PlaySound(SoundType sound, float volume = 1)
+    {
+        
+    }
+    
     AudioClip GetAudioClip(string name)
     {
         switch (name)
