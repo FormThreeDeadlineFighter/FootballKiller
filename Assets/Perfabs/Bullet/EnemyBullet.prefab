@@ -124,6 +124,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: football_effect
       objectReference: {fileID: 0}
+    - target: {fileID: 441688010808589331, guid: 77524f8f3e37c064dbed70ff521190ff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 852210555879923571, guid: 77524f8f3e37c064dbed70ff521190ff, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -171,6 +175,10 @@ PrefabInstance:
     - target: {fileID: 1764043514228430233, guid: 77524f8f3e37c064dbed70ff521190ff, type: 3}
       propertyPath: m_LocalScale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788056641242958721, guid: 77524f8f3e37c064dbed70ff521190ff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2778438246627649811, guid: 77524f8f3e37c064dbed70ff521190ff, type: 3}
       propertyPath: m_IsActive
@@ -370,6 +378,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7450056557678005987, guid: 77524f8f3e37c064dbed70ff521190ff, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902457832503289703, guid: 77524f8f3e37c064dbed70ff521190ff, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8158015261721494535, guid: 77524f8f3e37c064dbed70ff521190ff, type: 3}

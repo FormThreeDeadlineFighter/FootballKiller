@@ -2701,6 +2701,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Start_UI
       objectReference: {fileID: 0}
+    - target: {fileID: 7672915157304272305, guid: 8681cc31bc2527e4e8568af0917ff264, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7786699601875579061, guid: 8681cc31bc2527e4e8568af0917ff264, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.b
       value: 0.5471698
@@ -3039,7 +3043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 144333639875038051, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 733360320266048799, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
       propertyPath: m_AnchoredPosition.y
