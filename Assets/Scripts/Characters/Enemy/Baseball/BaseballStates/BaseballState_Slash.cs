@@ -11,8 +11,7 @@ public class BaseballState_Slash : IBaseballState
     }
     
     public override void EnterState()
-    {
-        _enemy.FaceToPlayer();
+    { 
         _director.playableAsset = _data.Timeline;
         _director.time = 0;
         _director.Play();
@@ -32,6 +31,6 @@ public class BaseballState_Slash : IBaseballState
     }
     public override void PhysicsUpdate()
     {
-        
+        _enemy.FaceToPlayer();
     }
 }

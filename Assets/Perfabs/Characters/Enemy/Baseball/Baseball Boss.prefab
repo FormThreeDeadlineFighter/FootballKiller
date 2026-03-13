@@ -298,19 +298,27 @@ MonoBehaviour:
     - Bullet: {fileID: 7841672020790003158, guid: 0d842644ecdf6d14bb537a9c73681bc0, type: 3}
       Height: 0
       Angle: {x: 0, y: 0}
+    DelayTime: 0
+  - Bullets:
     - Bullet: {fileID: 7841672020790003158, guid: 0d842644ecdf6d14bb537a9c73681bc0, type: 3}
       Height: 2.5
       Angle: {x: 0, y: 0}
+    DelayTime: 0.05
+  - Bullets:
     - Bullet: {fileID: 7841672020790003158, guid: 0d842644ecdf6d14bb537a9c73681bc0, type: 3}
       Height: 5
       Angle: {x: 0, y: 0}
+    DelayTime: 0.05
+  - Bullets:
     - Bullet: {fileID: 7841672020790003158, guid: 0d842644ecdf6d14bb537a9c73681bc0, type: 3}
       Height: 7.5
       Angle: {x: 0, y: 0}
+    DelayTime: 0.05
+  - Bullets:
     - Bullet: {fileID: 7841672020790003158, guid: 0d842644ecdf6d14bb537a9c73681bc0, type: 3}
       Height: 10
       Angle: {x: 0, y: 0}
-    DelayTime: 0
+    DelayTime: 0.05
 --- !u!114 &1525379852862655442
 MonoBehaviour:
   m_ObjectHideFlags: 0

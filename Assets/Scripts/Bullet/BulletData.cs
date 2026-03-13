@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class BulletData
+public struct BulletData
 {
     public GameObject Bullet;
     public float Height;

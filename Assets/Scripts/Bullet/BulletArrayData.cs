@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class BulletArrayData
+public struct BulletArrayData
 {
-    public List<BulletData> Bullets = new();
+    public List<BulletData> Bullets;
     public float DelayTime;
 }
