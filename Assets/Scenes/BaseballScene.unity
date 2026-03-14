@@ -3034,7 +3034,7 @@ PrefabInstance:
       objectReference: {fileID: 1987810346}
     - target: {fileID: 4520762188644864879, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7119479254784732708, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
       propertyPath: m_PlayableAsset
@@ -3145,7 +3145,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1464849381}
     - target: {fileID: 7119479254784732708, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
+      propertyPath: m_SceneBindings.Array.data[17].value
+      value: 
+      objectReference: {fileID: 1464849381}
+    - target: {fileID: 7119479254784732708, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
       propertyPath: m_SceneBindings.Array.data[18].value
+      value: 
+      objectReference: {fileID: 1464849381}
+    - target: {fileID: 7119479254784732708, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}
+      propertyPath: m_SceneBindings.Array.data[19].value
       value: 
       objectReference: {fileID: 1464849381}
     - target: {fileID: 7597043379419933684, guid: 82a1a38996d68e14a9f74630b17b78bd, type: 3}

@@ -32,11 +32,6 @@ public class BaseballState_Collision : IBaseballState
     }
     public override void PhysicsUpdate()
     {   
-        if(currentTime < 2)
-        {         
-            _enemy.FaceToPlayer();      
-            currentTime += Time.fixedDeltaTime;
-        }
-        
+        _enemy.FaceToPlayer();             
     }
 }
