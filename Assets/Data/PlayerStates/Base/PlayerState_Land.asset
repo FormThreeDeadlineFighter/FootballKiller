@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animationName: Land
   _transitionDuration: 0.1
+  _timeline: {fileID: 11400000, guid: ac514c8f6961d56468285a6feff65369, type: 2}

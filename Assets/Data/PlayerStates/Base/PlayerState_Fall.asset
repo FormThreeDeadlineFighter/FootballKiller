@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animationName: Fall
   _transitionDuration: 0.1
+  _timeline: {fileID: 11400000, guid: 3a309599e52670243a2bc62e4411a65c, type: 2}
   _speedCurve:
     serializedVersion: 2
     m_Curve:

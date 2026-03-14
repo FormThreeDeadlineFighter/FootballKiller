@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animationName: Jump
   _transitionDuration: 0.1
+  _timeline: {fileID: 11400000, guid: 88be2d612c8d32845bd5b76ca3cb2e90, type: 2}
   _jumpForce: 15
   _moveSpeed: 5
