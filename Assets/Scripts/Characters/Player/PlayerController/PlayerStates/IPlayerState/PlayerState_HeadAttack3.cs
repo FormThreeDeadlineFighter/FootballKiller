@@ -14,13 +14,12 @@ public class PlayerState_HeadAttack3 : IPlayerState
         _director.time = 0;
         _director.Play();
         
-        _player.AttackEnter(_attackDamage,_comboCharge);
+        _player.AttackDataInput(_attackDamage,_comboCharge);
     }
     public override void ExitState()
     {
         _director.time = 0;
         _director.Stop();
-        _player.AttackExit();
     }
     public override void LogicUpdate()
     {

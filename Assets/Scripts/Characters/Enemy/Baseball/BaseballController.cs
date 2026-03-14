@@ -10,6 +10,10 @@ public class BaseballController : MonoBehaviour
     {
         _bossEvent.OnBossHPCahange += OnHurtEffect;
     }
+    void OnDisable()
+    {
+        _bossEvent.OnBossHPCahange -= OnHurtEffect;
+    }
     public void CollisionMoveTrigger()
     {
         transform.position = transform.position + transform.forward * _collisionforwardDistance;

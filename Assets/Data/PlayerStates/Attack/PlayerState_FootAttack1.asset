@@ -15,5 +15,5 @@ MonoBehaviour:
   _animationName: 
   _transitionDuration: 0
   _timeline: {fileID: 11400000, guid: 10bae5b6b8a6f20448e5855d5fd35b2b, type: 2}
-  _attackDamage: 15
+  _attackDamage: 10
   _comboCharge: 10

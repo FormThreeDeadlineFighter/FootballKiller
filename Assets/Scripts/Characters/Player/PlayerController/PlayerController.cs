@@ -143,12 +143,11 @@ public class PlayerController : MonoBehaviour
         SetVelocityXZ(_rb.linearVelocity);
     }
     
-    public void AttackEnter(float damage, float comboChange)
+    public void AttackDataInput(float damage, float comboChange)
     {
         _combot.SelectTarget();
         _combot.MoveTowardsTarget();
-        _attackHitBox.SetActive(true);
-        
+              
         switch (_currentGrade)
         {
             case ComboGrade.C: damage *= 1.1f;
@@ -164,6 +163,10 @@ public class PlayerController : MonoBehaviour
         }
         _attackHitBox.GetComponent<IAttack>().Damage = damage;
         _playerEvents.PlayerComboChange(comboChange);
+    }
+    public void AttackEnter()
+    {
+        _attackHitBox.SetActive(true);
     }
     
     public void AttackExit()

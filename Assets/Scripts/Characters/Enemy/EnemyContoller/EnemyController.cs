@@ -30,21 +30,21 @@ public class EnemyController : MonoBehaviour
     public bool CanJump;
     public bool IsHurt;
     
-    void Start()
+    void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _sensor = GetComponent<AISensor>();
-    }
-
-    void OnEnable()
-    {
-        _gameEvent.OnGameVictory += EnemyDie;
-        _gameEvent.OnGameDefeat += EnemyDie;
         
         _currentHP = _HP;
         _shieldHP = 0;
         CanAttack = true;
         CanJump = true;
+    }
+
+    void OnEnable()
+    {
+        _gameEvent.OnGameVictory += EnemyDie;
+        _gameEvent.OnGameDefeat += GameStop;      
     }
     void OnDisable()
     {
@@ -67,7 +67,7 @@ public class EnemyController : MonoBehaviour
         _rb.angularVelocity = Vector3.zero; 
     }
     
-    private void BossHurt(float damage)
+    private void OnHurt(float damage)
     {
         if(_invincible) return;      
         if(_currentShield > 0) return;  
@@ -100,6 +100,14 @@ public class EnemyController : MonoBehaviour
         {
             _shieldHP = 0;
         }
+    }
+    public void GameStart()
+    {
+        gameObject.SetActive(true);
+    }
+    public void GameStop()
+    {
+        gameObject.SetActive(false);
     }
     
     public void FaceToPlayer()
@@ -148,7 +156,7 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.TryGetComponent<IAttack>(out IAttack attack))
         {
             if(attack.Elements != currentElement) return;
-            BossHurt(attack.Damage);
+            OnHurt(attack.Damage);
         }
     }
     

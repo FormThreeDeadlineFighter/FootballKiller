@@ -13,4 +13,3 @@ MonoBehaviour:
   m_Name: BaseballStateConfig_Hurt
   m_EditorClassIdentifier: Assembly-CSharp::BaseballStateConfig_Hurt
   AnimationName: Hurt
-  OnHitVfx: {fileID: 0}

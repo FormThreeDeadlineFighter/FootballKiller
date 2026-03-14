@@ -17,13 +17,12 @@ public class PlayerState_HeadAttack2 : IPlayerState
         
         _preInput = false;
         
-        _player.AttackEnter(_attackDamage, _comboCharge);
+        _player.AttackDataInput(_attackDamage, _comboCharge);
     }
     public override void ExitState()
     {
         _director.time = 0;
         _director.Stop();
-        _player.AttackExit(); 
     }
     public override void LogicUpdate()
     {

@@ -14,7 +14,7 @@ public class PlayerStateController : IStateController
     private PlayerInput _playerInput;
     private PlayerController _player;
 
-    void OnEnable()
+    void Awake()
     {
         _player = GetComponent<PlayerController>();
         _animator = _modelFoot.GetComponent<Animator>();
