@@ -50,7 +50,7 @@ MonoBehaviour:
   _mainMenuFirst: {fileID: 0}
   _stageMenuFirst: {fileID: 0}
   _canva: {fileID: 0}
-  _player: {fileID: 2237032603744180701, guid: 6cccc7f0e6094d14b9e48df3d76a7260, type: 3}
+  _player: {fileID: 9215738598867762945, guid: f90325995bc771349a6a45d9ba952b24, type: 3}
 --- !u!65 &5704859734129118139
 BoxCollider:
   m_ObjectHideFlags: 0

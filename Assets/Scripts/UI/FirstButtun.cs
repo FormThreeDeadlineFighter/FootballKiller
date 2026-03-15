@@ -12,7 +12,6 @@ public class FirstButtun : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
 
             EventSystem.current.SetSelectedGameObject(_firstButtun);
-            Debug.Log(gameObject.name + " Page Enabled. Focus set to: " + _firstButtun.name);
         }
         else
         {
@@ -25,6 +24,5 @@ public class FirstButtun : MonoBehaviour
         {
             EventSystem.current.SetSelectedGameObject(null);
         }
-        Debug.Log(gameObject.name + " Page Disabled.");
     }
 }
