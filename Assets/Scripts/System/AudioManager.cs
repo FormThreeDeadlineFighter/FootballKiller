@@ -9,62 +9,34 @@ public enum SoundType
 }
 public class AudioManager : MonoBehaviour
 {
+    [SerializeField] AudioSource sFXPlayer;
+    [SerializeField] AudioSource bGMPlayer;
+    private AudioClip _currentBGM;
     public static AudioManager Instance;
-    public AudioClip click;
-    public AudioClip shoot;
-    public AudioClip kick;
-    public AudioClip bgm_mianground; 
-    public AudioClip bgm_boss_1;
-    List<AudioSource> audios = new List<AudioSource>();
+    
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
-        else
+        else if(Instance != this)
         {
             Destroy(gameObject);
         }  
-        for (int i = 0; i <= 4; i++)
-        {
-            var audio = this.gameObject.AddComponent<AudioSource>();
-            audios.Add(audio);
-        }
-    }
-    public void Play(int index, string name,bool isloop)
-    {
-        var clip = GetAudioClip(name);
-        if (clip != null)
-        {
-            var audio = audios[index];
-            audio.clip = clip;
-            audio.loop = isloop;
-            audio.Play();
-        }
+        DontDestroyOnLoad(gameObject);
     }
     
-    public static void PlaySound(SoundType sound, float volume = 1)
+    public void PlaySFX(AudioClip audioClip, float volume)
     {
-        
+        sFXPlayer.PlayOneShot(audioClip, volume);
     }
-    
-    AudioClip GetAudioClip(string name)
+    public void PlayBGM(AudioClip audioClip, float volume)
     {
-        switch (name)
-        {
-            case "click":
-                return click;
-            case "shoot":
-                return shoot;
-            case "bgm_mianground":
-                return bgm_mianground;
-            case "bgm_boss_1":
-                return bgm_boss_1;
-            case "kick":
-                return kick; 
-        }
-        return null;
+        if(_currentBGM == audioClip) return;        
+        _currentBGM = audioClip;
+        bGMPlayer.clip = audioClip;
+        bGMPlayer.volume = volume;
+        bGMPlayer.Play();
     }
 }
