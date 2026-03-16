@@ -11,7 +11,7 @@ public class BaseballState_Hurt : IBaseballState
     
     public override void EnterState()
     {
-        _enemy.FaceToPlayer();
+        _enemy.IsTrackPlayer();
         _animator.Play(_data.AnimationName);
     }
     public override void ExitState()

@@ -12,7 +12,7 @@ public class BaseballState_BackJump : IBaseballState
     {
         _animator.Play(_data.AnimationName);
         
-        _enemy.FaceToPlayer();
+        _enemy.IsTrackPlayer();
         Vector3 backJump = -_enemy.PlayerPosition * _data.JumpBackForce;
         _enemy.SetVelocityXZ(backJump);
         _enemy.SetVelocityY(_data.JumpUpForce);

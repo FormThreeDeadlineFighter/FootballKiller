@@ -90,6 +90,8 @@ GameObject:
   - component: {fileID: 7638122584081163331}
   - component: {fileID: 6207202775058641161}
   - component: {fileID: 2056360656295766293}
+  - component: {fileID: 465475906063829797}
+  - component: {fileID: 7652660520496653833}
   m_Layer: 8
   m_Name: Attack HItBox
   m_TagString: Untagged
@@ -147,6 +149,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IAttack
   Damage: 10
   Elements: 0
+--- !u!114 &465475906063829797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4520762188644864879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86553635095cc8242a04dd320d164ff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlaySFX
+  _SFX: {fileID: 8300000, guid: e05e8b120c990b544ac9d2bdf199dbe4, type: 3}
+  _volume: 0.5
+--- !u!114 &7652660520496653833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4520762188644864879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 77e19c6fc97c1074baaf444cf8b02759, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 465475906063829797}
+          m_TargetAssemblyTypeName: PlaySFX, Assembly-CSharp
+          m_MethodName: OnPlay
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5265428765588063593
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,7 +479,7 @@ PlayableDirector:
   m_GameObject: {fileID: 9215738598867762945}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 09b6f8dc54b825e4aa45f25540c2a51f, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 2f0820250c541214b9d5bdbc9ccd89d9, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -451,6 +497,46 @@ PlayableDirector:
     value: {fileID: 725675154719446677}
   - key: {fileID: -838973182353225919, guid: 2f0820250c541214b9d5bdbc9ccd89d9, type: 2}
     value: {fileID: 725675154719446677}
+  - key: {fileID: -838973182353225919, guid: 88be2d612c8d32845bd5b76ca3cb2e90, type: 2}
+    value: {fileID: 725675154719446677}
+  - key: {fileID: -838973182353225919, guid: 3a309599e52670243a2bc62e4411a65c, type: 2}
+    value: {fileID: 725675154719446677}
+  - key: {fileID: -838973182353225919, guid: ac514c8f6961d56468285a6feff65369, type: 2}
+    value: {fileID: 725675154719446677}
+  - key: {fileID: 2922496337555124645, guid: 701f006d006a7a54099a598f4ee74513, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 3735105435475296222, guid: 09b6f8dc54b825e4aa45f25540c2a51f, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -3375329340735444470, guid: 0a33a2cc5b899f948b43da64576d43a2, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -1602194786890499988, guid: bfc3a330f728632408d60ceab1d2705d, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 314002607087234950, guid: 2f0820250c541214b9d5bdbc9ccd89d9, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 3296163071463931502, guid: 10bae5b6b8a6f20448e5855d5fd35b2b, type: 2}
+    value: {fileID: 4520762188644864879}
+  - key: {fileID: 8173396254106285828, guid: 701f006d006a7a54099a598f4ee74513, type: 2}
+    value: {fileID: 4520762188644864879}
+  - key: {fileID: 3401701468106984569, guid: 09b6f8dc54b825e4aa45f25540c2a51f, type: 2}
+    value: {fileID: 4520762188644864879}
+  - key: {fileID: 3412803435807148191, guid: 0a33a2cc5b899f948b43da64576d43a2, type: 2}
+    value: {fileID: 4520762188644864879}
+  - key: {fileID: 3985213281221826543, guid: bfc3a330f728632408d60ceab1d2705d, type: 2}
+    value: {fileID: 4520762188644864879}
+  - key: {fileID: -1775645799616603170, guid: 2f0820250c541214b9d5bdbc9ccd89d9, type: 2}
+    value: {fileID: 4520762188644864879}
+  - key: {fileID: -6221227105908161168, guid: 2f0820250c541214b9d5bdbc9ccd89d9, type: 2}
+    value: {fileID: 7652660520496653833}
+  - key: {fileID: 2072084715045715205, guid: 10bae5b6b8a6f20448e5855d5fd35b2b, type: 2}
+    value: {fileID: 7652660520496653833}
+  - key: {fileID: -1875096730765787819, guid: 701f006d006a7a54099a598f4ee74513, type: 2}
+    value: {fileID: 7652660520496653833}
+  - key: {fileID: -5500591705835527017, guid: 09b6f8dc54b825e4aa45f25540c2a51f, type: 2}
+    value: {fileID: 7652660520496653833}
+  - key: {fileID: 7954029254264543760, guid: 0a33a2cc5b899f948b43da64576d43a2, type: 2}
+    value: {fileID: 7652660520496653833}
+  - key: {fileID: -7269756243979688265, guid: bfc3a330f728632408d60ceab1d2705d, type: 2}
+    value: {fileID: 7652660520496653833}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &379601799622690226

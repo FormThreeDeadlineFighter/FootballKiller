@@ -12,7 +12,6 @@ public class BaseballState_Wave : IBaseballState
     
     public override void EnterState()
     {
-        _enemy.FaceToPlayer();
         _director.playableAsset = _data.Timeline;
         _director.time = 0;
         _director.Play();

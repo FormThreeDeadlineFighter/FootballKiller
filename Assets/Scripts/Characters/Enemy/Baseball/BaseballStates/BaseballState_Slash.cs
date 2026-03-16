@@ -31,9 +31,6 @@ public class BaseballState_Slash : IBaseballState
     }
     public override void PhysicsUpdate()
     {
-        if(_director.time < 1.5f)
-        {       
-            _enemy.FaceToPlayer();
-        }
+        
     }
 }

@@ -16,7 +16,7 @@ public class BaseballState_Idle : IBaseballState
     }
     public override void ExitState()
     {
-
+        _enemy.NotTrackPlayer();
     }
     public override void LogicUpdate()
     {   
@@ -36,6 +36,6 @@ public class BaseballState_Idle : IBaseballState
     }
     public override void PhysicsUpdate()
     {
-        
+        _enemy.IsTrackPlayer();
     }
 }

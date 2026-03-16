@@ -14,8 +14,9 @@ public class BaseballState_Forward : IBaseballState
     }
     public override void ExitState()
     {
-
+        _enemy.NotTrackPlayer();
     }
+    
     public override void LogicUpdate()
     { 
         if(_enemy.IsHurt)
@@ -29,7 +30,7 @@ public class BaseballState_Forward : IBaseballState
     }
     public override void PhysicsUpdate()
     {
-        _enemy.FaceToPlayer();
+        _enemy.IsTrackPlayer();
         Vector3 forward = _enemy.PlayerPosition * _data.ForwardForce;
         _enemy.SetVelocityXZ(forward);
     }

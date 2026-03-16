@@ -32,6 +32,6 @@ public class BaseballState_Collision : IBaseballState
     }
     public override void PhysicsUpdate()
     {   
-        _enemy.FaceToPlayer();             
+                     
     }
 }

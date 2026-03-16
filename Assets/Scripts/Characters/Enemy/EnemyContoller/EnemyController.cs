@@ -21,6 +21,7 @@ public class EnemyController : MonoBehaviour
     private AISensor _sensor;
     private float _currentHP;
     private float _currentShield; 
+    private bool _TrackPlayer;
     Coroutine _attackCoroutine;
     Coroutine _jumpCoroutine;
     
@@ -39,18 +40,28 @@ public class EnemyController : MonoBehaviour
         _shieldHP = 0;
         CanAttack = true;
         CanJump = true;
+        _TrackPlayer = true;
     }
 
     void OnEnable()
     {
         _gameEvent.OnGameVictory += EnemyDie;
-        _gameEvent.OnGameDefeat += GameStop;      
+        _gameEvent.OnGameDefeat += EnemyStop;      
     }
     void OnDisable()
     {
         _gameEvent.OnGameVictory -= EnemyDie;
         _gameEvent.OnGameDefeat -= EnemyDie;
     }
+
+    void Update()
+    {
+        if(_TrackPlayer)
+        {
+            FaceToPlayer();
+        }
+    }
+    
     public void SetVelocity(Vector3 velocity)
     {   
         _rb.linearVelocity = velocity; 
@@ -101,23 +112,33 @@ public class EnemyController : MonoBehaviour
             _shieldHP = 0;
         }
     }
-    public void GameStart()
+    public void EnemyStart()
     {
         gameObject.SetActive(true);
     }
-    public void GameStop()
+    public void EnemyStop()
     {
         gameObject.SetActive(false);
     }
-    
-    public void FaceToPlayer()
+    private void FaceToPlayer()
     {
         if(_sensor.Target == null) return;
         Vector3 dir = _sensor.Target.transform.position - transform.position;
         dir.y = 0;
         Quaternion targetRot = Quaternion.LookRotation(dir);
-        _rb.transform.rotation = targetRot;
+        _rb.transform.rotation = targetRot;      
     }
+    
+    public void IsTrackPlayer()
+    {
+        _TrackPlayer = true;
+    }
+    
+    public void NotTrackPlayer()
+    {
+        _TrackPlayer = false;
+    }
+    
     
     public void SwitchElement()
     {
