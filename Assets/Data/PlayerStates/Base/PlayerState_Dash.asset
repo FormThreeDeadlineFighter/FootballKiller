@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ac937ab49614d4c93ca008cd573c5a, type: 3}
   m_Name: PlayerState_Dash
   m_EditorClassIdentifier: Assembly-CSharp::PlayerState_Dash
-  _animationName: Run
+  _animationName: Move
   _transitionDuration: 0.1
-  _duration: 15
+  _duration: 25
