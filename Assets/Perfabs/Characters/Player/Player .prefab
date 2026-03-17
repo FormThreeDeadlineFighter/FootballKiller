@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlaySFX
   _SFX: {fileID: 8300000, guid: e05e8b120c990b544ac9d2bdf199dbe4, type: 3}
-  _volume: 0.5
+  _volume: 0.4
 --- !u!114 &7652660520496653833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,6 +371,7 @@ GameObject:
   - component: {fileID: 813049492705175444}
   - component: {fileID: 8115158863318735719}
   - component: {fileID: 1975578273310315827}
+  - component: {fileID: 6903885468353227169}
   m_Layer: 3
   m_Name: 'Player '
   m_TagString: Player
@@ -537,6 +538,18 @@ PlayableDirector:
     value: {fileID: 7652660520496653833}
   - key: {fileID: -7269756243979688265, guid: bfc3a330f728632408d60ceab1d2705d, type: 2}
     value: {fileID: 7652660520496653833}
+  - key: {fileID: 3962833114817690043, guid: 2f0820250c541214b9d5bdbc9ccd89d9, type: 2}
+    value: {fileID: 6903885468353227169}
+  - key: {fileID: -3115366926245023894, guid: bfc3a330f728632408d60ceab1d2705d, type: 2}
+    value: {fileID: 6903885468353227169}
+  - key: {fileID: -2416323535911369198, guid: 0a33a2cc5b899f948b43da64576d43a2, type: 2}
+    value: {fileID: 6903885468353227169}
+  - key: {fileID: 6031735125958926810, guid: 09b6f8dc54b825e4aa45f25540c2a51f, type: 2}
+    value: {fileID: 6903885468353227169}
+  - key: {fileID: -7235590214348274724, guid: 701f006d006a7a54099a598f4ee74513, type: 2}
+    value: {fileID: 6903885468353227169}
+  - key: {fileID: -2154053020349338299, guid: 10bae5b6b8a6f20448e5855d5fd35b2b, type: 2}
+    value: {fileID: 6903885468353227169}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &379601799622690226
@@ -566,6 +579,7 @@ MonoBehaviour:
   _playerEvents: {fileID: 11400000, guid: 51a858bca8b742c4eb4a52f4a8fb9dfd, type: 2}
   _gameEvent: {fileID: 11400000, guid: 4d3e622616f0422419f565b9695f06d9, type: 2}
   CanJump: 0
+  AttackCancel: 0
 --- !u!114 &6469742748280267700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -712,6 +726,36 @@ MonoBehaviour:
     DissipationDistance: 100
     PropagationSpeed: 343
   DefaultVelocity: {x: 0, y: -1, z: 0}
+--- !u!114 &6903885468353227169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9215738598867762945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 62ab1f637b8951444b20d5cb5239b9a4, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 379601799622690226}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: AttackExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &9025910774413241323
 PrefabInstance:
   m_ObjectHideFlags: 0
