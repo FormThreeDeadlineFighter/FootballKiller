@@ -46,7 +46,7 @@ public class EnemyController : MonoBehaviour
     void OnEnable()
     {
         _gameEvent.OnGameVictory += EnemyDie;
-        _gameEvent.OnGameDefeat += EnemyStop;      
+        //_gameEvent.OnGameDefeat += EnemyStop;      
     }
     void OnDisable()
     {
@@ -116,10 +116,10 @@ public class EnemyController : MonoBehaviour
     {
         gameObject.SetActive(true);
     }
-    public void EnemyStop()
-    {
-        gameObject.SetActive(false);
-    }
+    //public void EnemyStop()
+    //{
+    //    gameObject.SetActive(false);
+    //}
     private void FaceToPlayer()
     {
         if(_sensor.Target == null) return;

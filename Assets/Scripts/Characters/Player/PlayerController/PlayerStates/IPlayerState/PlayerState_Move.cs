@@ -31,6 +31,14 @@ public class PlayerState_Move : IPlayerState
         {
             _stateMachine.SetState(typeof(PlayerState_Dash));
         }
+        if(_input.IsLightAttack)
+        {
+            _stateMachine.SetState(typeof(PlayerState_HeadAttack1));
+        } 
+        if(_input.IsHeavyAttack)
+        {
+            _stateMachine.SetState(typeof(PlayerState_FootAttack1));
+        } 
     }
     public override void PhysicsUpdate()
     { 
