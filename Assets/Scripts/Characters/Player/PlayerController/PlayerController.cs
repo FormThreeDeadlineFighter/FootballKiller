@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     public bool IsFalling => _rb.linearVelocity.y < 0 && !IsGrounded;
     public bool IsMove => _input.IsMove;
     public bool CanJump = false;
-    public bool AttackCancel = false;
+    public bool ActionCancel = false;
 
     void Awake()
     {
@@ -173,7 +173,7 @@ public class PlayerController : MonoBehaviour
     public void AttackExit()
     {
         _attackHitBox.SetActive(false);
-        AttackCancel = true;
+        ActionCancel = true;
     }
     
     public void BlockEnter()

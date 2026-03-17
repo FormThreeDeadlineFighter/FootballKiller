@@ -32,6 +32,12 @@ public class PlayerState_Land : IPlayerState
                 _stateMachine.SetState(typeof(PlayerState_Move));
             }
         }
+
+        if(_input.IsDash)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Dash));
+        }
+        
     }
     public override void PhysicsUpdate()
     { 

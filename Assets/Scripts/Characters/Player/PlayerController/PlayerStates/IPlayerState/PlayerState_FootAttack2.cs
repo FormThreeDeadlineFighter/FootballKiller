@@ -39,11 +39,11 @@ public class PlayerState_FootAttack2 : IPlayerState
    
         }
 
-        if(_input.IsDash && _player.AttackCancel)
+        if(_input.IsDash && _player.ActionCancel)
             {
                 _stateMachine.SetState(typeof(PlayerState_Dash));
             }
-            if(_input.IsJump && _player.CanJump && _player.IsGrounded && _player.AttackCancel)
+            if(_input.IsJump && _player.CanJump && _player.IsGrounded && _player.ActionCancel)
             {
                 _stateMachine.SetState(typeof(PlayerState_Jump));
             }

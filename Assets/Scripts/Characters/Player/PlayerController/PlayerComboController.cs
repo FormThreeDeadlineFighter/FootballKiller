@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class PlayerComboController : MonoBehaviour
 {
-    [SerializeField] PlayerEvent playerEvent;
     [SerializeField] int _maxComboValue;
+    [SerializeField] float _comboReduceSpeed = -50;
+    [SerializeField] float _comboHoldTime;
     [SerializeField] PlayerEvent _playerEvents;
     private ComboGrade _grade;
     private float _comboValue;
-    private bool _comboHold;
+    private float _currentTime;
+    
 
     void OnEnable()
     {
@@ -17,7 +19,7 @@ public class PlayerComboController : MonoBehaviour
         _comboValue = 0;
         _grade = ComboGrade.D;
         _maxComboValue = (int)ComboGrade.Max;
-        _comboHold = false;
+        _currentTime = 0;
     }
 
     void OnDisable()
@@ -29,12 +31,22 @@ public class PlayerComboController : MonoBehaviour
     void Update()
     {
         CalculateComboGrade();
-        _playerEvents.PlayerComboChange(-10 * Time.deltaTime);
+          
+        if(_currentTime > _comboHoldTime)
+        {         
+            _playerEvents.PlayerComboChange(-_comboReduceSpeed * Time.deltaTime);
+        }
+        
+        if(_currentTime < _comboHoldTime + 999 )
+        {      
+            _currentTime += Time.deltaTime;
+        }
     }
     
     void ChangeComboValue(float value)
     {
         _comboValue += value;
+        _currentTime = 0;
         
         if(_comboValue <= 0)
         {
@@ -43,8 +55,7 @@ public class PlayerComboController : MonoBehaviour
         else if(_comboValue >= _maxComboValue)
         {
             _comboValue = _maxComboValue;
-        }
-        //ComboHoldTime(1);
+        }    
     }
     void CalculateComboGrade()
     {
@@ -67,13 +78,6 @@ public class PlayerComboController : MonoBehaviour
         }
         _playerEvents.ComboGradeChange(_grade);
     }
-    
-    IEnumerator ComboHoldTime(float time)
-    {
-        _comboHold = true;
-        yield return new WaitForSeconds(time);
-        _comboHold = false;
-    } 
 }
 
 public enum ComboGrade

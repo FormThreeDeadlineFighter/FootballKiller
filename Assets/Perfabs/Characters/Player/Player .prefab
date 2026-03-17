@@ -652,7 +652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMeleeCombat
   _meleeRange: 8
-  angle: 30
+  angle: 90
   rayCount: 5
   stopRadius: 4
   _layer:
@@ -670,8 +670,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3cd597ec1d5ecc418b34709155d6c51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerComboController
-  playerEvent: {fileID: 11400000, guid: 51a858bca8b742c4eb4a52f4a8fb9dfd, type: 2}
-  _maxComboValue: 777
+  _maxComboValue: 999
+  _comboReduceSpeed: 500
+  _comboHoldTime: 1
   _playerEvents: {fileID: 11400000, guid: 51a858bca8b742c4eb4a52f4a8fb9dfd, type: 2}
 --- !u!114 &1975578273310315827
 MonoBehaviour:

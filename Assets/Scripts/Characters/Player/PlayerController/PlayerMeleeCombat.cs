@@ -55,6 +55,12 @@ public class PlayerMeleeCombat : MonoBehaviour
         }
         
         moveToTargetCoroutine = StartCoroutine(MoveToTarget(currentTarget.transform, stopRadius));
+        
+
+        Vector3 dir = currentTarget.transform.position - transform.position;
+        dir.y = 0;
+        Quaternion targetRot = Quaternion.LookRotation(dir);
+        transform.rotation = Quaternion.Slerp(transform.rotation,targetRot, 1);
     }
     
     IEnumerator MoveToTarget(Transform enemy, float stopRadius)
