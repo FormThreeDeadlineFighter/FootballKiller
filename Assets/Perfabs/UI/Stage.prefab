@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2039145352407480629
 RectTransform:
   m_ObjectHideFlags: 0
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayMusic
   _music: {fileID: 8300000, guid: 8267dd5c31d13f34ca7c7311cca96562, type: 3}
-  _volume: 0.35
+  _volume: 0.4
   IsPlayOnStart: 0
 --- !u!1 &1272998275089186853
 GameObject:

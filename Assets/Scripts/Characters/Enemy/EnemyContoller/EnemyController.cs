@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float _shieldHP;
     [SerializeField] float _attackCD;
     [SerializeField] float _jumpCD;
+    [SerializeField] float rotateSpeed;
     [SerializeField] bool _invincible = false;
     [SerializeField] private Elements currentElement = Elements.white; 
     [SerializeField] Material[] ElementMaterials;  
@@ -30,6 +31,7 @@ public class EnemyController : MonoBehaviour
     public bool CanAttack;
     public bool CanJump;
     public bool IsHurt;
+    public bool IsStop;
     
     void Awake()
     {
@@ -38,30 +40,33 @@ public class EnemyController : MonoBehaviour
         
         _currentHP = _HP;
         _shieldHP = 0;
-        CanAttack = true;
-        CanJump = true;
+        CanAttack = false;
+        CanJump = false;
         _TrackPlayer = true;
+        IsStop = false;
     }
 
     void OnEnable()
     {
         _gameEvent.OnGameVictory += EnemyDie;
-        //_gameEvent.OnGameDefeat += EnemyStop;      
+        _gameEvent.OnGameDefeat += EnemyStop;   
+        
+        AttackCD();  
+        JumpCD();
     }
     void OnDisable()
     {
         _gameEvent.OnGameVictory -= EnemyDie;
         _gameEvent.OnGameDefeat -= EnemyDie;
     }
-
-    void Update()
+    void FixedUpdate()
     {
         if(_TrackPlayer)
         {
             FaceToPlayer();
         }
     }
-    
+
     public void SetVelocity(Vector3 velocity)
     {   
         _rb.linearVelocity = velocity; 
@@ -112,21 +117,25 @@ public class EnemyController : MonoBehaviour
             _shieldHP = 0;
         }
     }
+    
     public void EnemyStart()
     {
-        gameObject.SetActive(true);
+        IsStop = false;
     }
-    //public void EnemyStop()
-    //{
-    //    gameObject.SetActive(false);
-    //}
+    
+    public void EnemyStop()
+    {
+        IsStop = true;
+    }
+    
     private void FaceToPlayer()
     {
         if(_sensor.Target == null) return;
+        if (_sensor.Target.transform.position == Vector3.zero) return;
         Vector3 dir = _sensor.Target.transform.position - transform.position;
         dir.y = 0;
         Quaternion targetRot = Quaternion.LookRotation(dir);
-        _rb.transform.rotation = targetRot;      
+        _rb.transform.rotation = Quaternion.Slerp(transform.rotation,targetRot, rotateSpeed * Time.fixedDeltaTime);     
     }
     
     public void IsTrackPlayer()
@@ -139,20 +148,13 @@ public class EnemyController : MonoBehaviour
         _TrackPlayer = false;
     }
     
-    
-    public void SwitchElement()
+    /*public void SwitchElement()
     {
         int num = (int)currentElement;
         num = (num + 1)%2;
         currentElement = (Elements)num;
         ElementsShow.material = ElementMaterials[num];
-    } 
-    
-    public bool IsAttackable()
-    {
-        if(_currentHP > 0) return true;
-        else return false;
-    }
+    } */
     
     public void AttackCD()
     {

@@ -105,7 +105,7 @@ PlayableDirector:
   m_GameObject: {fileID: 487394218401988616}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 5fd35af3a637c8746b16a949546c40a6, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: f314862cc13ae614394024bacd38d0ca, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -143,8 +143,6 @@ PlayableDirector:
     value: {fileID: 3171534449675117090}
   - key: {fileID: -3085727951763727078, guid: 5fd35af3a637c8746b16a949546c40a6, type: 2}
     value: {fileID: 9214837773597069232}
-  - key: {fileID: -168814532667033206, guid: f314862cc13ae614394024bacd38d0ca, type: 2}
-    value: {fileID: 9214837773597069232}
   m_ExposedReferences:
     m_References:
     - 7d33dc4021f0d8d4f977b347e41667e0: {fileID: 3084449122082667048}
@@ -164,6 +162,7 @@ MonoBehaviour:
   _shieldHP: 0
   _attackCD: 5
   _jumpCD: 15
+  rotateSpeed: 360
   _invincible: 0
   currentElement: 0
   ElementMaterials:
@@ -175,6 +174,7 @@ MonoBehaviour:
   CanAttack: 0
   CanJump: 0
   IsHurt: 0
+  IsStop: 0
 --- !u!114 &162676840345717928
 MonoBehaviour:
   m_ObjectHideFlags: 0

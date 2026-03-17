@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7641739018371399599}
   - component: {fileID: 852060879934802291}
+  - component: {fileID: 5065770468528051419}
   m_Layer: 5
   m_Name: BaseBall
   m_TagString: Untagged
@@ -30,6 +31,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1715056455639049747}
+  - {fileID: 6190990687597213392}
   - {fileID: 3153918643363833898}
   - {fileID: 4411036538973466200}
   m_Father: {fileID: 0}
@@ -52,7 +54,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstButtun
   _nowUI: {fileID: 36538109018871747}
-  _firstButtun: {fileID: 2253297535009012589}
+  _firstButtun: {fileID: 2497861475198854557}
+--- !u!114 &5065770468528051419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36538109018871747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40d5796ccaf0c14ca19f48e1f564593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayMusic
+  _music: {fileID: 8300000, guid: eba3f190f543ff1489ff5aaeca9c9c20, type: 3}
+  _volume: 0.7
+  IsPlayOnStart: 0
 --- !u!1 &693738480731052426
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,6 +117,7 @@ GameObject:
   - component: {fileID: 807021070027029947}
   - component: {fileID: 8458306775949446546}
   - component: {fileID: 5653366922360171923}
+  - component: {fileID: 1599177536256094250}
   m_Layer: 5
   m_Name: Return
   m_TagString: Untagged
@@ -116,14 +134,14 @@ RectTransform:
   m_GameObject: {fileID: 2253297535009012589}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2.24, z: 1}
+  m_LocalScale: {x: 1.2275479, y: 1.3748536, z: 0.61377394}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4411036538973466200}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -867, y: 431}
+  m_AnchoredPosition: {x: -867, y: 465}
   m_SizeDelta: {x: -0.00012207031, y: 0.87158203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &807021070027029947
@@ -208,6 +226,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1599177536256094250}
+        m_TargetAssemblyTypeName: PlaySFX, Assembly-CSharp
+        m_MethodName: OnPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 36538109018871747}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -232,6 +262,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &1599177536256094250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2253297535009012589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86553635095cc8242a04dd320d164ff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Click
+  _SFX: {fileID: 8300000, guid: 4096621c617b3e84ebe8fdf06a3c7411, type: 3}
+  _volume: 1
 --- !u!1 &2497861475198854557
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,6 +288,7 @@ GameObject:
   - component: {fileID: 104753949115991063}
   - component: {fileID: 6811340280703040634}
   - component: {fileID: 1405253109313427546}
+  - component: {fileID: 1193528505771169635}
   m_Layer: 5
   m_Name: Fight
   m_TagString: Untagged
@@ -268,7 +313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 625, y: -446}
+  m_AnchoredPosition: {x: 514, y: -385}
   m_SizeDelta: {x: -0.00012207031, y: 0.87158203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &104753949115991063
@@ -353,6 +398,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1193528505771169635}
+        m_TargetAssemblyTypeName: PlaySFX, Assembly-CSharp
+        m_MethodName: OnPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 3266786247544389648, guid: 9d060e05a2ee37b4ba4ca4452bae39bd, type: 3}
         m_TargetAssemblyTypeName: SceneManger, Assembly-CSharp
         m_MethodName: Stage
@@ -365,6 +422,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1193528505771169635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2497861475198854557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86553635095cc8242a04dd320d164ff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Click
+  _SFX: {fileID: 8300000, guid: 4096621c617b3e84ebe8fdf06a3c7411, type: 3}
+  _volume: 1
 --- !u!1 &5058239364979852653
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +501,82 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 384120e541eb56842a5e0cac21e324ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bcba4ee4225dca845b6878cd48c935a0, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &6499747377443980061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6190990687597213392}
+  - component: {fileID: 7089134716582516365}
+  - component: {fileID: 119966543221051196}
+  m_Layer: 5
+  m_Name: BaseBallBoss (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &6190990687597213392
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6499747377443980061}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7641739018371399599}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -39, y: 0}
+  m_SizeDelta: {x: 1819.9999, y: 980.66016}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &7089134716582516365
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6499747377443980061}
+  m_CullTransparentMesh: 1
+--- !u!114 &119966543221051196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6499747377443980061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 0a57af80b462453429655ce79682aaa7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -451,6 +597,7 @@ GameObject:
   - component: {fileID: 3153918643363833898}
   - component: {fileID: 7186101124038709916}
   - component: {fileID: 2186064672116613732}
+  - component: {fileID: 1603950429009097233}
   m_Layer: 5
   m_Name: BaseBallBoss
   m_TagString: Untagged
@@ -467,14 +614,14 @@ RectTransform:
   m_GameObject: {fileID: 8388652642722124284}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5158404, y: 0.9823249, z: 0.85569626}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7641739018371399599}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -39, y: 0}
+  m_AnchoredPosition: {x: -450, y: -113}
   m_SizeDelta: {x: 1819.9999, y: 980.66016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7186101124038709916
@@ -505,7 +652,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0a57af80b462453429655ce79682aaa7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea5321153e19ba04fa2ea3ab3dcdbbdb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -515,6 +662,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &1603950429009097233
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8388652642722124284}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c3e998ad1361b14d8f3ae88b77b4540, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8880384859310136961
 GameObject:
   m_ObjectHideFlags: 0
