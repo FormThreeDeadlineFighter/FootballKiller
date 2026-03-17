@@ -38,6 +38,15 @@ public class PlayerState_HeadAttack2 : IPlayerState
             }               
         }
         
+        if(_input.IsDash && _player.AttackCancel)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Dash));
+        }
+        if(_input.IsJump && _player.CanJump && _player.IsGrounded && _player.AttackCancel)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Jump));
+        }
+
         if(_input.IsLightAttack)
         {
             _preInput = true;

@@ -16,7 +16,8 @@ public class PlayerState_FootAttack1 : IPlayerState
         _director.Play();
         
         _preInput = false;
-        
+        _player.AttackCancel = false;
+
         _player.AttackDataInput(_attackDamage, _comboCharge);
     }
     public override void ExitState()
@@ -35,7 +36,17 @@ public class PlayerState_FootAttack1 : IPlayerState
             else
             {
                 _stateMachine.SetState(typeof(PlayerState_Idle));
-            }               
+            }    
+
+        }
+
+        if(_input.IsDash && _player.AttackCancel)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Dash));
+        }
+        if(_input.IsJump && _player.CanJump && _player.IsGrounded && _player.AttackCancel)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Jump));                 
         }
         
         if(_input.IsHeavyAttack)
