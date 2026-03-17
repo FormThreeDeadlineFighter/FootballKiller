@@ -23,8 +23,8 @@ public class EnemyController : MonoBehaviour
     private float _currentHP;
     private float _currentShield; 
     private bool _TrackPlayer;
-    Coroutine _attackCoroutine;
-    Coroutine _jumpCoroutine;
+    private Coroutine _attackCoroutine;
+    private Coroutine _jumpCoroutine;
     
     public Vector3 PlayerPosition => (_sensor.Target.transform.position - _rb.transform.position).normalized;
     public float PlayerDistance => Vector3.Distance(transform.position, _sensor.Target.transform.position);
