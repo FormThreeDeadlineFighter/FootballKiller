@@ -16,6 +16,7 @@ public class PlayerState_HeadAttack1 : IPlayerState
         _director.Play();
         
         _preInput = false;
+        _player.ActionCancel = false;
         
         _player.AttackDataInput(_attackDamage, _comboCharge);
     }

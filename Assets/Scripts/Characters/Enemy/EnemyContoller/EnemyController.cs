@@ -41,7 +41,7 @@ public class EnemyController : MonoBehaviour
         _currentHP = _HP;
         _shieldHP = 0;
         CanAttack = false;
-        CanJump = false;
+        CanJump = true;
         _TrackPlayer = true;
         IsStop = false;
     }

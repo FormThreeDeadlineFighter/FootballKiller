@@ -16,6 +16,7 @@ public class PlayerState_FootAttack2 : IPlayerState
         _director.Play();
 
         _preInput = false;
+        _player.ActionCancel = false;
         
         _player.AttackDataInput(_attackDamage, _comboCharge);
     }

@@ -9,10 +9,12 @@ public class PlayerState_FootAttack3 : IPlayerState
     [SerializeField] float _attackDamage;
     [SerializeField] float _comboCharge;
     public override void EnterState()
-    { 
+    {   
         _director.playableAsset = _timeline;
         _director.time = 0;
         _director.Play();
+
+        _player.ActionCancel = false;
         
         _player.AttackDataInput(_attackDamage,_comboCharge);
     }

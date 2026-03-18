@@ -13,6 +13,8 @@ public class PlayerState_HeadAttack3 : IPlayerState
         _director.playableAsset = _timeline;
         _director.time = 0;
         _director.Play();
+
+        _player.ActionCancel = false;
         
         _player.AttackDataInput(_attackDamage,_comboCharge);
     }
