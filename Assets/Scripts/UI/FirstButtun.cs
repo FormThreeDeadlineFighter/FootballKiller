@@ -20,8 +20,7 @@ public class FirstButtun : MonoBehaviour
     }
     void OnDisable()
     {
-        EventSystem.current.firstSelectedGameObject = null;
-        EventSystem.current.SetSelectedGameObject(null);
-        
+        //EventSystem.current.firstSelectedGameObject = null;
+        //EventSystem.current.SetSelectedGameObject(null);    
     }
 }
