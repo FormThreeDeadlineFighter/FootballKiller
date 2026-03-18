@@ -579,7 +579,7 @@ MonoBehaviour:
   _playerEvents: {fileID: 11400000, guid: 51a858bca8b742c4eb4a52f4a8fb9dfd, type: 2}
   _gameEvent: {fileID: 11400000, guid: 4d3e622616f0422419f565b9695f06d9, type: 2}
   CanJump: 0
-  AttackCancel: 0
+  ActionCancel: 0
 --- !u!114 &6469742748280267700
 MonoBehaviour:
   m_ObjectHideFlags: 0
