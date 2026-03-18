@@ -7,11 +7,11 @@ public class FirstButtun : MonoBehaviour
     [SerializeField] private GameObject _firstButtun;
     void OnEnable()
     {
-        if(_firstButtun != null)
+        if (_firstButtun != null)
         {
             EventSystem.current.SetSelectedGameObject(null);
-
             EventSystem.current.firstSelectedGameObject = _firstButtun;
+            EventSystem.current.SetSelectedGameObject(_firstButtun);
         }
         else
         {
@@ -21,5 +21,7 @@ public class FirstButtun : MonoBehaviour
     void OnDisable()
     {
         EventSystem.current.firstSelectedGameObject = null;
+        EventSystem.current.SetSelectedGameObject(null);
+        
     }
 }

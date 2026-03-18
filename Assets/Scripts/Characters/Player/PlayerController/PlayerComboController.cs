@@ -9,7 +9,7 @@ public class PlayerComboController : MonoBehaviour
     [SerializeField] PlayerEvent _playerEvents;
     private ComboGrade _grade;
     private float _comboValue;
-    private float _currentTime;
+    //private Coroutine _comboHoldCoroutine;
     
 
     void OnEnable()
@@ -19,7 +19,6 @@ public class PlayerComboController : MonoBehaviour
         _comboValue = 0;
         _grade = ComboGrade.D;
         _maxComboValue = (int)ComboGrade.Max;
-        _currentTime = 0;
     }
 
     void OnDisable()
@@ -31,22 +30,14 @@ public class PlayerComboController : MonoBehaviour
     void Update()
     {
         CalculateComboGrade();
-          
-        if(_currentTime > _comboHoldTime)
-        {         
-            _playerEvents.PlayerComboChange(-_comboReduceSpeed * Time.deltaTime);
-        }
+                
+        _playerEvents.PlayerComboChange(-_comboReduceSpeed * Time.deltaTime);
         
-        if(_currentTime < _comboHoldTime + 999 )
-        {      
-            _currentTime += Time.deltaTime;
-        }
     }
     
     void ChangeComboValue(float value)
     {
         _comboValue += value;
-        _currentTime = 0;
         
         if(_comboValue <= 0)
         {
