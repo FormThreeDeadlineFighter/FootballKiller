@@ -156,6 +156,15 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""HoldAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""940db17d-01b1-4bd7-8cde-8625187b3779"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""SwitchElement"",
                     ""type"": ""Button"",
                     ""id"": ""b201aefb-03b0-4176-b814-9280e3504810"",
@@ -383,6 +392,28 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SwitchElement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""be4d395c-80a3-4c2f-9d8a-55ff5d1bd410"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HoldAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f186c96f-99d3-4e0f-ac5a-1f1fab0786d9"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HoldAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1154,6 +1185,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         m_Battle_Look = m_Battle.FindAction("Look", throwIfNotFound: true);
         m_Battle_LightAttack = m_Battle.FindAction("LightAttack", throwIfNotFound: true);
         m_Battle_HeavyAttack = m_Battle.FindAction("HeavyAttack", throwIfNotFound: true);
+        m_Battle_HoldAttack = m_Battle.FindAction("HoldAttack", throwIfNotFound: true);
         m_Battle_SwitchElement = m_Battle.FindAction("SwitchElement", throwIfNotFound: true);
         // Lobby
         m_Lobby = asset.FindActionMap("Lobby", throwIfNotFound: true);
@@ -1264,6 +1296,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
     private readonly InputAction m_Battle_Look;
     private readonly InputAction m_Battle_LightAttack;
     private readonly InputAction m_Battle_HeavyAttack;
+    private readonly InputAction m_Battle_HoldAttack;
     private readonly InputAction m_Battle_SwitchElement;
     /// <summary>
     /// Provides access to input actions defined in input action map "Battle".
@@ -1304,6 +1337,10 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Battle/HeavyAttack".
         /// </summary>
         public InputAction @HeavyAttack => m_Wrapper.m_Battle_HeavyAttack;
+        /// <summary>
+        /// Provides access to the underlying input action "Battle/HoldAttack".
+        /// </summary>
+        public InputAction @HoldAttack => m_Wrapper.m_Battle_HoldAttack;
         /// <summary>
         /// Provides access to the underlying input action "Battle/SwitchElement".
         /// </summary>
@@ -1355,6 +1392,9 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             @HeavyAttack.started += instance.OnHeavyAttack;
             @HeavyAttack.performed += instance.OnHeavyAttack;
             @HeavyAttack.canceled += instance.OnHeavyAttack;
+            @HoldAttack.started += instance.OnHoldAttack;
+            @HoldAttack.performed += instance.OnHoldAttack;
+            @HoldAttack.canceled += instance.OnHoldAttack;
             @SwitchElement.started += instance.OnSwitchElement;
             @SwitchElement.performed += instance.OnSwitchElement;
             @SwitchElement.canceled += instance.OnSwitchElement;
@@ -1390,6 +1430,9 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             @HeavyAttack.started -= instance.OnHeavyAttack;
             @HeavyAttack.performed -= instance.OnHeavyAttack;
             @HeavyAttack.canceled -= instance.OnHeavyAttack;
+            @HoldAttack.started -= instance.OnHoldAttack;
+            @HoldAttack.performed -= instance.OnHoldAttack;
+            @HoldAttack.canceled -= instance.OnHoldAttack;
             @SwitchElement.started -= instance.OnSwitchElement;
             @SwitchElement.performed -= instance.OnSwitchElement;
             @SwitchElement.canceled -= instance.OnSwitchElement;
@@ -1828,6 +1871,13 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnHeavyAttack(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "HoldAttack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnHoldAttack(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "SwitchElement" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

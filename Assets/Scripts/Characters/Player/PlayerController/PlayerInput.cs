@@ -12,6 +12,8 @@ public class PlayerInput : MonoBehaviour
     public bool IsDash => _playerControl.Battle.Dash.WasPerformedThisFrame();
     public bool IsLightAttack => _playerControl.Battle.LightAttack.WasPerformedThisFrame();
     public bool IsHeavyAttack => _playerControl.Battle.HeavyAttack.WasPerformedThisFrame();
+    public bool IsHold => _playerControl.Battle.HoldAttack.IsPressed();
+    public bool IsRelease => _playerControl.Battle.HoldAttack.WasReleasedThisFrame();
     public bool IsSwitch => _playerControl.Battle.SwitchElement.WasPerformedThisFrame();
     public bool IsMove => StickValue != Vector2.zero;
     

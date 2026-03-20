@@ -70,6 +70,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "HoldAttack",
+                    "type": "Button",
+                    "id": "940db17d-01b1-4bd7-8cde-8625187b3779",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "SwitchElement",
                     "type": "Button",
                     "id": "b201aefb-03b0-4176-b814-9280e3504810",
@@ -297,6 +306,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "SwitchElement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "be4d395c-80a3-4c2f-9d8a-55ff5d1bd410",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HoldAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f186c96f-99d3-4e0f-ac5a-1f1fab0786d9",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HoldAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

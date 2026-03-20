@@ -30,10 +30,12 @@ public class PlayerController : MonoBehaviour
     private PlayerMeleeCombat _combot;
     private bool Invincible = false;
     private ComboGrade _currentGrade;
+    private float holdTime = 0;
     
     public bool IsGrounded => _groundDetector.IsGrounded;
     public bool IsFalling => _rb.linearVelocity.y < 0 && !IsGrounded;
     public bool IsMove => _input.IsMove;
+    public HoldGrade CurrentHoldGrade = HoldGrade.level0;
     public bool CanJump = false;
     public bool ActionCancel = false;
 
@@ -64,13 +66,36 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        if(_input.IsSwitch)
+        //if(_input.IsSwitch)
+        //{
+        //    IAttack attack = _attackHitBox.GetComponent<IAttack>();
+        //    int num = (int)attack.Elements;
+        //    num = (num + 1)%2;
+        //    attack.Elements = (Elements)num;
+        //    ElementsShow.material = ElementMaterials[num];
+        //}
+        
+        if(_input.IsHold)
         {
-            IAttack attack = _attackHitBox.GetComponent<IAttack>();
-            int num = (int)attack.Elements;
-            num = (num + 1)%2;
-            attack.Elements = (Elements)num;
-            ElementsShow.material = ElementMaterials[num];
+            holdTime += Time.deltaTime;
+            Debug.Log(holdTime);
+        }
+        
+        if(_input.IsRelease)
+        {
+            switch(holdTime)
+            {
+            case >3: CurrentHoldGrade = HoldGrade.level3;
+            break;
+            case >2: CurrentHoldGrade = HoldGrade.level2;
+            break;
+            case >1: CurrentHoldGrade = HoldGrade.level1;
+            break;
+            default: CurrentHoldGrade = HoldGrade.level0;
+            break;
+            }
+            Debug.Log(CurrentHoldGrade);
+            holdTime = 0;
         }
     }
 
@@ -165,6 +190,7 @@ public class PlayerController : MonoBehaviour
         _attackHitBox.GetComponent<IAttack>().Damage = damage;
         _playerEvents.PlayerComboChange(comboChange);
     }
+    
     public void AttackEnter()
     {
         _attackHitBox.SetActive(true);
@@ -218,4 +244,12 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(time);
         Invincible = false;
     } 
+}
+
+public enum HoldGrade
+{
+    level0,
+    level1,
+    level2,
+    level3
 }
