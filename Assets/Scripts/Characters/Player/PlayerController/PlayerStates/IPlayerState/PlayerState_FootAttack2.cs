@@ -29,15 +29,15 @@ public class PlayerState_FootAttack2 : IPlayerState
     {
         if(_director.state != PlayState.Playing)
         {
-            if(_preInput)
+            /*if(_preInput)
             {
                 _stateMachine.SetState(typeof(PlayerState_FootAttack3));
             } 
             else
             {
                 _stateMachine.SetState(typeof(PlayerState_Idle));
-            }
-   
+            }*/         
+            _stateMachine.SetState(typeof(PlayerState_Idle)); 
         }
 
         if(_input.IsDash && _player.ActionCancel)

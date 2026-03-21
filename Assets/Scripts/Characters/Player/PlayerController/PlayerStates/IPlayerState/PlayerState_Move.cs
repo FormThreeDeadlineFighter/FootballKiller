@@ -35,10 +35,19 @@ public class PlayerState_Move : IPlayerState
         {
             _stateMachine.SetState(typeof(PlayerState_HeadAttack1));
         } 
-        if(_input.IsHeavyAttack)
+        
+        if(_input.IsRelease && _player.CurrentHoldGrade == HoldGrade.level0)
         {
             _stateMachine.SetState(typeof(PlayerState_FootAttack1));
-        } 
+        }
+        if(_input.IsRelease && _player.CurrentHoldGrade == HoldGrade.level1)
+        {
+            _stateMachine.SetState(typeof(PlayerState_FootAttack2));
+        }
+        if(_input.IsRelease && _player.CurrentHoldGrade == HoldGrade.level2)
+        {
+            _stateMachine.SetState(typeof(PlayerState_FootAttack3));
+        }
     }
     public override void PhysicsUpdate()
     { 

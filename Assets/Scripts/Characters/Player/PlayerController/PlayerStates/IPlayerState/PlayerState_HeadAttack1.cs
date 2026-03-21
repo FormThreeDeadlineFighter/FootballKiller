@@ -32,11 +32,11 @@ public class PlayerState_HeadAttack1 : IPlayerState
             if(_preInput)
             {
                 _stateMachine.SetState(typeof(PlayerState_HeadAttack2));
-            }  
+            } 
             else
             {
                 _stateMachine.SetState(typeof(PlayerState_Idle));
-            }               
+            }                
         }
 
         if(_input.IsDash && _player.ActionCancel)
@@ -51,7 +51,20 @@ public class PlayerState_HeadAttack1 : IPlayerState
         if(_input.IsLightAttack)
         {
             _preInput = true;
-        } 
+        }   
+        
+        if(_input.IsRelease && _player.CurrentHoldGrade == HoldGrade.level0)
+        {
+            _stateMachine.SetState(typeof(PlayerState_FootAttack1));
+        }
+        if(_input.IsRelease && _player.CurrentHoldGrade == HoldGrade.level1)
+        {
+            _stateMachine.SetState(typeof(PlayerState_FootAttack2));
+        }
+        if(_input.IsRelease && _player.CurrentHoldGrade == HoldGrade.level2)
+        {
+            _stateMachine.SetState(typeof(PlayerState_FootAttack3));
+        }
     }
     public override void PhysicsUpdate()
     { 

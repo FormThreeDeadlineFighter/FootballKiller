@@ -85,8 +85,8 @@ public class PlayerController : MonoBehaviour
         {
             switch(holdTime)
             {
-            case >3: CurrentHoldGrade = HoldGrade.level3;
-            break;
+            //case >3: CurrentHoldGrade = HoldGrade.level3;
+            //break;
             case >2: CurrentHoldGrade = HoldGrade.level2;
             break;
             case >1: CurrentHoldGrade = HoldGrade.level1;
