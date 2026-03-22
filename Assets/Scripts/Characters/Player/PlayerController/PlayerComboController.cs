@@ -14,7 +14,7 @@ public class PlayerComboController : MonoBehaviour
 
     void OnEnable()
     {
-        _playerEvents.OnPlayerComboChange += ChangeComboValue;
+        //_playerEvents.OnPlayerComboChange += ChangeComboValue;
         
         _comboValue = 0;
         _grade = ComboGrade.D;
@@ -23,7 +23,7 @@ public class PlayerComboController : MonoBehaviour
 
     void OnDisable()
     {
-        _playerEvents.OnPlayerComboChange -= ChangeComboValue;
+        //_playerEvents.OnPlayerComboChange -= ChangeComboValue;
     }
     
     // Update is called once per frame

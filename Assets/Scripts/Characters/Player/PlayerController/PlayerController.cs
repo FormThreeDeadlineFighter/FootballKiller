@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
             {
             //case >3: CurrentHoldGrade = HoldGrade.level3;
             //break;
-            case >2: CurrentHoldGrade = HoldGrade.level2;
+            case >3: CurrentHoldGrade = HoldGrade.level2;
             break;
             case >1: CurrentHoldGrade = HoldGrade.level1;
             break;
@@ -187,8 +187,7 @@ public class PlayerController : MonoBehaviour
             default: 
             break;
         }
-        _attackHitBox.GetComponent<IAttack>().Damage = damage;
-        _playerEvents.PlayerComboChange(comboChange);
+        _attackHitBox.GetComponent<IAttack>().Damage = damage;     
     }
     
     public void AttackEnter()

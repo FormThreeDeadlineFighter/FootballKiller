@@ -50,10 +50,10 @@ public class PlayerState_FootAttack1 : IPlayerState
             _stateMachine.SetState(typeof(PlayerState_Jump));                 
         }
         
-        if(_input.IsHeavyAttack)
-        {
-            _preInput = true;
-        } 
+        //if(_input.IsHeavyAttack)
+        //{
+        //    _preInput = true;
+        //} 
     }
     public override void PhysicsUpdate()
     { 

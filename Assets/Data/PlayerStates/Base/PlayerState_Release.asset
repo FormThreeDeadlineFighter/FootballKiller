@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de9c916076e191f46bbe173f81869fd2, type: 3}
-  m_Name: Level1
-  m_EditorClassIdentifier: Assembly-CSharp::Level
-  waves:
-  - {fileID: 8201733038062066685, guid: 5033e0d329d25e7458fa6e8126e479ac, type: 3}
+  m_Script: {fileID: 11500000, guid: f57dc9df8ce7e5849995099554140adf, type: 3}
+  m_Name: PlayerState_Release
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerState_Release
+  _animationName: 
+  _transitionDuration: 0.1
