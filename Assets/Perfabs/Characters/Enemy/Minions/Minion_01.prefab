@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5090134704900735034}
   - component: {fileID: 7337026437412562189}
   - component: {fileID: 2263663118746612925}
+  - component: {fileID: 4345789401648323435}
   - component: {fileID: 7497642597181151431}
   m_Layer: 7
   m_Name: Minion_01
@@ -100,6 +101,7 @@ MonoBehaviour:
   _shieldHP: 0
   _attackCD: 0
   _jumpCD: 0
+  rotateSpeed: 0
   _invincible: 0
   currentElement: 0
   ElementMaterials: []
@@ -109,6 +111,19 @@ MonoBehaviour:
   CanAttack: 0
   CanJump: 0
   IsHurt: 0
+  IsStop: 0
+--- !u!114 &4345789401648323435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698843275809421332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 334eae64029872b44b445ed72328bd50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Minion01StateController
 --- !u!114 &7497642597181151431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,10 +212,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9744ae68795848c43afe0aa054a3ddcc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2045310964245312176}
   m_SourcePrefab: {fileID: 100100000, guid: 9744ae68795848c43afe0aa054a3ddcc, type: 3}
 --- !u!4 &3725508340322734484 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9744ae68795848c43afe0aa054a3ddcc, type: 3}
   m_PrefabInstance: {fileID: 3763060291077437055}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4105165975102507822 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9744ae68795848c43afe0aa054a3ddcc, type: 3}
+  m_PrefabInstance: {fileID: 3763060291077437055}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2045310964245312176
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105165975102507822}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 9744ae68795848c43afe0aa054a3ddcc, type: 3}
+  m_Controller: {fileID: 9100000, guid: 474f7c6b206a1bf4398617676fbb324c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
