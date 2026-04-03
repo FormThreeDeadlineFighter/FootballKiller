@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-[CreateAssetMenu(menuName = "Data/StateMachine/EnemyData/BaseballStateConfig_SideStep", fileName = "BaseballStateConfig_SideStep")]
+[CreateAssetMenu(menuName = "Data/StateMachine/EnemyData/BaseballStateConfig/SideStep", fileName = "BaseballStateConfig_SideStep")]
 public class BaseballStateConfig_SideStep : ScriptableObject, IStateConfig
 {
     [SerializeField] BaseballStateConfig_Forward forward;
