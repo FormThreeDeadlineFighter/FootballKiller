@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class Minion01State_Idle : IMinion01State
+public class Minion01State_Move : IMinion01State
 {
-    Minion01StateConfig_Idle _data;
+    Minion01StateConfig_Move _data;
 
-    public Minion01State_Idle(Minion01StateConfig_Idle data) : base(data)
+    public Minion01State_Move(Minion01StateConfig_Move data) : base(data)
     {
         _data = data;
     }
@@ -20,12 +20,8 @@ public class Minion01State_Idle : IMinion01State
     public override void LogicUpdate()
     {   
         if(_enemy.CanAttack)
-        {  
-            _stateMachine.SetState(typeof(Minion01State_Shoot));   
-        }  
-        else
         {
-            _stateMachine.SetState(typeof(Minion01State_Move));  
+            _stateMachine.SetState(typeof(Minion01State_Idle)); 
         }
     }
     public override void PhysicsUpdate()

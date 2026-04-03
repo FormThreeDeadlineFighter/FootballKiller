@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class IMinion01 : IState
+public class IMinion01State : IState
 {
     float _stateEnterTime;
     protected Minion01StateController _stateMachine;
@@ -12,7 +12,7 @@ public class IMinion01 : IState
     protected bool IsAnimationComplete => _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f;
     protected float _stateDuration => Time.time - _stateEnterTime;
 
-    public IMinion01(IStateConfig stateConfig)
+    public IMinion01State(IStateConfig stateConfig)
     {
         
     }
