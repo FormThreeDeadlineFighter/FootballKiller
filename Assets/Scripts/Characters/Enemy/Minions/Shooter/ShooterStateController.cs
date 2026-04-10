@@ -9,12 +9,12 @@ public class ShooterStateController : IStateController
     // enemy controller
     private EnemyController _enemy;
     PlayableDirector _director;  
-    List<IShooter> _minion01States = new List<IShooter>();
+    List<IShooter> _shooterStates = new List<IShooter>();
     
     #region States
-    ShooterState_Idle _minion01State_Idle;
-    ShooterState_Move _minion01State_Move;
-    ShooterState_Shoot _minion01State_Shoot;
+    ShooterState_Idle _shooterState_Idle;
+    ShooterState_Move _shooterState_Move;
+    ShooterState_Shoot _shooterState_Shoot;
     #endregion
     
     #region StateConfigs
@@ -24,21 +24,21 @@ public class ShooterStateController : IStateController
     #endregion
     void OnEnable()
     {      
-        _minion01State_Idle = new ShooterState_Idle(_idleData);
-        _minion01State_Move = new ShooterState_Move(_moveData);
-        _minion01State_Shoot = new ShooterState_Shoot(_shootData);
+        _shooterState_Idle = new ShooterState_Idle(_idleData);
+        _shooterState_Move = new ShooterState_Move(_moveData);
+        _shooterState_Shoot = new ShooterState_Shoot(_shootData);
         
         _enemy = GetComponent<EnemyController>();
         _animator = GetComponentInChildren<Animator>();
         _director = GetComponent<PlayableDirector>();
         
-        _stateTable = new Dictionary<System.Type, IState>(_minion01States.Count);  
+        _stateTable = new Dictionary<System.Type, IState>(_shooterStates.Count);  
         
-        _minion01States.Add(_minion01State_Idle);
-        _minion01States.Add(_minion01State_Move);
-        _minion01States.Add(_minion01State_Shoot);
+        _shooterStates.Add(_shooterState_Idle);
+        _shooterStates.Add(_shooterState_Move);
+        _shooterStates.Add(_shooterState_Shoot);
         
-        foreach (IShooter state in _minion01States)
+        foreach (IShooter state in _shooterStates)
         {
             state.Initialize(this, _enemy, _animator, _director);
             _stateTable.Add(state.GetType(), state);
