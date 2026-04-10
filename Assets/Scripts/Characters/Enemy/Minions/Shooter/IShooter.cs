@@ -2,21 +2,21 @@ using System;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class IMinion01State : IState
+public class IShooter : IState
 {
     float _stateEnterTime;
-    protected Minion01StateController _stateMachine;
+    protected ShooterStateController _stateMachine;
     protected Animator _animator;
     protected PlayableDirector _director;
     protected EnemyController _enemy;
     protected bool IsAnimationComplete => _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f;
     protected float _stateDuration => Time.time - _stateEnterTime;
 
-    public IMinion01State(IStateConfig stateConfig)
+    public IShooter(IStateConfig stateConfig)
     {
         
     }
-    public void Initialize(Minion01StateController stateMachine, EnemyController enemy, Animator animator, PlayableDirector director)
+    public void Initialize(ShooterStateController stateMachine, EnemyController enemy, Animator animator, PlayableDirector director)
     {
         _stateMachine = stateMachine;
         _enemy = enemy;

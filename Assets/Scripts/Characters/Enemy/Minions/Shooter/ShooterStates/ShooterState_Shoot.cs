@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class Minion01State_Shoot : IMinion01State
+public class ShooterState_Shoot : IShooter
 {
-    Minion01StateConfig_Shoot _data;
+    ShooterStateConfig_Shoot _data;
 
-    public Minion01State_Shoot(Minion01StateConfig_Shoot data) : base(data)
+    public ShooterState_Shoot(ShooterStateConfig_Shoot data) : base(data)
     {
         _data = data;
     }
@@ -23,7 +23,7 @@ public class Minion01State_Shoot : IMinion01State
     {   
         if(IsAnimationComplete)
         {
-            _stateMachine.SetState(typeof(Minion01State_Idle)); 
+            _stateMachine.SetState(typeof(ShooterState_Idle)); 
         }
     }
     public override void PhysicsUpdate()
