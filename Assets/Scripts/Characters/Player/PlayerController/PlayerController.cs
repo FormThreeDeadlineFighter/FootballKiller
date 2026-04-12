@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     public HoldGrade CurrentHoldGrade = HoldGrade.level0;
     public bool CanJump = false;
     public bool ActionCancel = false;
+    public bool IsStop = false;
 
     void Awake()
     {
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
         _playerHitBox.SetActive(true); 
         _currentHP = _HP;
         CanJump = true;
+        IsStop = false;
     }
 
     void OnDisable()
