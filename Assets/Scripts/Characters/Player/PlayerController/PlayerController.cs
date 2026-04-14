@@ -9,8 +9,6 @@ public class PlayerController : MonoBehaviour
     [Header("Player Property")]
     [SerializeField] float _HP = 100f;
     [SerializeField] float _currentHP;
-    [SerializeField, Range(0,1)] float _walkValue;
-    [SerializeField, Range(0, 1)] float _runValue;
     [SerializeField] float _dashForce = 50f;
     
 
@@ -31,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private bool Invincible = false;
     private ComboGrade _currentGrade;
     private float holdTime = 0;
+    private Coroutine _invincibleCoroutine;
     
     public bool IsGrounded => _groundDetector.IsGrounded;
     public bool IsFalling => _rb.linearVelocity.y < 0 && !IsGrounded;
@@ -99,6 +98,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log(CurrentHoldGrade);
             holdTime = 0;
         }
+        
     }
 
     public void SetVelocity(Vector3 velocity)
@@ -212,15 +212,21 @@ public class PlayerController : MonoBehaviour
     {
         
     }
+    
+    public void PauseEnter()
+    {
+        
+    }
+    
+    public void InvincibleStart(float time)
+    {
+        if (_invincibleCoroutine != null) return;
+        _invincibleCoroutine = StartCoroutine(InvincibleTime(time));
+    }
+    
     private void GetComboGrade(ComboGrade grade)
     {
         _currentGrade = grade;
-    }
-
-    public void GetInvincible(float time)
-    {
-        IEnumerator coroutine = InvincibleTime(time);
-        StartCoroutine(coroutine);
     }
     
     private void GetHurt(float damage)
@@ -242,8 +248,12 @@ public class PlayerController : MonoBehaviour
     IEnumerator InvincibleTime(float time)
     {
         Invincible = true;
+        Debug.Log("Invincible Start");
         yield return new WaitForSeconds(time);
         Invincible = false;
+        Debug.Log("Invincible End");
+        StopCoroutine(_invincibleCoroutine);
+        _invincibleCoroutine = null;
     } 
 }
 

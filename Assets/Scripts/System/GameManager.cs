@@ -37,6 +37,13 @@ public class GameManager : MonoBehaviour
     
     void OnPause()
     {
+        Time.timeScale = 0f;
         Instantiate(_pauseUI, UI.transform);
+        
+    }
+    
+    void OnResume()
+    {
+        Time.timeScale = 1f;
     }
 }

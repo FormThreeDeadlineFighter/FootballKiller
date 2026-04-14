@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 [Serializable]
 public class PlayerInput : MonoBehaviour
 {
-    PlayerControl _playerControl;
+    private PlayerControl _playerControl;
     public Vector2 StickValue;
     public bool IsJump => _playerControl.Battle.Jump.WasPerformedThisFrame();
     public bool IsBlock => _playerControl.Battle.Block.WasPerformedThisFrame();
@@ -15,6 +15,7 @@ public class PlayerInput : MonoBehaviour
     public bool IsHold => _playerControl.Battle.HoldAttack.IsPressed();
     public bool IsRelease => _playerControl.Battle.HoldAttack.WasReleasedThisFrame();
     public bool IsSwitch => _playerControl.Battle.SwitchElement.WasPerformedThisFrame();
+    public bool IsPause => _playerControl.Battle.Pause.WasPerformedThisFrame();
     public bool IsMove => StickValue != Vector2.zero;
     
     public void Awake()

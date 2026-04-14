@@ -8,6 +8,7 @@ public class PlayerState_Jump : IPlayerState
     [SerializeField] TimelineAsset _timeline;
     [SerializeField] float _jumpForce = 5f;
     [SerializeField] float _moveSpeed = 5f;
+    [SerializeField] float _invincibleTime = 0.1f;
     public override void EnterState()
     { 
         _director.playableAsset = _timeline;
@@ -16,6 +17,8 @@ public class PlayerState_Jump : IPlayerState
         
         _player.Jump(_jumpForce);
         _player.CanJump = false;
+        
+        _player.InvincibleStart(_invincibleTime);
     }
     public override void ExitState()
     {

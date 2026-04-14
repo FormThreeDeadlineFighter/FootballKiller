@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerState_Dash : IPlayerState
 {
     [SerializeField] float _duration = 0.1f;
+    [SerializeField] float _invincibleTime = 0.2f;
     private float _currentTime;
     public override void EnterState()
     {
@@ -11,6 +12,8 @@ public class PlayerState_Dash : IPlayerState
 
         _player.Dash();
         _currentTime = _duration;
+        
+        _player.InvincibleStart(_invincibleTime);
     }
     public override void ExitState()
     {
