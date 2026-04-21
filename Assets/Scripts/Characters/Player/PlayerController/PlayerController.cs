@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour
     public HoldGrade CurrentHoldGrade = HoldGrade.level0;
     public bool CanJump = false;
     public bool ActionCancel = false;
-    public bool IsStop = false;
 
     void Awake()
     {
@@ -51,18 +50,15 @@ public class PlayerController : MonoBehaviour
     void OnEnable()
     {   
         _playerEvents.OnPlayerHurt += GetHurt;
-        _playerEvents.OnComboGradeChange += GetComboGrade;
         
         _playerHitBox.SetActive(true); 
         _currentHP = _HP;
         CanJump = true;
-        IsStop = false;
     }
 
     void OnDisable()
     {
         _playerEvents.OnPlayerHurt -= GetHurt;
-        _playerEvents.OnComboGradeChange -= GetComboGrade;
         _playerHitBox.SetActive(false);
     }
     void Update()
@@ -97,6 +93,12 @@ public class PlayerController : MonoBehaviour
             }
             Debug.Log(CurrentHoldGrade);
             holdTime = 0;
+        }
+        
+        if(_input.IsPause)
+        {
+            _gameEvent.GamePause();
+            Debug.Log("game pause");
         }
         
     }
@@ -215,18 +217,13 @@ public class PlayerController : MonoBehaviour
     
     public void PauseEnter()
     {
-        
+        _gameEvent.GamePause();
     }
     
     public void InvincibleStart(float time)
     {
         if (_invincibleCoroutine != null) return;
         _invincibleCoroutine = StartCoroutine(InvincibleTime(time));
-    }
-    
-    private void GetComboGrade(ComboGrade grade)
-    {
-        _currentGrade = grade;
     }
     
     private void GetHurt(float damage)

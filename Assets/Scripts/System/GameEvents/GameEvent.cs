@@ -22,6 +22,15 @@ public class GameEvent : ScriptableObject
         }
     }
     
+    public Action OnGamePause;
+    public void GamePause()
+    {
+        if (OnGamePause != null)
+        {
+            OnGamePause();
+        }
+    }
+    
     public Action OnEnemyDestory;
     public void EnemyDestory()
     {

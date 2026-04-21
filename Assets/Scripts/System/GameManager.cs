@@ -7,22 +7,31 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _lossUI;
     [SerializeField] private GameObject _pauseUI;
     [SerializeField] private GameEvent _gameEvent;
+    private bool IsPause;
 
     void OnEnable()
     {
         _gameEvent.OnGameVictory += OnVectory;
         _gameEvent.OnGameDefeat += OnDefeat;
+        _gameEvent.OnGamePause += OnPause;
+        
+        IsPause = false;
     }
     void OnDisable()
     {
         _gameEvent.OnGameVictory -= OnVectory;
         _gameEvent.OnGameDefeat -= OnDefeat;
+        _gameEvent.OnGamePause -= OnPause;
+        
+        IsPause = false;
     }
 
     void OnVectory()
     {
         Instantiate(_winUI, UI.transform);
+        
         Debug.Log("You Win");
+        Time.timeScale = 0f;
         _gameEvent.OnGameVictory -= OnVectory;
         _gameEvent.OnGameDefeat -= OnDefeat;
     }
@@ -31,19 +40,33 @@ public class GameManager : MonoBehaviour
     {
         Instantiate(_lossUI, UI.transform);
         Debug.Log("You Lose");
+        Time.timeScale = 0f;
         _gameEvent.OnGameVictory -= OnVectory;
         _gameEvent.OnGameDefeat -= OnDefeat;
     }
-    
-    void OnPause()
+    private void OnPause()
     {
-        Time.timeScale = 0f;
-        Instantiate(_pauseUI, UI.transform);
-        
+        if(!IsPause)
+        {
+            Pause();
+        }
+        else
+        {
+            Resume();
+        }
     }
     
-    void OnResume()
+    public void Pause()
+    {
+        Time.timeScale = 0f;
+        _pauseUI.SetActive(true);  
+        IsPause = true;
+    }
+    
+    public void Resume()
     {
         Time.timeScale = 1f;
+        _pauseUI.SetActive(false); 
+        IsPause = false;
     }
 }
