@@ -9,10 +9,11 @@ public class PlayerStateController : IStateController
     //[SerializeField] GameObject _modelHead;
     [SerializeField] GameObject _modelFoot;
     [SerializeField] IPlayerState[] _playerStates;
+    [SerializeField] GameEvent _gameEvent;
     private Animator _animator;
     private PlayableDirector _director;
     private PlayerInput _playerInput;
-    private PlayerController _player;
+    private PlayerController _player; 
 
     void Awake()
     {
@@ -32,14 +33,25 @@ public class PlayerStateController : IStateController
             }
         }    
     }
-
+    void OnEnable()
+    {
+        _gameEvent.OnGameDefeat += OnDie;
+    }
+    
+    void OnDisable()
+    {
+        _gameEvent.OnGameDefeat -= OnDie;
+        
+        _stateTable.Clear();
+    }
     void Start()
     {
         SetState(_stateTable[typeof(PlayerState_Idle)]);
     }
-
-    void OnDisable()
+    
+    void OnDie()
     {
-        _stateTable.Clear();
+        
     }
+    
 }

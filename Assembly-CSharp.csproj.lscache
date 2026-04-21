@@ -135,7 +135,6 @@ Assets/Scripts/Characters/
     PlayerState_Land.cs
     PlayerState_Move.cs
     PlayerState_Release.cs
-    PlayerState_Stop.cs
   ThirdPersonCameraController.cs
  Player/PlayerDetector/
   PlayerBlockDetector.cs
