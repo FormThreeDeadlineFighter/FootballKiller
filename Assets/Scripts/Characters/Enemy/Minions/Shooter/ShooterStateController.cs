@@ -52,10 +52,15 @@ public class ShooterStateController : IStateController
     
     void Start()
     {
-        
+        SetState(_stateTable[typeof(ShooterState_Idle)]);
     }
     
     void OnDie()
+    {
+        
+    }
+    
+    void OnHurt()
     {
         
     }

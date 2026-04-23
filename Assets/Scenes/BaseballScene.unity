@@ -1170,6 +1170,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Baseball Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 487394218401988616, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2259652608141322901, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
       propertyPath: InitialModule.startRotationX.scalar
       value: 0
@@ -6721,11 +6725,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 698843275809421332, guid: 1a7fd1992e7a30e439f9ca27d9e88ec5, type: 3}
       propertyPath: m_Name
-      value: Minion_01
+      value: Shooter
       objectReference: {fileID: 0}
-    - target: {fileID: 698843275809421332, guid: 1a7fd1992e7a30e439f9ca27d9e88ec5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 7337026437412562189, guid: 1a7fd1992e7a30e439f9ca27d9e88ec5, type: 3}
+      propertyPath: m_Size.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337026437412562189, guid: 1a7fd1992e7a30e439f9ca27d9e88ec5, type: 3}
+      propertyPath: m_Center.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337026437412562189, guid: 1a7fd1992e7a30e439f9ca27d9e88ec5, type: 3}
+      propertyPath: m_Center.z
+      value: -0.45000005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

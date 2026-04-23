@@ -11,12 +11,18 @@ public class ShooterState_Shoot : IShooter
 
     public override void EnterState()
     {
-        _animator.Play(_data.AnimationName);
-        
-        _enemy.AttackCD();
+        _director.playableAsset = _data.Timeline;
+        _director.time = 0;
+        _director.Play();
+            
+        Debug.Log("shooter shoot");
     }
     public override void ExitState()
     {
+        _director.time = 0;
+        //_director.Stop();
+        
+        _enemy.AttackCD();
         _enemy.NotTrackPlayer();
     }
     public override void LogicUpdate()

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a78febbdb30ad408dd1ca091669f58, type: 3}
   m_Name: Minion01StateConfig_Idle
   m_EditorClassIdentifier: Assembly-CSharp::Minion01StateConfig_Idle
-  AnimationName: 
+  AnimationName: Idle

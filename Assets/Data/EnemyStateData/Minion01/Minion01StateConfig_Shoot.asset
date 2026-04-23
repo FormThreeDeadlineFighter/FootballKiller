@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970735088fcbb054c8f4c0e7274ff28a, type: 3}
   m_Name: Minion01StateConfig_Shoot
   m_EditorClassIdentifier: Assembly-CSharp::Minion01StateConfig_Shoot
-  AnimationName: 
+  Timeline: {fileID: 11400000, guid: b95984616855a4b4686865c7209bf502, type: 2}

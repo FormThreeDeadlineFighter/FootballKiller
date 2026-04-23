@@ -12,6 +12,7 @@ public class ShooterState_Move : IShooter
     public override void EnterState()
     {
         _animator.Play(_data.AnimationName);
+        Debug.Log("shooter move");
     }
     public override void ExitState()
     {

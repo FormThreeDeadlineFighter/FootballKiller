@@ -12,6 +12,7 @@ public class ShooterState_Idle : IShooter
     public override void EnterState()
     {
         _animator.Play(_data.AnimationName);
+        Debug.Log("shooter idle");
     }
     public override void ExitState()
     {
@@ -25,7 +26,7 @@ public class ShooterState_Idle : IShooter
         }  
         else
         {
-            _stateMachine.SetState(typeof(ShooterState_Move));  
+            //_stateMachine.SetState(typeof(ShooterState_Move));  
         }
     }
     public override void PhysicsUpdate()
