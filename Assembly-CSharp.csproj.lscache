@@ -100,12 +100,14 @@ Assets/Scripts/Characters/
    ShooterData/
     ShooterStateConfig_Idle.cs
     ShooterStateConfig_Move.cs
-    ShooterStateConfig_Shoot.cs
+    ShooterStateConfig_NormalShoot.cs
+    ShooterStateConfig_SectorShoot.cs
    ShooterStateController.cs
    ShooterStates/
     ShooterState_Idle.cs
     ShooterState_Move.cs
-    ShooterState_Shoot.cs
+    ShooterState_NormalShoot.cs
+    ShooterState_SectorShoot.cs
   Minions/Tank/
    ITank.cs
    TankStateController.cs

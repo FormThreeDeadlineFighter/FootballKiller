@@ -3,7 +3,17 @@ guid: 223c30f51fa4aa34b9d1beee93145adf
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: a4870ecf2f364a94aba519c24cb0d641, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: monster2_uvMap_color
+    second: {fileID: 2800000, guid: 8d7184d3d352bf14e9cd79c8c5ebc0d2, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

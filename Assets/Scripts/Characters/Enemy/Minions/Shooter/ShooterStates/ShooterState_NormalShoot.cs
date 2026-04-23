@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.Playables;
 
-public class ShooterState_Shoot : IShooter
+public class ShooterState_NormalShoot : IShooter
 {
-    ShooterStateConfig_Shoot _data;
+    ShooterStateConfig_NormalShoot _data;
 
-    public ShooterState_Shoot(ShooterStateConfig_Shoot data) : base(data)
+    public ShooterState_NormalShoot(ShooterStateConfig_NormalShoot data) : base(data)
     {
         _data = data;
     }
@@ -14,8 +15,6 @@ public class ShooterState_Shoot : IShooter
         _director.playableAsset = _data.Timeline;
         _director.time = 0;
         _director.Play();
-            
-        Debug.Log("shooter shoot");
     }
     public override void ExitState()
     {
@@ -27,7 +26,7 @@ public class ShooterState_Shoot : IShooter
     }
     public override void LogicUpdate()
     {   
-        if(IsAnimationComplete)
+        if(_director.state != PlayState.Playing)
         {
             _stateMachine.SetState(typeof(ShooterState_Idle)); 
         }

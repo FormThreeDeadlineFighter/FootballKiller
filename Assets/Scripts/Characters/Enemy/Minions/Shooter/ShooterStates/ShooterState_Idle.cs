@@ -22,7 +22,15 @@ public class ShooterState_Idle : IShooter
     {   
         if(_enemy.CanAttack)
         {  
-            _stateMachine.SetState(typeof(ShooterState_Shoot));   
+            int ran = Random.Range(1,3);
+            if(ran == 1)
+            {             
+                _stateMachine.SetState(typeof(ShooterState_NormalShoot));   
+            }
+            if(ran == 2)
+            {             
+                _stateMachine.SetState(typeof(ShooterState_SectorShoot));   
+            }
         }  
         else
         {
