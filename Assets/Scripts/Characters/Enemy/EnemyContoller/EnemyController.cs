@@ -31,6 +31,7 @@ public class EnemyController : MonoBehaviour
     public bool CanAttack;
     public bool CanJump;
     public bool IsHurt;
+    public bool IsDie;
     public bool IsStop;
     
     void Awake()
@@ -43,6 +44,7 @@ public class EnemyController : MonoBehaviour
         CanAttack = false;
         CanJump = true;
         _TrackPlayer = true;
+        IsDie = false;
         IsStop = false;
     }
 
@@ -96,26 +98,13 @@ public class EnemyController : MonoBehaviour
         }
         if (_currentHP <= 0)
         {
-            _currentHP = 0;           
+            _currentHP = 0;      
+            IsDie = true;     
             _bossEvent.BossDie();
         }
         
         float hpPercentage = _currentHP/_HP;
         _bossEvent.BossHPCahange(hpPercentage);
-    }
-    
-    private void ShieldHurt(float damage)
-    {
-        if(_invincible) return;       
-        
-        if (_shieldHP >= 0)
-        {
-            _shieldHP -= damage;
-        }
-        if (_shieldHP <= 0)
-        {
-            _shieldHP = 0;
-        }
     }
     
     public void EnemyStart()

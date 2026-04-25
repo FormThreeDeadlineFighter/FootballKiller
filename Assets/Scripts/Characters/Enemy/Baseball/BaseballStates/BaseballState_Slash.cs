@@ -24,6 +24,11 @@ public class BaseballState_Slash : IBaseballState
     }
     public override void LogicUpdate()
     {
+        if(_enemy.IsDie)
+        {
+            _stateMachine.SetState(typeof(BaseballState_Die));
+        }  
+        
         if (_director.state != PlayState.Playing)
         {           
             _stateMachine.SetState(typeof(BaseballState_Idle));         

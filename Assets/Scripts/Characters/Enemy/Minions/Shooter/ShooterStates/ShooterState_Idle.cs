@@ -19,18 +19,25 @@ public class ShooterState_Idle : IShooter
         _enemy.NotTrackPlayer();
     }
     public override void LogicUpdate()
-    {   
+    {  
+        if(_enemy.IsHurt)
+        {
+            _stateMachine.SetState(typeof(ShooterState_Hurt));
+        }
+        
         if(_enemy.CanAttack)
         {  
-            int ran = Random.Range(1,3);
-            if(ran == 1)
-            {             
-                _stateMachine.SetState(typeof(ShooterState_NormalShoot));   
-            }
-            if(ran == 2)
-            {             
-                _stateMachine.SetState(typeof(ShooterState_SectorShoot));   
-            }
+            _stateMachine.SetState(typeof(ShooterState_NormalShoot));
+            
+            //int ran = Random.Range(1,3);
+            //if(ran == 1)
+            //{             
+            //    _stateMachine.SetState(typeof(ShooterState_NormalShoot));   
+            //}
+            //if(ran == 2)
+            //{             
+            //    _stateMachine.SetState(typeof(ShooterState_SectorShoot));   
+            //}
         }  
         else
         {

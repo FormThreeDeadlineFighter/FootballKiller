@@ -12,7 +12,6 @@ public class BaseballStateController : IStateController
     private EnemyController _enemy;
     PlayableDirector _director;
     List<IBaseballState> _baseballStates = new List<IBaseballState>();
-    [SerializeField] BossEvent _bossEvent;
     
     #region States
     BaseballState_BackJump _baseballState_BackJump; 
@@ -74,14 +73,11 @@ public class BaseballStateController : IStateController
             state.Initialize(this, _enemy, _animator, _director);
             _stateTable.Add(state.GetType(), state);
         }
-        
-        _bossEvent.OnBossDie += OnDie;
     }
     
     void OnDisable()
     {
         _stateTable.Clear();
-        _bossEvent.OnBossDie -= OnDie;
     }
     
     void Start()

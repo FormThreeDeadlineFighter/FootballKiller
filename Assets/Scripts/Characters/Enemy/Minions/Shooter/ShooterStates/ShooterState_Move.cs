@@ -19,7 +19,12 @@ public class ShooterState_Move : IShooter
         _enemy.NotTrackPlayer();
     }
     public override void LogicUpdate()
-    {   
+    {        
+        if(_enemy.IsHurt)
+        {
+            _stateMachine.SetState(typeof(ShooterState_Hurt));
+        }
+        
         if(_enemy.CanAttack)
         {
             _stateMachine.SetState(typeof(ShooterState_Idle)); 

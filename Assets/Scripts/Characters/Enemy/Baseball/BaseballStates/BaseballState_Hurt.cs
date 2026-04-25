@@ -19,7 +19,11 @@ public class BaseballState_Hurt : IBaseballState
        _enemy.IsHurt = false;
     }
     public override void LogicUpdate()
-    {         
+    { 
+        if(_enemy.IsDie)
+        {
+            _stateMachine.SetState(typeof(BaseballState_Die));
+        }        
         if (IsAnimationComplete)
         {           
             _stateMachine.SetState(typeof(BaseballState_Idle));         

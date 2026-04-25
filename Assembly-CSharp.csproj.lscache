@@ -98,12 +98,16 @@ Assets/Scripts/Characters/
    IShooter.cs
    ShooterController.cs
    ShooterData/
+    ShooterStateConfig_Die.cs
+    ShooterStateConfig_Hurt.cs
     ShooterStateConfig_Idle.cs
     ShooterStateConfig_Move.cs
     ShooterStateConfig_NormalShoot.cs
     ShooterStateConfig_SectorShoot.cs
    ShooterStateController.cs
    ShooterStates/
+    ShooterState_Die.cs
+    ShooterState_Hurt.cs
     ShooterState_Idle.cs
     ShooterState_Move.cs
     ShooterState_NormalShoot.cs
@@ -526,7 +530,7 @@ Temp/bin/Debug/
  Unity.Properties.SourceGenerator.dll
  Unity.SourceGenerators.dll
  Unity.UIToolkit.SourceGenerator.dll
-../../../.vscode/extensions/visualstudiotoolsforunity.vstuc-1.2.1/Analyzers/Microsoft.Unity.Analyzers.dll
+../../../.vscode/extensions/visualstudiotoolsforunity.vstuc-1.2.2/Analyzers/Microsoft.Unity.Analyzers.dll
 
 [analyzerConfigFiles]
 Temp/obj/Assembly-CSharp/Assembly-CSharp.GeneratedMSBuildEditorConfig.editorconfig

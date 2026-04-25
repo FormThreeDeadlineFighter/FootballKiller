@@ -96,7 +96,7 @@ PlayableDirector:
   m_GameObject: {fileID: 698843275809421332}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: bf413b63c7abb27488bf76238678e649, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: b95984616855a4b4686865c7209bf502, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   _HP: 50
   _shieldHP: 0
-  _attackCD: 5
+  _attackCD: 8
   _jumpCD: 0
   rotateSpeed: 360
   _invincible: 0
@@ -140,6 +140,7 @@ MonoBehaviour:
   CanAttack: 0
   CanJump: 0
   IsHurt: 0
+  IsDie: 0
   IsStop: 0
 --- !u!114 &4345789401648323435
 MonoBehaviour:
@@ -157,6 +158,8 @@ MonoBehaviour:
   _moveData: {fileID: 11400000, guid: 0e44391c8c6387a488daa858c2712356, type: 2}
   _normalShootData: {fileID: 11400000, guid: 8db750ab3af51f046825724c9f1a3f50, type: 2}
   _sectorShootData: {fileID: 11400000, guid: 907408a3105f13c419e5803c0e639950, type: 2}
+  _hurtData: {fileID: 11400000, guid: 46fb02ca217c6cd498700f3a4c218b3d, type: 2}
+  _dieData: {fileID: 11400000, guid: dbb4864cf2cac0246951073948923cac, type: 2}
 --- !u!114 &7497642597181151431
 MonoBehaviour:
   m_ObjectHideFlags: 0

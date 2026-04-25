@@ -19,7 +19,7 @@ public class BaseballState_Idle : IBaseballState
         _enemy.NotTrackPlayer();
     }
     public override void LogicUpdate()
-    {   
+    {  
         if(_enemy.IsHurt)
         {
             _stateMachine.SetState(typeof(BaseballState_Hurt));
