@@ -66,17 +66,6 @@ Assets/Scripts/Characters/
  Enemy/Baseball/
   BaseballController.cs
   BaseballStateController.cs
-  BaseballStateData/
-   BaseballStateConfig_BackJump.cs
-   BaseballStateConfig_Collision.cs
-   BaseballStateConfig_Die.cs
-   BaseballStateConfig_Forward.cs
-   BaseballStateConfig_Hurt.cs
-   BaseballStateConfig_Idle.cs
-   BaseballStateConfig_PreAttack.cs
-   BaseballStateConfig_SideStep.cs
-   BaseballStateConfig_Slash.cs
-   BaseballStateConfig_Wave.cs
   BaseballStates/
    BaseballState_BackJump.cs
    BaseballState_Collision.cs
@@ -89,6 +78,7 @@ Assets/Scripts/Characters/
    BaseballState_Slash.cs
    BaseballState_Wave.cs
   IBaseballState.cs
+  StateConfig_Baseball.cs
  Enemy/
   EnemyContoller/EnemyController.cs
   Minions/FlyGatling/
@@ -97,13 +87,6 @@ Assets/Scripts/Characters/
   Minions/Shooter/
    IShooter.cs
    ShooterController.cs
-   ShooterData/
-    ShooterStateConfig_Die.cs
-    ShooterStateConfig_Hurt.cs
-    ShooterStateConfig_Idle.cs
-    ShooterStateConfig_Melee.cs
-    ShooterStateConfig_PreAttack.cs
-    ShooterStateConfig_Shoot.cs
    ShooterStateController.cs
    ShooterStates/
     ShooterState_Die.cs
@@ -112,9 +95,19 @@ Assets/Scripts/Characters/
     ShooterState_Melee.cs
     ShooterState_PreAttack.cs
     ShooterState_Shoot.cs
+   StateConfig_Shooter.cs
   Minions/Tank/
    ITank.cs
+   StateConfig_Tank.cs
    TankStateController.cs
+   TankStates/
+    TankState_Beat.cs
+    TankState_Charge.cs
+    TankState_Die.cs
+    TankState_Hurt.cs
+    TankState_Idle.cs
+    TankState_PreAttack.cs
+    TankState_Shoot.cs
  Player/PlayerController/
   EnergyController.cs
   PlayerComboController.cs
