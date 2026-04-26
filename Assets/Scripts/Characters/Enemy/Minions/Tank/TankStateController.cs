@@ -10,14 +10,12 @@ public class TankStateController : IStateController
     private EnemyController _enemy;
     PlayableDirector _director;  
     List<ITank> _tankStates = new List<ITank>();
+    [SerializeField] StateConfig_Tank _data;
     
     #region States
 
     #endregion
     
-    #region StateConfigs
-
-    #endregion
     void OnEnable()
     {      
         
@@ -29,7 +27,7 @@ public class TankStateController : IStateController
     
         foreach (ITank state in _tankStates)
         {
-            state.Initialize(this, _enemy, _animator, _director);
+            state.Initialize(this, _enemy, _animator, _director, _data);
             _stateTable.Add(state.GetType(), state);
         }
     }
@@ -40,11 +38,6 @@ public class TankStateController : IStateController
     }
     
     void Start()
-    {
-        
-    }
-    
-    void OnDie()
     {
         
     }

@@ -8,19 +8,17 @@ public class ITank :IState
     protected Animator _animator;
     protected PlayableDirector _director;
     protected EnemyController _enemy;
+    protected StateConfig_Tank _data;
     protected bool IsAnimationComplete => _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f;
     protected float _stateDuration => Time.time - _stateEnterTime;
 
-    public ITank(IStateConfig stateConfig)
-    {
-        
-    }
-    public void Initialize(TankStateController stateMachine, EnemyController enemy, Animator animator, PlayableDirector director)
+    public void Initialize(TankStateController stateMachine, EnemyController enemy, Animator animator, PlayableDirector director, StateConfig_Tank data)
     {
         _stateMachine = stateMachine;
         _enemy = enemy;
         _animator = animator;
         _director = director;
+        _data = data;
     }
     // when enter state happen
     public virtual void EnterState() 
