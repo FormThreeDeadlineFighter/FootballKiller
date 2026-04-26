@@ -1721,10 +1721,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 578171978}
     m_Modifications:
-    - target: {fileID: 212963200493734707, guid: 1a7fd1992e7a30e439f9ca27d9e88ec5, type: 3}
-      propertyPath: m_PlayableAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: bf413b63c7abb27488bf76238678e649, type: 2}
     - target: {fileID: 301268226129856269, guid: 1a7fd1992e7a30e439f9ca27d9e88ec5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.27
@@ -1768,22 +1764,6 @@ PrefabInstance:
     - target: {fileID: 698843275809421332, guid: 1a7fd1992e7a30e439f9ca27d9e88ec5, type: 3}
       propertyPath: m_Name
       value: Test_Shooter
-      objectReference: {fileID: 0}
-    - target: {fileID: 698843275809421332, guid: 1a7fd1992e7a30e439f9ca27d9e88ec5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5432778186910237022, guid: 1a7fd1992e7a30e439f9ca27d9e88ec5, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5432778186910237022, guid: 1a7fd1992e7a30e439f9ca27d9e88ec5, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5432778186910237022, guid: 1a7fd1992e7a30e439f9ca27d9e88ec5, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3023,10 +3003,6 @@ PrefabInstance:
     - target: {fileID: 698843275809421332, guid: dd62e0ee175d8a247992a279f75ca107, type: 3}
       propertyPath: m_Name
       value: Minion_Shooter 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 698843275809421332, guid: dd62e0ee175d8a247992a279f75ca107, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fbcc33c7cf889469f447b460a8fac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 20
+  Damage: 15
   Elements: 0
 --- !u!114 &78438558304002166
 MonoBehaviour:
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55623f0776666a479fcf344d8c35286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBullet
-  _speed: 60
+  _speed: 50
   boom: {fileID: 4371265178355146009, guid: 61d9dff2958c17e4898cdddb87898811, type: 3}
 --- !u!1001 &4201186792119877270
 PrefabInstance:

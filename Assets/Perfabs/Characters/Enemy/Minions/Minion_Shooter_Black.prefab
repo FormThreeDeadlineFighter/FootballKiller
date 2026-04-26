@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3f8ba76431b0544b20808de20279b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackData
-  attackTransform: {fileID: 0}
+  attackTransform: {fileID: 314571141341594013}
   _bulletsArray:
   - Bullets:
     - Bullet: {fileID: 7841672020790003158, guid: 0d842644ecdf6d14bb537a9c73681bc0, type: 3}
