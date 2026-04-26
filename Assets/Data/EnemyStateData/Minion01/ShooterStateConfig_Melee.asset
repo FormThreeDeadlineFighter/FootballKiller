@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f1c50c219427ee4c855a10f2a16028b, type: 3}
-  m_Name: ShooterStateConfig_SectorShoot
+  m_Name: ShooterStateConfig_Melee
   m_EditorClassIdentifier: Assembly-CSharp::ShooterStateConfig_SectorShoot
   Timeline: {fileID: 11400000, guid: bf413b63c7abb27488bf76238678e649, type: 2}

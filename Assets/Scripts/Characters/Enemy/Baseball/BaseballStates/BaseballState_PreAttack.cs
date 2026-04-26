@@ -27,8 +27,6 @@ public class BaseballState_PreAttack : IBaseballState
             break;
             case 3: _stateMachine.SetState(typeof(BaseballState_Wave));
             break;
-            default: _stateMachine.SetState(typeof(BaseballState_Idle));
-            break;
         }                
     }
     public override void PhysicsUpdate()

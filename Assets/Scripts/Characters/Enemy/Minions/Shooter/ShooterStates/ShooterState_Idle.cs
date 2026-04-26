@@ -26,26 +26,19 @@ public class ShooterState_Idle : IShooter
         }
         
         if(_enemy.CanAttack)
-        {  
-            _stateMachine.SetState(typeof(ShooterState_NormalShoot));
-            
-            //int ran = Random.Range(1,3);
-            //if(ran == 1)
-            //{             
-            //    _stateMachine.SetState(typeof(ShooterState_NormalShoot));   
-            //}
-            //if(ran == 2)
-            //{             
-            //    _stateMachine.SetState(typeof(ShooterState_SectorShoot));   
-            //}
+        {           
+            _stateMachine.SetState(typeof(ShooterState_PreAttack));
         }  
-        else
-        {
-            //_stateMachine.SetState(typeof(ShooterState_Move));  
-        }
+
     }
     public override void PhysicsUpdate()
     {
         _enemy.IsTrackPlayer();
+        
+        if(_enemy.PlayerDistance > 20f)
+        {      
+            Vector3 forward = _enemy.PlayerPosition * 5f;
+            _enemy.SetVelocityXZ(forward);
+        }
     }
 }

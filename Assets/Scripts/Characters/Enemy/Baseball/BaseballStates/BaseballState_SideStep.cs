@@ -31,7 +31,7 @@ public class BaseballState_SideStep : IBaseballState
         {
             _stateMachine.SetState(typeof(BaseballState_Forward));
         }
-        else if (_enemy.PlayerDistance < _data.BackJumpDistance && _enemy.CanJump)
+        else if (_enemy.PlayerDistance < _data.BackJumpDistance && _enemy.CanBack)
         {
             _stateMachine.SetState(typeof(BaseballState_BackJump));
         } 

@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
     [Header("Energy Property")]
     [SerializeField] private float _HP;
     [SerializeField] float _shieldHP;
-    [SerializeField] float _attackCD;
+    [SerializeField] Vector2 _attackCD;
     [SerializeField] float _jumpCD;
     [SerializeField] float rotateSpeed;
     [SerializeField] bool _invincible = false;
@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
     public Vector3 PlayerPosition => (_sensor.Target.transform.position - _rb.transform.position).normalized;
     public float PlayerDistance => Vector3.Distance(transform.position, _sensor.Target.transform.position);
     public bool CanAttack;
-    public bool CanJump;
+    public bool CanBack;
     public bool IsHurt;
     public bool IsDie;
     public bool IsStop;
@@ -42,7 +42,7 @@ public class EnemyController : MonoBehaviour
         _currentHP = _HP;
         _shieldHP = 0;
         CanAttack = false;
-        CanJump = true;
+        CanBack = false;
         _TrackPlayer = true;
         IsDie = false;
         IsStop = false;
@@ -148,13 +148,14 @@ public class EnemyController : MonoBehaviour
     public void AttackCD()
     {
         if (_attackCoroutine != null) return;
-        _attackCoroutine = StartCoroutine(AttackCD(_attackCD));
+        float attackCD = Random.Range(_attackCD.x, _attackCD.y);
+        _attackCoroutine = StartCoroutine(AttackCD(attackCD));
     }
     
     public void JumpCD()
     {
         if (_jumpCoroutine != null) return;
-        _jumpCoroutine = StartCoroutine(JumpCD(_attackCD));
+        _jumpCoroutine = StartCoroutine(JumpCD(_jumpCD));
     }
     
     public void EnemyDie()
@@ -183,9 +184,9 @@ public class EnemyController : MonoBehaviour
     
     IEnumerator JumpCD(float time)
     {
-        CanJump = false;
+        CanBack = false;
         yield return new WaitForSeconds(time);
-        CanJump = true;
+        CanBack = true;
         StopCoroutine(_jumpCoroutine);
         _jumpCoroutine = null;  
     }

@@ -58,9 +58,9 @@ Assets/Scripts/Bullet/
  BulletArrayData.cs
  BulletData.cs
  EnemyBullet.cs
- Football.cs
  IBullet.cs
  PlayerBullet.cs
+ Shooter/ShooterEnergy.cs
 Assets/Scripts/Characters/
  AISensor.cs
  Enemy/Baseball/
@@ -101,17 +101,17 @@ Assets/Scripts/Characters/
     ShooterStateConfig_Die.cs
     ShooterStateConfig_Hurt.cs
     ShooterStateConfig_Idle.cs
-    ShooterStateConfig_Move.cs
-    ShooterStateConfig_NormalShoot.cs
-    ShooterStateConfig_SectorShoot.cs
+    ShooterStateConfig_Melee.cs
+    ShooterStateConfig_PreAttack.cs
+    ShooterStateConfig_Shoot.cs
    ShooterStateController.cs
    ShooterStates/
     ShooterState_Die.cs
     ShooterState_Hurt.cs
     ShooterState_Idle.cs
-    ShooterState_Move.cs
-    ShooterState_NormalShoot.cs
-    ShooterState_SectorShoot.cs
+    ShooterState_Melee.cs
+    ShooterState_PreAttack.cs
+    ShooterState_Shoot.cs
   Minions/Tank/
    ITank.cs
    TankStateController.cs

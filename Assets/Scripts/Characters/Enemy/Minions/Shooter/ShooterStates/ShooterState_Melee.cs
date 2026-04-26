@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class ShooterState_NormalShoot : IShooter
+public class ShooterState_Melee : IShooter
 {
-    ShooterStateConfig_NormalShoot _data;
+    ShooterStateConfig_Melee _data;
 
-    public ShooterState_NormalShoot(ShooterStateConfig_NormalShoot data) : base(data)
+    public ShooterState_Melee(ShooterStateConfig_Melee data) : base(data)
     {
         _data = data;
     }
@@ -19,13 +19,12 @@ public class ShooterState_NormalShoot : IShooter
     public override void ExitState()
     {
         _director.time = 0;
-        //_director.Stop();
         
         _enemy.AttackCD();
         _enemy.NotTrackPlayer();
     }
     public override void LogicUpdate()
-    {  
+    {        
         if(_enemy.IsDie)
         {
             _stateMachine.SetState(typeof(ShooterState_Die));
@@ -39,5 +38,10 @@ public class ShooterState_NormalShoot : IShooter
     public override void PhysicsUpdate()
     {
         _enemy.IsTrackPlayer();
+        if(_enemy.PlayerDistance < 10)
+        {      
+            Vector3 back = -_enemy.PlayerPosition * 10;
+            _enemy.SetVelocityXZ(back);
+        }
     }
 }
