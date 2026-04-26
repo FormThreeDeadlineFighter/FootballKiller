@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4345789401648323435}
   - component: {fileID: 7497642597181151431}
   m_Layer: 7
-  m_Name: Minion_Shooter
+  m_Name: Minion_Shooter_White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334eae64029872b44b445ed72328bd50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Minion01StateController
-  _data: {fileID: 11400000, guid: fa6692c4646eedb42bf5707a6fc6a745, type: 2}
+  _data: {fileID: 11400000, guid: fb7d41169834d984c8356b03c14ced32, type: 2}
 --- !u!114 &7497642597181151431
 MonoBehaviour:
   m_ObjectHideFlags: 0

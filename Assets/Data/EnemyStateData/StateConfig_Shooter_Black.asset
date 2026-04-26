@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57b2ea5e210a72c4db4e1c074b95406a, type: 3}
-  m_Name: StateConfig_Shooter
+  m_Name: StateConfig_Shooter_Black
   m_EditorClassIdentifier: Assembly-CSharp::StateConfig_Shooter
   ForwardSpeed: 5
   BackSpeed: 12
   IdleAnimationName: Idle
   HurtAnimationName: Hurt
   DieAnimationName: Hurt
-  ShootTimeline: {fileID: 11400000, guid: b95984616855a4b4686865c7209bf502, type: 2}
+  ShootTimeline: {fileID: 11400000, guid: bf413b63c7abb27488bf76238678e649, type: 2}
   MeleeTimeline: {fileID: 11400000, guid: bf413b63c7abb27488bf76238678e649, type: 2}
