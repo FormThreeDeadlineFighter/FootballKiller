@@ -2,17 +2,10 @@ using UnityEngine;
 using UnityEngine.Playables;
 
 public class BaseballState_Slash : IBaseballState
-{
-    BaseballStateConfig_Slash _data;
-
-    public BaseballState_Slash(BaseballStateConfig_Slash data) : base(data)
-    {
-        _data = data;
-    }
-    
+{   
     public override void EnterState()
     { 
-        _director.playableAsset = _data.Timeline;
+        _director.playableAsset = _data.SlashTimeline;
         _director.time = 0;
         _director.Play();
     }

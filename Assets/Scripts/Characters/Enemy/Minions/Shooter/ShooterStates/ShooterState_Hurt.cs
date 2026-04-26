@@ -2,16 +2,9 @@ using UnityEngine;
 
 public class ShooterState_Hurt : IShooter
 {
-    ShooterStateConfig_Hurt _data;
-
-    public ShooterState_Hurt(ShooterStateConfig_Hurt data) : base(data)
-    {
-        _data = data;
-    }
-
     public override void EnterState()
     {
-        _animator.Play(_data.AnimationName);
+        _animator.Play(_data.HurtAnimationName);
         _enemy.IsTrackPlayer();
     }
     public override void ExitState()

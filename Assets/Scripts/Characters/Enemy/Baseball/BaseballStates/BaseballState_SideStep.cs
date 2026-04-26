@@ -2,16 +2,9 @@ using UnityEngine;
 
 public class BaseballState_SideStep : IBaseballState
 {
-    BaseballStateConfig_SideStep _data;
-
-    public BaseballState_SideStep(BaseballStateConfig_SideStep data) : base(data)
-    {
-        _data = data;
-    }
-
     public override void EnterState()
     {
-        _animator.Play(_data.AnimationName);
+        _animator.Play(_data.SideStepAnimationName);
     }
     public override void ExitState()
     {
@@ -27,11 +20,11 @@ public class BaseballState_SideStep : IBaseballState
         {
             _stateMachine.SetState(typeof(BaseballState_PreAttack));
         }   
-        else if(_enemy.PlayerDistance > _data.ForwardDistance)
+        else if(_enemy.PlayerDistance > _data.ForwardTriggerDistance)
         {
             _stateMachine.SetState(typeof(BaseballState_Forward));
         }
-        else if (_enemy.PlayerDistance < _data.BackJumpDistance && _enemy.CanBack)
+        else if (_enemy.PlayerDistance < _data.BackJumpTriggerDistance && _enemy.CanBack)
         {
             _stateMachine.SetState(typeof(BaseballState_BackJump));
         } 

@@ -8,19 +8,17 @@ public class IShooter : IState
     protected Animator _animator;
     protected PlayableDirector _director;
     protected EnemyController _enemy;
+    protected StateConfig_Shooter _data;
     protected bool IsAnimationComplete => _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f;
     protected float _stateDuration => Time.time - _stateEnterTime;
-
-    public IShooter(IStateConfig stateConfig)
-    {
-        
-    }
-    public void Initialize(ShooterStateController stateMachine, EnemyController enemy, Animator animator, PlayableDirector director)
+    
+    public void Initialize(ShooterStateController stateMachine, EnemyController enemy, Animator animator, PlayableDirector director, StateConfig_Shooter data)
     {
         _stateMachine = stateMachine;
         _enemy = enemy;
         _animator = animator;
         _director = director;
+        _data = data;
     }
     // when enter state happen
     public virtual void EnterState() 

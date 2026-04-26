@@ -10,6 +10,8 @@ public class ShooterStateController : IStateController
     private EnemyController _enemy;
     PlayableDirector _director;  
     List<IShooter> _shooterStates = new List<IShooter>();
+    [SerializeField] StateConfig_Shooter _data;
+    
     
     #region States
     ShooterState_Idle _shooterState_Idle;
@@ -19,23 +21,15 @@ public class ShooterStateController : IStateController
     ShooterState_Hurt _shooterState_Hurt;
     ShooterState_Die _shooterState_Die;
     #endregion
-    
-    #region StateConfigs
-    [SerializeField] ShooterStateConfig_Idle _idleData;
-    [SerializeField] ShooterStateConfig_Shoot _shootData;
-    [SerializeField] ShooterStateConfig_Melee _meleeData;
-    [SerializeField] ShooterStateConfig_PreAttack _preAttackData;
-    [SerializeField] ShooterStateConfig_Hurt _hurtData;
-    [SerializeField] ShooterStateConfig_Die _dieData;
-    #endregion
+
     void OnEnable()
     {      
-        _shooterState_Idle = new ShooterState_Idle(_idleData);
-        _shooterState_Shoot = new ShooterState_Shoot(_shootData);
-        _shooterState_Melee = new ShooterState_Melee(_meleeData);
-        _shooterState_PreAttack = new ShooterState_PreAttack(_preAttackData);
-        _shooterState_Hurt = new ShooterState_Hurt(_hurtData);
-        _shooterState_Die = new ShooterState_Die(_dieData);
+        _shooterState_Idle = new ShooterState_Idle();
+        _shooterState_Shoot = new ShooterState_Shoot();
+        _shooterState_Melee = new ShooterState_Melee();
+        _shooterState_PreAttack = new ShooterState_PreAttack();
+        _shooterState_Hurt = new ShooterState_Hurt();
+        _shooterState_Die = new ShooterState_Die();
         
         _enemy = GetComponent<EnemyController>();
         _animator = GetComponentInChildren<Animator>();
@@ -52,7 +46,7 @@ public class ShooterStateController : IStateController
         
         foreach (IShooter state in _shooterStates)
         {
-            state.Initialize(this, _enemy, _animator, _director);
+            state.Initialize(this, _enemy, _animator, _director, _data);
             _stateTable.Add(state.GetType(), state);
         }
     }

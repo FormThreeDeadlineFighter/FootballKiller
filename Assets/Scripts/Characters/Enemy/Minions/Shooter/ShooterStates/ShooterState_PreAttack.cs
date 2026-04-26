@@ -2,13 +2,6 @@ using UnityEngine;
 
 public class ShooterState_PreAttack : IShooter
 {
-    ShooterStateConfig_PreAttack _data;
-
-    public ShooterState_PreAttack(ShooterStateConfig_PreAttack data) : base(data)
-    {
-        _data = data;
-    }
-
     public override void EnterState()
     {
         _enemy.AttackCD();

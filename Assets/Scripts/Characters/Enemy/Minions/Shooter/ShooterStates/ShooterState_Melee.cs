@@ -3,16 +3,9 @@ using UnityEngine.Playables;
 
 public class ShooterState_Melee : IShooter
 {
-    ShooterStateConfig_Melee _data;
-
-    public ShooterState_Melee(ShooterStateConfig_Melee data) : base(data)
-    {
-        _data = data;
-    }
-
     public override void EnterState()
     {
-        _director.playableAsset = _data.Timeline;
+        _director.playableAsset = _data.MeleeTimeline;
         _director.time = 0;
         _director.Play();
     }
@@ -40,7 +33,7 @@ public class ShooterState_Melee : IShooter
         _enemy.IsTrackPlayer();
         if(_enemy.PlayerDistance < 10)
         {      
-            Vector3 back = -_enemy.PlayerPosition * 10;
+            Vector3 back = -_enemy.PlayerPosition * _data.BackSpeed;
             _enemy.SetVelocityXZ(back);
         }
     }

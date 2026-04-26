@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0212fe9c7a78f04b8a1b0613ce9274d, type: 3}
+  m_Name: StateConfig_Baseball
+  m_EditorClassIdentifier: Assembly-CSharp::StateConfig_Baseball
+  ForwardSpeed: 8
+  ForwardTriggerDistance: 20
+  BackJumpTriggerDistance: 5
+  JumpBackForce: 15
+  JumpUpForce: 10
+  IdleAnimationName: Idle
+  SideStepAnimationName: SideStep
+  ForwardAnimationName: Forward
+  BackJumpAnimationName: BackJump
+  HurtAnimationName: Hurt
+  DieAnimationName: Die
+  CollisionTimeline: {fileID: 11400000, guid: 7f8c83570e172e5479deaf1f078168ab, type: 2}
+  SlashTimeline: {fileID: 11400000, guid: 5fd35af3a637c8746b16a949546c40a6, type: 2}
+  WaveTimeline: {fileID: 11400000, guid: f314862cc13ae614394024bacd38d0ca, type: 2}

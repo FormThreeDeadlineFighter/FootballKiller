@@ -160,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _HP: 500
   _shieldHP: 0
-  _attackCD: 5
+  _attackCD: {x: 6, y: 9}
   _jumpCD: 15
   rotateSpeed: 360
   _invincible: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   _gameEvent: {fileID: 11400000, guid: 4d3e622616f0422419f565b9695f06d9, type: 2}
   _bossEvent: {fileID: 11400000, guid: ff0702085d81b1a4b92d72f49e086342, type: 2}
   CanAttack: 0
-  CanJump: 0
+  CanBack: 0
   IsHurt: 0
   IsDie: 0
   IsStop: 0
@@ -203,16 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ed6d7711154ee4293fdb0406d75078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _backJumpData: {fileID: 11400000, guid: 12021b82b7ce43f458efa70a4206b787, type: 2}
-  _collisionData: {fileID: 11400000, guid: 77b57d7f3f992f341862a6f4f26c26c8, type: 2}
-  _forwardData: {fileID: 11400000, guid: 1ba00c269a246e14d844d9009d50257c, type: 2}
-  _idleData: {fileID: 11400000, guid: 7b1b900862840e54196c0587b3770bee, type: 2}
-  _preAttackData: {fileID: 11400000, guid: ef9639222ca566f49ac880685db47965, type: 2}
-  _sideStepData: {fileID: 11400000, guid: f39fc3e9d9de7ee4aa87df1db86b70dc, type: 2}
-  _slashData: {fileID: 11400000, guid: a3432c7ce7deb83458d9214398a528ec, type: 2}
-  _waveData: {fileID: 11400000, guid: bf3078eb4e30d6141a7f07a0f10c4c5c, type: 2}
-  _hurtData: {fileID: 11400000, guid: 39f09e4268ff9084a9fe5d0e50b851a2, type: 2}
-  _dieData: {fileID: 11400000, guid: 6ace8fa566d96a64ab2562610c97e6b0, type: 2}
+  _data: {fileID: 11400000, guid: 0c603fd3107db63428a5252d697ab306, type: 2}
 --- !u!114 &8951098437933883859
 MonoBehaviour:
   m_ObjectHideFlags: 0

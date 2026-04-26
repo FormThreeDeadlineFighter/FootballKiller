@@ -2,17 +2,11 @@ using UnityEngine;
 
 public class BaseballState_Hurt : IBaseballState
 {
-    BaseballStateConfig_Hurt _data;
-
-    public BaseballState_Hurt(BaseballStateConfig_Hurt data) : base(data)
-    {
-        _data = data;
-    }
     
     public override void EnterState()
     {
         _enemy.IsTrackPlayer();
-        _animator.Play(_data.AnimationName);
+        _animator.Play(_data.HurtAnimationName);
     }
     public override void ExitState()
     {

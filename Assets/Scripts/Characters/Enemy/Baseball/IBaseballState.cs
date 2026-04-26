@@ -10,19 +10,17 @@ public class IBaseballState : IState
     protected Animator _animator;
     protected PlayableDirector _director;
     protected EnemyController _enemy;
+    protected StateConfig_Baseball _data;
     protected bool IsAnimationComplete => _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f;
     protected float _stateDuration => Time.time - _stateEnterTime;
 
-    public IBaseballState(IStateConfig stateConfig)
-    {
-        
-    }
-    public void Initialize(BaseballStateController stateMachine, EnemyController enemy, Animator animator, PlayableDirector director)
+    public void Initialize(BaseballStateController stateMachine, EnemyController enemy, Animator animator, PlayableDirector director, StateConfig_Baseball data)
     {
         _stateMachine = stateMachine;
         _enemy = enemy;
         _animator = animator;
         _director = director;
+        _data = data;
     }
     // when enter state happen
     public virtual void EnterState() 

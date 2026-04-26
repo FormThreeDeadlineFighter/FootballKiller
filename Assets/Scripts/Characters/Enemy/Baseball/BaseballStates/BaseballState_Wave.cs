@@ -3,16 +3,9 @@ using UnityEngine.Playables;
 
 public class BaseballState_Wave : IBaseballState
 {
-    BaseballStateConfig_Wave _data;
-
-    public BaseballState_Wave(BaseballStateConfig_Wave data) : base(data)
-    {
-        _data = data;
-    }
-    
     public override void EnterState()
     {
-        _director.playableAsset = _data.Timeline;
+        _director.playableAsset = _data.WaveTimeline;
         _director.time = 0;
         _director.Play();
     }

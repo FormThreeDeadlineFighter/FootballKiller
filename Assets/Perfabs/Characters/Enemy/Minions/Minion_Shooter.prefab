@@ -157,12 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334eae64029872b44b445ed72328bd50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Minion01StateController
-  _idleData: {fileID: 11400000, guid: 9e67f013144de014cb872c830d59df59, type: 2}
-  _shootData: {fileID: 11400000, guid: 8db750ab3af51f046825724c9f1a3f50, type: 2}
-  _meleeData: {fileID: 11400000, guid: 907408a3105f13c419e5803c0e639950, type: 2}
-  _preAttackData: {fileID: 11400000, guid: c936e3473b8f0f243b76ee802e43f8b9, type: 2}
-  _hurtData: {fileID: 11400000, guid: 46fb02ca217c6cd498700f3a4c218b3d, type: 2}
-  _dieData: {fileID: 11400000, guid: dbb4864cf2cac0246951073948923cac, type: 2}
+  _data: {fileID: 11400000, guid: fa6692c4646eedb42bf5707a6fc6a745, type: 2}
 --- !u!114 &7497642597181151431
 MonoBehaviour:
   m_ObjectHideFlags: 0

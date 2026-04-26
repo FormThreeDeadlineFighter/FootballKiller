@@ -947,7 +947,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &658843108
 Transform:
   m_ObjectHideFlags: 0
@@ -1133,7 +1133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 47570254117988486, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.97924
+      value: 5.62
       objectReference: {fileID: 0}
     - target: {fileID: 47570254117988486, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1165,27 +1165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 487394218401988616, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
       propertyPath: m_Name
-      value: Baseball Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 487394218401988616, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6950927892587693952, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
-      propertyPath: _attackCD.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6950927892587693952, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
-      propertyPath: _attackCD.y
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6950927892587693952, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
-      propertyPath: _attackCDMax
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6950927892587693952, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
-      propertyPath: _attackCDMin
-      value: 5
+      value: Test_Baseball Boss
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1773,7 +1753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 698843275809421332, guid: 1a7fd1992e7a30e439f9ca27d9e88ec5, type: 3}
       propertyPath: m_Name
-      value: Shooter
+      value: Test_Shooter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2363,6 +2343,10 @@ PrefabInstance:
       propertyPath: ElementsShow
       value: 
       objectReference: {fileID: 757093634}
+    - target: {fileID: 5349997294510145020, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: a7d2019dec7d9634c8ec4849999af283, type: 2}
     - target: {fileID: 5422481532625580202, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 
@@ -2459,9 +2443,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6591803252575471110, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1576676737193908263}
+    - target: {fileID: 6591803252575471110, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1576676737193908263}
+    - target: {fileID: 6591803252575471110, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IsTrackPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591803252575471110, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NotTrackPlayer
+      objectReference: {fileID: 0}
     - target: {fileID: 7890660133877961241, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
       propertyPath: m_Name
-      value: Minion_Tank
+      value: Test_Tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890660133877961241, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2473,6 +2477,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5550566959312851767, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
   m_PrefabInstance: {fileID: 1576676737193908258}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1576676737193908263 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4737343732809018854, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
+  m_PrefabInstance: {fileID: 1576676737193908258}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43468c94a4e764b4eb09d762959c4e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3681641926599167133
 PrefabInstance:
   m_ObjectHideFlags: 0

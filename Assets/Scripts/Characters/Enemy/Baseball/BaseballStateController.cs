@@ -12,6 +12,7 @@ public class BaseballStateController : IStateController
     private EnemyController _enemy;
     PlayableDirector _director;
     List<IBaseballState> _baseballStates = new List<IBaseballState>();
+    [SerializeField] StateConfig_Baseball _data;
     
     #region States
     BaseballState_BackJump _baseballState_BackJump; 
@@ -25,31 +26,19 @@ public class BaseballStateController : IStateController
     BaseballState_Hurt _baseballState_Hurt;
     BaseballState_Die _baseballState_Die;
     #endregion
-    
-    #region StateConfigs
-    [SerializeField] BaseballStateConfig_BackJump _backJumpData;
-    [SerializeField] BaseballStateConfig_Collision _collisionData;
-    [SerializeField] BaseballStateConfig_Forward _forwardData;
-    [SerializeField] BaseballStateConfig_Idle _idleData;
-    [SerializeField] BaseballStateConfig_PreAttack _preAttackData;
-    [SerializeField] BaseballStateConfig_SideStep _sideStepData;
-    [SerializeField] BaseballStateConfig_Slash _slashData;
-    [SerializeField] BaseballStateConfig_Wave _waveData;
-    [SerializeField] BaseballStateConfig_Hurt _hurtData;
-    [SerializeField] BaseballStateConfig_Die _dieData;
-    #endregion
+
     void OnEnable()
     {
-        _baseballState_BackJump = new BaseballState_BackJump(_backJumpData);
-        _baseballState_Collision = new BaseballState_Collision(_collisionData);
-        _baseballState_Forward = new BaseballState_Forward(_forwardData);
-        _baseballState_Idle = new BaseballState_Idle(_idleData);
-        _baseballState_PreAttack = new BaseballState_PreAttack(_preAttackData);
-        _baseballState_SideStep = new BaseballState_SideStep(_sideStepData);
-        _baseballState_Slash = new BaseballState_Slash(_slashData);
-        _baseballState_Wave = new BaseballState_Wave(_waveData);
-        _baseballState_Hurt = new BaseballState_Hurt(_hurtData);
-        _baseballState_Die = new BaseballState_Die(_dieData);
+        _baseballState_BackJump = new BaseballState_BackJump();
+        _baseballState_Collision = new BaseballState_Collision();
+        _baseballState_Forward = new BaseballState_Forward();
+        _baseballState_Idle = new BaseballState_Idle();
+        _baseballState_PreAttack = new BaseballState_PreAttack();
+        _baseballState_SideStep = new BaseballState_SideStep();
+        _baseballState_Slash = new BaseballState_Slash();
+        _baseballState_Wave = new BaseballState_Wave();
+        _baseballState_Hurt = new BaseballState_Hurt();
+        _baseballState_Die = new BaseballState_Die();
         
         _enemy = GetComponent<EnemyController>();
         _animator = GetComponentInChildren<Animator>();
@@ -70,7 +59,7 @@ public class BaseballStateController : IStateController
         
         foreach (IBaseballState state in _baseballStates)
         {
-            state.Initialize(this, _enemy, _animator, _director);
+            state.Initialize(this, _enemy, _animator, _director, _data);
             _stateTable.Add(state.GetType(), state);
         }
     }

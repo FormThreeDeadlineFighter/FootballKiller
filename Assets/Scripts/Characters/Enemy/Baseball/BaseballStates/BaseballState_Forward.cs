@@ -2,15 +2,9 @@ using UnityEngine;
 
 public class BaseballState_Forward : IBaseballState
 {
-    BaseballStateConfig_Forward _data;
-
-    public BaseballState_Forward(BaseballStateConfig_Forward data) : base(data)
-    {
-        _data = data;
-    }
     public override void EnterState()
     {
-        _animator.Play(_data.AnimationName);
+        _animator.Play(_data.ForwardAnimationName);
     }
     public override void ExitState()
     {
@@ -31,7 +25,7 @@ public class BaseballState_Forward : IBaseballState
     public override void PhysicsUpdate()
     {
         _enemy.IsTrackPlayer();
-        Vector3 forward = _enemy.PlayerPosition * _data.ForwardForce;
+        Vector3 forward = _enemy.PlayerPosition * _data.ForwardSpeed;
         _enemy.SetVelocityXZ(forward);
     }
 }
