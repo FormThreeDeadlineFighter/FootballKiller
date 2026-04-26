@@ -95,7 +95,7 @@ CapsuleCollider:
   m_Radius: 3.5
   m_Height: 10
   m_Direction: 1
-  m_Center: {x: -0.30144358, y: -1.629858, z: 0}
+  m_Center: {x: -0.30144358, y: -1.34, z: 0}
 --- !u!320 &7737357757534312638
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -203,7 +203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ed6d7711154ee4293fdb0406d75078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bossEvent: {fileID: 11400000, guid: ff0702085d81b1a4b92d72f49e086342, type: 2}
   _backJumpData: {fileID: 11400000, guid: 12021b82b7ce43f458efa70a4206b787, type: 2}
   _collisionData: {fileID: 11400000, guid: 77b57d7f3f992f341862a6f4f26c26c8, type: 2}
   _forwardData: {fileID: 11400000, guid: 1ba00c269a246e14d844d9009d50257c, type: 2}

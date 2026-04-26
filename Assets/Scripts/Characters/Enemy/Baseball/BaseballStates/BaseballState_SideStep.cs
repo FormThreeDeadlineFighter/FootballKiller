@@ -38,6 +38,8 @@ public class BaseballState_SideStep : IBaseballState
     }
     public override void PhysicsUpdate()
     {
-        
+        _enemy.IsTrackPlayer();
+        Vector3 left = -_enemy.transform.right;
+        _enemy.SetVelocityXZ(left);
     }
 }
