@@ -12,15 +12,15 @@ public class TankState_Idle : ITank
     }
     public override void LogicUpdate()
     {  
-        //if(_enemy.IsHurt)
-        //{
-        //    _stateMachine.SetState(typeof(ShooterState_Hurt));
-        //}
-        //
-        //if(_enemy.CanAttack)
-        //{           
-        //    _stateMachine.SetState(typeof(ShooterState_PreAttack));
-        //}  
+        if(_enemy.IsHurt)
+        {
+            _stateMachine.SetState(typeof(TankState_Hurt));
+        }
+        
+        if(_enemy.CanAttack)
+        {           
+            _stateMachine.SetState(typeof(TankState_PreAttack));
+        }  
 
     }
     public override void PhysicsUpdate()

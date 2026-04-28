@@ -48,37 +48,6 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
---- !u!1 &3994556887373097449
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4285059795427920810}
-  m_Layer: 3
-  m_Name: Models
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4285059795427920810
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3994556887373097449}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7597043379419933684}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4520762188644864879
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,7 +365,6 @@ Transform:
   - {fileID: 7638122584081163331}
   - {fileID: 7246724720991519212}
   - {fileID: 2580046217905827744}
-  - {fileID: 4285059795427920810}
   - {fileID: 8394191997992615371}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -567,6 +535,7 @@ MonoBehaviour:
   _HP: 100
   _currentHP: 0
   _dashForce: 50
+  Invincible: 0
   _cameraTransform: {fileID: 0}
   _playerHitBox: {fileID: 5265428765588063593}
   _attackHitBox: {fileID: 4520762188644864879}
@@ -579,7 +548,6 @@ MonoBehaviour:
   CurrentHoldGrade: 0
   CanJump: 0
   ActionCancel: 0
-  IsStop: 0
 --- !u!114 &6469742748280267700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,7 +589,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f743d4530a0c36b4fbcd94e97fa59580, type: 2}
   - {fileID: 11400000, guid: c01f9fd6564794c45be6a308a54ee771, type: 2}
   - {fileID: 11400000, guid: 6f3afbac92fe8a444ac34f2bff38a860, type: 2}
-  - {fileID: 11400000, guid: 09a05d7ede230904a94eca8fba5cb4b8, type: 2}
   _gameEvent: {fileID: 11400000, guid: 4d3e622616f0422419f565b9695f06d9, type: 2}
 --- !u!114 &7265985998620990715
 MonoBehaviour:
@@ -1582,7 +1549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 665498254523438624, guid: 098718894e218ce45b7c929b2917f796, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 665498254523438624, guid: 098718894e218ce45b7c929b2917f796, type: 3}
       propertyPath: m_LocalPosition.z

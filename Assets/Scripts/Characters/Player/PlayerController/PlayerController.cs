@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _HP = 100f;
     [SerializeField] float _currentHP;
     [SerializeField] float _dashForce = 50f;
+    [SerializeField] private bool Invincible = false;
     
 
     [Header("Player Objects")]
@@ -26,7 +27,6 @@ public class PlayerController : MonoBehaviour
     private PlayerInput _input;
     private EnergyController _energyController;
     private PlayerMeleeCombat _combot;
-    private bool Invincible = false;
     private ComboGrade _currentGrade;
     private float holdTime = 0;
     private Coroutine _invincibleCoroutine;
@@ -222,6 +222,7 @@ public class PlayerController : MonoBehaviour
     
     public void InvincibleStart(float time)
     {
+        if (Invincible) return;
         if (_invincibleCoroutine != null) return;
         _invincibleCoroutine = StartCoroutine(InvincibleTime(time));
     }
