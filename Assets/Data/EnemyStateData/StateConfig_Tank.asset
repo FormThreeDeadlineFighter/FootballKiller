@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae12f321a9c3ec94481276259c23a357, type: 3}
   m_Name: StateConfig_Tank
   m_EditorClassIdentifier: Assembly-CSharp::StateConfig_Tank
-  ForwardSpeed: 0
-  BackSpeed: 0
-  IdleAnimationName: 
+  ForwardSpeed: 10
+  BackSpeed: 10
+  ChargeSpeed: 25
+  IdleAnimationName: Idle
   HurtAnimationName: Hurt
-  DieAnimationName: Hurt
+  DieAnimationName: Die
   BeatTimeline: {fileID: 11400000, guid: e79f2a16851eb784aa8f57375c46e08e, type: 2}
   ChargeTimeline: {fileID: 11400000, guid: 4e6ff695c45fa2a498a79bcda5be004b, type: 2}
   ShootTimeline: {fileID: 11400000, guid: 8f95a954a07fac141ab790a7e23cc026, type: 2}

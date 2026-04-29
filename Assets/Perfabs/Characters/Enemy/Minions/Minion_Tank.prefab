@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3f8ba76431b0544b20808de20279b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackData
-  attackTransform: {fileID: 0}
+  attackTransform: {fileID: 2171898709789663923}
   _bulletsArray:
   - Bullets:
     - Bullet: {fileID: 7841672020790003158, guid: 0d842644ecdf6d14bb537a9c73681bc0, type: 3}
@@ -274,7 +274,7 @@ Transform:
   m_GameObject: {fileID: 6866087760985629494}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 9.180002, z: 6.370001}
+  m_LocalPosition: {x: -1.55, y: 9.180002, z: 6.370001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3f8ba76431b0544b20808de20279b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackData
-  attackTransform: {fileID: 0}
+  attackTransform: {fileID: 3438811489852674208}
   _bulletsArray:
   - Bullets:
     - Bullet: {fileID: 7841672020790003158, guid: 0d842644ecdf6d14bb537a9c73681bc0, type: 3}
@@ -395,9 +395,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Interpolate: 1
+  m_Constraints: 80
+  m_CollisionDetection: 1
 --- !u!136 &5241924274832544740
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -420,7 +420,7 @@ CapsuleCollider:
   m_Radius: 3.5
   m_Height: 10
   m_Direction: 1
-  m_Center: {x: 0, y: 5, z: 0}
+  m_Center: {x: 0, y: 5.1, z: 0}
 --- !u!320 &5422481532625580202
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -430,7 +430,7 @@ PlayableDirector:
   m_GameObject: {fileID: 7890660133877961241}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 8f95a954a07fac141ab790a7e23cc026, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 4e6ff695c45fa2a498a79bcda5be004b, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1

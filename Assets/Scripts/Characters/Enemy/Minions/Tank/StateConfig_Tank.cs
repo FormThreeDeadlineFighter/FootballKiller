@@ -7,6 +7,7 @@ public class StateConfig_Tank : ScriptableObject, IStateConfig
     [Header("Values")]
     public float ForwardSpeed;
     public float BackSpeed;
+    public float ChargeSpeed;
     
     [Header("Animation")]
     public string IdleAnimationName;
