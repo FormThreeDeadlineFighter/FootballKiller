@@ -22,6 +22,8 @@ public class TankStateController : IStateController
     TankState_Shoot _tankState_Shoot;
     #endregion
     
+    [HideInInspector] public bool IsCharge;
+    
     void OnEnable()
     {      
         _tankState_Beat = new TankState_Beat();
@@ -61,5 +63,15 @@ public class TankStateController : IStateController
     void Start()
     {
         SetState(_stateTable[typeof(TankState_Idle)]);
+    }
+    
+    public void ChargeEnter()
+    {
+        IsCharge = true;
+    }
+    
+    public void ChargeExit()
+    {
+        IsCharge = false;
     }
 }

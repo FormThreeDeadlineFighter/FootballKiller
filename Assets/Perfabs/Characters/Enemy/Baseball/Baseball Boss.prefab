@@ -162,7 +162,7 @@ MonoBehaviour:
   _shieldHP: 0
   _attackCD: {x: 6, y: 9}
   _jumpCD: 15
-  rotateSpeed: 360
+  rotateSpeed: 5
   _invincible: 0
   currentElement: 0
   ElementMaterials:

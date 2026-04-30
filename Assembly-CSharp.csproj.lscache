@@ -99,6 +99,7 @@ Assets/Scripts/Characters/
   Minions/Tank/
    ITank.cs
    StateConfig_Tank.cs
+   TankController.cs
    TankStateController.cs
    TankStates/
     TankState_Beat.cs

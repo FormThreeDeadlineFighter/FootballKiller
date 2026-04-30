@@ -8,6 +8,7 @@ public class TankState_Charge : ITank
          _director.playableAsset = _data.ChargeTimeline;
         _director.time = 0;
         _director.Play();
+        _enemy.NotTrackPlayer();
     }
     public override void ExitState()
     {
@@ -30,10 +31,9 @@ public class TankState_Charge : ITank
     }
     public override void PhysicsUpdate()
     {
-        _enemy.IsTrackPlayer();
-        if(_enemy.PlayerDistance > 10)
+        if(_stateMachine.IsCharge)
         {      
-            Vector3 forward = _enemy.PlayerPosition * _data.ChargeSpeed;
+            Vector3 forward = _enemy.transform.forward * _data.ChargeSpeed;
             _enemy.SetVelocityXZ(forward);
         }   
     }

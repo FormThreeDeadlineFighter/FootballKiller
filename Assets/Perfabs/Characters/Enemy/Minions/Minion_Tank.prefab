@@ -192,7 +192,7 @@ Transform:
   m_GameObject: {fileID: 6311031619235570765}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 9.180002, z: 6.370001}
+  m_LocalPosition: {x: 1.7, y: 8.55, z: 6.370001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -213,7 +213,7 @@ MonoBehaviour:
   attackTransform: {fileID: 2171898709789663923}
   _bulletsArray:
   - Bullets:
-    - Bullet: {fileID: 7841672020790003158, guid: 0d842644ecdf6d14bb537a9c73681bc0, type: 3}
+    - Bullet: {fileID: 7841672020790003158, guid: 0b627c5e363b6c545b10643594cda6c6, type: 3}
       Height: 0
       Angle: {x: 0, y: 0}
     DelayTime: 0
@@ -274,7 +274,7 @@ Transform:
   m_GameObject: {fileID: 6866087760985629494}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.55, y: 9.180002, z: 6.370001}
+  m_LocalPosition: {x: -1.7, y: 8.55, z: 6.370001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -295,7 +295,7 @@ MonoBehaviour:
   attackTransform: {fileID: 3438811489852674208}
   _bulletsArray:
   - Bullets:
-    - Bullet: {fileID: 7841672020790003158, guid: 0d842644ecdf6d14bb537a9c73681bc0, type: 3}
+    - Bullet: {fileID: 7841672020790003158, guid: 0b627c5e363b6c545b10643594cda6c6, type: 3}
       Height: 0
       Angle: {x: 0, y: 0}
     DelayTime: 0
@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: 4737343732809018854}
   - component: {fileID: 5349997294510145020}
   - component: {fileID: 4334537649682575802}
+  - component: {fileID: 4664253847558784315}
   - component: {fileID: 6591803252575471110}
   m_Layer: 7
   m_Name: Minion_Tank
@@ -362,7 +363,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3687084941247357312}
@@ -420,7 +421,7 @@ CapsuleCollider:
   m_Radius: 3.5
   m_Height: 10
   m_Direction: 1
-  m_Center: {x: 0, y: 5.1, z: 0}
+  m_Center: {x: 0, y: 5.02619, z: 0}
 --- !u!320 &5422481532625580202
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -482,6 +483,8 @@ PlayableDirector:
     value: {fileID: 1314905299544482409}
   - key: {fileID: 4325783413963304452, guid: 8f95a954a07fac141ab790a7e23cc026, type: 2}
     value: {fileID: 317951876405621233}
+  - key: {fileID: 4827357509458396169, guid: 4e6ff695c45fa2a498a79bcda5be004b, type: 2}
+    value: {fileID: 6591803252575471110}
   m_ExposedReferences:
     m_References:
     - 7d33dc4021f0d8d4f977b347e41667e0: {fileID: 0}
@@ -501,7 +504,7 @@ MonoBehaviour:
   _shieldHP: 0
   _attackCD: {x: 5, y: 8}
   _jumpCD: 0
-  rotateSpeed: 360
+  rotateSpeed: 5
   _invincible: 0
   currentElement: 0
   ElementMaterials:
@@ -512,7 +515,7 @@ MonoBehaviour:
   _bossEvent: {fileID: 11400000, guid: ff0702085d81b1a4b92d72f49e086342, type: 2}
   CanAttack: 0
   CanBack: 0
-  IsHurt: 0
+  IsHurt: 1
   IsDie: 0
   IsStop: 0
 --- !u!114 &5349997294510145020
@@ -528,6 +531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TankStateController
   _data: {fileID: 11400000, guid: a7d2019dec7d9634c8ec4849999af283, type: 2}
+  IsCharge: 0
 --- !u!114 &4334537649682575802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,6 +549,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   Target: {fileID: 0}
+--- !u!114 &4664253847558784315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7890660133877961241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a566054d8d81dc4db27a7cadce5b1a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TankController
 --- !u!114 &6591803252575471110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -561,6 +577,8 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: 93feb2c3b13b7f146bd442e81d9753c7, type: 2}
     - {fileID: 11400000, guid: 6034cda7356263e4ab735467fe725b33, type: 2}
+    - {fileID: 11400000, guid: 77e19c6fc97c1074baaf444cf8b02759, type: 2}
+    - {fileID: 11400000, guid: 62ab1f637b8951444b20d5cb5239b9a4, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -581,6 +599,34 @@ MonoBehaviour:
         - m_Target: {fileID: 4737343732809018854}
           m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
           m_MethodName: NotTrackPlayer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5349997294510145020}
+          m_TargetAssemblyTypeName: TankStateController, Assembly-CSharp
+          m_MethodName: ChargeEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5349997294510145020}
+          m_TargetAssemblyTypeName: TankStateController, Assembly-CSharp
+          m_MethodName: ChargeExit
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -746,6 +792,22 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 124908490432217060, guid: 3bd1551ab6b80564189c523d31fa212e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 124908490432217060, guid: 3bd1551ab6b80564189c523d31fa212e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 124908490432217060, guid: 3bd1551ab6b80564189c523d31fa212e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 124908490432217060, guid: 3bd1551ab6b80564189c523d31fa212e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bd1551ab6b80564189c523d31fa212e, type: 3}
       propertyPath: m_Name
       value: "\u5766\u514B\u5C0F\u602A"
@@ -777,6 +839,22 @@ PrefabInstance:
     - target: {fileID: 4727181831041100424, guid: 3bd1551ab6b80564189c523d31fa212e, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7029398823677930987, guid: 3bd1551ab6b80564189c523d31fa212e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.47102633
+      objectReference: {fileID: 0}
+    - target: {fileID: 7029398823677930987, guid: 3bd1551ab6b80564189c523d31fa212e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.4739417
+      objectReference: {fileID: 0}
+    - target: {fileID: 7029398823677930987, guid: 3bd1551ab6b80564189c523d31fa212e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5244514
+      objectReference: {fileID: 0}
+    - target: {fileID: 7029398823677930987, guid: 3bd1551ab6b80564189c523d31fa212e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5276971
       objectReference: {fileID: 0}
     - target: {fileID: 8466695935623424398, guid: 3bd1551ab6b80564189c523d31fa212e, type: 3}
       propertyPath: m_Layer
