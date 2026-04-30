@@ -168,6 +168,7 @@ MonoBehaviour:
   ElementMaterials:
   - {fileID: 2100000, guid: 692b504e2a57cbb428bc1b2d58d32537, type: 2}
   - {fileID: 2100000, guid: 0cb0d298e5ae95749a9e8d368dba54bd, type: 2}
+  _onHitEffect: {fileID: 6280400667173258805}
   ElementsShow: {fileID: 3963306525174597267}
   _gameEvent: {fileID: 11400000, guid: 4d3e622616f0422419f565b9695f06d9, type: 2}
   _bossEvent: {fileID: 11400000, guid: ff0702085d81b1a4b92d72f49e086342, type: 2}
@@ -189,7 +190,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BaseballAttackController
   _collisionforwardDistance: 15
-  _onHitEffect: {fileID: 6280400667173258805}
   _bossEvent: {fileID: 11400000, guid: ff0702085d81b1a4b92d72f49e086342, type: 2}
 --- !u!114 &2262569498261592722
 MonoBehaviour:

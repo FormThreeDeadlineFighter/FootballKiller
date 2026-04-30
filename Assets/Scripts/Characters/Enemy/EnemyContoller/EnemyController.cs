@@ -11,7 +11,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float rotateSpeed;
     [SerializeField] bool _invincible = false;
     [SerializeField] private Elements currentElement = Elements.white; 
-    [SerializeField] Material[] ElementMaterials;  
+    [SerializeField] Material[] ElementMaterials; 
+    [SerializeField] ParticleSystem _onHitEffect;
 
     [Header("Event System")]
     [SerializeField] Renderer ElementsShow;
@@ -93,6 +94,7 @@ public class EnemyController : MonoBehaviour
         if (_currentHP >= 0)
         {
             _currentHP -= damage;
+            PlayHurtVFX();
             IsHurt = true;
             StartCoroutine(Hurt(0.5f));
         }
@@ -125,6 +127,13 @@ public class EnemyController : MonoBehaviour
         dir.y = 0;
         Quaternion targetRot = Quaternion.LookRotation(dir);
         _rb.transform.rotation = Quaternion.Slerp(transform.rotation,targetRot, rotateSpeed * Time.fixedDeltaTime);     
+    }
+    
+    private void PlayHurtVFX()
+    {
+        if(_onHitEffect == null) return;
+        _onHitEffect.Play();
+        Debug.Log("play hurt vfx");
     }
     
     public void IsTrackPlayer()
