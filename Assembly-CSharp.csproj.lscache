@@ -81,9 +81,16 @@ Assets/Scripts/Characters/
   StateConfig_Baseball.cs
  Enemy/
   EnemyContoller/EnemyController.cs
+  Minions/FlyGatling/FliyGatlingStates/
+   FlyGaltingState_Die.cs
+   FlyGaltingState_Hurt.cs
+   FlyGaltingState_Idle.cs
+   FlyGaltingState_PreAttack.cs
+   FlyGaltingState_Shoot.cs
   Minions/FlyGatling/
    FlyGaltingStateController.cs
    IFlyGalting.cs
+   StateConfig_FlyGalting.cs
   Minions/Shooter/
    IShooter.cs
    ShooterController.cs
