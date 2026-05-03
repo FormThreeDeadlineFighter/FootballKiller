@@ -116,6 +116,10 @@ Assets/Scripts/Characters/
     TankState_Idle.cs
     TankState_PreAttack.cs
     TankState_Shoot.cs
+  Pi/
+   IPiState.cs
+   PiStateController.cs
+   StateConfig_Pi.cs
  Player/PlayerController/
   EnergyController.cs
   PlayerComboController.cs

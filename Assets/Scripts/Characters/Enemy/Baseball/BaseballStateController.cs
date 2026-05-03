@@ -73,9 +73,4 @@ public class BaseballStateController : IStateController
     {
         SetState(_stateTable[typeof(BaseballState_Idle)]);
     }
-    
-    void OnDie()
-    {
-        SetState(_stateTable[typeof(BaseballState_Die)]);
-    }
 }
