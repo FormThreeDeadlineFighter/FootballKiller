@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class ShooterState_Melee : IShooter
+public class ShooterState_Melee : IShooterState
 {
     public override void EnterState()
     {

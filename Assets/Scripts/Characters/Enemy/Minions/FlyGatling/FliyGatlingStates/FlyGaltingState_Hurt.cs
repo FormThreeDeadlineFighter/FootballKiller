@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FlyGaltingState_Hurt : IFlyGalting
+public class FlyGaltingState_Hurt : IFlyGaltingState
 {
     public override void EnterState()
     {

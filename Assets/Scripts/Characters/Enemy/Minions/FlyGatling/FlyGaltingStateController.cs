@@ -9,7 +9,7 @@ public class FlyGaltingStateController : IStateController
     // enemy controller
     private EnemyController _enemy;
     PlayableDirector _director;  
-    List<IFlyGalting> _shooterStates = new List<IFlyGalting>();
+    List<IFlyGaltingState> _shooterStates = new List<IFlyGaltingState>();
     [SerializeField] StateConfig_FlyGalting _data;
     
     #region States
@@ -40,7 +40,7 @@ public class FlyGaltingStateController : IStateController
         _shooterStates.Add(_flyGaltingState_PreAttack);
         _shooterStates.Add(_flyGaltingState_Shoot);
         
-        foreach (IFlyGalting state in _shooterStates)
+        foreach (IFlyGaltingState state in _shooterStates)
         {
             state.Initialize(this, _enemy, _animator, _director, _data);
             _stateTable.Add(state.GetType(), state);

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TankState_Die : ITank
+public class TankState_Die : ITankState
 {
     public override void EnterState()
     {

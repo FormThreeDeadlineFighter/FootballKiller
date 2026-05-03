@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class FlyGaltingState_Shoot : IFlyGalting
+public class FlyGaltingState_Shoot : IFlyGaltingState
 {
     public override void EnterState()
     {

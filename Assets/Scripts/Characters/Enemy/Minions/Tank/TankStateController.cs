@@ -9,7 +9,7 @@ public class TankStateController : IStateController
     // enemy controller
     private EnemyController _enemy;
     PlayableDirector _director;  
-    List<ITank> _tankStates = new List<ITank>();
+    List<ITankState> _tankStates = new List<ITankState>();
     [SerializeField] StateConfig_Tank _data;
     
     #region States
@@ -48,7 +48,7 @@ public class TankStateController : IStateController
         _tankStates.Add(_tankState_PreAttack);
         _tankStates.Add(_tankState_Shoot);
     
-        foreach (ITank state in _tankStates)
+        foreach (ITankState state in _tankStates)
         {
             state.Initialize(this, _enemy, _animator, _director, _data);
             _stateTable.Add(state.GetType(), state);
