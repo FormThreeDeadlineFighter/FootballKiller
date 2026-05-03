@@ -2354,6 +2354,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 578171978}
     m_Modifications:
+    - target: {fileID: 1546940744088660585, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4737343732809018854, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
       propertyPath: ElementsShow
       value: 
@@ -2457,6 +2461,10 @@ PrefabInstance:
     - target: {fileID: 7890660133877961241, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
       propertyPath: m_Name
       value: Test_Tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890660133877961241, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2683,26 +2691,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3027131933154666825, guid: a7c9b5b26a6281d409cf3f1f1591237a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3027131933154666825, guid: a7c9b5b26a6281d409cf3f1f1591237a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3027131933154666825, guid: a7c9b5b26a6281d409cf3f1f1591237a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3027131933154666825, guid: a7c9b5b26a6281d409cf3f1f1591237a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3027131933154666825, guid: a7c9b5b26a6281d409cf3f1f1591237a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
     - target: {fileID: 3160337367588886644, guid: a7c9b5b26a6281d409cf3f1f1591237a, type: 3}
       propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2719,10 +2707,6 @@ PrefabInstance:
       propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1576676737193908260}
-    - target: {fileID: 5315219780889619143, guid: a7c9b5b26a6281d409cf3f1f1591237a, type: 3}
-      propertyPath: IsDie
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5315219780889619143, guid: a7c9b5b26a6281d409cf3f1f1591237a, type: 3}
       propertyPath: ElementsShow
       value: 
