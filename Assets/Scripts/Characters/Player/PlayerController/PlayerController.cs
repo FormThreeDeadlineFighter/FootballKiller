@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
     public HoldGrade CurrentHoldGrade = HoldGrade.level0;
     public bool CanJump = false;
     public bool ActionCancel = false;
+    public bool IsHurt;
+    public bool IsDie;
 
     void Awake()
     {
@@ -50,15 +52,18 @@ public class PlayerController : MonoBehaviour
     void OnEnable()
     {   
         _playerEvents.OnPlayerHurt += GetHurt;
-        
+        _gameEvent.OnGameDefeat += PlayerLose;
         _playerHitBox.SetActive(true); 
         _currentHP = _HP;
         CanJump = true;
+        IsHurt = false;
+        IsDie = false;
     }
 
     void OnDisable()
     {
         _playerEvents.OnPlayerHurt -= GetHurt;
+        _gameEvent.OnGameDefeat -= PlayerLose;
         _playerHitBox.SetActive(false);
     }
     void Update()
@@ -101,6 +106,15 @@ public class PlayerController : MonoBehaviour
             Debug.Log("game pause");
         }
         
+        if (_currentHP <= 0)
+        {
+            IsDie = true;
+        }
+        
+    }
+    private void PlayerLose()
+    {
+        Destroy(this.gameObject);
     }
 
     public void SetVelocity(Vector3 velocity)
@@ -215,6 +229,11 @@ public class PlayerController : MonoBehaviour
         
     }
     
+    public void OnPlayerDie()
+    {
+        _gameEvent.GameDefeat();
+    }
+    
     public void PauseEnter()
     {
         _gameEvent.GamePause();
@@ -232,11 +251,12 @@ public class PlayerController : MonoBehaviour
         if (Invincible) return;
         if (_currentHP >= 0)
         {
+            IsHurt = true;
             _currentHP -= damage;
         }
         if (_currentHP <= 0)
         {
-            _gameEvent.GameDefeat();
+            _currentHP = 0;
         }
         
         float hpPercentage = _currentHP/_HP;

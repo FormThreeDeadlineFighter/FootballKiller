@@ -1,15 +1,36 @@
 using UnityEngine;
 
-public class PlayerState_Hurt : MonoBehaviour
+[CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Hurt", fileName = "PlayerState_Hurt")]
+public class PlayerState_Hurt : IPlayerState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void EnterState()
     {
-        
+        base.EnterState();
+        _player.SetVelocity(Vector3.zero);
     }
-
-    // Update is called once per frame
-    void Update()
+    public override void ExitState()
+    {
+        _player.IsHurt = false;
+    }
+    public override void LogicUpdate()
+    {
+        if(_player.IsDie)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Die));
+        }
+        if (IsAnimationComplete)
+        {
+            if(!_player.IsMove)
+            {
+                _stateMachine.SetState(typeof(PlayerState_Idle));
+            }
+            if(_player.IsMove)
+            {
+                _stateMachine.SetState(typeof(PlayerState_Move));
+            }           
+        }
+    }
+    public override void PhysicsUpdate()
     {
         
     }

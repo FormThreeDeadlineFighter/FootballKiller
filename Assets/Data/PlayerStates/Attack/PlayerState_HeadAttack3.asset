@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerState_HeadAttack3
   _animationName: 
   _transitionDuration: 0
-  _timeline: {fileID: 11400000, guid: 2f0820250c541214b9d5bdbc9ccd89d9, type: 2}
+  _timeline: {fileID: 11400000, guid: 0a33a2cc5b899f948b43da64576d43a2, type: 2}
   _attackDamage: 40
   _comboCharge: 20

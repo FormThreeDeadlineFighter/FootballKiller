@@ -5,7 +5,7 @@ public class TankState_Hurt : ITankState
     public override void EnterState()
     {
         _enemy.IsTrackPlayer();
-        _animator.Play(_data.IdleAnimationName);
+        _animator.Play(_data.HurtAnimationName);
     }
     public override void ExitState()
     {

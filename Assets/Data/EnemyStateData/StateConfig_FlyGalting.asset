@@ -17,4 +17,4 @@ MonoBehaviour:
   IdleAnimationName: Idle
   HurtAnimationName: Hurt
   DieAnimationName: Die
-  ShootTimeline: {fileID: 0}
+  ShootTimeline: {fileID: 11400000, guid: 91d0ab555ee99fc4299e6fdd77073686, type: 2}

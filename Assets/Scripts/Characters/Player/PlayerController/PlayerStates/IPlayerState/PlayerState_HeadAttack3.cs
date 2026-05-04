@@ -25,6 +25,10 @@ public class PlayerState_HeadAttack3 : IPlayerState
     }
     public override void LogicUpdate()
     {
+        if(_player.IsDie)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Die));
+        }
         if(_director.state != PlayState.Playing)
         { 
             _stateMachine.SetState(typeof(PlayerState_Idle));          
@@ -34,6 +38,7 @@ public class PlayerState_HeadAttack3 : IPlayerState
         {
             _stateMachine.SetState(typeof(PlayerState_Dash));
         }
+        
         if(_input.IsJump && _player.CanJump && _player.IsGrounded && _player.ActionCancel)
         {
             _stateMachine.SetState(typeof(PlayerState_Jump));
@@ -46,6 +51,6 @@ public class PlayerState_HeadAttack3 : IPlayerState
     }
     public override void PhysicsUpdate()
     { 
-
+        
     }
 }

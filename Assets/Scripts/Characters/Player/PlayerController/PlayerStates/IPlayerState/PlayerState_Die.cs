@@ -1,15 +1,27 @@
 using UnityEngine;
 
-public class PlayerState_Die : MonoBehaviour
+[CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Die", fileName = "PlayerState_Die")]
+public class PlayerState_Die : IPlayerState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void EnterState()
     {
+        base.EnterState();
+        _player.SetVelocity(Vector3.zero);
+    }
+    public override void ExitState()
+    {
+        _player.SetVelocity(Vector3.zero);
+
+    }
+    public override void LogicUpdate()
+    {
+        if(IsAnimationComplete)
+        {
+            _player.OnPlayerDie();
+        }
         
     }
-
-    // Update is called once per frame
-    void Update()
+    public override void PhysicsUpdate()
     {
         
     }

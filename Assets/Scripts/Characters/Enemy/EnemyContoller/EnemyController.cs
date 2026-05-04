@@ -45,6 +45,7 @@ public class EnemyController : MonoBehaviour
         CanAttack = false;
         CanBack = false;
         _TrackPlayer = true;
+        IsHurt = false;
         IsDie = false;
         IsStop = false;
     }
