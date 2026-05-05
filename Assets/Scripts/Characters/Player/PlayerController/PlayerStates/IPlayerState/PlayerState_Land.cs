@@ -30,7 +30,7 @@ public class PlayerState_Land : IPlayerState
             }
         }
 
-        if(_input.IsDash)
+        if(_input.IsDash && _player.CanDash)
         {
             _stateMachine.SetState(typeof(PlayerState_Dash));
         }

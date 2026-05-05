@@ -9,7 +9,8 @@ public class PlayerState_Dash : IPlayerState
     public override void EnterState()
     {
         base.EnterState();
-
+        
+        _player.DashCD(1f);
         _player.Dash();
         _currentTime = _duration;
         
@@ -17,7 +18,7 @@ public class PlayerState_Dash : IPlayerState
     }
     public override void ExitState()
     {
-        _player.SetVelocity(Vector3.zero);
+        _player.SetVelocity(Vector3.zero);  
     }
     public override void LogicUpdate()
     {

@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     private ComboGrade _currentGrade;
     private float holdTime = 0;
     private Coroutine _invincibleCoroutine;
+    private Coroutine _dashCoroutine;
     
     public bool IsGrounded => _groundDetector.IsGrounded;
     public bool IsFalling => _rb.linearVelocity.y < 0 && !IsGrounded;
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
     public HoldGrade CurrentHoldGrade = HoldGrade.level0;
     public bool CanJump = false;
     public bool CanMove = false;
+    public bool CanDash = false;
     public bool ActionCancel = false;
     public bool IsHurt;
     public bool IsDie;
@@ -58,6 +60,7 @@ public class PlayerController : MonoBehaviour
         _currentHP = _HP;
         CanJump = true;
         CanMove = true;
+        CanDash = true;
         IsHurt = false;
         IsDie = false;
     }
@@ -249,6 +252,12 @@ public class PlayerController : MonoBehaviour
         _invincibleCoroutine = StartCoroutine(InvincibleTime(time));
     }
     
+    public void DashCD(float time)
+    {
+        if (_dashCoroutine != null) return;
+        _dashCoroutine = StartCoroutine(DashCDTime(time));
+    }
+    
     private void GetHurt(float damage)
     {
         if (Invincible) return;
@@ -275,6 +284,14 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Invincible End");
         StopCoroutine(_invincibleCoroutine);
         _invincibleCoroutine = null;
+    } 
+    IEnumerator DashCDTime(float time)
+    {
+        CanDash = false;
+        yield return new WaitForSeconds(time);
+        CanDash = true;
+        StopCoroutine(_dashCoroutine);
+        _dashCoroutine = null;
     } 
 }
 

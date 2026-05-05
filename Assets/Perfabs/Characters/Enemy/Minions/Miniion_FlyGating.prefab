@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43468c94a4e764b4eb09d762959c4e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _HP: 200
+  _HP: 100
   _shieldHP: 0
   _attackCD: {x: 5, y: 8}
   _jumpCD: 0
@@ -413,35 +413,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1212307479709098398, guid: f3df1f4d17b53104c9d89c1bee708f04, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.38476238
+      value: -0.38476238
       objectReference: {fileID: 0}
     - target: {fileID: -1212307479709098398, guid: f3df1f4d17b53104c9d89c1bee708f04, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.79405403
+      value: 0.79405403
       objectReference: {fileID: 0}
     - target: {fileID: -1212307479709098398, guid: f3df1f4d17b53104c9d89c1bee708f04, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.1916668
+      value: -0.1916668
       objectReference: {fileID: 0}
     - target: {fileID: -1212307479709098398, guid: f3df1f4d17b53104c9d89c1bee708f04, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.42976728
+      value: -0.42976728
       objectReference: {fileID: 0}
     - target: {fileID: -939367579500926372, guid: f3df1f4d17b53104c9d89c1bee708f04, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.38056675
+      value: -0.38056675
       objectReference: {fileID: 0}
     - target: {fileID: -939367579500926372, guid: f3df1f4d17b53104c9d89c1bee708f04, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7958531
+      value: 0.7958531
       objectReference: {fileID: 0}
     - target: {fileID: -939367579500926372, guid: f3df1f4d17b53104c9d89c1bee708f04, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.18982601
+      value: 0.18982601
       objectReference: {fileID: 0}
     - target: {fileID: -939367579500926372, guid: f3df1f4d17b53104c9d89c1bee708f04, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.43099067
+      value: 0.43099067
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f3df1f4d17b53104c9d89c1bee708f04, type: 3}
       propertyPath: m_Name
