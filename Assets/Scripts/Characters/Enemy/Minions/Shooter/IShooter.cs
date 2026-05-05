@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class IShooter : IState
+public class IShooterState : IState
 {
     float _stateEnterTime;
     protected ShooterStateController _stateMachine;

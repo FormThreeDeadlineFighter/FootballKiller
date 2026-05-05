@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class IFlyGalting : IState
+public class IFlyGaltingState : IState
 {
     float _stateEnterTime;
     protected FlyGaltingStateController _stateMachine;

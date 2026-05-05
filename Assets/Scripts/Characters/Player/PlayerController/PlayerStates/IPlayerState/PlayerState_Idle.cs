@@ -15,6 +15,10 @@ public class PlayerState_Idle : IPlayerState
     }
     public override void LogicUpdate()
     {
+        if(_player.IsHurt)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Hurt));
+        }
         if(_player.IsMove)
         {
             _stateMachine.SetState(typeof(PlayerState_Move));
@@ -38,8 +42,7 @@ public class PlayerState_Idle : IPlayerState
         if(_input.IsLightAttack)
         {
             _stateMachine.SetState(typeof(PlayerState_HeadAttack1));
-        } 
-        
+        }  
         if(_input.IsRelease)
         {
             _stateMachine.SetState(typeof(PlayerState_Release));

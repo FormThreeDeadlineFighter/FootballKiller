@@ -9,7 +9,7 @@ public class ShooterStateController : IStateController
     // enemy controller
     private EnemyController _enemy;
     PlayableDirector _director;  
-    List<IShooter> _shooterStates = new List<IShooter>();
+    List<IShooterState> _shooterStates = new List<IShooterState>();
     [SerializeField] StateConfig_Shooter _data;
     
     
@@ -44,7 +44,7 @@ public class ShooterStateController : IStateController
         _shooterStates.Add(_shooterState_Hurt);
         _shooterStates.Add(_shooterState_Die);
         
-        foreach (IShooter state in _shooterStates)
+        foreach (IShooterState state in _shooterStates)
         {
             state.Initialize(this, _enemy, _animator, _director, _data);
             _stateTable.Add(state.GetType(), state);

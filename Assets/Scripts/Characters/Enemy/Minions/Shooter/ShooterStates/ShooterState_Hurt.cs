@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShooterState_Hurt : IShooter
+public class ShooterState_Hurt : IShooterState
 {
     public override void EnterState()
     {

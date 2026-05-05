@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class FlyGaltingState_Hurt : IFlyGalting
+public class FlyGaltingState_Hurt : IFlyGaltingState
 {
     public override void EnterState()
     {
         _enemy.IsTrackPlayer();
-        _animator.Play(_data.IdleAnimationName);
+        _animator.Play(_data.HurtAnimationName);
     }
     public override void ExitState()
     {

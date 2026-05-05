@@ -15,6 +15,10 @@ public class PlayerState_Move : IPlayerState
     }
     public override void LogicUpdate()
     {
+        if(_player.IsHurt)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Hurt));
+        }
         if(!_input.IsMove)
         {
             _stateMachine.SetState(typeof(PlayerState_Idle));

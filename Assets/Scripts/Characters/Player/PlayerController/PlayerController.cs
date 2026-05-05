@@ -36,7 +36,10 @@ public class PlayerController : MonoBehaviour
     public bool IsMove => _input.IsMove;
     public HoldGrade CurrentHoldGrade = HoldGrade.level0;
     public bool CanJump = false;
+    public bool CanMove = false;
     public bool ActionCancel = false;
+    public bool IsHurt;
+    public bool IsDie;
 
     void Awake()
     {
@@ -50,15 +53,19 @@ public class PlayerController : MonoBehaviour
     void OnEnable()
     {   
         _playerEvents.OnPlayerHurt += GetHurt;
-        
+        _gameEvent.OnGameDefeat += PlayerLose;
         _playerHitBox.SetActive(true); 
         _currentHP = _HP;
         CanJump = true;
+        CanMove = true;
+        IsHurt = false;
+        IsDie = false;
     }
 
     void OnDisable()
     {
         _playerEvents.OnPlayerHurt -= GetHurt;
+        _gameEvent.OnGameDefeat -= PlayerLose;
         _playerHitBox.SetActive(false);
     }
     void Update()
@@ -82,9 +89,9 @@ public class PlayerController : MonoBehaviour
         {
             switch(holdTime)
             {
-            //case >3: CurrentHoldGrade = HoldGrade.level3;
-            //break;
-            case >3: CurrentHoldGrade = HoldGrade.level2;
+            case >3: CurrentHoldGrade = HoldGrade.level3;
+            break;
+            case >2: CurrentHoldGrade = HoldGrade.level2;
             break;
             case >1: CurrentHoldGrade = HoldGrade.level1;
             break;
@@ -101,6 +108,15 @@ public class PlayerController : MonoBehaviour
             Debug.Log("game pause");
         }
         
+        if (_currentHP <= 0)
+        {
+            IsDie = true;
+        }
+        
+    }
+    private void PlayerLose()
+    {
+        Destroy(this.gameObject);
     }
 
     public void SetVelocity(Vector3 velocity)
@@ -119,6 +135,7 @@ public class PlayerController : MonoBehaviour
 
     public void Move(float speed)
     {
+        if(!CanMove) return;
         Vector3 moveDir = _rb.transform.forward * _input.StickValue.y + _rb.transform.right * _input.StickValue.x;
         if (_cameraTransform != null)
         {
@@ -144,7 +161,7 @@ public class PlayerController : MonoBehaviour
     public void Dash()
     {
         Vector3 moveDir = _rb.transform.forward * _input.StickValue.y + _rb.transform.right * _input.StickValue.x;
-        if (_cameraTransform != null)
+        if (_cameraTransform != null && CanMove)
         {
             Vector3 camForward = _cameraTransform.forward;
             Vector3 camRight = Camera.main.transform.right;
@@ -155,7 +172,7 @@ public class PlayerController : MonoBehaviour
 
             moveDir = camForward * _input.StickValue.y + camRight * _input.StickValue.x;
         }
-        if (moveDir != Vector3.zero)
+        if (moveDir != Vector3.zero && CanMove)
         {
             Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
             _rb.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.fixedDeltaTime);
@@ -215,6 +232,11 @@ public class PlayerController : MonoBehaviour
         
     }
     
+    public void OnPlayerDie()
+    {
+        _gameEvent.GameDefeat();
+    }
+    
     public void PauseEnter()
     {
         _gameEvent.GamePause();
@@ -232,11 +254,12 @@ public class PlayerController : MonoBehaviour
         if (Invincible) return;
         if (_currentHP >= 0)
         {
+            IsHurt = true;
             _currentHP -= damage;
         }
         if (_currentHP <= 0)
         {
-            _gameEvent.GameDefeat();
+            _currentHP = 0;
         }
         
         float hpPercentage = _currentHP/_HP;

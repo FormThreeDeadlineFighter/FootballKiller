@@ -116,6 +116,10 @@ Assets/Scripts/Characters/
     TankState_Idle.cs
     TankState_PreAttack.cs
     TankState_Shoot.cs
+  Pi/
+   IPiState.cs
+   PiStateController.cs
+   StateConfig_Pi.cs
  Player/PlayerController/
   EnergyController.cs
   PlayerComboController.cs
@@ -129,13 +133,16 @@ Assets/Scripts/Characters/
    IPlayerState/
     PlayerState_Block.cs
     PlayerState_Dash.cs
+    PlayerState_Die.cs
     PlayerState_Fall.cs
     PlayerState_FootAttack1.cs
     PlayerState_FootAttack2.cs
     PlayerState_FootAttack3.cs
+    PlayerState_FootAttack4.cs
     PlayerState_HeadAttack1.cs
     PlayerState_HeadAttack2.cs
     PlayerState_HeadAttack3.cs
+    PlayerState_Hurt.cs
     PlayerState_Idle.cs
     PlayerState_Jump.cs
     PlayerState_Land.cs

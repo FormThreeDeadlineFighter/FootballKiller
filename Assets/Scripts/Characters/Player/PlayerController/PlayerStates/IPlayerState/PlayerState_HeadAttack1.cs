@@ -27,22 +27,28 @@ public class PlayerState_HeadAttack1 : IPlayerState
     }
     public override void LogicUpdate()
     {
+        if(_player.IsDie)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Die));
+        }
         if(_director.state != PlayState.Playing)
         {
+            _stateMachine.SetState(typeof(PlayerState_Idle));            
+        }
+
+        if(_player.ActionCancel)
+        {
+            if(_input.IsDash)
+            {
+                _stateMachine.SetState(typeof(PlayerState_Dash));
+            }
             if(_preInput)
             {
                 _stateMachine.SetState(typeof(PlayerState_HeadAttack2));
             } 
-            else
-            {
-                _stateMachine.SetState(typeof(PlayerState_Idle));
-            }                
         }
-
-        if(_input.IsDash && _player.ActionCancel)
-        {
-            _stateMachine.SetState(typeof(PlayerState_Dash));
-        }
+        
+        
         if(_input.IsJump && _player.CanJump && _player.IsGrounded && _player.ActionCancel)
         {
             _stateMachine.SetState(typeof(PlayerState_Jump));

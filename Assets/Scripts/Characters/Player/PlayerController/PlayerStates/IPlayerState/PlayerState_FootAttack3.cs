@@ -25,6 +25,10 @@ public class PlayerState_FootAttack3 : IPlayerState
     }
     public override void LogicUpdate()
     {
+        if(_player.IsDie)
+        {
+            _stateMachine.SetState(typeof(PlayerState_Die));
+        }
         if(_director.state != PlayState.Playing)
         { 
             _stateMachine.SetState(typeof(PlayerState_Idle));          

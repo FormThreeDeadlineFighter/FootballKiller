@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class ITank :IState
+public class ITankState :IState
 {
     float _stateEnterTime;
     protected TankStateController _stateMachine;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TankState_PreAttack : ITank
+public class TankState_PreAttack : ITankState
 {
     public override void EnterState()
     {

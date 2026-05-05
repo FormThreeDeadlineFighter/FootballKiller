@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FlyGaltingState_Idle : IFlyGalting
+public class FlyGaltingState_Idle : IFlyGaltingState
 {
     public override void EnterState()
     {
@@ -26,5 +26,11 @@ public class FlyGaltingState_Idle : IFlyGalting
     public override void PhysicsUpdate()
     {
         _enemy.IsTrackPlayer();
+        
+        if(_enemy.PlayerDistance > 20f)
+        {      
+            Vector3 forward = _enemy.PlayerPosition * _data.ForwardSpeed;
+            _enemy.SetVelocityXZ(forward);
+        }
     }
 }

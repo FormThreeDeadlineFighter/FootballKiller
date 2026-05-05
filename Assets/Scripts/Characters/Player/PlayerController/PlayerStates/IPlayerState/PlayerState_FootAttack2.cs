@@ -27,16 +27,12 @@ public class PlayerState_FootAttack2 : IPlayerState
     }
     public override void LogicUpdate()
     {
-        if(_director.state != PlayState.Playing)
+        if(_player.IsDie)
         {
-            /*if(_preInput)
-            {
-                _stateMachine.SetState(typeof(PlayerState_FootAttack3));
-            } 
-            else
-            {
-                _stateMachine.SetState(typeof(PlayerState_Idle));
-            }*/         
+            _stateMachine.SetState(typeof(PlayerState_Die));
+        }
+        if(_director.state != PlayState.Playing)
+        {        
             _stateMachine.SetState(typeof(PlayerState_Idle)); 
         }
 
@@ -48,11 +44,7 @@ public class PlayerState_FootAttack2 : IPlayerState
             {
                 _stateMachine.SetState(typeof(PlayerState_Jump));
             }
-        
-        //if(_input.IsHeavyAttack)
-        //{
-        //    _preInput = true;
-        //} 
+
     }
     public override void PhysicsUpdate()
     { 

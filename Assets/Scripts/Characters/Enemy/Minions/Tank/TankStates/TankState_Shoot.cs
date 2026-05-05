@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 
 
-public class TankState_Shoot : ITank
+public class TankState_Shoot : ITankState
 {
     public override void EnterState()
     {

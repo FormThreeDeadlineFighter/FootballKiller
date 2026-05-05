@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class TankState_Charge : ITank
+public class TankState_Charge : ITankState
 {
     public override void EnterState()
     {
