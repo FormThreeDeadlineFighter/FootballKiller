@@ -10,7 +10,7 @@ public class PlayerState_Dash : IPlayerState
     {
         base.EnterState();
         
-        _player.DashCD(1f);
+        _player.DashCD(0.75f);
         _player.Dash();
         _currentTime = _duration;
         
