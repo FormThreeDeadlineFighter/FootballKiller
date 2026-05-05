@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2508489916490542809}
   - component: {fileID: 8436333085673437561}
   - component: {fileID: -2664859952569743677}
-  - component: {fileID: 78438558304002166}
+  - component: {fileID: 6663210801361588195}
   m_Layer: 9
-  m_Name: TankBullet
+  m_Name: FlyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,9 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fbcc33c7cf889469f447b460a8fac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 15
+  Damage: 10
   Elements: 0
---- !u!114 &78438558304002166
+--- !u!114 &6663210801361588195
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55623f0776666a479fcf344d8c35286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBullet
-  _speed: 60
+  _speed: 50
   boom: {fileID: 4371265178355146009, guid: 61d9dff2958c17e4898cdddb87898811, type: 3}
 --- !u!1001 &4201186792119877270
 PrefabInstance:

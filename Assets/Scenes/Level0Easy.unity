@@ -967,7 +967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57d8e2c5ccfb0d440ba6e04fe66504d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
-  _level: {fileID: 11400000, guid: c5b185e313fb52542aa38c2fd0836de2, type: 2}
+  _level: {fileID: 11400000, guid: c8d12bd8b2b50c041b2fed87851bdb48, type: 2}
   _gameLevel: {fileID: 578171978}
   gameEvent: {fileID: 11400000, guid: 4d3e622616f0422419f565b9695f06d9, type: 2}
 --- !u!114 &671523042 stripped

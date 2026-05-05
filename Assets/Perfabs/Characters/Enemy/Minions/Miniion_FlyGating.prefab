@@ -300,7 +300,7 @@ MonoBehaviour:
   attackTransform: {fileID: 3262402812444353860}
   _bulletsArray:
   - Bullets:
-    - Bullet: {fileID: 7841672020790003158, guid: 0b627c5e363b6c545b10643594cda6c6, type: 3}
+    - Bullet: {fileID: 7841672020790003158, guid: 15780c9dfdd0a7f4dbb7169f2ad3b846, type: 3}
       Height: 0
       Angle: {x: 0, y: 0}
     DelayTime: 0
@@ -360,7 +360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f3df1f4d17b53104c9d89c1bee708f04, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f3df1f4d17b53104c9d89c1bee708f04, type: 3}
       propertyPath: m_LocalPosition.z
