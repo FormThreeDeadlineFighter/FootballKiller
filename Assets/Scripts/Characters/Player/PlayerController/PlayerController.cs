@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,6 +23,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerEvent _playerEvents;
     [SerializeField] GameEvent _gameEvent;
     
+    [SerializeField] GameObject vfxLevel0;
+    [SerializeField] GameObject vfxLevel1;
+    [SerializeField] GameObject vfxLevel2;
+    [SerializeField] GameObject vfxLevel3;
+    
     private Rigidbody _rb;
     private PlayerGroundDetector _groundDetector;
     private PlayerInput _input;
@@ -31,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private float holdTime = 0;
     private Coroutine _invincibleCoroutine;
     private Coroutine _dashCoroutine;
+    private GameObject _currentHoldvfx;
     
     public bool IsGrounded => _groundDetector.IsGrounded;
     public bool IsFalling => _rb.linearVelocity.y < 0 && !IsGrounded;
@@ -63,6 +70,7 @@ public class PlayerController : MonoBehaviour
         CanDash = true;
         IsHurt = false;
         IsDie = false;
+        _currentHoldvfx = vfxLevel0;
     }
 
     void OnDisable()
@@ -85,7 +93,7 @@ public class PlayerController : MonoBehaviour
         if(_input.IsHold)
         {
             holdTime += Time.deltaTime;
-            Debug.Log(holdTime);
+            HoldVFX(holdTime);
         }
         
         if(_input.IsRelease)
@@ -256,6 +264,33 @@ public class PlayerController : MonoBehaviour
     {
         if (_dashCoroutine != null) return;
         _dashCoroutine = StartCoroutine(DashCDTime(time));
+    }
+    
+    private void HoldVFX(float time)
+    {       
+        switch(time)
+        {
+        case >3: 
+        _currentHoldvfx.SetActive(false);
+        _currentHoldvfx = vfxLevel3;
+        break;
+        case >2: 
+        _currentHoldvfx.SetActive(false);
+        _currentHoldvfx = vfxLevel2;
+        break;
+        case >1: 
+        _currentHoldvfx.SetActive(false);
+        _currentHoldvfx = vfxLevel1;
+        break;
+        case >0: 
+        _currentHoldvfx.SetActive(false);
+        _currentHoldvfx = vfxLevel0;
+        break;
+        default: 
+        _currentHoldvfx.SetActive(false);
+        break;
+        }
+        _currentHoldvfx.SetActive(true);
     }
     
     private void GetHurt(float damage)

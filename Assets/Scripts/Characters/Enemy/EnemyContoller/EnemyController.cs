@@ -179,6 +179,7 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.TryGetComponent<IAttack>(out IAttack attack))
         {
             if(attack.Elements != currentElement) return;
+            if(IsHurt) return;
             OnHurt(attack.Damage);
         }
     }

@@ -7,6 +7,7 @@ public class PlayerState_Hurt : IPlayerState
     {
         base.EnterState();
         _player.SetVelocity(Vector3.zero);
+        _player.InvincibleStart(0.5f);
     }
     public override void ExitState()
     {

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StateConfig_FlyGalting
   m_EditorClassIdentifier: Assembly-CSharp::StateConfig_FlyGalting
   ForwardSpeed: 5
-  BackSpeed: 15
+  BackSpeed: 10
   IdleAnimationName: Idle
   HurtAnimationName: Hurt
   DieAnimationName: Die
