@@ -18,12 +18,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: "\u6750\u8CEA.002"
-    second: {fileID: 2100000, guid: ba7268778769536409314837ed4d5c1d, type: 2}
+    second: {fileID: 2100000, guid: 016797d19ce3d7b4aa2673907d49586e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: "\u6750\u8CEA.003"
-    second: {fileID: 2100000, guid: 016797d19ce3d7b4aa2673907d49586e, type: 2}
+    second: {fileID: 2100000, guid: ba7268778769536409314837ed4d5c1d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
