@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43468c94a4e764b4eb09d762959c4e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  _HP: 80
+  _HP: 100
   _shieldHP: 0
   _attackCD: {x: 5, y: 8}
   _jumpCD: 0
@@ -637,6 +637,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 301268226129856269}
     m_Modifications:
+    - target: {fileID: -8789740811427555287, guid: 7ee30ba055ec6b145b2e84db3388bb9a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8789740811427555287, guid: 7ee30ba055ec6b145b2e84db3388bb9a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7ee30ba055ec6b145b2e84db3388bb9a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -689,9 +697,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -887390495939430305, guid: 7ee30ba055ec6b145b2e84db3388bb9a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7ee30ba055ec6b145b2e84db3388bb9a, type: 3}
       propertyPath: m_Name
       value: monster3_013_Black
+      objectReference: {fileID: 0}
+    - target: {fileID: 3689220302775229559, guid: 7ee30ba055ec6b145b2e84db3388bb9a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5373409047593248888, guid: 7ee30ba055ec6b145b2e84db3388bb9a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5373409047593248888, guid: 7ee30ba055ec6b145b2e84db3388bb9a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 7ee30ba055ec6b145b2e84db3388bb9a, type: 3}
       propertyPath: m_Controller

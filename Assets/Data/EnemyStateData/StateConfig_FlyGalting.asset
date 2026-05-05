@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79825ab92902e15419d6ac44766846fc, type: 3}
   m_Name: StateConfig_FlyGalting
   m_EditorClassIdentifier: Assembly-CSharp::StateConfig_FlyGalting
-  ForwardSpeed: 0
-  BackSpeed: 0
+  ForwardSpeed: 5
+  BackSpeed: 15
   IdleAnimationName: Idle
   HurtAnimationName: Hurt
   DieAnimationName: Die

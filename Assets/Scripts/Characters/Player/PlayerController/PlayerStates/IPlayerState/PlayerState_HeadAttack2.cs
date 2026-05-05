@@ -38,7 +38,7 @@ public class PlayerState_HeadAttack2 : IPlayerState
 
         if(_player.ActionCancel)
         {
-            if(_input.IsDash)
+            if(_input.IsDash && _player.CanDash)
             {
                 _stateMachine.SetState(typeof(PlayerState_Dash));
             }

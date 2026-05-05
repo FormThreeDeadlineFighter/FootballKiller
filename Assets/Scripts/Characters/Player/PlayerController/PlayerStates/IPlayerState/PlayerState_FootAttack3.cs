@@ -34,7 +34,7 @@ public class PlayerState_FootAttack3 : IPlayerState
             _stateMachine.SetState(typeof(PlayerState_Idle));          
         }
 
-        if(_input.IsDash && _player.ActionCancel)
+        if(_input.IsDash && _player.CanDash && _player.ActionCancel)
         {
             _stateMachine.SetState(typeof(PlayerState_Dash));
         }
