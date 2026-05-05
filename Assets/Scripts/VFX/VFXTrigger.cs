@@ -9,4 +9,8 @@ public class VFXTrigger : MonoBehaviour
     {
         _vfx.Play();
     }
+    public void StopVFX()
+    {
+        _vfx.Stop();
+    }
 }

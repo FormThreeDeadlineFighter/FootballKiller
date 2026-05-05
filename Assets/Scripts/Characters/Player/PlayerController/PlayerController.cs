@@ -111,6 +111,7 @@ public class PlayerController : MonoBehaviour
             }
             Debug.Log(CurrentHoldGrade);
             holdTime = 0;
+            HoldVFX(0);
         }
         
         if(_input.IsPause)
@@ -270,27 +271,31 @@ public class PlayerController : MonoBehaviour
     {       
         switch(time)
         {
-        case >3: 
+        case >3f: 
         _currentHoldvfx.SetActive(false);
         _currentHoldvfx = vfxLevel3;
+        _currentHoldvfx.SetActive(true);
         break;
-        case >2: 
+        case >2f: 
         _currentHoldvfx.SetActive(false);
         _currentHoldvfx = vfxLevel2;
+        _currentHoldvfx.SetActive(true);
         break;
-        case >1: 
+        case >1f: 
         _currentHoldvfx.SetActive(false);
         _currentHoldvfx = vfxLevel1;
+        _currentHoldvfx.SetActive(true);
         break;
-        case >0: 
+        case > 0f: 
         _currentHoldvfx.SetActive(false);
         _currentHoldvfx = vfxLevel0;
+        _currentHoldvfx.SetActive(true);
         break;
+        
         default: 
         _currentHoldvfx.SetActive(false);
         break;
-        }
-        _currentHoldvfx.SetActive(true);
+        }  
     }
     
     private void GetHurt(float damage)
