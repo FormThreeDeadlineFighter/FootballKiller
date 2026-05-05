@@ -1754,10 +1754,78 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2845548339100937673, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
+      propertyPath: m_Name
+      value: STAGE2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2845548339100937673, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782129053216416336, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782129053216416336, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: Level2Easy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461292570289678957, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461292570289678957, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: Level2Easy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073436968490546321, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
+      propertyPath: m_Name
+      value: STAGE1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154663105872853768, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154663105872853768, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: Level1Easy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6700409416049652533, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6700409416049652533, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: Level1Easy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054610143170029240, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054610143170029240, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: Level0Easy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526184773729316485, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526184773729316485, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: Level0Easy
+      objectReference: {fileID: 0}
     - target: {fileID: 8061567241441952871, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1619569756}
+    - target: {fileID: 8279511651081922849, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
+      propertyPath: m_Name
+      value: STAGE0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279511651081922849, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8251942975927043967}
   - component: {fileID: 1773370440050507353}
   m_Layer: 0
-  m_Name: Test_BossWave
+  m_Name: Test_Wave 2-boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,8 +30,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6665841754351257619}
-  - {fileID: 1687944726081165216}
+  - {fileID: 3420121933841487516}
+  - {fileID: 3588179260998566590}
   - {fileID: 9176698115963342595}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -49,9 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Wave
   enemys:
   - {fileID: 8732687216783927181}
-  - {fileID: 8937113541357324605}
-  - {fileID: 4029061820859995790}
---- !u!1001 &1262768213491325732
+  - {fileID: 1148528333686429618}
+  - {fileID: 1246675413548352400}
+--- !u!1001 &7093492648001406379
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -108,17 +108,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
---- !u!4 &6665841754351257619 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5550566959312851767, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
-  m_PrefabInstance: {fileID: 1262768213491325732}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8937113541357324605 stripped
+--- !u!1 &1148528333686429618 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7890660133877961241, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
-  m_PrefabInstance: {fileID: 1262768213491325732}
+  m_PrefabInstance: {fileID: 7093492648001406379}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &6515402392695145623
+--- !u!4 &3420121933841487516 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5550566959312851767, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
+  m_PrefabInstance: {fileID: 7093492648001406379}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8992656268479074697
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -175,15 +175,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
---- !u!4 &1687944726081165216 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5550566959312851767, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
-  m_PrefabInstance: {fileID: 6515402392695145623}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4029061820859995790 stripped
+--- !u!1 &1246675413548352400 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7890660133877961241, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
-  m_PrefabInstance: {fileID: 6515402392695145623}
+  m_PrefabInstance: {fileID: 8992656268479074697}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3588179260998566590 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5550566959312851767, guid: 104354adef8a72e438576c31c3d9cf7d, type: 3}
+  m_PrefabInstance: {fileID: 8992656268479074697}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9219764213162846085
 PrefabInstance:
@@ -236,18 +236,6 @@ PrefabInstance:
     - target: {fileID: 487394218401988616, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
       propertyPath: m_Name
       value: Boss (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6950927892587693952, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
-      propertyPath: _HP
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 7737357757534312638, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
-      propertyPath: m_PlayableAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 5fd35af3a637c8746b16a949546c40a6, type: 2}
-    - target: {fileID: 8974013714764645979, guid: 302eda3771ad9574398be6a5ab1c0e37, type: 3}
-      propertyPath: Damage
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

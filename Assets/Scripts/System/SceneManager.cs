@@ -18,10 +18,10 @@ public class SceneManger : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // 替換成關卡圖        
     }
-    public void Stage()
+    public void Stage(string name)
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("BaseballScene");
+        SceneManager.LoadScene(name);
     }
     public void NextStage()
     {
