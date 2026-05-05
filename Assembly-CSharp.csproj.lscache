@@ -138,6 +138,7 @@ Assets/Scripts/Characters/
     PlayerState_FootAttack1.cs
     PlayerState_FootAttack2.cs
     PlayerState_FootAttack3.cs
+    PlayerState_FootAttack4.cs
     PlayerState_HeadAttack1.cs
     PlayerState_HeadAttack2.cs
     PlayerState_HeadAttack3.cs

@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     public bool IsMove => _input.IsMove;
     public HoldGrade CurrentHoldGrade = HoldGrade.level0;
     public bool CanJump = false;
+    public bool CanMove = false;
     public bool ActionCancel = false;
     public bool IsHurt;
     public bool IsDie;
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
         _playerHitBox.SetActive(true); 
         _currentHP = _HP;
         CanJump = true;
+        CanMove = true;
         IsHurt = false;
         IsDie = false;
     }
@@ -87,9 +89,9 @@ public class PlayerController : MonoBehaviour
         {
             switch(holdTime)
             {
-            //case >3: CurrentHoldGrade = HoldGrade.level3;
-            //break;
-            case >3: CurrentHoldGrade = HoldGrade.level2;
+            case >3: CurrentHoldGrade = HoldGrade.level3;
+            break;
+            case >2: CurrentHoldGrade = HoldGrade.level2;
             break;
             case >1: CurrentHoldGrade = HoldGrade.level1;
             break;
@@ -133,6 +135,7 @@ public class PlayerController : MonoBehaviour
 
     public void Move(float speed)
     {
+        if(!CanMove) return;
         Vector3 moveDir = _rb.transform.forward * _input.StickValue.y + _rb.transform.right * _input.StickValue.x;
         if (_cameraTransform != null)
         {
@@ -158,7 +161,7 @@ public class PlayerController : MonoBehaviour
     public void Dash()
     {
         Vector3 moveDir = _rb.transform.forward * _input.StickValue.y + _rb.transform.right * _input.StickValue.x;
-        if (_cameraTransform != null)
+        if (_cameraTransform != null && CanMove)
         {
             Vector3 camForward = _cameraTransform.forward;
             Vector3 camRight = Camera.main.transform.right;
@@ -169,7 +172,7 @@ public class PlayerController : MonoBehaviour
 
             moveDir = camForward * _input.StickValue.y + camRight * _input.StickValue.x;
         }
-        if (moveDir != Vector3.zero)
+        if (moveDir != Vector3.zero && CanMove)
         {
             Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
             _rb.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.fixedDeltaTime);

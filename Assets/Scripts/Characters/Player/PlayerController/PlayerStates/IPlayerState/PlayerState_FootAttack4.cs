@@ -2,16 +2,14 @@ using UnityEngine;
 using UnityEngine.Timeline;
 using UnityEngine.Playables;
 
-[CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/HeadAttack3", fileName = "PlayerState_HeadAttack3")]
-public class PlayerState_HeadAttack3 : IPlayerState
+[CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/FootAttack4", fileName = "PlayerState_FootAttack4")]
+public class PlayerState_FootAttack4 : IPlayerState
 {
     [SerializeField] TimelineAsset _timeline;
     [SerializeField] float _attackDamage;
     [SerializeField] float _comboCharge;
     public override void EnterState()
-    { 
-        _player.CanMove = false; 
-        
+    {   
         _director.playableAsset = _timeline;
         _director.time = 0;
         _director.Play();
@@ -22,7 +20,6 @@ public class PlayerState_HeadAttack3 : IPlayerState
     }
     public override void ExitState()
     {
-        _player.CanMove = true;
         _director.time = 0;
         _director.Stop();
     }
@@ -41,19 +38,13 @@ public class PlayerState_HeadAttack3 : IPlayerState
         {
             _stateMachine.SetState(typeof(PlayerState_Dash));
         }
-        
         if(_input.IsJump && _player.CanJump && _player.IsGrounded && _player.ActionCancel)
         {
             _stateMachine.SetState(typeof(PlayerState_Jump));
         }
-        
-        if(_input.IsRelease)
-        {
-            _stateMachine.SetState(typeof(PlayerState_Release));
-        }
     }
     public override void PhysicsUpdate()
     { 
-        
+
     }
 }

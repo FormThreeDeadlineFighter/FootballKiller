@@ -25,6 +25,10 @@ public class PlayerState_Release : IPlayerState
         {
             _stateMachine.SetState(typeof(PlayerState_FootAttack3));
         }     
+        if(_player.CurrentHoldGrade == HoldGrade.level3)
+        {
+            _stateMachine.SetState(typeof(PlayerState_FootAttack4));
+        }   
     }
     public override void PhysicsUpdate()
     { 
