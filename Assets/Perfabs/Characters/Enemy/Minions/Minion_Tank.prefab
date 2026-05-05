@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2284948705701259761}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: BeatAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2096301152123751390}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: ChargeAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8916117340149782777}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: ShootAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 2171898709789663923}
   - component: {fileID: 8107166647199369805}
   - component: {fileID: 1314905299544482409}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: FirePoint 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 3438811489852674208}
   - component: {fileID: 8803413312764046}
   - component: {fileID: 317951876405621233}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: FirePoint 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

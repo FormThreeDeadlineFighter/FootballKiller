@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 7715120543278422500}
   - component: {fileID: 5546017323010358491}
   - component: {fileID: 8011220980973491697}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: MeleeStoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1718001405458849352}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: MeleeAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
