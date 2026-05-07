@@ -34,6 +34,7 @@ public class IPlayerState : ScriptableObject ,IState
     {
         _animator.CrossFade(_stateHash, _transitionDuration);
         _stateEnterTime = Time.time;
+        Debug.Log(this.name);
     }
     // when exit state happen
     public virtual void ExitState() 

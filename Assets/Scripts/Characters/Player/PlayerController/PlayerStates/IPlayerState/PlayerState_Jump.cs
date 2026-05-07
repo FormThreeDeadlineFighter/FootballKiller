@@ -20,7 +20,7 @@ public class PlayerState_Jump : IPlayerState
     }
     public override void LogicUpdate()
     {
-        if(_player.IsFalling && IsAnimationComplete)
+        if(IsAnimationComplete)
         {
             _stateMachine.SetState(typeof(PlayerState_Fall));
         }  

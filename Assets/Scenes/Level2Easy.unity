@@ -857,7 +857,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578171978}
-  - component: {fileID: 578171979}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -884,18 +883,6 @@ Transform:
   - {fileID: 2114658917}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &578171979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578171977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be97f6d1f1c26784b94f5e057ba28be3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BaseBall
 --- !u!1 &657278285 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5176892277491096100, guid: 4e7654fe868411b4eb0c2b5be2e2eecb, type: 3}
