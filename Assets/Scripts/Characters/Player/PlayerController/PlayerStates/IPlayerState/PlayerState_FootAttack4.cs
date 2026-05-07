@@ -10,6 +10,8 @@ public class PlayerState_FootAttack4 : IPlayerState
     [SerializeField] float _comboCharge;
     public override void EnterState()
     {   
+        _player.CanMove = false; 
+
         _director.playableAsset = _timeline;
         _director.time = 0;
         _director.Play();
@@ -20,6 +22,7 @@ public class PlayerState_FootAttack4 : IPlayerState
     }
     public override void ExitState()
     {
+        _player.CanMove = true; 
         _director.time = 0;
         _director.Stop();
     }

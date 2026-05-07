@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerState_Dash
   _animationName: Move
   _transitionDuration: 0.1
-  _duration: 50
+  _duration: 10
   _invincibleTime: 0.2

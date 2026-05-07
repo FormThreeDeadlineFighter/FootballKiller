@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform _cameraTransform;
     [SerializeField] GameObject _playerHitBox;
     [SerializeField] GameObject _attackHitBox;
+    [SerializeField] ParticleSystem _hurtVfx;
     [SerializeField] Material[] ElementMaterials;
     [SerializeField] Renderer ElementsShow;
     [SerializeField] PlayerEvent _playerEvents;
@@ -305,6 +306,7 @@ public class PlayerController : MonoBehaviour
         {
             IsHurt = true;
             _currentHP -= damage;
+            _hurtVfx.Play();
         }
         if (_currentHP <= 0)
         {
