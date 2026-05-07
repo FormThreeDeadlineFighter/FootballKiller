@@ -11,7 +11,7 @@ public class PlayerState_Die : IPlayerState
     public override void ExitState()
     {
         _player.SetVelocity(Vector3.zero);
-
+        _player.OnPlayerDie();
     }
     public override void LogicUpdate()
     {

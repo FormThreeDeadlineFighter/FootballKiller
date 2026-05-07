@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0fc6f5187a81dc47999eefade6f0935, type: 3}
-  m_Name: Fooot Attack 4
+  m_Name: Fooot Attack 3
   m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.GroupTrack
   m_Version: 3
   m_AnimClip: {fileID: 0}
@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter(Clone)(Clone)
   m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalEmitter
-  m_Time: 0.8333333333333334
+  m_Time: 1.1666666666666667
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 62ab1f637b8951444b20d5cb5239b9a4, type: 2}
@@ -268,7 +268,7 @@ MonoBehaviour:
     m_Start: 0.95
     m_ClipIn: 0
     m_Asset: {fileID: -5566292101453667431}
-    m_Duration: 0.2333333333333334
+    m_Duration: 0.15000000000000013
     m_TimeScale: 1
     m_ParentTrack: {fileID: 3401701468106984569}
     m_EaseInDuration: 0

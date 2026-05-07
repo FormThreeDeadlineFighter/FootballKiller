@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameEvent _gameEvent;
     private bool IsPause;
 
+    void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
     void OnEnable()
     {
         _gameEvent.OnGameVictory += OnVectory;
