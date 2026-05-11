@@ -181,6 +181,15 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Lock"",
+                    ""type"": ""Button"",
+                    ""id"": ""819498fc-a338-4c5f-8eff-bd5f27fa99f9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -445,6 +454,28 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad23e045-5c1f-4b78-9cc2-be0665ddaa6f"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Lock"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5daf38c1-0d45-4d85-98c2-ac661dbd8d85"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Lock"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1219,6 +1250,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         m_Battle_HoldAttack = m_Battle.FindAction("HoldAttack", throwIfNotFound: true);
         m_Battle_SwitchElement = m_Battle.FindAction("SwitchElement", throwIfNotFound: true);
         m_Battle_Pause = m_Battle.FindAction("Pause", throwIfNotFound: true);
+        m_Battle_Lock = m_Battle.FindAction("Lock", throwIfNotFound: true);
         // Lobby
         m_Lobby = asset.FindActionMap("Lobby", throwIfNotFound: true);
         m_Lobby_Move = m_Lobby.FindAction("Move", throwIfNotFound: true);
@@ -1331,6 +1363,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
     private readonly InputAction m_Battle_HoldAttack;
     private readonly InputAction m_Battle_SwitchElement;
     private readonly InputAction m_Battle_Pause;
+    private readonly InputAction m_Battle_Lock;
     /// <summary>
     /// Provides access to input actions defined in input action map "Battle".
     /// </summary>
@@ -1382,6 +1415,10 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Battle/Pause".
         /// </summary>
         public InputAction @Pause => m_Wrapper.m_Battle_Pause;
+        /// <summary>
+        /// Provides access to the underlying input action "Battle/Lock".
+        /// </summary>
+        public InputAction @Lock => m_Wrapper.m_Battle_Lock;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1438,6 +1475,9 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @Lock.started += instance.OnLock;
+            @Lock.performed += instance.OnLock;
+            @Lock.canceled += instance.OnLock;
         }
 
         /// <summary>
@@ -1479,6 +1519,9 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @Lock.started -= instance.OnLock;
+            @Lock.performed -= instance.OnLock;
+            @Lock.canceled -= instance.OnLock;
         }
 
         /// <summary>
@@ -1935,6 +1978,13 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPause(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Lock" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnLock(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Lobby" which allows adding and removing callbacks.

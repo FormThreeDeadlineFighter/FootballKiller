@@ -16,6 +16,7 @@ public class PlayerInput : MonoBehaviour
     public bool IsRelease => _playerControl.Battle.HoldAttack.WasReleasedThisFrame();
     public bool IsSwitch => _playerControl.Battle.SwitchElement.WasPerformedThisFrame();
     public bool IsPause => _playerControl.Battle.Pause.WasPerformedThisFrame();
+    public bool IsLock => _playerControl.Battle.Lock.WasPerformedThisFrame();
     public bool IsMove => StickValue != Vector2.zero;
     
     public void Awake()

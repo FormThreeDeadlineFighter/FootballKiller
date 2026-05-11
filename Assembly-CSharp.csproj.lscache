@@ -181,6 +181,7 @@ Assets/Scripts/System/
  SceneManager.cs
  SelectedManager.cs
  StageManager.cs
+ VideoManager.cs
 Assets/Scripts/UI/
  BossUI/BossHPUIController.cs
  FirstButtun.cs

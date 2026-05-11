@@ -60,4 +60,13 @@ public class PlayerEvent : ScriptableObject
             OnComboGradeChange(grade);
         }
     }
+    
+    public Action OnLock;
+    public void Lock()
+    {
+        if(OnLock != null)
+        {
+            OnLock();
+        }
+    }
 }

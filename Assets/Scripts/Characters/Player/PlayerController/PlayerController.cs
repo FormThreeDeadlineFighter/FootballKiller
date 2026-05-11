@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Objects")]
     [SerializeField] Transform _cameraTransform;
+    [SerializeField] Transform _lockTransform;
     [SerializeField] GameObject _playerHitBox;
     [SerializeField] GameObject _attackHitBox;
     [SerializeField] ParticleSystem _hurtVfx;
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour
     public bool ActionCancel = false;
     public bool IsHurt;
     public bool IsDie;
+    public bool IsLock;
 
     void Awake()
     {
@@ -71,6 +74,7 @@ public class PlayerController : MonoBehaviour
         CanDash = true;
         IsHurt = false;
         IsDie = false;
+        IsLock = false;
         _currentHoldvfx = vfxLevel0;
     }
 
@@ -125,6 +129,11 @@ public class PlayerController : MonoBehaviour
         {
             IsDie = true;
         }
+        if(_input.IsLock)
+        {
+            IsLock = !IsLock;
+            _playerEvents.Lock();
+        }
         
     }
     private void PlayerLose()
@@ -149,24 +158,40 @@ public class PlayerController : MonoBehaviour
     public void Move(float speed)
     {
         if(!CanMove) return;
-        Vector3 moveDir = _rb.transform.forward * _input.StickValue.y + _rb.transform.right * _input.StickValue.x;
-        if (_cameraTransform != null)
+        if(IsLock)
         {
-            Vector3 camForward = _cameraTransform.forward;
-            Vector3 camRight = Camera.main.transform.right;
-            camForward.y = 0;
-            camRight.y = 0;
-            camForward.Normalize();
-            camRight.Normalize();
-
-            moveDir = camForward * _input.StickValue.y + camRight * _input.StickValue.x;
-            moveDir = moveDir.normalized;
+            Vector3 targetForward = (transform.position - _cameraTransform.position).normalized;
+            Vector3 right = Vector3.Cross(Vector3.up, targetForward);
+            targetForward.y = 0;
+            right.y = 0;
+            targetForward.Normalize();
+            right.Normalize();
+            Vector3 move = targetForward * _input.StickValue.y + right * _input.StickValue.x;
+            Quaternion toRotation = Quaternion.LookRotation(move, Vector3.up);
+            _rb.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.fixedDeltaTime);  
+            SetVelocityXZ(move * speed);
         }
-        if (moveDir != Vector3.zero)
-        {
-            Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
-            _rb.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.fixedDeltaTime);
-            SetVelocityXZ(moveDir * speed);
+        else
+        {    
+            Vector3 moveDir = _rb.transform.forward * _input.StickValue.y + _rb.transform.right * _input.StickValue.x;
+            if (_cameraTransform != null)
+            {
+                Vector3 camForward = _cameraTransform.forward;
+                Vector3 camRight = Camera.main.transform.right;
+                camForward.y = 0;
+                camRight.y = 0;
+                camForward.Normalize();
+                camRight.Normalize();
+
+                moveDir = camForward * _input.StickValue.y + camRight * _input.StickValue.x;
+                moveDir = moveDir.normalized;
+            }
+            if (moveDir != Vector3.zero)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
+                _rb.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.fixedDeltaTime);
+                SetVelocityXZ(moveDir * speed);
+            }
         }
         
     }
