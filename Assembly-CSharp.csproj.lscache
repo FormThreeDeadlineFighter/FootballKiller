@@ -119,6 +119,15 @@ Assets/Scripts/Characters/
   Pi/
    IPiState.cs
    PiStateController.cs
+   PiStates/
+    PiState_Die.cs
+    PiState_HeavyAttack.cs
+    PiState_Hurt.cs
+    PiState_Idle.cs
+    PiState_Move.cs
+    PiState_PreAttack.cs
+    PiState_RoundAttack.cs
+    PiState_Summon.cs
    StateConfig_Pi.cs
  Player/PlayerController/
   EnergyController.cs
