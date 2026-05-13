@@ -57,6 +57,6 @@ public class ShooterStateController : IStateController
     
     void Start()
     {
-        SetState(_stateTable[typeof(PiState_Idle)]);
+        SetState(_stateTable[typeof(ShooterState_Idle)]);
     }
 }
