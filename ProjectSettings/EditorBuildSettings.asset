@@ -12,11 +12,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Level0Easy.unity
     guid: 3f488bf4e35563f4b9bd166e39e6532e
   - enabled: 1
+    path: Assets/Scenes/Level0Hard.unity
+    guid: 304eae9297e1fdd4f8efd564830c9c7c
+  - enabled: 1
     path: Assets/Scenes/Level1Easy.unity
     guid: a08f6cfec3a44f943b9d70113d519cd5
   - enabled: 1
+    path: Assets/Scenes/Level1Hard.unity
+    guid: 03424c2ec9aba194c871e00d7ae6abe7
+  - enabled: 1
     path: Assets/Scenes/Level2Easy.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Level2Hard.unity
+    guid: 1695f18a60df11e4085b7dd91b52fe12
   - enabled: 0
     path: Assets/Scenes/Test.unity
     guid: 3c1c5495578353c4e9473550a6585f54

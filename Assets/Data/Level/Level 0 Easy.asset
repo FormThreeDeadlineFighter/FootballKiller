@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: Level 0 Easy
   m_EditorClassIdentifier: Assembly-CSharp::Level
   waves:
-  - {fileID: 8201733038062066685, guid: 66d657765a62b524080406c2d0fe00dc, type: 3}
   - {fileID: 8784649594039344180, guid: 79e92b409eb11a84f9435f5acf6e5be3, type: 3}
-  - {fileID: 8784649594039344180, guid: 4772f3ced6d555245afb6b49bea66816, type: 3}

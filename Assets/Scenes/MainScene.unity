@@ -2032,7 +2032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4461292570289678957, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: Level2Easy
+      value: Level2Hard
       objectReference: {fileID: 0}
     - target: {fileID: 5073436968490546321, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
       propertyPath: m_Name
@@ -2052,7 +2052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6700409416049652533, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: Level1Easy
+      value: Level1Hard
       objectReference: {fileID: 0}
     - target: {fileID: 7054610143170029240, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -2068,7 +2068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7526184773729316485, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: Level0Easy
+      value: Level0Hard
       objectReference: {fileID: 0}
     - target: {fileID: 8061567241441952871, guid: 33687f0c8031d174fb3fa6195020025c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
