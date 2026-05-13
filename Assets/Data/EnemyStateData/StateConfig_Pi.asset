@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17696b54fdd85894c8892c7061fae83e, type: 3}
   m_Name: StateConfig_Pi
   m_EditorClassIdentifier: Assembly-CSharp::StateConfig_Pi
-  ForwardSpeed: 0
-  BackSpeed: 0
-  ChargeSpeed: 0
-  IdleAnimationName: 
-  HurtAnimationName: 
-  DieAnimationName: 
-  BeatTimeline: {fileID: 0}
-  ChargeTimeline: {fileID: 0}
-  ShootTimeline: {fileID: 0}
+  ForwardSpeed: 5
+  BackSpeed: 5
+  IdleAnimationName: Idle
+  MoveAnimationName: Move
+  HurtAnimationName: Hurt
+  DieAnimationName: Die
+  HeavyAttackTimeline: {fileID: 11400000, guid: 1ad9b4090ac2a9a45a5a40ca48d66591, type: 2}
+  RoundAttackTimeline: {fileID: 11400000, guid: b379b7e2e09babd43b5f82f47705c452, type: 2}
+  SummonTimeline: {fileID: 11400000, guid: a0cc5473e9917334eb8c987624051e3a, type: 2}

@@ -7,15 +7,15 @@ public class StateConfig_Pi : ScriptableObject, IStateConfig
     [Header("Values")]
     public float ForwardSpeed;
     public float BackSpeed;
-    public float ChargeSpeed;
     
     [Header("Animation")]
     public string IdleAnimationName;
+    public string MoveAnimationName;
     public string HurtAnimationName;
     public string DieAnimationName;
     
     [Header("TimelineAsset")]
-    public TimelineAsset BeatTimeline;
-    public TimelineAsset ChargeTimeline;
-    public TimelineAsset ShootTimeline;
+    public TimelineAsset HeavyAttackTimeline;
+    public TimelineAsset RoundAttackTimeline;
+    public TimelineAsset SummonTimeline;
 }

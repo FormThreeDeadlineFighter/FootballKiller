@@ -10081,7 +10081,7 @@ PlayableDirector:
   m_GameObject: {fileID: 3813055030340829860}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: a0cc5473e9917334eb8c987624051e3a, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 1ad9b4090ac2a9a45a5a40ca48d66591, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -10255,8 +10255,6 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: 93feb2c3b13b7f146bd442e81d9753c7, type: 2}
     - {fileID: 11400000, guid: 6034cda7356263e4ab735467fe725b33, type: 2}
-    - {fileID: 11400000, guid: 77e19c6fc97c1074baaf444cf8b02759, type: 2}
-    - {fileID: 11400000, guid: 62ab1f637b8951444b20d5cb5239b9a4, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -10277,34 +10275,6 @@ MonoBehaviour:
         - m_Target: {fileID: 421276391962614020}
           m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
           m_MethodName: NotTrackPlayer
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: TankStateController, Assembly-CSharp
-          m_MethodName: ChargeEnter
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: TankStateController, Assembly-CSharp
-          m_MethodName: ChargeExit
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -35105,6 +35075,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u6A5F\u68B0_\u62F3\u5973_\u9AA8\u67B6\u52D5\u756B_\u6B66\u5668\u624B"
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f94d659a9827d2146a9c457d998ba6a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: f94d659a9827d2146a9c457d998ba6a5, type: 3}
       propertyPath: m_Controller
       value: 
@@ -35180,6 +35154,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 56475c3917b44144f8a80e850b419b15, type: 3}
       propertyPath: m_Name
       value: "\u6A5F\u68B0_\u62F3\u5973_\u9AA8\u67B6\u52D5\u756B_\u6B66\u5668_\u4E09\u64CA\u5B8C\u6210"
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 56475c3917b44144f8a80e850b419b15, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
