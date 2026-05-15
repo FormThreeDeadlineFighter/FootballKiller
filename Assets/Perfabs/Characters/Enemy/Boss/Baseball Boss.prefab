@@ -5579,7 +5579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fbcc33c7cf889469f447b460a8fac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IAttack
-  Damage: 10
+  Damage: 40
   Elements: 0
 --- !u!1 &3702800923045993980
 GameObject:
