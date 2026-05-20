@@ -3,7 +3,57 @@ guid: 0b7d7d880137e2243a1df686d681975c
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PM3D_Cone3D1
+    second: {fileID: 2100000, guid: b722d3bf6a64acd498f08c7738476893, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PM3D_Cone3D2
+    second: {fileID: 2100000, guid: 97452972fe6d17b48a2fb788d33bda91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PM3D_Cone3D3
+    second: {fileID: 2100000, guid: 7144d4c6f52ed4842b65f94288831d61, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PM3D_Cone3D3_1
+    second: {fileID: 2100000, guid: cdc11e56808e5494fb10e8fb18a5487d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PM3D_Cone3D3_2
+    second: {fileID: 2100000, guid: e93b74e3010a3e747ba0384352f98d60, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PM3D_Cone3D3_3
+    second: {fileID: 2100000, guid: 69169eeb0fd96a047af308a89856ceb9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PM3D_Cone3D4
+    second: {fileID: 2100000, guid: bd0d12211bae0a942bf4d031271f1e5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PM3D_Cone3D4_1
+    second: {fileID: 2100000, guid: f9c60aa23f1ec4742a77dab082e117e1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PM3D_Cylinder3D4_3.001
+    second: {fileID: 2100000, guid: d1c207ca22fe99e4b910566cf5a5139c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolySphere
+    second: {fileID: 2100000, guid: 85a86b467c6aadc49b9fd72630802279, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

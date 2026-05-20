@@ -3,7 +3,52 @@ guid: b3652c3bce548e042a28e8788e8cbe38
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "PM3D_\u6A5F\u68B0_\u62F3\u59734_7.001"
+    second: {fileID: 2100000, guid: aa91ceb50016e0a4aaf4c80979ee2670, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "PM3D_\u6A5F\u68B0_\u62F3\u59734_7.002"
+    second: {fileID: 2100000, guid: 21292ff94db1ad44da6a59f65994e2c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "PM3D_\u6A5F\u68B0_\u62F3\u59734_7.003"
+    second: {fileID: 2100000, guid: dce9dc5cd3583b8498281a100675ed73, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "PM3D_\u6A5F\u68B0_\u62F3\u59734_7.004"
+    second: {fileID: 2100000, guid: ca044fe1064d08e47a70ba3f7efeea01, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "PM3D_\u6A5F\u68B0_\u62F3\u59734_7.005"
+    second: {fileID: 2100000, guid: a306d985c55b4034d93841ae394ebe62, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "PM3D_\u6A5F\u68B0_\u62F3\u59734_7.006"
+    second: {fileID: 2100000, guid: f34898e46b67e1144b1546ec2a5d5e6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "PM3D_\u6A5F\u68B0_\u62F3\u59734_7.007"
+    second: {fileID: 2100000, guid: a9c239bb5a485354ea6c8115f879411f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "PM3D_\u6A5F\u68B0_\u62F3\u59734_7.008"
+    second: {fileID: 2100000, guid: df9efeaf047510846a0ca7e5f2280381, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "PM3D_\u6A5F\u68B0_\u62F3\u59734_7.009"
+    second: {fileID: 2100000, guid: 0cb9b1a304137d64e94ff2b64667a349, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
